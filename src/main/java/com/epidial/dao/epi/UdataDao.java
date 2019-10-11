@@ -1,0 +1,38 @@
+package com.epidial.dao.epi;
+
+import com.epidial.bean.Udata;
+import org.apache.ibatis.annotations.*;
+
+import java.util.List;
+
+//
+@Mapper
+public interface UdataDao {
+    @Insert("insert into udata" +
+                "(uuid,naturally,biological,barcode,status,createTime,uploadTime)" +
+            "values" +
+                "(#{uuid},#{naturally},#{biological},#{barcode},#{status},#{createTime},#{uploadTime})")
+    public void  save(Udata udata);
+
+    //pending processing finished
+    @Select("select * from udata where ${c1}=#{v1} and ${c2}=#{v2}")
+    public Udata find(@Param("c1") String c1, @Param("v1") Object v1, @Param("c2") String c2, @Param("v2") Object v2);
+
+    @Select("select * from udata where ${c}=#{v}")
+    public Udata findBy(@Param("c") String c, @Param("v") Object v);
+
+    @Update("update udata set uuid=#{uuid},naturally=#{naturally},biological=#{biological},barcode=#{barcode},status=#{status},uploadTime=#{uploadTime} where id=#{id}")
+    public void update(Udata data);
+
+    @Select("select * from udata where naturally > biological and status='finished' limit 0,50")
+    public List<Udata> findNtrGtBio();
+
+    @Select("select * from udata where naturally < biological and status='finished' limit 0,50")
+    public List<Udata> findNtrLtBio();
+
+    @Select("select * from udata limit #{idx},#{sz}")
+    public List<Udata> findAll(@Param("idx") int idx, @Param("sz") int sz);
+
+    @Delete("delete  from udata where ${k}=#{v}")
+    public void  delete(@Param("k") String k, @Param("v") Object v);
+}
