@@ -73,10 +73,27 @@ public class AppUserController {
 
     @ResponseBody
     @RequestMapping("/user/updatekey")
-    public User updatekey(int id, String uuid) {
+    public User updatekey(int id, String uuid,String privatekey) {
         User user = userDao.findUser("id", id);
         user.setUuid(uuid);
         userDao.update(user);
+        String title = "[DO NOT REPLY] private key";
+        String message = "<!DOCTYPE html>" +
+                "<html>" +
+                "<head>" +
+                "<meta charset=\"UTF-8\">" +
+                "<title></title>" +
+                "</head>" +
+                "<body>" +
+                "<div style='width: 100%;height: auto;'>" +
+                "<div style='width: 100%;height: 60px;'></div>" + //
+                "<p>Dear user</p><p>your private key is: <br />" + privatekey + "</p>" +
+                "<p>If you reset the private key, all previous health questionnaire information will be lost. When you re-login to app, please set the private key as the current private key.</p>" +
+                "<p>(+852) 2354 8297<br/>info@hkgepitherapeutics.com</p><p>2019 All rights reserved</p>" +
+                "</div>" +
+                "</body>" +
+                "</html>";
+        mailService.sendMail(title, message, user.getMail());
         return user;
     }
 
@@ -119,7 +136,6 @@ public class AppUserController {
             return "null";
         }
     }
-
 
 
     @RequestMapping("/user/repasswdview")
