@@ -55,10 +55,9 @@ public class ReportController {
     @RequestMapping("/user/report/upbarcode")
     public Udata upbarcode(String barcode, String uuid) {
         Dnakit dnakit = dnakitDao.find("barcode", barcode);
-        User user = userDao.findUser("uuid", uuid);
         //直接输入barcode
         if (dnakit != null) {
-            Udata data = new Udata(DigestUtils.md5Hex(String.valueOf(user.getId())).substring(0, 10), "pending");
+            Udata data = new Udata(uuid, "pending");
             data.setBarcode(barcode);
             data.setUploadTime(System.currentTimeMillis());
             udataDao.save(data);
