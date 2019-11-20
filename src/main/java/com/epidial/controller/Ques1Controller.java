@@ -35,5 +35,10 @@ public class Ques1Controller {
                 "</html>";
     }
 
+    @RequestMapping("/ques1/know")
+    public String know(){
+        return "";
+    }
+
 }
 
