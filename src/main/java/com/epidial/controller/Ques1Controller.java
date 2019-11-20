@@ -15,8 +15,10 @@ public class Ques1Controller {
     }
 
     @RequestMapping("/ques1/know")
-    public String know(){
-        return "";
+    public ModelAndView know(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/WEB-INF/front/ques2.jsp");
+        return modelAndView;
     }
 
 }

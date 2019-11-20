@@ -15,7 +15,7 @@ p{margin-bottom:1em;}
 /*box-163css*/
 .box-163css{ width:100%; position:relative; height:360px;margin-bottom:20px; float:left;}
 /*swipe*/
-.swipe{ padding-top:20px; width:100%; float:left;overflow: hidden; visibility: visible; position: relative; height:260px;}
+.swipe{ padding-top:20px; width:100%; float:left;overflow: hidden; visibility: visible; position: relative; }
 .box01_list{position:relative; -webkit-transition: left 600ms ease-out;  width:100%; left:0;}
 .li_list{width:100%;position:relative; float: left; vertical-align: top;}
 /*pic_list*/
