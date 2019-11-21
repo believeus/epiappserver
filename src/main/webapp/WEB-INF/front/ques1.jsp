@@ -28,8 +28,8 @@
             <div class="center">
                 <div class="code">
                     <div class="form-num">编号2019 - ABCP -</div>
-                    <input  class="form-code"maxlength="1" >
-                    <div class="dash"> - </div>
+                    <input class="form-code" maxlength="1">
+                    <div class="dash"> -</div>
                     <input class="form-code" type="text" maxlength="1">
                     <input class="form-code" type="text" maxlength="1">
                     <input class="form-code" type="text" maxlength="1">
@@ -45,22 +45,59 @@
         <div id="personal-info-detail">
             <div style="height: 12px"></div>
             <ul class="info">
-                <li>调查对象姓名: <input  style=" border:none;text-align: center;outline: none"  type="text" name="name" value=""></li>
+                <li>调查对象姓名: <input style=" border:none;text-align: center;outline: none" type="text" name="name"
+                                   value=""></li>
                 <hr>
-                <li>性别: <input  style=" border:none;text-align: center;outline: none"  type="text" name="name" value=""></li>
+                <li>性别: <input style=" border:none;text-align: center;outline: none" type="text" name="sex" value="">
+                </li>
                 <hr>
-                <li>年龄: <input  style=" border:none;text-align: center;outline: none"  type="text" name="name" value=""></li>
+                <li>年龄: <input style=" border:none;text-align: center;outline: none" type="text" name="age"
+                               onkeyup="this.value=this.value.replace(/\D/g,'')"></li>
                 <hr>
-                <li>住址: <input  style=" border:none;text-align: center;outline: none"  type="text" name="name" value=""></li>
+                <li style="height:77px;"><span style="height: 67px">住址:</span> <textarea id="address" cols="2" rows="1"
+                                                                                         style="height: 67px;width:80%;border: none"></textarea>
+                </li>
                 <hr>
-                <li>家庭电话: <input  style=" border:none;text-align: center;outline: none"  type="text" name="name" value=""></li>
+                <li>家庭电话: <input style=" border:none;text-align: center;outline: none" type="text" name="mobile"
+                                 onkeyup="this.value=this.value.replace(/\D/g,'')"></li>
                 <hr>
-                <li>身份证号码: <input  style=" border:none;text-align: center;outline: none"  type="text" name="name" value=""></li>
+                <li>身份证号码: <input style=" border:none;text-align: center;outline: none" type="text" name="id"
+                                  onkeyup="value=value.replace(/[^\d|chun]/g,'')"></li>
                 <hr>
-                <li>手机号码: <input  style=" border:none;text-align: center;outline: none"  type="text" name="name" value=""></li>
+                <li>手机号码: <input style=" border:none;text-align: center;outline: none" type="text" name="phone"
+                                 onkeyup="this.value=this.value.replace(/\D/g,'')"></li>
                 <hr>
                 <li></li>
             </ul>
+        </div>
+        <div id="marriage-status">
+            <div class="ninty">
+                <h2>婚姻状况</h2>
+                <input name="marriage" type="radio" value="married">已婚
+                <input name="marriage" type="radio" value="single">未婚
+                <input name="marriage" type="radio" value="devoiced">离婚
+                <input name="marriage" type="radio" value="widow">丧偶
+            </div>
+            <hr>
+            <div class="ninty">
+                <h2>文化 程度</h2>
+                <input name="education" type="radio" value="married">文盲
+                <input name="education" type="radio" value="single">小学　
+                <input name="education" type="radio" value="devoiced">中专、中学
+                <input name="education" type="radio" value="widow">大学、大专
+                <input name="education" type="radio" value="widow">研究生
+                <input name="education" type="radio" value="widow">硕士及以上
+            </div>
+            <hr>
+            <div class="ninty">
+                <h2>职　 　业</h2>
+                <input name="profession" type="radio" value="married">农民
+                <input name="profession" type="radio" value="single">工人
+                <input name="profession" type="radio" value="devoiced">个体户
+                <input name="profession" type="radio" value="widow">各类专业技术人员
+                <input name="profession" type="radio" value="devoiced">其它
+            </div>
+            <hr>
         </div>
     </div>
     <div class="dark"></div>
@@ -86,12 +123,50 @@
         <div id="slider1" class="swipe">
             <ul class="box01_list">
                 <li class="li_list">
-                    <div class="pic_list"><img src="images/img05.jpg"><span><a href="#">赵本山那英曾联袂演台剧兄妹</a></span>
-                    </div>
                     <div class="news_list">
-                        <p><span class="s_arrow"></span><a href="#">曝湖人惊天交易:造跑轰三人组</a></p>
 
+                        <div style="height: 12px;background-color: #efefef"></div>
 
+                            <h2>说明：请选择相应的栏目或填写内容</h2>
+                            <hr>
+                        <div class="ninty">
+                            <h3>一、本人有无慢性腹泻史</h3>
+                            <input name="fuxie" type="radio" value="yes">有
+                            <input name="fuxie" type="radio" value="no">无
+                            <hr>
+                            <h3>二、本人有无慢性便秘史</h3>
+                            <input name="bianmi" type="radio" value="yes">有
+                            <input name="bianmi" type="radio" value="no">无
+                            <hr>
+                            <h3>三、本人有无粘液和(或)血便史</h3>
+                            <input name="xuebian" type="radio" value="yes">有
+                            <input name="xuebian" type="radio" value="no">无
+                            <hr>
+                            <h3>四、本人有无慢性阑尾炎或阑尾切除史</h3>
+                            <input name="nanwei" type="radio" value="yes">有
+                            <input name="nanwei" type="radio" value="no">无
+                            <hr>
+                            <h3>五、本人有无慢性胆囊炎或胆囊切除史</h3>
+                            <input name="dannanwei" type="radio" value="yes">有
+                            <input name="dannanwei" type="radio" value="no">无
+                            <hr>
+                            <h3>六、近二十年来本人有无不良生活事件史</h3>
+                            <input name="abuslife" type="radio" value="yes">有
+                            <input name="abuslife" type="radio" value="no">无
+                            <h3>如有, 请选择</h3>
+                            <input name="have-abuslife" type="radio" value="devoiced">离婚
+                            <input name="have-abuslife" type="radio" value="widow">配偶死亡
+                            <input name="have-abuslife" type="radio" value="fam-meb-dead">一级亲属死亡
+                            <input name="have-abuslife" type="radio" value="child-offduty">子女下岗
+                            <input name="have-abuslife" type="radio" value="others">其它
+                            <hr>
+                            <h3>七、本人有无癌症史</h3>
+                            <input name="abuslife" type="radio" value="yes">有
+                            <input name="abuslife" type="radio" value="no">无
+                            <h3>如有，请具体描述什么癌</h3>
+                            <input name="have-abuslife" type="radio" value="devoiced">
+                            <hr>
+                        </div>
                     </div>
                 </li>
                 <li class="li_list">
@@ -125,24 +200,26 @@
 
 </div>
 <script type="text/javascript">
-    var index=0;
+    var index = 0;
+
     //改变图片
     function ChangeImg() {
         index++;
-        var a=document.getElementsByClassName("img-slide");
-        if(index>=a.length) index=0;
-        for(var i=0;i<a.length;i++){
-            a[i].style.display='none';
+        var a = document.getElementsByClassName("img-slide");
+        if (index >= a.length) index = 0;
+        for (var i = 0; i < a.length; i++) {
+            a[i].style.display = 'none';
+        }
+        a[index].style.display = 'block';
     }
-        a[index].style.display='block';
-    }
+
     //设置定时器，每隔两秒切换一张图片
-    setInterval(ChangeImg,3000);
+    setInterval(ChangeImg, 3000);
 </script>
 
 <script>
     $(function () {
-        $(".form-code").onkeyup(this.value.replace(/[^\d|chun]/g,''));
+        $(".form-code").onkeyup(this.value.replace(/[^\d|chun]/g, ''));
     })
 </script>
 
