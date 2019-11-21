@@ -25,7 +25,7 @@ p{margin-bottom:1em;}
 
 /*news_list*/
 .news_list{ width:98%; padding:0 1%; float:left;}
-.news_list p{ width:100%; float:left; border-bottom:1px solid #ddd; height:30px; line-height:30px;}
+.news_list p{ width:100%; float:left;height:30px; line-height:30px;}
 .news_list a{ float:left; padding-left:1%; font-size:15px;}
 .s_arrow{ display:block; border-top:2px solid #ccc;border-right:2px solid #ccc; -webkit-transform:rotate(45deg); width:6px; height:6px; float:right; margin:6px 10px 0 0;}
 /*page*/
