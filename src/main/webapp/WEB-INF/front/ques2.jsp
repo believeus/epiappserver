@@ -604,13 +604,13 @@
     <script>
         $(function(){
             $(".img1").click(function () {
-                $(".img1").attr("src", "static/images/ques/ques111.png");
+                $(".img1").attr("src", "static/images/ques/dachang-1-back.png");
             })
             $(".img2").click(function () {
-                $(".img2").attr("src", "static/images/ques/ques222.png");
+                $(".img2").attr("src", "static/images/ques/dachang-2-back.png");
             })
             $(".img3").click(function () {
-                $(".img3").attr("src", "static/images/ques/ques333.png");
+                $(".img3").attr("src", "static/images/ques/dachang-3-back.png");
             })
         })
     </script>
