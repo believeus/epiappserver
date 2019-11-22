@@ -38,3 +38,11 @@ p{margin-bottom:1em;}
 background: -webkit-gradient(linear,0 0,0 100%,from(whiteSmoke),to(#E3E3E3));background: -moz-linear-gradient(top,whiteSmoke,#E3E3E3);
 -webkit-border-radius: 3px;border-radius: 3px; display:block; float:left; margin-left:2.5%;}
 .go_btn em{ font-style:normal; cursor:pointer;}
+#foot{
+    width: 100%;
+    background: #F7F8FD;
+    height: 700px;
+    margin: auto ;
+    border-radius: 10px;
+
+}

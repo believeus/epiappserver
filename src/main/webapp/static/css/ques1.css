@@ -98,11 +98,24 @@ body {
     width: 90%;
     margin: 0 auto;
     height: 34px;
+    font-weight: 700;
     font-size: 14px;
     text-align: left;
     color: #666666;
     line-height: 34px;
 
+}
+
+.info > li > input {
+    border: none;
+    text-align: center;
+    outline: none
+}
+
+#address {
+    height: 45px;
+    width: 80%;
+    border: none
 }
 
 /*#marriage-status {
@@ -126,6 +139,8 @@ h3 {
 
 .ninty {
     width: 90%;
+    font-size: 14px;
+    color: #666666;
     margin: 0 auto;
 }
 
@@ -152,10 +167,12 @@ h3 {
     text-align: center;
     outline: none
 }
-.survey>div{
+
+.survey > div {
     color: #9e2f28;
 }
-.survey>div> input {
+
+.survey > div > input {
     width: 60%;
     border: none;
     border-bottom-style: solid;
@@ -171,11 +188,13 @@ h3 {
     font-size: 12px;
     background-color: #fff4f6;
 }
-.note div{
+
+.note div {
     color: #666666;
     font-size: 14px;
     margin: 7px;
 }
+
 .what-cancer > input {
     width: 10%;
     border: none;
