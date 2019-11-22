@@ -227,9 +227,131 @@
                                     </tr>
                                 </table>
                             </div>
+                            <div>
+                                <p>7 肠道疾病史:</p>
+                                <p>
+                                    <input id='gut1' type="radio" name='gut' />
+                                    <label for="gut1">A.否 </label>
+                                    <input id='gut2' type="radio" name='gut' />
+                                    <label for="gut2">B.是</label>
+                                </p>
+                                <table border="1">
+                                    <tr>
+                                        <th>疾病名称</th>
+                                        <th colspan="1">是/否</th>
+                                        <th>诊断时年龄</th>
+                                    </tr>
+                                    <tr>
+                                        <td>慢性结肠炎</td>
+                                        <td><input type="text" style="width: 100%"></td>
+                                        <td><input type="number" style="width: 70%">岁</td>
+                                    </tr>
+                                    <tr>
+                                        <td>肠息肉</td>
+                                        <td><input type="text" style="width: 100%"></td>
+                                        <td><input type="number" style="width: 70%">岁</td>
+                                    </tr>
+                                    <tr>
+                                        <td>慢性阑尾炎</td>
+                                        <td><input type="text" style="width: 100%"></td>
+                                        <td><input type="number" style="width: 70%">岁</td>
+                                    </tr>
+                                    <tr>
+                                        <td>其他（请注明）</td>
+                                        <td><input type="text" style="width: 100%"></td>
+                                        <td><input type="number" style="width: 70%">岁</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div>
+                                <p>8 家族史（您家中有没有人得过肿瘤):</p>
+                                <p>
+                                    <input id='tumor1' type="radio" name='tumor' />
+                                    <label for="tumor1">A.否 </label>
+                                    <input id='tumor2' type="radio" name='tumor' />
+                                    <label for="tumor2">B.是</label>
+                                </p>
+                                <table border="1">
+                                    <tr><th>亲属关系</th><th>肿瘤名称</th><th>人数</th></tr>
+                                    <tr>
+                                        <td><input type="text"></td>
+                                        <td><input type="text" style="width: 100%"></td>
+                                        <td><input type="number" style="width: 100%;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text"></td>
+                                        <td><input type="text" style="width: 100%"></td>
+                                        <td><input type="number" style="width: 100%;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text"></td>
+                                        <td><input type="text" style="width: 100%"></td>
+                                        <td><input type="number" style="width: 100%;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text"></td>
+                                        <td><input type="text" style="width: 100%"></td>
+                                        <td><input type="number" style="width: 100%;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>体格检查结果：</td>
+                                        <td colspan="2"><input type="text" style="width: 100%;"></td>
+                                    </tr>
+
+                                </table>
+                                <table border="1" width="100%">
+                                    <tr>
+                                        <th>身高（Cm）</th>
+                                        <th>体重（Kg）</th>
+                                        <th>脉搏(次/分)</th>
+                                        <th>血压（mmHg）</th>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 24%"><input type="text" style="width: 100%"></td>
+                                        <td style="width: 24%"><input type="text" style="width: 100%"></td>
+                                        <td style="width: 24%"><input type="text" style="width: 100%"></td>
+                                        <td style="width: 24%"><input type="text" style="width: 100%"></td>
+                                    </tr>
+
+                                </table>
+                            </div>
+
+
                         </div>
                         <div class="news_list">
-                            xxx
+                            <div id="foot">
+                                <div style="width: 90%;margin: auto">
+                                    <h3>调查表说明</h3>
+                                    <div>1.姓名：要求统一使用身份证上姓名。身份证号填写18位或者15位。</div>
+                                    <div>
+                                        <p>2.人口及收入：</p>
+                                        首先询问调查对象现在家里有几口人，填写在相应空格内。每一空格填写一个数字，人口不足10人的，第一个空格用“0”补齐；然后询问全家年收入，填写在相应空格内，每一空格填写一个数字。
+                                        <p>填写示例如下：</p>
+                                        <p style="display: flex;line-height: 30px">
+                                            <input type="number" style="width: 20%">
+                                            <label>/人</label>
+                                            <input type="text" style="width: 40%">
+                                            <label>/元年</label>
+                                        </p>
+                                    </div>
+                                    <div>
+                                        3.吸烟：吸烟指每天至少吸1支，连续达半年或以上。现在吸烟，包括戒烟小于6个月；以前吸烟，包括戒烟至少6个月。
+                                    </div>
+                                    <div>4.饮茶情况：首先询问研究对象是否饮茶，其次询问饮什么类型的茶（花茶、绿茶、红茶），然后根据实际情况完成问题。</div>
+                                    <div>5.饮食习惯：所列食物，逐个一一调查。首先询问过去5年内是否食用该食物，然后询问食用次数。</div>
+                                    <div>
+                                        <p>6.家族史：</p>
+                                        <p>家中有无肿瘤患者:</p>
+                                        <p>
+                                            <input type="radio" name="tof">
+                                            <label>A.否</label>
+                                            <input type="radio" name="tof">
+                                            <label>B.有</label>
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </li>
                     <li class="li_list">
@@ -594,7 +716,7 @@
                 </ul>
                 <ul class="newslist">
                     <li>
-
+                        xxxxxx
                     </li>
                 </ul>
             </div>

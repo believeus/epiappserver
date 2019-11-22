@@ -14,7 +14,7 @@ public class Ques1Controller {
         return  modelView;
     }
 
-    @RequestMapping("/ques1/know")
+    @RequestMapping("/ques2/know")
     public ModelAndView know(){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/WEB-INF/front/ques2.jsp");
