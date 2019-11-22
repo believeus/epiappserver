@@ -83,8 +83,8 @@ body {
     margin-right: 2%;
     border: 1px solid #666666;
     background-color: #f3f3ff;
-    margin-top: 16px;
-    height: auto;
+    margin-top: 21px;
+    height: 8px;
     float: left;
     text-align: center;
 }
@@ -98,26 +98,30 @@ body {
     width: 90%;
     margin: 0 auto;
     height: 34px;
-    font-size: 18px;
+    font-size: 14px;
     text-align: left;
     color: #666666;
     line-height: 34px;
 
 }
 
-#marriage-status {
+/*#marriage-status {
 
     background-color: #f3f3ff;
-}
+}*/
 
 h2 {
     height: 34px;
     line-height: 34px;
+    font-size: 16px;
+    color: #666666;
 }
 
 h3 {
     height: 34px;
     line-height: 34px;
+    font-size: 14px;
+    color: #666666;
 }
 
 .ninty {
@@ -129,6 +133,56 @@ h3 {
 
     width: 1200px;
     animation: switch 5s ease-out infinite;
+}
+
+.what-cancer {
+    font-size: 14px;
+    color: #666666;
+}
+
+.what-cancer > div {
+    line-height: 45px;
+}
+
+.what-cancer .who {
+    width: 20%;
+    border: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    text-align: center;
+    outline: none
+}
+.survey>div{
+    color: #9e2f28;
+}
+.survey>div> input {
+    width: 60%;
+    border: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    text-align: center;
+    outline: none
+}
+
+.note {
+    width: 90%;
+    height: 149px;
+    margin: 0 auto;
+    font-size: 12px;
+    background-color: #fff4f6;
+}
+.note div{
+    color: #666666;
+    font-size: 14px;
+    margin: 7px;
+}
+.what-cancer > input {
+    width: 10%;
+    border: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    text-align: center;
+    outline: none
 }
 
 #photo > img {

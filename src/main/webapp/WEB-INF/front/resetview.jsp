@@ -19,6 +19,9 @@
     <script src="static/js/jquery-2.1.0.min.js"></script>
     <link href="static/css/Eject.css" rel="stylesheet">
     <script src="static/js/Eject.js"></script>
+    <script>
+        $(document).text()
+    </script>
 </head>
 <body style="margin: 0;padding: 0">
 <div style="width: 100%;height: 50px;">

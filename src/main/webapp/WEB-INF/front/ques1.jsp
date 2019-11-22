@@ -67,12 +67,11 @@
                 <li>手机号码: <input style=" border:none;text-align: center;outline: none" type="text" name="phone"
                                  onkeyup="this.value=this.value.replace(/\D/g,'')"></li>
                 <hr>
-                <li></li>
             </ul>
         </div>
         <div id="marriage-status">
             <div class="ninty">
-                <h2>婚姻状况</h2>
+                <h3>婚姻状况</h3>
                 <input name="marriage" type="radio" value="married">已婚
                 <input name="marriage" type="radio" value="single">未婚
                 <input name="marriage" type="radio" value="devoiced">离婚
@@ -80,7 +79,7 @@
             </div>
             <hr>
             <div class="ninty">
-                <h2>文化 程度</h2>
+                <h3>文化 程度</h3>
                 <input name="education" type="radio" value="married">文盲
                 <input name="education" type="radio" value="single">小学　
                 <input name="education" type="radio" value="devoiced">中专、中学
@@ -90,7 +89,7 @@
             </div>
             <hr>
             <div class="ninty">
-                <h2>职　 　业</h2>
+                <h3>职　 　业</h3>
                 <input name="profession" type="radio" value="married">农民
                 <input name="profession" type="radio" value="single">工人
                 <input name="profession" type="radio" value="devoiced">个体户
@@ -127,8 +126,8 @@
 
                         <div style="height: 12px;background-color: #efefef"></div>
 
-                            <h2>说明：请选择相应的栏目或填写内容</h2>
-                            <hr>
+                        <h2>说明：请选择相应的栏目或填写内容</h2>
+                        <hr>
                         <div class="ninty">
                             <h3>一、本人有无慢性腹泻史</h3>
                             <input name="fuxie" type="radio" value="yes">有
@@ -163,9 +162,65 @@
                             <h3>七、本人有无癌症史</h3>
                             <input name="abuslife" type="radio" value="yes">有
                             <input name="abuslife" type="radio" value="no">无
-                            <h3>如有，请具体描述什么癌</h3>
-                            <input name="have-abuslife" type="radio" value="devoiced">
+                            <div style="clear: both;height: 12px"></div>
+                            <div class="what-cancer">
+                                <div>如有，请具体描述什么癌: <input
+                                        style="width: 50%; border:none;border-bottom-style: solid;border-bottom-width: 1px; text-align: center;outline: none"
+                                        type="text"
+                                        name="cancer" value="">
+                                </div>
+                                <div>发病时几岁:<input
+                                        style="width: 60%; border:none;border-bottom-style: solid;border-bottom-width: 1px;text-align: center;outline: none"
+                                        type="text"
+                                        name="cancer-age" value="">
+                                </div>
+                                <div>诊断医院: <input
+                                        style="width: 60%; border:none;border-bottom-style: solid;border-bottom-width: 1px;text-align: center;outline: none"
+                                        type="text"
+                                        name="cancer-hospital" value="">
+                                </div>
+                            </div>
                             <hr>
+                            <h3>八、本人有无肠息肉史</h3>
+                            <input name="changxirou" type="radio" value="yes">有
+                            <input name="changxirou" type="radio" value="no">无
+                            <hr>
+                            <h3>九、 一级亲属(父、母、兄弟姐妹、子女)肠癌史</h3>
+                            <div class="what-cancer">
+                                谁: <input class="who" type="text" name="colon-cancer-who" value="">
+                                发病时几岁：<input type="text" name="colon-cancer-age" value="">
+                                在世与否：<input type="text" name="colon-cancer-alive" value="">
+                            </div>
+                            <div class="what-cancer">
+                                谁: <input class="who" type="text" name="colon-cancer-who" value="">
+                                发病时几岁：<input type="text" name="colon-cancer-age" value="">
+                                在世与否：<input type="text" name="colon-cancer-alive" value="">
+                            </div>
+                            <div class="what-cancer">
+                                谁: <input class="who" type="text" name="colon-cancer-who" value="">
+                                发病时几岁：<input type="text" name="colon-cancer-age" value="">
+                                在世与否：<input type="text" name="colon-cancer-alive" value="">
+                            </div>
+                            <hr>
+
+                            <div class="survey">
+                                <div>
+                                    调查员签名: <input type="text" name="survey-person" value="">
+                                </div>
+                                <div style="height: 17px;"></div>
+                                <div>
+                                    调查日期: <input type="text" name="survey-date" value="">
+                                </div>
+                            </div>
+                        </div>
+                        <div style="height: 34px;"></div>
+                        <div class="note">
+                            <div>
+                                <div style="height: 7px;"></div>
+                                <div>备注：</div>
+                                <div>1.慢性腹泻指近2年来腹泻累计持续超过3个月，每次发作持续时间在1周以上。</div>
+                                <div>2.慢性便秘指近2年来便秘每年在2个月以上。3.不良生活事件史须发生在近20年内，并在事件发生后对调查对象造成较大精神创伤或痛苦。</div>
+                            </div>
                         </div>
                     </div>
                 </li>
