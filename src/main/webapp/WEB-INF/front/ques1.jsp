@@ -239,6 +239,25 @@
                         <h2>说明：请选择相应的栏目或填写内容</h2>
                         <hr>
                         <div>
+                            <p>1 您家有几口人?</p>
+                            <p>
+                                <input id='people1' type="radio" name='people' />
+                                <label for="people1">A.1人 </label>
+                            </p>
+                            <p>
+                                <input id='people2' type="radio" name='people' />
+                                <label for="people2">B.2人</label>
+                            </p>
+                            <p>
+                                <input id="people3" type="radio" name="people">
+                                <label for="people3">C.3人</label>
+                            </p>
+                            <p style="border-bottom: 1px solid #ccc">
+                                <input id="people4" type="radio" name="people">
+                                <label for="people4">D.4人</label>
+                            </p>
+                        </div>
+                        <div>
                             <p>2 您的饮用水主要来源于:</p>
                             <p>
                                 <input id='your1' type="radio" name='your' />
@@ -256,12 +275,13 @@
                                 <input id="your4" type="radio" name="your">
                                 <label for="your4">D.井水</label>
                             </p>
-                            <p>
+                            <p style="border-bottom: 1px solid #ccc">
                                 <input id="your5" type="radio" name="your">
                                 <label for="your5">E.自来水</label>
                             </p>
+
                         </div>
-                        <div>
+                        <div style="width: 100%">
                             <p>3 状况吸烟:</p>
                             <p>
                                 <input id='Smoking1' type="radio" name='Smoking' />
@@ -269,66 +289,145 @@
                                 <input id='Smoking2' type="radio" name='Smoking' />
                                 <label for="Smoking2">B.是</label>
                             </p>
-                            <table border="1">
-                                <tr><th>类型</th><th colspan="1">是/否</th><th>共多少年</th></tr>
-                                <tr><td>香烟</td><td colspan="1"><input type="number" style="width: 100%"></td><td style="text-align: center">年</td></tr>
-                                <tr><td>戒烟</td><td colspan="1"><input type="number" style="width: 100%"></td><td style="text-align: center">年</td></tr>
-                            </table>
+                            <p>3.1香烟:</p>
+                            <p>
+                                <input id='yan1' type="radio" name='yan' />
+                                <label for="yan1">A.0-5年 </label>
+                                <input id='yan2' type="radio" name='yan' />
+                                <label for="yan2">B.6-10</label>
+                            </p>
+                            <p>
+                                <input id='yan3' type="radio" name='yan' />
+                                <label for="yan3">C.11-15年 </label>
+                                <input id='yan4' type="radio" name='yan' />
+                                <label for="yan4">D.16-20年</label>
+                            </p>
+                            <p>
+                                <input id='yan5' type="radio" name='yan' />
+                                <label for="yan5">E.21-25年 </label>
+                                <input id='yan6' type="radio" name='yan' />
+                                <label for="yan6">F.25年以上</label>
+                            </p>
+                            <p style="border-bottom: 1px solid #ccc">每五年一个阶段</p>
+                            <p>3.2戒烟:</p>
+                            <p>
+                                <input id='jieyan1' type="radio" name='jieyan' />
+                                <label for="jieyan1">A.0-5年 </label>
+                                <input id='jieyan2' type="radio" name='jieyan' />
+                                <label for="jieyan2">B.6-10</label>
+                            </p>
+                            <p>
+                                <input id='jieyan3' type="radio" name='jieyan' />
+                                <label for="jieyan3">C.11-15年 </label>
+                                <input id='jieyan4' type="radio" name='jieyan' />
+                                <label for="jieyan4">D.16-20年</label>
+                            </p>
+                            <p style="border-bottom: 1px solid #ccc">
+                                <input id='jieyan5' type="radio" name='jieyan' />
+                                <label for="jieyan5">E.21-25年 </label>
+                                <input id='jieyan6' type="radio" name='jieyan' />
+                                <label for="jieyan6">F.25年以上</label>
+                            </p>
+
                         </div>
                         <div>
-                            <p>3 饮酒情况:</p>
-                            <p>
+                            <p>4 饮酒情况:</p>
+                            <p style="border-bottom: 1px solid #ccc">
                                 <input id='beer1' type="radio" name='beer' />
                                 <label for="beer1">A.否 </label>
                                 <input id='beer2' type="radio" name='beer' />
                                 <label for="beer2">B.是</label>
                             </p>
-                            <table border="1" width="100%">
-                                <tr><th style="width: 60px">类型</th><th>是/否</th><th>每天饮多少</th><th>共多少年</th></tr>
-                                <tr><td style="width: 60px">啤酒</td><td><input type="number" style="width: 100%"></td><td>毫升/天</td><td style="text-align: center"><input type="number" style="width: 50%">年</td></tr>
-                                <tr><td style="width: 60px">白酒</td><td><input type="number" style="width: 100%"></td><td>两/天</td><td style="text-align: center"><input type="number" style="width: 50%">年</td></tr>
-                                <tr><td style="width: 60px">黄酒</td><td><input type="number" style="width: 100%"></td><td>两/天</td><td style="text-align: center"><input type="number" style="width: 50%">年</td></tr>
-                                <tr><td style="width: 60px">米酒</td><td><input type="number" style="width: 100%"></td><td>两/天</td><td style="text-align: center"><input type="number" style="width: 50%">年</td></tr>
-                            </table>
+                            <p> 什么酒呢？</p>
+                            <p>
+                                <input id='colorbeer1' type="radio" name='colorbeer' />
+                                <label for="colorbeer1">A.啤酒 </label>
+                                <input id='colorbeer2' type="radio" name='colorbeer' />
+                                <label for="colorbeer2">B.白酒</label>
+                            </p>
+                            <p style="border-bottom: 1px solid #ccc">
+                                <input id='colorbeer3' type="radio" name='colorbeer' />
+                                <label for="colorbeer3">C.红酒 </label>
+                                <input id='colorbeer4' type="radio" name='colorbeer' />
+                                <label for="colorbeer4">D.黄酒</label>
+                                <input id='colorbeer5' type="radio" name='colorbeer' />
+                                <label for="colorbeer5">E.米酒</label>
+                            </p>
+                            <p>
+                                <input id='jiu1' type="radio" name='jiu' />
+                                <label for="jiu1">A.0-5年 </label>
+                                <input id='jiu2' type="radio" name='jiu' />
+                                <label for="jiu2">B.6-10</label>
+                            </p>
+                            <p>
+                                <input id='jiu3' type="radio" name='jiu' />
+                                <label for="jiu3">C.11-15年 </label>
+                                <input id='jiu4' type="radio" name='jiu' />
+                                <label for="jiu4">D.16-20年</label>
+                            </p>
+                            <p style="border-bottom: 1px solid #ccc">
+                                <input id='jiu5' type="radio" name='jiu' />
+                                <label for="jiu5">E.21-25年 </label>
+                                <input id='jiu6' type="radio" name='jiu' />
+                                <label for="jiu6">F.25年以上</label>
+                            </p>
                         </div>
                         <div>
                             <p>5 饮茶情况:</p>
-                            <p>
+                            <p style="border-bottom: 1px solid #ccc">
                                 <input id='tea1' type="radio" name='tea' />
                                 <label for="tea1">A.否 </label>
                                 <input id='tea2' type="radio" name='tea' />
                                 <label for="tea2">B.是</label>
                             </p>
-                            <table border="1" width="100%">
-                                <tr>
-                                    <th style="width: 60px">类型</th>
-                                    <th>是/否</th>
-                                    <th>每月饮多少</th>
-                                    <th>共多少年</th>
-                                </tr>
-                                <tr>
-                                    <td style="width: 60px">花茶</td>
-                                    <td><input type="number" style="width: 100%"></td>
-                                    <td>两/月</td>
-                                    <td style="text-align: center"><input type="number" style="width: 50%">年</td>
-                                </tr>
-                                <tr>
-                                    <td style="width: 60px">绿茶</td>
-                                    <td><input type="number" style="width: 100%"></td>
-                                    <td>两/月</td>
-                                    <td style="text-align: center"><input type="number" style="width: 50%">年</td>
-                                </tr>
-                                <tr>
-                                    <td style="width: 60px">红茶</td>
-                                    <td><input type="number" style="width: 100%"></td>
-                                    <td>两/月</td>
-                                    <td style="text-align: center"><input type="number" style="width: 50%">年</td>
-                                </tr>
-                            </table>
+                            <p> 什么茶呢？</p>
+                            <p>
+                                <input id='colortea1' type="radio" name='colortea' />
+                                <label for="colortea1">A.绿茶 </label>
+                                <input id='colortea2' type="radio" name='colortea' />
+                                <label for="colortea2">B.红茶</label>
+                            </p>
+                            <p style="border-bottom: 1px solid #ccc">
+                                <input id='colortea3' type="radio" name='colortea' />
+                                <label for="colortea3">C.花茶 </label>
+                                <input id='colortea4' type="radio" name='colortea' />
+                                <label for="colortea4">D.其他</label>
+                            </p>
+                            <p>
+                                <input id='cha1' type="radio" name='cha' />
+                                <label for="cha1">A.0-5年 </label>
+                                <input id='cha2' type="radio" name='cha' />
+                                <label for="cha2">B.6-10</label>
+                            </p>
+                            <p>
+                                <input id='cha3' type="radio" name='cha' />
+                                <label for="cha3">C.11-15年 </label>
+                                <input id='cha4' type="radio" name='cha' />
+                                <label for="cha4">D.16-20年</label>
+                            </p>
+                            <p style="border-bottom: 1px solid #ccc">
+                                <input id='cha5' type="radio" name='cha' />
+                                <label for="cha5">E.21-25年 </label>
+                                <input id='cha6' type="radio" name='cha' />
+                                <label for="cha6">F.25年以上</label>
+                            </p>
+                            <%--<table border="1" width="100%" style="border-bottom: 1px solid #ccc;text-align: center">--%>
+                            <%--<tr>--%>
+                            <%--<th style="width: 60px">类型</th>--%>
+                            <%--<th style="width: 40px">是/否</th>--%>
+                            <%--<th style="width: 60px">每天饮多少</th>--%>
+                            <%--<th style="width: 60px;">共多少年</th>--%>
+                            <%--</tr>--%>
+                            <%--<tr><td style="width: 60px">啤酒</td><td><input type="number" style="width: 100%"></td><td>毫升/天</td><td style="text-align: center"><input type="number" style="width: 50%">年</td></tr>--%>
+                            <%--<tr><td style="width: 60px">白酒</td><td><input type="number" style="width: 100%"></td><td>两/天</td><td style="text-align: center"><input type="number" style="width: 50%">年</td></tr>--%>
+                            <%--<tr><td style="width: 60px">黄酒</td><td><input type="number" style="width: 100%"></td><td>两/天</td><td style="text-align: center"><input type="number" style="width: 50%">年</td></tr>--%>
+                            <%--<tr><td style="width: 60px">米酒</td><td><input type="number" style="width: 100%"></td><td>两/天</td><td style="text-align: center"><input type="number" style="width: 50%">年</td></tr>--%>
+                            <%--</table>--%>
                         </div>
+
                         <div>
                             <p>6.饮食习惯（指近5年）</p>
-                            <table border="1" width="100%">
+                            <table border="1" width="100%" style="text-align: center;border-bottom: 1px solid #ccc">
                                 <tr>
                                     <th>食物名称</th>
                                     <th><1次/周</th>
@@ -338,17 +437,17 @@
                                 </tr>
                                 <tr>
                                     <td style="width: 20%">新鲜蔬菜</td>
-                                    <td style="width: 20%"><input type="number" style="width: 100%"></td>
-                                    <td style="width: 20%"><input type="number" style="width: 100%"></td>
-                                    <td style="width: 20%"><input type="number" style="width: 100%"></td>
-                                    <td style="width: 20%"><input type="number" style="width: 100%"></td>
+                                    <td style="width: 19.5%"><input type="number" style="width: 100%"></td>
+                                    <td style="width: 19.5%"><input type="number" style="width: 100%"></td>
+                                    <td style="width: 19.5%"><input type="number" style="width: 100%"></td>
+                                    <td style="width: 19.5%"><input type="number" style="width: 100%"></td>
                                 </tr>
                                 <tr>
-                                    <td style="width: 20%">新鲜水果</td>
-                                    <td style="width: 20%"><input type="number" style="width: 100%"></td>
-                                    <td style="width: 20%"><input type="number" style="width: 100%"></td>
-                                    <td style="width: 20%"><input type="number" style="width: 100%"></td>
-                                    <td style="width: 20%"><input type="number" style="width: 100%"></td>
+                                    <td style="width: 19.5%">新鲜水果</td>
+                                    <td style="width: 19.5%"><input type="number" style="width: 100%"></td>
+                                    <td style="width: 19.5%"><input type="number" style="width: 100%"></td>
+                                    <td style="width: 19.5%"><input type="number" style="width: 100%"></td>
+                                    <td style="width: 19.5%"><input type="number" style="width: 100%"></td>
                                 </tr>
                                 <tr>
                                     <td style="width: 20%">肉蛋奶类</td>
@@ -375,13 +474,13 @@
                         </div>
                         <div>
                             <p>7 肠道疾病史:</p>
-                            <p>
+                            <p style="border-bottom: 1px solid #ccc">
                                 <input id='gut1' type="radio" name='gut' />
                                 <label for="gut1">A.否 </label>
                                 <input id='gut2' type="radio" name='gut' />
                                 <label for="gut2">B.是</label>
                             </p>
-                            <table border="1">
+                            <table border="1" style="border-bottom: 1px solid #ccc;text-align: center">
                                 <tr>
                                     <th>疾病名称</th>
                                     <th colspan="1">是/否</th>
@@ -389,6 +488,11 @@
                                 </tr>
                                 <tr>
                                     <td>慢性结肠炎</td>
+                                    <td><input type="text" style="width: 100%"></td>
+                                    <td><input type="number" style="width: 70%">岁</td>
+                                </tr>
+                                <tr>
+                                    <td>慢性溃疡性结肠炎</td>
                                     <td><input type="text" style="width: 100%"></td>
                                     <td><input type="number" style="width: 70%">岁</td>
                                 </tr>
@@ -417,7 +521,7 @@
                                 <input id='tumor2' type="radio" name='tumor' />
                                 <label for="tumor2">B.是</label>
                             </p>
-                            <table border="1">
+                            <table border="1" style="border-bottom: 1px solid #ccc;text-align: center">
                                 <tr><th>亲属关系</th><th>肿瘤名称</th><th>人数</th></tr>
                                 <tr>
                                     <td><input type="text"></td>
@@ -445,12 +549,12 @@
                                 </tr>
 
                             </table>
-                            <table border="1" width="100%">
+                            <table border="1" width="100%" style="text-align: center">
                                 <tr>
                                     <th>身高（Cm）</th>
                                     <th>体重（Kg）</th>
                                     <th>脉搏(次/分)</th>
-                                    <th>血压（mmHg）</th>
+                                    <th>血压</th>
                                 </tr>
                                 <tr>
                                     <td style="width: 24%"><input type="text" style="width: 100%"></td>
@@ -461,7 +565,6 @@
 
                             </table>
                         </div>
-
 
                     </div>
                     <div class="news_list">
