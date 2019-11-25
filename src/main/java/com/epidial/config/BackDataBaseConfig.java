@@ -97,4 +97,5 @@ public class BackDataBaseConfig {
 
         return sessionFactory.getObject();
     }
+
 }
