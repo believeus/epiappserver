@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.Writer;
 
 @Controller
-public class ButtonController {
+public class test {
     @RequestMapping("buttonTest2")
     @ResponseBody
     public void buttonTest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,8 +23,11 @@ public class ButtonController {
         response.setHeader("Access-Control-Allow-Methods", "GET,POST");
 
         //获取微信小程序get的参数值并打印
+        //姓名
         String name = request.getParameter("name");
         System.out.println("姓名  =  "+name);
+        String openid = request.getParameter("openid");
+        System.out.println("openid  =  "+openid);
         //返回值给微信小程序
         Writer out = response.getWriter();
         out.write("你已经到了后端啦");
