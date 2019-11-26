@@ -9,7 +9,7 @@
 							|| ("MsTransition" in doc.style) 
 							|| ("MozTransition" in doc.style) 
 							|| ("OTransition" in doc.style) 
-							|| ("transition" in doc.style) 
+							|| ("transition" in doc.style)
 							|| 0,
 		ADStartEvent = ADSupportsTouches ? "touchstart" : "mousedown",
 		ADMoveEvent = ADSupportsTouches ? "touchmove" : "mousemove",
