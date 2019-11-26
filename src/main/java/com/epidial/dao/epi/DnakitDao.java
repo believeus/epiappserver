@@ -34,6 +34,10 @@ public interface DnakitDao {
     @Delete("delete from dnakit where id=#{id}")
     public void delete(@Param("id") int id);
 
+    @Delete("delete from dnakit where ${c}=#{v}")
+    public void  deleteBy(@Param("c")String c,@Param("v") Object v);
+
+
 
 
 

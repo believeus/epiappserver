@@ -1,6 +1,8 @@
 package com.epidial.controller.admin;
 
+import com.epidial.bean.Dnakit;
 import com.epidial.bean.Udata;
+import com.epidial.dao.epi.DnakitDao;
 import com.epidial.dao.epi.UdataDao;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +16,8 @@ import java.util.List;
 public class AgeController {
     @Resource
     private UdataDao udataDao;
+    @Resource
+    private DnakitDao dnakitDao;
     @RequestMapping("/admin/age/view")
     public ModelAndView view(int idx, int size){
         ModelAndView modelView=new ModelAndView();
@@ -40,5 +44,19 @@ public class AgeController {
         udataDao.delete("id",id);
         return "success";
     }
-
+    @RequestMapping("/admin/age/addView")
+    public String addView(){
+        return "/WEB-INF/back/age-add.jsp";
+    }
+    @ResponseBody
+    @RequestMapping("/admin/age/save")
+    public String save(Udata udata){
+        Dnakit dnakit = dnakitDao.find("barcode", udata.getBarcode());
+        if (dnakit!=null){
+            dnakitDao.deleteBy("barcode",udata.getBarcode());
+            udataDao.save(udata);
+            return "success";
+        }
+        return "error";
+    }
 }
