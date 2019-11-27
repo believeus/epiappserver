@@ -15,6 +15,9 @@
 </head>
 <body style="margin: 0;padding: 0">
 <div style="width: 100%;">
+    <div style="width: 100%;">
+        <img src="static/images/ques/rep1.png">
+    </div>
     <div style="width: 100%;margin: 0px auto;">
         <div id="main" style="width: 100%;height:400px;margin: 0px auto;"></div>
     </div>
