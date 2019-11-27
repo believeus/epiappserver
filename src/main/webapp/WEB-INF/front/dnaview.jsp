@@ -424,12 +424,12 @@
             <div style="width: 100%;height:23px;clear: both"></div>
             <div style="width: 6%;float: left"><img src="static/images/ques/rep-red.png"
                                                     style="width: 100%;height: 100%"></div>
-            <div style="width: 91%;float: left">Your biological age is heighter than your chronological age.</div>
+            <div style="width: 91%;float: left">Your biological age is higher than your chronological age.</div>
         </div>
         <div style="width: 100%;height:23px;clear: both"></div>
         <div style="width: 100%;">
             <div style="width: 6%;float: left"><div style="width: 63%;height: 12px;border-radius: 30px;background-color: #008000"></div></div>
-            <div style="width: 91%;float: left">People whose biological age is heighter than chronological age</div>
+            <div style="width: 91%;float: left">People whose biological age is higher than chronological age</div>
         </div>
         <div style="width: 100%;height: 23px;clear: both"></div>
         <div style="width: 100%;">
