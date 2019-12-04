@@ -21,6 +21,9 @@ public interface UdataDao {
     @Select("select * from udata where ${c}=#{v}")
     public Udata findBy(@Param("c") String c, @Param("v") Object v);
 
+    @Select("select * from udata where ${c}=#{v}")
+    public List<Udata> findList(@Param("c") String c, @Param("v") Object v);
+
     @Update("update udata set uuid=#{uuid},naturally=#{naturally},biological=#{biological},barcode=#{barcode},status=#{status},uploadTime=#{uploadTime} where id=#{id}")
     public void update(Udata data);
 

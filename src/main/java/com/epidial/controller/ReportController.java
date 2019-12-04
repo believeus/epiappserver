@@ -59,6 +59,10 @@ public class ReportController {
         Udata data = udataDao.findBy("id", id);
         return data.getStatus();
     }
+    @RequestMapping("/user/report/findDataByUuid")
+    public List<Udata> findDataByUuid(String uuid){
+        return udataDao.findList("uuid",uuid);
+    }
 
     @ResponseBody
     @RequestMapping("/user/report/upbarcode")
