@@ -13,6 +13,9 @@ public interface DnakitDao {
     @Select("select * from dnakit limit #{idx},#{size}")
     public List<Dnakit> paging(@Param("idx") int idx, @Param("size") int size);
 
+    @Select("SELECT COUNT(*) FROM `dnakit`")
+    public int count();
+
     /**功能描述: 用户注册*/
     @Insert("insert into dnakit" +
                 "(name,barcode,createtime) " +

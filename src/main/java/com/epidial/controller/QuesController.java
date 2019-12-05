@@ -20,18 +20,11 @@ public class QuesController {
     @Resource
     QuestionnaireDao questionnaireDao;
 
-    @ResponseBody
     @RequestMapping("/ques1/index")
-    public String view(HttpServletRequest request) {
+    public ModelAndView view() {
         ModelAndView modelView = new ModelAndView();
-        String openid = request.getParameter("openid");
-        Questionnaire questionnaire = questionnaireDao.getByuId(openid);
-        String text=questionnaire.getComtab().replaceAll("#openid",openid);
-        questionnaire.setComtab(text);
-        System.out.println(text);
-        return questionnaire.getComtab();
-//        return modelView;
-
+        modelView.setViewName("/WEB-INF/front/ques1.jsp");
+        return modelView;
     }
 
     /*
@@ -40,13 +33,8 @@ public class QuesController {
     @RequestMapping("/question/update")
     @Transactional
     @ResponseBody
-    public String save(Questionnaire data){
-        String openid = data.getUuid();
-        System.out.println("uuid"+data.getUuid());
-        System.out.println(data.getComtab());
-        Questionnaire questionnaire = questionnaireDao.getByuId(openid);
-        questionnaire.setComtab(data.getComtab());
-        questionnaireDao.update(questionnaire);
+    public String update(Questionnaire data) {
+        questionnaireDao.update(data);
         return "success";
     }
 

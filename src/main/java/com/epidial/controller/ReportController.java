@@ -59,11 +59,6 @@ public class ReportController {
         Udata data = udataDao.findBy("id", id);
         return data.getStatus();
     }
-    @ResponseBody
-    @RequestMapping("/user/report/findDataByUuid")
-    public List<Udata> findDataByUuid(String uuid){
-        return udataDao.findList("uuid",uuid);
-    }
 
     @ResponseBody
     @RequestMapping("/user/report/upbarcode")
@@ -93,7 +88,7 @@ public class ReportController {
             String phantomjs = classpath + "window-x64-phantomjs.exe";
             String rasterize = classpath + "rasterize.js";
             String url = properties.getProperty("host") + "user/report/" + uuid + "/" + barcode + "/dnaview.jhtml";
-            String filename = properties.getProperty("pdfpath") + "biological-age-barcode-" + barcode + ".pdf";
+            String filename = properties.getProperty("pdfpath") + "biological-age-barcode[" + barcode + "]-decryptId[" + uuid + "].pdf";
             String cmd = "cmd /c " + phantomjs + " " + rasterize + " " + url + " " + filename;
             System.out.println(cmd);
             Process proc = Runtime.getRuntime().exec(cmd);
@@ -106,21 +101,24 @@ public class ReportController {
         return "error";
     }
 
-    @RequestMapping("/user/report/{barcode}/pdf")
-    public void pdf(@PathVariable("barcode") String barcode, HttpServletResponse response) {
+    @RequestMapping("/user/report/{uuid}/{barcode}/downloadpdf")
+    public void downloadpdf(@PathVariable("uuid") String uuid, @PathVariable("barcode") String barcode, HttpServletResponse response) {
         try {
             Properties properties = new Properties();
             ClassLoader classLoader = this.getClass().getClassLoader();
             FileInputStream in = new FileInputStream(classLoader.getResource("application.properties").getPath());
             properties.load(in);
-            response.setHeader("Content-Disposition", "attachment;fileName=" + URLEncoder.encode("biological-age-barcode-" + barcode + ".pdf", "UTF-8"));
-            String filename = properties.getProperty("pdfpath") + "biological-age-barcode-" + barcode + ".pdf";
+            response.setCharacterEncoding("UTF-8");
+            response.setContentType("multipart/form-data");
+            response.setHeader("Content-Disposition", "attachment;fileName=" + URLEncoder.encode("biological-age-barcode[" + barcode + "]-decryptId[" + uuid + "].pdf", "UTF-8"));
+            String filename = properties.getProperty("pdfpath") + "biological-age-barcode[" + barcode + "]-decryptId[" + uuid + "].pdf";
             InputStream fileIn = new FileInputStream(filename);
             OutputStream fileOut = response.getOutputStream();
             byte[] buff = new byte[1024];
             int len = 0;
             while ((len = fileIn.read(buff)) != -1) {
                 fileOut.write(buff, 0, len);
+                fileOut.flush();
             }
             fileOut.close();
             fileIn.close();

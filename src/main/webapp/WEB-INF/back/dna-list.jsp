@@ -29,7 +29,7 @@
 	<title>dna manager</title>
 </head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> index <span class="c-gray en">&gt;</span> user center <span class="c-gray en">&gt;</span> user manager <a id="btn-refresh" class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> index <span class="c-gray en">&gt;</span> user center <span class="c-gray en">&gt;</span> DNA Methylation Kit <a id="btn-refresh" class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
 
 	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="member_add('add dna kit','/admin/dnakit/addview.jhtml','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> Add DNA Kit</a></span> </div>
@@ -56,8 +56,20 @@
 			</c:forEach>
 			</tbody>
 		</table>
-
 	</div>
+
+		<%--	<a href="admin/dnakit/view.jhtml?idx=1">首页</a>&nbsp;
+			<a href="admin/dnakit/view.jhtml?idx=${idx - 1}">上一页</a>
+			<a href="admin/dnakit/view.jhtml?idx=${idx + 1}">下一页</a>--%>
+	<p align="center"> 当前页数:[${page.currPageNo}/${page.totalPageCount}]&nbsp;
+		<c:if test="${page.currPageNo > 1}">
+			<a href="admin/dnakit/view.jhtml?idx=1">首页</a>&nbsp;
+			<a href="admin/dnakit/view.jhtml?idx=${page.currPageNo - 1}">上一页</a>
+		</c:if>
+		<c:if test="${page.currPageNo <page.totalPageCount}">
+				<a href="admin/dnakit/view.jhtml?idx=${page.currPageNo + 1}">下一页</a>
+			    <a href="admin/dnakit/view.jhtml?idx=${page.totalPageCount}">末页</a>
+		</c:if></p>
 </div>
 <!--_footer 作为公共模版分离出去-->
 <script type="text/javascript" src="static/h-ui.admin/lib/jquery/1.9.1/jquery.min.js"></script>

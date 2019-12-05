@@ -1,6 +1,5 @@
 package com.epidial.controller;
 
-
 import com.epidial.bean.Questionnaire;
 import com.epidial.bean.User;
 import com.epidial.dao.epi.QuestionnaireDao;
@@ -9,8 +8,12 @@ import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
 import javax.annotation.Resource;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.util.Properties;
 
@@ -23,15 +26,21 @@ public class WxLoginController {
 
     @ResponseBody
     @RequestMapping("/user/wx/login")
-    public User wxlogin(HttpServletRequest request) throws Exception {
+    public User wxlogin(HttpServletRequest request,HttpServletResponse response) throws Exception {
+        response.setContentType("text/html;charset=utf-8");
+        /* 设置响应头允许ajax跨域访问 */
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        /* 星号表示所有的异域请求都可以接受， */
+        response.setHeader("Access-Control-Allow-Methods", "GET,POST");
+
         try {
             String openid = request.getParameter("openid");
-            System.out.println("==="+openid);
+            String name = request.getParameter("name");
             User user = userDao.findUser("uuid", openid);
             if (user == null) {
                 user = new User();
                 user.setUuid(openid);
-                user.setNickname("wxid:"+openid.substring(0,8));
+                user.setNickname(name);
                 user.setRegister(System.currentTimeMillis());
                 user.setLastLogin(System.currentTimeMillis());
                 userDao.save(user);
@@ -40,15 +49,14 @@ public class WxLoginController {
                 FileInputStream in = new FileInputStream(classLoader.getResource("application.properties").getPath());
                 properties.load(in);
                 String classpath = classLoader.getResource("/").getPath().substring(1);
-                String html = FileUtils.readFileToString(new File(classpath + "dachang.html"),"UTF-8");
+                String html = FileUtils.readFileToString(new File(classpath + "dachang.html"));
                 Questionnaire data = new Questionnaire();
                 data.setUuid(openid);
                 data.setComtab(html);
                 //将字符串保存到
                 questionnaireDao.save(data);
-                in.close();
+                return user;
             }
-            return user;
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String path = request.getContextPath();
@@ -11,17 +12,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,shrink-to-fit=no">
-    <link href="/static/css/163css.css" rel="stylesheet" type="text/css">
-    <link href="/static/css/ques1.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="/static/js/zepto_min.js"></script>
-    <script type="text/javascript" src="/static/js/touchslider.js"></script>
+    <link href="static/css/163css.css" rel="stylesheet" type="text/css">
+    <link href="static/css/ques1.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="static/js/zepto_min.js"></script>
+    <script type="text/javascript" src="static/js/touchslider.js"></script>
 </head>
 <body>
 <div id="container">
     <div class="imgBox">
-        <img class="img-slide img1" src="/static/images/ques/ques1.png" alt="1">
-        <img class="img-slide img2" src="/static/images/ques/ques2.png" alt="2">
-        <img class="img-slide img3" src="/static/images/ques/ques3.png" alt="3">
+        <img class="img-slide img1" src="static/images/ques/ques1.png" alt="1">
+        <img class="img-slide img2" src="static/images/ques/ques2.png" alt="2">
+        <img class="img-slide img3" src="static/images/ques/ques3.png" alt="3">
     </div>
 
     <div style="background-color: #f3f3ff;">
@@ -53,11 +54,10 @@
                             //获取input输入的值$(this).val(),赋值个input标签的value属性
                             $(this).attr("value", $(this).val())
                         })
-                        $("input[type=number]").blur(function () {
+                        $("textarea").blur(function () {
                             //获取input输入的值$(this).val(),赋值个input标签的value属性
-                            $(this).attr("value", $(this).val())
+                            $(this).text($(this).val())
                         })
-
                         $("tr>td>input").blur(function () {
                             //获取表格中的值
                             $(this).attr("value", $(this).val())
@@ -70,6 +70,7 @@
                             //如果原来的属性是checked,那么移除checked
                             //console.info(typeof $(this).is(":checked")+":"+$(this).is(":checked"))
                             $(this).attr("checked", $(this).is(":checked") ? true : false)
+
 
                         })
 
@@ -84,7 +85,8 @@
                 <li>年龄: <input type="number" name="age"
                                onkeyup="this.value=this.value.replace(/\D/g,'')"></li>
                 <hr>
-                <li style="height:56px;"><span style="height: 67px">住址:</span> <input type="text">
+                <li style="height:56px;"><span style="height: 67px">住址:</span> <textarea id="address" cols="2"
+                                                                                         rows="3"></textarea>
                 </li>
                 <hr>
                 <li>家庭电话: <input type="text" name="mobile"
@@ -125,7 +127,15 @@
                 <input name="profession" type="radio" value="others">其它
             </div>
             <hr>
-
+            <%-- <div>
+                 <h3>您家有几口人, 平均年收入大约为多少元?</h3>
+                 <p style="display: flex;line-height: 30px">
+                     <input type="number" style="width: 20%">
+                     <label>/人</label>
+                     <input type="text" style="width: 40%">
+                     <label>/元年</label>
+                 </p>
+             </div>--%>
         </div>
     </div>
     <div class="dark"></div>
@@ -134,17 +144,17 @@
         <ul id="pagenavi1" class="page">
             <li>
                 <a href="#js011.html" class="active">
-                    <img class="image1" src="/static/images/ques/dachang-1-back.png">
+                    <img class="image1" src="static/images/ques/dachang-1-back.png">
                 </a>
             </li>
             <li>
                 <a href="#js.html">
-                    <img class="image2" src="/static/images/ques/dachang-2-front.png">
+                    <img class="image2" src="static/images/ques/dachang-2-front.png">
                 </a>
             </li>
             <li>
                 <a href="#js09.html">
-                    <img class="image3" src="/static/images/ques/dachang-3-front.png">
+                    <img class="image3" src="static/images/ques/dachang-3-front.png">
                 </a>
             </li>
         </ul>
@@ -297,7 +307,6 @@
                         </div>
                         <hr>
                         <div>
-
                             <h3>2 您的饮用水主要来源于:</h3>
                             <input type="radio" name='your' value="pour-water"/>
                             <label>A.池塘水 </label>
@@ -309,7 +318,6 @@
                             <label>D.井水</label>
                             <input type="radio" name="your" value="run-water">
                             <label>E.自来水</label>
-
                         </div>
                         <hr>
                         <div style="width: 100%">
@@ -353,6 +361,7 @@
                                 <input type="radio" name='quit-smoke' value="quitsmoke-more-twentyfive"/>
                                 <label>F.25年以上</label>
                             </div>
+
                         </div>
                         <hr>
                         <div>
@@ -393,11 +402,9 @@
                                 <input type="radio" name='wine' value="dring-more-twentyfive"/>
                                 <label>F.25年以上</label>
                             </div>
-
                         </div>
                         <hr>
                         <div>
-
                             <h3>5 饮茶情况:</h3>
                             <div>
                                 <input type="radio" name='tea' value="tea-yes"/>
@@ -450,7 +457,6 @@
                                 <hr>
                                 <tr>
                                     <td style="width: 20%">新鲜蔬菜</td>
-
                                     <td style="width: 19.5%"><input type="number"></td>
                                     <td style="width: 19.5%"><input type="number"></td>
                                     <td style="width: 19.5%"><input type="number"></td>
@@ -483,13 +489,11 @@
                                     <td style="width: 20%"><input type="number"></td>
                                     <td style="width: 20%"><input type="number"></td>
                                     <td style="width: 20%"><input type="number"></td>
-
                                 </tr>
                             </table>
                         </div>
                         <hr>
                         <div>
-
 
                             <h3>7 肠道疾病史:</h3>
                             <div>
@@ -507,41 +511,39 @@
                                 </tr>
                                 <tr>
                                     <td>慢性结肠炎</td>
-                                    <td><input type="text" style="width: 100%" value=""></td>
-                                    <td><input type="number" style="width: 70%" value="">岁</td>
+                                    <td><input type="text" style="width: 100%"></td>
+                                    <td><input type="number" style="width: 70%">岁</td>
                                 </tr>
                                 <tr>
                                     <td>慢性溃疡性结肠炎</td>
-                                    <td><input type="text" style="width: 100%" value=""></td>
-                                    <td><input type="number" style="width: 70%" value="">岁</td>
+                                    <td><input type="text" style="width: 100%"></td>
+                                    <td><input type="number" style="width: 70%">岁</td>
                                 </tr>
                                 <tr>
                                     <td>肠息肉</td>
-                                    <td><input type="text" style="width: 100%" value=""></td>
-                                    <td><input type="number" style="width: 70%" value="">岁</td>
+                                    <td><input type="text" style="width: 100%"></td>
+                                    <td><input type="number" style="width: 70%">岁</td>
                                 </tr>
                                 <tr>
                                     <td>慢性阑尾炎</td>
-                                    <td><input type="text" style="width: 100%" value=""></td>
-                                    <td><input type="number" style="width: 70%" value="">岁</td>
+                                    <td><input type="text" style="width: 100%"></td>
+                                    <td><input type="number" style="width: 70%">岁</td>
                                 </tr>
                                 <tr>
                                     <td>其他（请注明）</td>
-                                    <td><input type="text" style="width: 100%" value=""></td>
-                                    <td><input type="number" style="width: 70%" value="">岁</td>
+                                    <td><input type="text" style="width: 100%"></td>
+                                    <td><input type="number" style="width: 70%">岁</td>
                                 </tr>
                             </table>
 
                         </div>
                         <hr>
                         <div>
-
                             <h3>8 家族史（您家中有没有人得过肿瘤):</h3>
                             <div>
                                 <input id='tumor1' type="radio" name='tumor'/>
                                 <label for="tumor1">A.否 </label>
                                 <input id='tumor2' type="radio" name='tumor'/>
-
                                 <label for="tumor2">B.是</label>
                             </div>
                             <hr>
@@ -570,13 +572,14 @@
                                     <td><input type="text"></td>
                                     <td><input type="text"></td>
                                     <td><input type="number"></td>
-
                                 </tr>
+
+
                             </table>
                             <div style="width: 100%;height: 23px"></div>
                             <div>
                                 <h3>体格检查结果：</h3>
-                                <input type="text" style="width: 100%;height: 50px">
+                                <textarea id="body-exam" cols="2" rows="3" style="width: 100%;height: 34px"></textarea>
                             </div>
                             <table border="1" width="100%" style="text-align: center">
                                 <tr>
@@ -590,8 +593,8 @@
                                     <td style="width: 24%"><input type="text"></td>
                                     <td style="width: 24%"><input type="text"></td>
                                     <td style="width: 24%"><input type="text"></td>
-
                                 </tr>
+
                             </table>
                         </div>
                         <div style="height: 23px;"></div>
@@ -611,9 +614,9 @@
                                     首先询问调查对象现在家里有几口人，填写在相应空格内。每一空格填写一个数字，人口不足10人的，第一个空格用“0”补齐；然后询问全家年收入，填写在相应空格内，每一空格填写一个数字。
                                     <p>填写示例如下：</p>
                                     <p style="display: flex;line-height: 30px">
-                                        <input type="number" style="width: 20%" value="">
+                                        <input type="number" style="width: 20%">
                                         <label>/人</label>
-                                        <input type="text" style="width: 40%" value="">
+                                        <input type="text" style="width: 40%">
                                         <label>/元年</label>
                                     </p>
                                 </div>
@@ -626,9 +629,9 @@
                                     <p>6.家族史：</p>
                                     <p>家中有无肿瘤患者:</p>
                                     <p>
-                                        <input type="radio" name="tof" value="">
+                                        <input type="radio" name="tof">
                                         <label>A.否</label>
-                                        <input type="radio" name="tof" value="">
+                                        <input type="radio" name="tof">
                                         <label>B.有</label>
                                     </p>
 
@@ -913,9 +916,9 @@
                                     首先询问调查对象现在家里有几口人，填写在相应空格内。每一空格填写一个数字，人口不足10人的，第一个空格用“0”补齐；然后询问全家年收入，填写在相应空格内，每一空格填写一个数字。
                                     <p>填写示例如下：</p>
                                     <p style="display: flex;line-height: 30px">
-                                        <input type="number" style="width: 20%" value="">
+                                        <input type="number" style="width: 20%">
                                         <label>/人</label>
-                                        <input type="text" style="width: 40%" value="">
+                                        <input type="text" style="width: 40%">
                                         <label>/元年</label>
                                     </p>
                                 </div>
@@ -928,9 +931,9 @@
                                     <p>6.家族史：</p>
                                     <p>家中有无肿瘤患者:</p>
                                     <p>
-                                        <input type="radio" name="tof" value="">
+                                        <input type="radio" name="tof">
                                         <label>A.否</label>
-                                        <input type="radio" name="tof" value="">
+                                        <input type="radio" name="tof">
                                         <label>B.有</label>
                                     </p>
 
@@ -944,24 +947,15 @@
         </div>
 
     </div>
+
 </div>
 <script>
-    // $(function () {
-    //     $("button").onclick(alert('您的信息已提交成功'))
-    // })
+    /*$(function () {
+        $("button").onclick(alert('您的信息已提交成功'))
+    })*/
     var submit = function () {
         var html = "<html>" + $("html").html() + "</html>";
         console.info(html)
-        var url = "/question/update";
-        var data={}
-        data.uuid="#openid"
-        data.comtab=html
-        $.post(url,data, function (data) {
-            if(data=="success"){
-                window.alert("您的信息已提交！")
-            }
-
-        })
         // onclick(alert('您的信息已提交成功'))
     }
 </script>
@@ -987,24 +981,24 @@
     $(function () {
         $(".image1").click(function () {
             //1.当点击的时候，变成有颜色的
-            $(this).attr("src", "/static/images/ques/dachang-1-back.png")
+            $(this).attr("src", "static/images/ques/dachang-1-back.png")
             //2，其它的图片变成灰色
-            $(".image3").attr("src", "/static/images/ques/dachang-3-front.png")
-            $(".image2").attr("src", "/static/images/ques/dachang-2-front.png")
+            $(".image3").attr("src", "static/images/ques/dachang-3-front.png")
+            $(".image2").attr("src", "static/images/ques/dachang-2-front.png")
         });
         $(".image2").click(function () {
             //1.当点击的时候，变成有颜色的
-            $(this).attr("src", "/static/images/ques/dachang-2-back.png")
+            $(this).attr("src", "static/images/ques/dachang-2-back.png")
             //2，其它的图片变成灰色
-            $(".image1").attr("src", "/static/images/ques/dachang-1-front.png")
-            $(".image3").attr("src", "/static/images/ques/dachang-3-front.png")
+            $(".image1").attr("src", "static/images/ques/dachang-1-front.png")
+            $(".image3").attr("src", "static/images/ques/dachang-3-front.png")
         });
         $(".image3").click(function () {
             //1.当点击的时候，变成有颜色的
-            $(this).attr("src", "/static/images/ques/dachang-3-back.png")
+            $(this).attr("src", "static/images/ques/dachang-3-back.png")
             //2，其它的图片变成灰色
-            $(".image1").attr("src", "/static/images/ques/dachang-1-front.png")
-            $(".image2").attr("src", "/static/images/ques/dachang-2-front.png")
+            $(".image1").attr("src", "static/images/ques/dachang-1-front.png")
+            $(".image2").attr("src", "static/images/ques/dachang-2-front.png")
         });
     });
 </script>

@@ -37,8 +37,6 @@ public class AddressController {
         return "success";
 
     }
-
-
     @ResponseBody
     @RequestMapping(value = "/user/address/del")
     public String delAddr(String id, HttpSession session) {
