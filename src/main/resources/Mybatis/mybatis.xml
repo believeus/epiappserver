@@ -6,12 +6,4 @@
         <setting name="mapUnderscoreToCamelCase" value="true" />
         <setting name="logImpl" value="STDOUT_LOGGING" />
     </settings>
-    <plugins>
-        <plugin interceptor="com.github.pagehelper.PageHelper">
-            <property name="dialect" value="mysql" />
-            <!-- 该参数默认为false -->
-            <!-- 设置为true时，使用RowBounds分页会进行count查询 -->
-            <property name="rowBoundsWithCount" value="true" />
-        </plugin>
-    </plugins>
 </configuration>
