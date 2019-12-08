@@ -57,10 +57,6 @@
 			</tbody>
 		</table>
 	</div>
-
-		<%--	<a href="admin/dnakit/view.jhtml?idx=1">首页</a>&nbsp;
-			<a href="admin/dnakit/view.jhtml?idx=${idx - 1}">上一页</a>
-			<a href="admin/dnakit/view.jhtml?idx=${idx + 1}">下一页</a>--%>
 	<p align="center"> 当前页数:[${page.currPageNo}/${page.totalPageCount}]&nbsp;
 		<c:if test="${page.currPageNo > 1}">
 			<a href="admin/dnakit/view.jhtml?idx=1">首页</a>&nbsp;
