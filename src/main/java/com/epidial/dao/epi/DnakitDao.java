@@ -40,7 +40,11 @@ public interface DnakitDao {
     @Delete("delete from dnakit where ${c}=#{v}")
     public void  deleteBy(@Param("c")String c,@Param("v") Object v);
 
-
+    /*
+    * 用户根据barcode查询
+    * */
+    @Select("select * from dnakit  where barcode like concat('%',#{barcode},'%')")
+    List<Dnakit> getBybarcode(@Param("barcode") String barcode);
 
 
 

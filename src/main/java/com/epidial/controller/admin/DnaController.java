@@ -1,5 +1,6 @@
 package com.epidial.controller.admin;
 
+import com.alibaba.fastjson.JSONObject;
 import com.epidial.bean.Dnakit;
 import com.epidial.common.Page;
 import com.epidial.dao.epi.DnakitDao;
@@ -9,11 +10,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
+import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class DnaController {
@@ -62,5 +64,65 @@ public class DnaController {
         dnakitDao.delete(id);//删除用户
         return "success";
     }
+
+    /*
+    * 根据barcode 查看
+    * */
+    @RequestMapping("/admin/dnakit/getbybarcode")
+    @ResponseBody
+    public String getBybarcode(String barcode){
+        List<Dnakit> dnakitList = dnakitDao.getBybarcode(barcode);
+        return JSONObject.toJSONString(dnakitList);
+    }
+    /*
+    * 创建索引库
+    * */
+//    @RequestMapping("/create")
+//    public void create(String barcode){
+//        //1收集数据
+//        List<Dnakit> dnakitList=dnakitDao.getBybarcode(barcode);
+//        List<Document> documents = new ArrayList<>();
+//        Document document;
+//        if(dnakitList!=null&&dnakitList.size()>0){
+//            for (Dnakit dnakit:dnakitList) {
+//                //2创建文本对象
+//                 document =new Document();
+//                //3根据不同字段的需求创建file对象
+//                // 分词 索引 存储
+////              id  不分词，存储
+//                document.add(new StoredField("id",String.valueOf(dnakit.getId())));
+//                // 分词 索引 存储
+//                document.add(new TextField("name",dnakit.getName(), Field.Store.YES));
+//                // 分词 索引 存储
+//                document.add(new TextField("barcode",dnakit.getBarcode(), Field.Store.YES));
+//                // 分词 索引 不存储
+//                document.add(new TextField("createtime",String.valueOf(dnakit.getCreatetime()), Field.Store.NO));
+//                //将文档对象放入到文档集合
+//                documents.add(document);
+//            }
+//        }
+//        //将document对象用分词器进行分词
+//        Analyzer analyzer= new StandardAnalyzer();//中午分词器
+//        //创建索引目录
+//        try {
+//            Directory directory = FSDirectory.open(FileSystems.getDefault().getPath("D:\\user\\local\\workspace\\luceneindex"));
+//            //创建索引的配置对象
+//            IndexWriterConfig config = new IndexWriterConfig(analyzer);
+//            //开始构造索引 写入到指定目录
+//            IndexWriter indexWriter = new IndexWriter(directory,config);
+//            if(documents!=null&&documents.size()>0){
+//                for (Document document1:documents) {
+//                     indexWriter.addDocument(document1);
+//                }
+//            }
+//            indexWriter.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
+
+
+
 
 }

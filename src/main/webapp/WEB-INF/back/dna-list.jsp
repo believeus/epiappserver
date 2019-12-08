@@ -26,12 +26,17 @@
 	<script type="text/javascript" src="static/h-ui.admin/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 	<script>DD_belatedPNG.fix('*');</script>
 	<![endif]-->
+	<script src="static/js/jquery-2.1.0.min.js" type="text/javascript"></script>
 	<title>dna manager</title>
 </head>
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> index <span class="c-gray en">&gt;</span> user center <span class="c-gray en">&gt;</span> DNA Methylation Kit <a id="btn-refresh" class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
-
+	<div>
+		barcode:
+		<input type="text" id="txtbarcode"/>
+	    <input type="button" value="search" id="btnSearch" onclick="seardnakit()" />
+	</div>
 	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="member_add('add dna kit','/admin/dnakit/addview.jhtml','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> Add DNA Kit</a></span> </div>
 	<div class="mt-20">
 		<table class="table table-border table-bordered table-hover table-bg table-sort">
@@ -44,7 +49,7 @@
 				<th width="120">operation</th>
 			</tr>
 			</thead>
-			<tbody>
+			<tbody id="tody">
 			<c:forEach items="${databox}" var="dnakit">
 				<tr name="item" data-id="${dnakit.id}" class="text-c">
 					<td>${dnakit.id}</td>
@@ -95,18 +100,49 @@
 		});
 	});
 </script>
-<script type="text/javascript">
-	/*$(function(){
-        $('.table-sort').dataTable({
-            "aaSorting": [[ 1, "desc" ]],//默认第几个排序
-            "bStateSave": true,//状态保存
-            "aoColumnDefs": [
-              //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-              {"orderable":false,"aTargets":[0,8,9]}// 制定列不参与排序
-            ]
-        });
+<script>
 
-    });*/
+	/*
+	点击搜索，查询barcode 返回List<>
+	* */
+	function seardnakit() {
+		// if($("#txtbarcode").val()==null){
+		// 	window.location.href=""
+		// }
+
+		var url="/admin/dnakit/getbybarcode?barcode="+$("#txtbarcode").val();
+		$.ajax({
+			type: 'POST',
+			url: url,
+			datatype:JSON,
+			success:function (data) {
+				var dnakit = JSON.parse(data);
+				var html='';
+				var test='';
+				for (var i = 0; i < dnakit.length; i++) {
+					html+="<tr name='item' class='text-c' data-id=\""+dnakit[i].id+"\">"
+					html+="<td>"+dnakit[i].id+"</td>";
+					html+="<td><input name='name' style='cursor:pointer;border: none' value='\""+dnakit[i].name+"\'> "+"</td>";
+					html+="<td><input name='name' style='cursor:pointer;border: none' value='\""+dnakit[i].createtime+"\' pattern='yyyy-MM-dd hh:mm:ss'> "+"</td>";
+					html+="<td><input name='name' style='cursor:pointer;border: none' value='\""+dnakit[i].barcode+"\'> "+"</td>";
+					html+="<td class='td-manage'><a title='删除' href='javascript:;'onclick='member_del(this,dnakit[i].id)' class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a>"+dnakit[i].id+"</td>";
+					html+="</tr>";
+					// test+="<tr name=\"item\" data-id=\""+dnakit[i].id+"\" class=\"text-c\">\n" +
+                    //     "\t\t\t\t\t<td>"+dnakit[i].id+"</td>\n" +
+                    //     "\t\t\t\t\t<td><input name=\"name\" style=\"cursor:pointer;border: none;\" readonly > "+dnakit[i].name+"</td>\n" +
+                    //     "\t\t\t\t\t<td><input name=\"createtime\" style=\"cursor:pointer;border: none;\" readonly   pattern=\"yyyy-MM-dd hh:mm:ss\"> "+dnakit[i].createtime+"</td>\n" +
+                    //     "\t\t\t\t\t<td><input name=\"barcode\" style=\"cursor:pointer;border: none;\" readonly>"+dnakit[i].barcode+"</td>\n" +
+                    //     "\t\t\t\t\t<td class=\"td-manage\"><a title=\"删除\" href=\"javascript:;\" onclick=\"member_del(this,"+dnakit[i].id+")\" class=\"ml-5\" style=\"text-decoration:none\"><i class=\"Hui-iconfont\">&#xe6e2;</i></a></td>\n" +
+                    //     "\t\t\t\t</tr>"
+				}
+				$("#tody").html(html);
+			}
+
+		})
+	}
+</script>
+<script type="text/javascript">
+
 	/*用户-添加*/
 	function member_add(title,url,w,h){
 		layer_show(title,url,w,h);
