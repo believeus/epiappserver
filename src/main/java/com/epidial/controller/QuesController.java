@@ -13,6 +13,7 @@ import javax.annotation.Resource;
 import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
 import java.beans.Transient;
+import java.util.List;
 
 
 @Controller
@@ -21,10 +22,14 @@ public class QuesController {
     QuestionnaireDao questionnaireDao;
 
     @RequestMapping("/ques1/index")
-    public ModelAndView view() {
-        ModelAndView modelView = new ModelAndView();
-        modelView.setViewName("/WEB-INF/front/ques1.jsp");
-        return modelView;
+    @ResponseBody
+    public String view(HttpServletRequest request) {
+        String openid = request.getParameter("openid");
+        Questionnaire questionnaires = questionnaireDao.getByuId(openid);
+        String text=questionnaires.getComtab().replaceAll("#openid",openid);
+        questionnaires.setComtab(text);
+        System.out.println(text);
+        return questionnaires.getComtab();
     }
 
     /*

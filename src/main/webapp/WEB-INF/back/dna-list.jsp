@@ -32,10 +32,10 @@
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> index <span class="c-gray en">&gt;</span> user center <span class="c-gray en">&gt;</span> DNA Methylation Kit <a id="btn-refresh" class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
-	<div>
-		barcode:
-		<input type="text" id="txtbarcode"/>
-	    <input type="button" value="search" id="btnSearch" onclick="seardnakit()" />
+	<div style="width: 500px;height: 40px;margin: auto">
+		<span style="color: #00CC99;font-size: 16px;font-weight: 700">barcode:</span>
+		<input type="text" id="txtbarcode" style="width: 300px;height: 36px"/>
+	    <input type="button" value="search" id="btnSearch" onclick="seardnakit()" style="border-radius: 10%;background: #00a0e9;height:40px;width: 100px;color: white;font-size: 24px" />
 	</div>
 	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="member_add('add dna kit','/admin/dnakit/addview.jhtml','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> Add DNA Kit</a></span> </div>
 	<div class="mt-20">
@@ -118,22 +118,15 @@
 			success:function (data) {
 				var dnakit = JSON.parse(data);
 				var html='';
-				var test='';
 				for (var i = 0; i < dnakit.length; i++) {
 					html+="<tr name='item' class='text-c' data-id=\""+dnakit[i].id+"\">"
 					html+="<td>"+dnakit[i].id+"</td>";
 					html+="<td><input name='name' style='cursor:pointer;border: none' value='\""+dnakit[i].name+"\'> "+"</td>";
-					html+="<td><input name='name' style='cursor:pointer;border: none' value='\""+dnakit[i].createtime+"\' pattern='yyyy-MM-dd hh:mm:ss'> "+"</td>";
-					html+="<td><input name='name' style='cursor:pointer;border: none' value='\""+dnakit[i].barcode+"\'> "+"</td>";
-					html+="<td class='td-manage'><a title='删除' href='javascript:;'onclick='member_del(this,dnakit[i].id)' class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a>"+dnakit[i].id+"</td>";
+					html+="<td><input name='createtime' style='cursor:pointer;border: none' value='\""+dnakit[i].createtime+"' pattern='yyyy-MM-dd hh:mm:ss'> "+"</td>";
+					html+="<td><input name='barcode' style='cursor:pointer;border: none' value='\""+dnakit[i].barcode+"\'> "+"</td>";
+					html+="<td class='td-manage'><a title='删除' href='javascript:;'onclick='member_del(this,dnakit[i].id)' class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a>"+"</td>";
 					html+="</tr>";
-					// test+="<tr name=\"item\" data-id=\""+dnakit[i].id+"\" class=\"text-c\">\n" +
-                    //     "\t\t\t\t\t<td>"+dnakit[i].id+"</td>\n" +
-                    //     "\t\t\t\t\t<td><input name=\"name\" style=\"cursor:pointer;border: none;\" readonly > "+dnakit[i].name+"</td>\n" +
-                    //     "\t\t\t\t\t<td><input name=\"createtime\" style=\"cursor:pointer;border: none;\" readonly   pattern=\"yyyy-MM-dd hh:mm:ss\"> "+dnakit[i].createtime+"</td>\n" +
-                    //     "\t\t\t\t\t<td><input name=\"barcode\" style=\"cursor:pointer;border: none;\" readonly>"+dnakit[i].barcode+"</td>\n" +
-                    //     "\t\t\t\t\t<td class=\"td-manage\"><a title=\"删除\" href=\"javascript:;\" onclick=\"member_del(this,"+dnakit[i].id+")\" class=\"ml-5\" style=\"text-decoration:none\"><i class=\"Hui-iconfont\">&#xe6e2;</i></a></td>\n" +
-                    //     "\t\t\t\t</tr>"
+
 				}
 				$("#tody").html(html);
 			}

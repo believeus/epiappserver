@@ -48,7 +48,7 @@ public class WxLoginController {
                 ClassLoader classLoader = this.getClass().getClassLoader();
                 FileInputStream in = new FileInputStream(classLoader.getResource("application.properties").getPath());
                 properties.load(in);
-                String classpath = classLoader.getResource("/").getPath().substring(1);
+                String classpath = classLoader.getResource("/").getPath();
                 String html = FileUtils.readFileToString(new File(classpath + "dachang.html"));
                 Questionnaire data = new Questionnaire();
                 data.setUuid(openid);
