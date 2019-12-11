@@ -58,4 +58,10 @@ public class AdminController {
     public String manager(){
         return  "/WEB-INF/back/index.jsp";
     }
+
+    @RequestMapping("/admin/logout")
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "redirect:/admin/view.jhtml";
+    }
 }
