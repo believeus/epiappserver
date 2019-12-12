@@ -28,7 +28,6 @@ public class QuesController {
         Questionnaire questionnaires = questionnaireDao.getByuId(openid);
         String text=questionnaires.getComtab().replaceAll("#openid",openid);
         questionnaires.setComtab(text);
-        System.out.println(text);
         return questionnaires.getComtab();
     }
 
