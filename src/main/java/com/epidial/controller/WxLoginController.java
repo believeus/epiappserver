@@ -26,7 +26,7 @@ public class WxLoginController {
 
     @ResponseBody
     @RequestMapping("/user/wx/login")
-    public User wxlogin(HttpServletRequest request,HttpServletResponse response) throws Exception {
+    public ModelAndView wxlogin(HttpServletRequest request,HttpServletResponse response) throws Exception {
         try {
             String openid = request.getParameter("openid");
             User user = userDao.findUser("uuid", openid);
@@ -48,11 +48,16 @@ public class WxLoginController {
                 data.setComtab(html);
                 //将字符串保存到
                 questionnaireDao.save(data);
-                return user;
+                ModelAndView modelAndView = new ModelAndView();
+                modelAndView.setViewName("/WEB-INF/front/quse2.jsp");
+                return modelAndView;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/WEB-INF/front/quse2.jsp");
+        return modelAndView;
+        
     }
 }
