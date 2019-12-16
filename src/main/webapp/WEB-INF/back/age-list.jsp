@@ -38,8 +38,8 @@
 	<table class="table table-border table-bordered table-hover table-bg table-sort">
 		<thead>
 			<tr class="text-c">
-				<th width="70">naturally</th>
-				<th width="70">biological</th>
+				<th width="70">chronological age</th>
+				<th width="70">EpiAge</th>
 				<th width="80">barcode</th>
 				<th width="50">status</th>
 				<th width="100">createTime</th>
