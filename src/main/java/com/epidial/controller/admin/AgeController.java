@@ -1,7 +1,9 @@
 package com.epidial.controller.admin;
 
+import com.alibaba.fastjson.JSONObject;
 import com.epidial.bean.Dnakit;
 import com.epidial.bean.Udata;
+import com.epidial.bean.UdataDto;
 import com.epidial.dao.epi.DnakitDao;
 import com.epidial.dao.epi.UdataDao;
 import org.springframework.stereotype.Controller;
@@ -59,4 +61,12 @@ public class AgeController {
         }
         return "error";
     }
+    @RequestMapping("/admin/age/bybarcode")
+    @ResponseBody
+    public String getbybarcode(String barcode){
+        List<UdataDto> udataList = udataDao.getBybarcode(barcode);
+        return JSONObject.toJSONString(udataList);
+    }
+
+
 }

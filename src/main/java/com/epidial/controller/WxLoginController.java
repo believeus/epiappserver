@@ -7,13 +7,9 @@ import com.epidial.dao.epi.UserDao;
 import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
+
 
 import javax.annotation.Resource;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.util.Properties;
 
@@ -25,9 +21,8 @@ public class WxLoginController {
     private QuestionnaireDao questionnaireDao;
 
     @RequestMapping("/user/wx/login")
-    public ModelAndView wxlogin(HttpServletRequest request) throws Exception {
+    public User wxlogin(String openid) throws Exception {
         try {
-            String openid = request.getParameter("openid");
             User user = userDao.findUser("uuid", openid);
             if (user == null) {
                 user = new User();
@@ -44,19 +39,15 @@ public class WxLoginController {
                 String html = FileUtils.readFileToString(new File(classpath + "dachang.html"),"UTF-8");
                 Questionnaire data = new Questionnaire();
                 data.setUuid(openid);
-                data.setComtab("html");
+                data.setComtab(html);
                 //将字符串保存到
                 questionnaireDao.save(data);
-                ModelAndView modelAndView = new ModelAndView();
-                modelAndView.setViewName("/WEB-INF/front/ques2.jsp");
-                return modelAndView;
+                return user;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("/WEB-INF/front/ques2.jsp");
-        return modelAndView;
+        return null;
 
     }
 }

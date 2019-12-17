@@ -1,6 +1,7 @@
 package com.epidial.dao.epi;
 
 import com.epidial.bean.Udata;
+import com.epidial.bean.UdataDto;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -38,4 +39,15 @@ public interface UdataDao {
 
     @Delete("delete  from udata where ${k}=#{v}")
     public void  delete(@Param("k") String k, @Param("v") Object v);
+
+
+    /*
+     * 用户根据barcode查询
+     * */
+    @Select("select u.id as id,u.uuid as uuid, u.naturally as naturally,u.biological as biological" +
+            ",u.barcode as barcode,u.status as status," +
+            "FROM_UNIXTIME(FLOOR(u.createtime/1000)) as createtime," +
+            "FROM_UNIXTIME(FLOOR(u.uploadtime/1000)) as uploadtime" +
+            " from udata as u where barcode like concat('%',#{barcode},'%')")
+    List<UdataDto> getBybarcode(@Param("barcode") String barcode);
 }

@@ -34,6 +34,11 @@
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> index <span class="c-gray en">&gt;</span> Age center <span class="c-gray en">&gt;</span> Age manager <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
 <%--	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="member_add('add','/admin/age/addView.jhtml','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> Add</a></span> </div>--%>
+	<div style="width: 500px;height: 40px;margin: auto">
+		<span style="color: #00CC99;font-size: 16px;font-weight: 700">barcode:</span>
+		<input type="text" id="txtbarcode" style="width: 300px;height: 36px"/>
+		<input type="button" value="search" id="btnSearch" onclick="seardnakit()" style="border-radius: 10%;background: #00a0e9;height:40px;width: 100px;color: white;font-size: 24px" />
+	</div>
 	<div class="mt-20">
 	<table class="table table-border table-bordered table-hover table-bg table-sort">
 		<thead>
@@ -47,11 +52,25 @@
 				<th width="50">edit</th>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody id="tody">
 			<c:forEach items="${databox}" var="task">
 				<tr  class="text-c">
-					<td><input name="naturally" data-id="${task.id}" value="${task.naturally}" style="border: none" readonly="readonly"></td>
-					<td><input name="biological" data-id="${task.id}" value="${task.biological}" style="border: none" readonly="readonly"></td>
+					<c:choose>
+						<c:when test="${task.naturally eq 0.0}">
+							<td><input name="naturally" data-id="${task.id}" value="NA (non-available)" style="border: none" readonly="readonly"></td>
+						</c:when>
+						<c:otherwise>
+							<td><input name="naturally" data-id="${task.id}" value="${task.naturally}" style="border: none" readonly="readonly"></td>
+						</c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test="${task.naturally eq 0.0}">
+							<td><input name="naturally" data-id="${task.id}" value="NA (non-available)" style="border: none" readonly="readonly"></td>
+						</c:when>
+						<c:otherwise>
+							<td><input name="naturally" data-id="${task.id}" value="${task.biological}" style="border: none" readonly="readonly"></td>
+						</c:otherwise>
+					</c:choose>
 					<td>${task.barcode}</td>
 					<td>
 						<select  data-id="${task.id}">
@@ -88,6 +107,45 @@
 			</c:forEach>
 		</tbody>
 	</table>
+		<script>
+			/*
+            点击搜索，查询barcode 返回List<>
+            * */
+			function seardnakit() {
+				var url="/admin/age/bybarcode?barcode="+$("#txtbarcode").val();
+				$.ajax({
+					type: 'POST',
+					url: url,
+					datatype:JSON,
+					success:function (data) {
+						var udata = JSON.parse(data);
+						var html='';
+						for (var i = 0; i < udata.length; i++) {
+							html+="<tr class='text-c'>";
+							html+="<td><input name='naturally' style='border: none' value='\""+udata[i].naturally+"\' readonly=\"readonly\"> "+"</td>";
+							html+="<td><input name='biological' style='border: none' value='\""+udata[i].biological+"\' readonly=\"readonly\"> "+"</td>";
+							html+="<td>"+udata[i].barcode+"</td>";
+							html+="<td>";
+							html+="<select data-id=\""+udata[i].id+"\">";
+							html+="<option value='"+udata[i].status+"' selected='selected' data-id='"+udata[i].id+"'>"+udata[i].status+"</option>"
+							html+="</select>";
+							html+="</td>";
+							html+="<td><input name='createtime' style='border: none' value='\""+udata[i].createTime+"'> "+"</td>";
+							html+="<td><input name='uploadtime' style='border: none' value='\""+udata[i].uploadTime+"'> "+"</td>";
+							html+="<td class='td-manage'><a title='删除' href='javascript:;'onclick='member_del(this,udata[i].id)' class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a>"+"</td>";
+							html+="</tr>";
+						}
+						$("#tody").html(html);
+
+
+
+					}
+
+
+				})
+			}
+		</script>
+
 		<script>
 			$(function(){
                 $("body").on("keydown dblclick change","input,select",function(event){
