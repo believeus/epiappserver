@@ -65,10 +65,10 @@
 					</c:choose>
 					<c:choose>
 						<c:when test="${task.naturally eq 0.0}">
-							<td><input name="naturally" data-id="${task.id}" value="NA (non-available)" style="border: none" readonly="readonly"></td>
+							<td><input name="biological" data-id="${task.id}" value="NA (non-available)" style="border: none" readonly="readonly"></td>
 						</c:when>
 						<c:otherwise>
-							<td><input name="naturally" data-id="${task.id}" value="${task.biological}" style="border: none" readonly="readonly"></td>
+							<td><input name="biological" data-id="${task.id}" value="${task.biological}" style="border: none" readonly="readonly"></td>
 						</c:otherwise>
 					</c:choose>
 					<td>${task.barcode}</td>
@@ -120,14 +120,42 @@
 					success:function (data) {
 						var udata = JSON.parse(data);
 						var html='';
+						var finished="finished";
+						var pending="pending";
+						var processing="processing";
+						var na="NA (non-available)"
 						for (var i = 0; i < udata.length; i++) {
 							html+="<tr class='text-c'>";
-							html+="<td><input name='naturally' style='border: none' value='\""+udata[i].naturally+"\' readonly=\"readonly\"> "+"</td>";
-							html+="<td><input name='biological' style='border: none' value='\""+udata[i].biological+"\' readonly=\"readonly\"> "+"</td>";
+							// html+="<td><input name='naturally' style='border: none' value='\""+udata[i].naturally+"\' readonly=\"readonly\"> "+"</td>";
+							// html+="<td><input name='biological' style='border: none' value='\""+udata[i].biological+"\' readonly=\"readonly\"> "+"</td>";
+                            if (udata[i].naturally>0.0) {
+                                html+="<td><input name='naturally' style='border: none' value='\""+udata[i].naturally+"\' readonly=\"readonly\"> "+"</td>";
+                            }else {
+                                html+="<td><input name='naturally' style='border: none' value='\""+na+"\' readonly=\"readonly\"> "+"</td>";
+                            }
+                            if (udata[i].biological>0.0) {
+                                html+="<td><input name='naturally' style='border: none' value='\""+udata[i].biological+"\' readonly=\"readonly\"> "+"</td>";
+                            }else {
+                                html+="<td><input name='naturally' style='border: none' value='\""+na+"\' readonly=\"readonly\"> "+"</td>";
+                            }
 							html+="<td>"+udata[i].barcode+"</td>";
 							html+="<td>";
 							html+="<select data-id=\""+udata[i].id+"\">";
-							html+="<option value='"+udata[i].status+"' selected='selected' data-id='"+udata[i].id+"'>"+udata[i].status+"</option>"
+							if(udata[i].status=='finished'){
+								html+="<option  selected='selected' data-id='"+udata[i].id+"'>"+finished+"</option>"
+								html+="<option data-id='"+udata[i].id+"'>"+pending+"</option>"
+								html+="<option  data-id='"+udata[i].id+"'>"+processing+"</option>"
+							}
+							if(udata[i].status=='pending'){
+								html+="<option  data-id='"+udata[i].id+"'>"+finished+"</option>"
+								html+="<option  selected='selected' data-id='"+udata[i].id+"'>"+pending+"</option>"
+								html+="<option data-id='"+udata[i].id+"'>"+processing+"</option>"
+							}
+							if(udata[i].status=='processing'){
+								html+="<option data-id='"+udata[i].id+"'>"+finished+"</option>"
+								html+="<option data-id='"+udata[i].id+"'>"+pending+"</option>"
+								html+="<option selected='selected' data-id='"+udata[i].id+"'>"+processing+"</option>"
+							}
 							html+="</select>";
 							html+="</td>";
 							html+="<td><input name='createtime' style='border: none' value='\""+udata[i].createTime+"'> "+"</td>";
