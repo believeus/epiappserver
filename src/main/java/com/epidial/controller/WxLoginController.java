@@ -7,6 +7,7 @@ import com.epidial.dao.epi.UserDao;
 import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 import javax.annotation.Resource;
@@ -21,6 +22,7 @@ public class WxLoginController {
     private QuestionnaireDao questionnaireDao;
 
     @RequestMapping("/user/wx/login")
+    @ResponseBody
     public User wxlogin(String openid) throws Exception {
         try {
             User user = userDao.findUser("uuid", openid);
