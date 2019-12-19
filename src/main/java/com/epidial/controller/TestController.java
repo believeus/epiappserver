@@ -17,7 +17,7 @@ public class TestController {
 
 
     @ResponseBody
-    @RequestMapping(value = "/user/getopenid", method = RequestMethod.GET)
+    @RequestMapping(value = "/user/getopenid", method = RequestMethod.POST)
     public Map getOpenid(String code, String encryptedData, String iv ){
         Map<String,Object> map = new HashMap<String,Object>();
 
@@ -38,7 +38,7 @@ public class TestController {
         //请求参数
         String params = "appid=" + wxspAppid + "&secret=" + wxspSecret + "&js_code=" + code + "&grant_type=" + grant_type;
         //发送请求
-        String sr = HttpRequest.sendGet("https://api.weixin.qq.com/sns/jscode2session", params);
+        String sr = HttpRequest.sendPost("https://api.weixin.qq.com/sns/jscode2session", params);
         //解析相应内容（转换成json对象）
         JSONObject json = JSONObject.parseObject(sr);
         //获取会话密钥（session_key）
