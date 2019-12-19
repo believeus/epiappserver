@@ -224,11 +224,7 @@
             <artifactId>bcprov-jdk15on</artifactId>
             <version>1.55</version>
         </dependency>
-        <dependency>
-            <groupId>commons-codec-1.9</groupId>
-            <artifactId>commons-codec-1.9</artifactId>
-            <version>1.9</version>
-        </dependency>
+
     </dependencies>
 
 
