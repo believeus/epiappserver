@@ -44,7 +44,7 @@ public class WxQuesController {
         //解析相应内容（转换成json对象）
         JSONObject json = JSONObject.parseObject(sr);
         //获取会话密钥（session_key）
-        String session_key = json.get("session_key").toString();
+//        String session_key = json.get("session_key").toString();
         //用户的唯一标识（openid）
         String openid = (String) json.get("openid");
         System.out.println("openid:" + openid);
