@@ -34,7 +34,7 @@ public interface UdataDao {
     @Select("select * from udata where naturally < biological and status='finished' limit 0,50")
     public List<Udata> findNtrLtBio();
 
-    @Select("select * from udata limit #{idx},#{sz} order by desc id")
+    @Select("select * from udata order by id  desc limit #{idx},#{sz} ")
     public List<Udata> findAll(@Param("idx") int idx, @Param("sz") int sz);
 
     @Delete("delete  from udata where ${k}=#{v}")
