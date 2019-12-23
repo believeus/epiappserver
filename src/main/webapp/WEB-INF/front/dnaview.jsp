@@ -376,7 +376,7 @@
                         <div style="height: 30%;text-align: center">Your /Chronological Age/</div>
                         <div style="width: 100%;height: 12px"></div>
                         <div style="height: 30%;text-align: center;color: #439e9d;font-size: 34px;font-weight: bold">
-                            34.6
+                            ${data.naturally}
                         </div>
                     </div>
                     <div style="width: 33%;height: 159px; float: left">
@@ -390,7 +390,7 @@
                         <div style="height: 30%;text-align: center">Your /Biological Age/</div>
                         <div style="width: 100%;height: 12px"></div>
                         <div style="height: 30%;text-align: center;color: #f15929;font-size: 34px;font-weight: bold">
-                            31.6
+                            ${data.biological}
                         </div>
                     </div>
                 </div>
