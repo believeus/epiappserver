@@ -55,22 +55,8 @@
 		<tbody id="tody">
 			<c:forEach items="${databox}" var="task">
 				<tr  class="text-c">
-					<c:choose>
-						<c:when test="${task.naturally eq 0.0}">
-							<td><input name="naturally" data-id="${task.id}" value="NA (non-available)" style="border: none" readonly="readonly"></td>
-						</c:when>
-						<c:otherwise>
-							<td><input name="naturally" data-id="${task.id}" value="${task.naturally}" style="border: none" readonly="readonly"></td>
-						</c:otherwise>
-					</c:choose>
-					<c:choose>
-						<c:when test="${task.naturally eq 0.0}">
-							<td><input name="biological" data-id="${task.id}" value="NA (non-available)" style="border: none" readonly="readonly"></td>
-						</c:when>
-						<c:otherwise>
-							<td><input name="biological" data-id="${task.id}" value="${task.biological}" style="border: none" readonly="readonly"></td>
-						</c:otherwise>
-					</c:choose>
+					<td><input name="naturally" data-id="${task.id}" value="${task.naturally}" style="border: none" readonly="readonly"></td>
+					<td><input name="biological" data-id="${task.id}" value="${task.biological}" style="border: none" readonly="readonly"></td>
 					<td>${task.barcode}</td>
 					<td>
 						<select  data-id="${task.id}">
@@ -126,18 +112,18 @@
 						var na="NA (non-available)"
 						for (var i = 0; i < udata.length; i++) {
 							html+="<tr class='text-c'>";
-							// html+="<td><input name='naturally' style='border: none' value='\""+udata[i].naturally+"\' readonly=\"readonly\"> "+"</td>";
-							// html+="<td><input name='biological' style='border: none' value='\""+udata[i].biological+"\' readonly=\"readonly\"> "+"</td>";
-                            if (udata[i].naturally>0.0) {
-                                html+="<td><input name='naturally' style='border: none' value='\""+udata[i].naturally+"\' readonly=\"readonly\"> "+"</td>";
-                            }else {
-                                html+="<td><input name='naturally' style='border: none' value='\""+na+"\' readonly=\"readonly\"> "+"</td>";
-                            }
-                            if (udata[i].biological>0.0) {
-                                html+="<td><input name='naturally' style='border: none' value='\""+udata[i].biological+"\' readonly=\"readonly\"> "+"</td>";
-                            }else {
-                                html+="<td><input name='naturally' style='border: none' value='\""+na+"\' readonly=\"readonly\"> "+"</td>";
-                            }
+							html+="<td><input name='naturally' style='border: none' value='\""+udata[i].naturally+"\' readonly=\"readonly\"> "+"</td>";
+							html+="<td><input name='biological' style='border: none' value='\""+udata[i].biological+"\' readonly=\"readonly\"> "+"</td>";
+                            // if (udata[i].naturally>0.0) {
+                            //     html+="<td><input name='naturally' style='border: none' value='\""+udata[i].naturally+"\' readonly=\"readonly\"> "+"</td>";
+                            // }else {
+                            //     html+="<td><input name='naturally' style='border: none' value='\""+na+"\' readonly=\"readonly\"> "+"</td>";
+                            // }
+                            // if (udata[i].biological>0.0) {
+                            //     html+="<td><input name='naturally' style='border: none' value='\""+udata[i].biological+"\' readonly=\"readonly\"> "+"</td>";
+                            // }else {
+                            //     html+="<td><input name='naturally' style='border: none' value='\""+na+"\' readonly=\"readonly\"> "+"</td>";
+                            // }
 							html+="<td>"+udata[i].barcode+"</td>";
 							html+="<td>";
 							html+="<select data-id=\""+udata[i].id+"\">";
