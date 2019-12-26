@@ -84,7 +84,7 @@
                 <li>年龄: <input type="number" name="age"
                                onkeyup="this.value=this.value.replace(/\D/g,'')"></li>
                 <hr>
-                <li style="height:56px;"><span style="height: 67px">住址:</span> <input type="text">
+                <li style="height:56px;"><span style="height: 67px">住址:</span> <input type="text" name="address">
                 </li>
                 <hr>
                 <li>家庭电话: <input type="text" name="mobile"
@@ -193,7 +193,7 @@
                                 <input name="abuslife" type="radio" value="no">无
                             </div>
                             <div>
-                                <h3>如有, 请选择</h3>
+                                <h3 style="line-height: 40px">如有, 请选择:</h3>
                                 <input name="have-abuslife" type="radio" value="devoiced">离婚
                                 <input name="have-abuslife" type="radio" value="widow">配偶死亡
                                 <input name="have-abuslife" type="radio" value="fam-meb-dead">一级亲属死亡
@@ -358,9 +358,9 @@
                         <div>
                             <h3>4 饮酒情况:</h3>
                             <div>
-                                <input type="radio" name='beer' value="yes"/>
+                                <input type="radio" name='beers' value="yes"/>
                                 <label>A.是 </label>
-                                <input type="radio" name='beer' value="no"/>
+                                <input type="radio" name='beers' value="no"/>
                                 <label>B.否</label>
                             </div>
                             <div style="height: 12px;width: 100%"></div>
@@ -438,7 +438,7 @@
                         </div>
 
                         <div>
-                            <h3>6.饮食习惯（指近5年）</h3>
+                            <h3 style="line-height: 40px">6.饮食习惯（指近5年）</h3>
                             <table border="1" width="100%" style="text-align: center;">
                                 <tr>
                                     <th>食物名称</th>
@@ -451,38 +451,38 @@
                                 <tr>
                                     <td style="width: 20%">新鲜蔬菜</td>
 
-                                    <td style="width: 19.5%"><input type="number"></td>
-                                    <td style="width: 19.5%"><input type="number"></td>
-                                    <td style="width: 19.5%"><input type="number"></td>
-                                    <td style="width: 19.5%"><input type="number"></td>
+                                    <td style="width: 19.5%"><input type="text" name="vegetable1"></td>
+                                    <td style="width: 19.5%"><input type="text" name="vegetable2"></td>
+                                    <td style="width: 19.5%"><input type="text" name="vegetable3"></td>
+                                    <td style="width: 19.5%"><input type="text" name="vegetable4"></td>
                                 </tr>
                                 <tr>
                                     <td style="width: 19.5%">新鲜水果</td>
-                                    <td style="width: 19.5%"><input type="number"></td>
-                                    <td style="width: 19.5%"><input type="number"></td>
-                                    <td style="width: 19.5%"><input type="number"></td>
-                                    <td style="width: 19.5%"><input type="number"></td>
+                                    <td style="width: 19.5%"><input type="text" name="fruit1"></td>
+                                    <td style="width: 19.5%"><input type="text" name="fruit1"></td>
+                                    <td style="width: 19.5%"><input type="text" name="fruit1"></td>
+                                    <td style="width: 19.5%"><input type="text" name="fruit1"></td>
                                 </tr>
                                 <tr>
                                     <td style="width: 20%">肉蛋奶类</td>
-                                    <td style="width: 20%"><input type="number"></td>
-                                    <td style="width: 20%"><input type="number"></td>
-                                    <td style="width: 20%"><input type="number"></td>
-                                    <td style="width: 20%"><input type="number"></td>
+                                    <td style="width: 20%"><input type="text" name="aggm1"></td>
+                                    <td style="width: 20%"><input type="text" name="aggm2"></td>
+                                    <td style="width: 20%"><input type="text" name="aggm3"></td>
+                                    <td style="width: 20%"><input type="text" name="aggm4"></td>
                                 </tr>
                                 <tr>
                                     <td style="width: 20%">腌制食品</td>
-                                    <td style="width: 20%"><input type="number"></td>
-                                    <td style="width: 20%"><input type="number"></td>
-                                    <td style="width: 20%"><input type="number"></td>
-                                    <td style="width: 20%"><input type="number"></td>
+                                    <td style="width: 20%"><input type="text" name="pickled1"></td>
+                                    <td style="width: 20%"><input type="text" name="pickled2"></td>
+                                    <td style="width: 20%"><input type="text" name="pickled3"></td>
+                                    <td style="width: 20%"><input type="text" name="pickled4"></td>
                                 </tr>
                                 <tr>
                                     <td style="width: 20%">油炸熏制品</td>
-                                    <td style="width: 20%"><input type="number"></td>
-                                    <td style="width: 20%"><input type="number"></td>
-                                    <td style="width: 20%"><input type="number"></td>
-                                    <td style="width: 20%"><input type="number"></td>
+                                    <td style="width: 20%"><input type="text" name="fried1"></td>
+                                    <td style="width: 20%"><input type="text" name="fried1"></td>
+                                    <td style="width: 20%"><input type="text" name="fried1"></td>
+                                    <td style="width: 20%"><input type="text" name="fried1"></td>
 
                                 </tr>
                             </table>
@@ -507,28 +507,28 @@
                                 </tr>
                                 <tr>
                                     <td>慢性结肠炎</td>
-                                    <td><input type="text" style="width: 100%" value=""></td>
-                                    <td><input type="number" style="width: 70%" value="">岁</td>
+                                    <td><input type="text" style="width: 100%" value="" name="colitis"></td>
+                                    <td><input type="number" style="width: 70%" value="" name="colitis-age1">岁</td>
                                 </tr>
                                 <tr>
                                     <td>慢性溃疡性结肠炎</td>
-                                    <td><input type="text" style="width: 100%" value=""></td>
-                                    <td><input type="number" style="width: 70%" value="">岁</td>
+                                    <td><input type="text" style="width: 100%" value="" name="ulcer"></td>
+                                    <td><input type="number" style="width: 70%" value="" name="ulcer-age1">岁</td>
                                 </tr>
                                 <tr>
                                     <td>肠息肉</td>
-                                    <td><input type="text" style="width: 100%" value=""></td>
-                                    <td><input type="number" style="width: 70%" value="">岁</td>
+                                    <td><input type="text" style="width: 100%" value="" name="polyps"></td>
+                                    <td><input type="number" style="width: 70%" value="" name="polyps-age1">岁</td>
                                 </tr>
                                 <tr>
                                     <td>慢性阑尾炎</td>
-                                    <td><input type="text" style="width: 100%" value=""></td>
-                                    <td><input type="number" style="width: 70%" value="">岁</td>
+                                    <td><input type="text" style="width: 100%" value="" name="appendicitis"></td>
+                                    <td><input type="number" style="width: 70%" value="" name="appendicitis-age">岁</td>
                                 </tr>
                                 <tr>
                                     <td>其他（请注明）</td>
-                                    <td><input type="text" style="width: 100%" value=""></td>
-                                    <td><input type="number" style="width: 70%" value="">岁</td>
+                                    <td><input type="text" style="width: 100%" value="" name="order"></td>
+                                    <td><input type="number" style="width: 70%" value="" name="order-age1">岁</td>
                                 </tr>
                             </table>
 
@@ -546,37 +546,36 @@
                             </div>
                             <hr>
                             <table border="1">
-                                <tr>
+                                <tr style="text-align: center">
                                     <th>亲属关系</th>
                                     <th>肿瘤名称</th>
                                     <th>人数</th>
                                 </tr>
                                 <tr>
-                                    <td><input type="text"></td>
-                                    <td><input type="text"></td>
-                                    <td><input type="number"></td>
+                                    <td><input type="text" name="relatives1"></td>
+                                    <td><input type="text" name="tname1"></td>
+                                    <td><input type="number" name="tpeople1"></td>
                                 </tr>
                                 <tr>
-                                    <td><input type="text"></td>
-                                    <td><input type="text"></td>
-                                    <td><input type="number"></td>
+                                    <td><input type="text" name="relatives1"></td>
+                                    <td><input type="text" name="tname1"></td>
+                                    <td><input type="number" name="tpeople1"></td>
                                 </tr>
                                 <tr>
-                                    <td><input type="text"></td>
-                                    <td><input type="text"></td>
-                                    <td><input type="number"></td>
+                                    <td><input type="text" name="relatives1"></td>
+                                    <td><input type="text" name="tname1"></td>
+                                    <td><input type="number" name="tpeople1"></td>
                                 </tr>
                                 <tr>
-                                    <td><input type="text"></td>
-                                    <td><input type="text"></td>
-                                    <td><input type="number"></td>
-
+                                    <td><input type="text" name="relatives1"></td>
+                                    <td><input type="text" name="tname1"></td>
+                                    <td><input type="number" name="tpeople1"></td>
                                 </tr>
                             </table>
                             <div style="width: 100%;height: 23px"></div>
                             <div>
                                 <h3>体格检查结果：</h3>
-                                <input type="text" style="width: 100%;height: 50px">
+                                <input type="text" style="width: 100%;height: 50px" name="cresult">
                             </div>
                             <table border="1" width="100%" style="text-align: center">
                                 <tr>
@@ -586,10 +585,10 @@
                                     <th>血压</th>
                                 </tr>
                                 <tr>
-                                    <td style="width: 24%"><input type="text"></td>
-                                    <td style="width: 24%"><input type="text"></td>
-                                    <td style="width: 24%"><input type="text"></td>
-                                    <td style="width: 24%"><input type="text"></td>
+                                    <td style="width: 24%"><input type="text" name="hght"></td>
+                                    <td style="width: 24%"><input type="text" name="wght"></td>
+                                    <td style="width: 24%"><input type="text" name="pse"></td>
+                                    <td style="width: 24%"><input type="text" name="hg"></td>
 
                                 </tr>
                             </table>
@@ -611,9 +610,9 @@
                                     首先询问调查对象现在家里有几口人，填写在相应空格内。每一空格填写一个数字，人口不足10人的，第一个空格用“0”补齐；然后询问全家年收入，填写在相应空格内，每一空格填写一个数字。
                                     <p>填写示例如下：</p>
                                     <p style="display: flex;line-height: 30px">
-                                        <input type="number" style="width: 20%" value="">
+                                        <input type="number" style="width: 20%" value="" name="cname">
                                         <label>/人</label>
-                                        <input type="text" style="width: 40%" value="">
+                                        <input type="text" style="width: 40%" value="" name="cyear">
                                         <label>/元年</label>
                                     </p>
                                 </div>
@@ -625,13 +624,10 @@
                                 <div>
                                     <p>6.家族史：</p>
                                     <p>家中有无肿瘤患者:</p>
-                                    <p>
-                                        <input type="radio" name="tof" value="">
-                                        <label>A.否</label>
-                                        <input type="radio" name="tof" value="">
-                                        <label>B.有</label>
-                                    </p>
-
+                                    <input type="radio" name="tof1" value="">
+                                    <label>A.否</label>
+                                    <input type="radio" name="tof1" value="">
+                                    <label>B.有</label>
                                 </div>
                             </div>
                         </div>
@@ -641,7 +637,6 @@
                 </li>
                 <li class="li_list">
                     <div id="third">
-                        <%--早期预防问卷--%>
                         <div style="height: 12px;background-color: #efefef"></div>
 
                         <h2>说明：请选择相应的栏目或填写内容</h2>
@@ -656,9 +651,9 @@
                                     <input type="checkbox" name='nor-cancer2'/>
                                     <label>B.结、直肠癌</label>
                                     <input type="checkbox" name="nor-cancer3">
-                                    <label>C.乳腺癌、宫颈癌</label>
+                                    <label>C.乳腺癌</label>
                                     <input type="checkbox" name="nor-cancer4">
-                                    <label>D.乳腺癌、宫颈癌</label>
+                                    <label>D.宫颈癌</label>
                                 </div>
                             </div>
                             <hr>
@@ -718,7 +713,7 @@
                                 </div>
                                 <p>
                                     <label>其他（请注明）</label>
-                                    <input>
+                                    <input type="text" name="order-goto">
                                 </p>
                             </div>
                             <hr>
@@ -868,9 +863,9 @@
                                 <h3>2.10 经常饮用不洁水容易得大肠癌吗?</h3>
                                 <div>
                                     <input id="water1" type="radio" name='water'/>
-                                    <label for="better1">A.能 </label>
+                                    <label for="better1">A.容易 </label>
                                     <input id="water2" type="radio" name='water'/>
-                                    <label for="better2">B.不能</label>
+                                    <label for="better2">B.不容易</label>
                                 </div>
                             </div>
                             <hr>
@@ -883,8 +878,9 @@
                                     <label for="blood2">B.不会</label>
                                 </div>
                             </div>
+                            <hr>
                             <div>
-                                <p>2.12 您知道家属中有大肠腺瘤病（息肉）或大肠癌的人应积极参加普查吗?</p>
+                                <h3>2.12 您知道家属中有大肠腺瘤病（息肉）或大肠癌的人应积极参加普查吗?</h3>
                                 <div>
                                     <input id="family1" type="radio" name='family'/>
                                     <label for="family1">A.知道 </label>
@@ -913,9 +909,9 @@
                                     首先询问调查对象现在家里有几口人，填写在相应空格内。每一空格填写一个数字，人口不足10人的，第一个空格用“0”补齐；然后询问全家年收入，填写在相应空格内，每一空格填写一个数字。
                                     <p>填写示例如下：</p>
                                     <p style="display: flex;line-height: 30px">
-                                        <input type="number" style="width: 20%" value="">
+                                        <input type="number" style="width: 20%" value="" name="cname">
                                         <label>/人</label>
-                                        <input type="text" style="width: 40%" value="">
+                                        <input type="text" style="width: 40%" value="" name="cyear">
                                         <label>/元年</label>
                                     </p>
                                 </div>
@@ -927,13 +923,10 @@
                                 <div>
                                     <p>6.家族史：</p>
                                     <p>家中有无肿瘤患者:</p>
-                                    <p>
                                         <input type="radio" name="tof" value="">
                                         <label>A.否</label>
                                         <input type="radio" name="tof" value="">
                                         <label>B.有</label>
-                                    </p>
-
                                 </div>
                             </div>
                         </div>
@@ -951,11 +944,11 @@
     // })
     var submit = function () {
         var html = "<html>" + $("html").html() + "</html>";
-        console.info(html)
+        console.info(html);
         var url = "/question/update";
-        var data={}
-        data.uuid="#openid"
-        data.comtab=html
+        var data={};
+        data.uuid="o1Ud45LWucE7fRQmRAeXPIj043eY";
+        data.comtab=html;
         $.post(url,data, function (data) {
             if(data=="success"){
                 window.alert("您的信息已提交！")

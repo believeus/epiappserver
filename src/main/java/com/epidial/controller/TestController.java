@@ -5,9 +5,7 @@ import com.epidial.bean.Questionnaire;
 import com.epidial.bean.User;
 import com.epidial.dao.epi.QuestionnaireDao;
 import com.epidial.dao.epi.UserDao;
-import com.epidial.utils.AesUtil;
 import org.apache.commons.io.FileUtils;
-import org.apache.http.HttpResponse;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,7 +28,8 @@ public class TestController {
     @RequestMapping(value = "/user/getopenid", method = RequestMethod.POST)
     public Map getOpenid(String code, String encryptedData, String iv ){
         Map<String,Object> map = new HashMap<String,Object>();
-
+        System.out.println("encryptedData:"+encryptedData);
+        System.out.println("iv:"+iv);
         //登录凭证不能为空
         if (code == null || code.length() == 0) {
             map.put("status", 0);
@@ -54,7 +53,7 @@ public class TestController {
         //解析相应内容（转换成json对象）
         JSONObject json = JSONObject.parseObject(sr);
         //获取会话密钥（session_key）
-        String session_key = json.get("session_key").toString();
+       // String session_key = json.get("session_key").toString();
         //用户的唯一标识（openid）
         String openid = (String) json.get("openid");
         System.out.println("openid:" + openid);
@@ -84,16 +83,10 @@ public class TestController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-       //2、对encryptedData加密数据进行AES解密
         try {
-            String result = AesUtil.decrypt(encryptedData, session_key, iv, "UTF-8");
-            if (null != result && result.length() > 0) {
+            if (null != openid && openid.length() > 0) {
                 map.put("status", 1);
                 map.put("msg", "解密成功");
-//                JSONObject userInfoJSON = JSONObject.parseObject(result);
-//                Map<String,Object> userInfo = new HashMap<String,Object>();
-//                userInfo.put("openId", userInfoJSON.get("openId"));
-//                map.put("userInfo", userInfo);
                 map.put("openid",openid);
                 System.out.println("map2:" + map);
                 return map;

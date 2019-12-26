@@ -1,25 +1,15 @@
 package com.epidial.controller;
 
-import com.alibaba.fastjson.JSONObject;
 import com.epidial.bean.Questionnaire;
 import com.epidial.dao.epi.QuestionnaireDao;
-import com.epidial.utils.AesUtil;
-import com.epidial.utils.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import javax.mail.Session;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.util.HashMap;
-import java.util.Map;
 
 
 @Controller
@@ -49,5 +39,12 @@ public class QuesController {
         return "success";
     }
 
+//
+//    @RequestMapping("index/ques1")
+//    public ModelAndView ques(){
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.setViewName("/WEB-INF/front/ques1.jsp");
+//        return modelAndView;
+//    }
 }
 
