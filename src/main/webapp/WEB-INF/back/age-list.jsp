@@ -64,17 +64,17 @@
 								<c:when test="${task.status eq 'pending'}">
 									<option data-id="${task.id}" selected="selected" value="pending" >pending</option>
 									<option  data-id="${task.id}"  value="processing">processing</option>
-									<option  data-id="${task.id}"  value="finished">finished</option>
+									<option  data-id="${task.id}"  value="ready">ready</option>
 								</c:when>
 								<c:when test="${task.status eq 'processing'}">
 									<option data-id="${task.id}"  value="pending" >pending</option>
 									<option  data-id="${task.id}" selected="selected"  value="processing">processing</option>
-									<option  data-id="${task.id}"  value="finished">finished</option>
+									<option  data-id="${task.id}"  value="ready">ready</option>
 								</c:when>
 								<c:otherwise>
 									<option data-id="${task.id}"  value="pending" >pending</option>
 									<option  data-id="${task.id}"   value="processing">processing</option>
-									<option  data-id="${task.id}" selected="selected"  value="finished">finished</option>
+									<option  data-id="${task.id}" selected="selected"  value="ready">ready</option>
 								</c:otherwise>
 							</c:choose>
 						</select>

@@ -69,6 +69,7 @@ public class ReportController {
     @ResponseBody
     @RequestMapping("/user/report/upbarcode")
     public Udata upbarcode(String barcode, String uuid) {
+        //如果AgeManager中已经存在
         Dnakit dnakit = dnakitDao.find("barcode", barcode);
         //直接输入barcode
         if (dnakit != null) {
@@ -81,7 +82,14 @@ public class ReportController {
         Udata data = udataDao.find("uuid", uuid, "barcode", barcode);
         return (data == null) ? new Udata("", "invalid") : data;
     }
-
+    @ResponseBody
+    @RequestMapping("/user/age/upmyage")
+    public String upmyage(String uuid,String barcode,double myage){
+        Udata udata = udataDao.find("uuid", uuid, "barcode", barcode);
+        udata.setNaturally(myage);
+        udataDao.update(udata);
+        return "success";
+    }
     @ResponseBody
     @RequestMapping("/user/report/{uuid}/{barcode}/buildPDF")
     public String buildPDF(@PathVariable("uuid") String uuid, @PathVariable("barcode") String barcode, HttpServletResponse response) {

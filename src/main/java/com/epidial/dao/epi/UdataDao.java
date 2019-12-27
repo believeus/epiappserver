@@ -28,10 +28,10 @@ public interface UdataDao {
     @Update("update udata set uuid=#{uuid},naturally=#{naturally},biological=#{biological},barcode=#{barcode},status=#{status},uploadTime=#{uploadTime} where id=#{id}")
     public void update(Udata data);
 
-    @Select("select * from udata where naturally > biological and status='finished' limit 0,50")
+    @Select("select * from udata where naturally > biological and biological > 0  and naturally >0 and status='finished' limit 0,50")
     public List<Udata> findNtrGtBio();
 
-    @Select("select * from udata where naturally < biological and status='finished' limit 0,50")
+    @Select("select * from udata where naturally < biological and biological > 0  and naturally >0  and status='finished' limit 0,50")
     public List<Udata> findNtrLtBio();
 
     @Select("select * from udata order by id  desc limit #{idx},#{sz} ")
