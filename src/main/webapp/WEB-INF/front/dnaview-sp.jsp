@@ -20,7 +20,7 @@
         <div style="position: absolute;">
             <img src="static/images/ques/rep1.png" style="width: 100%;height: 100%;">
         </div>
-        <div style="position: absolute;margin-left: 60%;margin-top: 20%;font-family: Arial;color: #0968aa;font-size: 18px">
+        <div style="position: absolute;margin-left: 55%;margin-top: 15%;font-family: Arial;color: #0968aa;font-size: 18px">
             <div>¿Cuantos años tienes?</div>
             <div style="color: #828181;font-size: 14px">¿Por qué es importante tu </div>
             <div> "Edad Epigenética"?</div>
@@ -112,7 +112,7 @@
         <div style="position: absolute;">
             <img src="static/images/ques/rep1.png" style="width: 100%;height: 100%;">
         </div>
-        <div style="position: absolute;margin-left: 60%;margin-top: 20%;font-family: Arial;color: #0968aa;font-size: 18px">
+        <div style="position: absolute;margin-left: 55%;margin-top: 15%;font-family: Arial;color: #0968aa;font-size: 18px">
             <div>¿Cuantos años tienes?</div>
             <div style="color: #828181;font-size: 14px">¿Por qué es importante tu </div>
             <div> "Edad Epigenética"?</div>
@@ -134,7 +134,7 @@
                 Nuestra edad biológica es un mejor parámetro de nuestra salud, bienestar y duración de vida que nuestra edad cronológica.
             </div>
         </div>
-        <div class="outer" style="clear: both;width: 100%; height: 88px">
+        <div class="outer" style="clear: both;width: 100%; height: 63px">
             <div class="circle-outer">
                 <div class="grey-circle"></div>
             </div>
@@ -167,7 +167,7 @@
                 Sin embargo, en algunas personas la 'edad epigenética' es diferente de la 'edad cronológica'. A veces, el 'reloj epigenético' se mueve más rápido que el 'reloj cronológico'. Consideramos una diferencia que es mayor que la desviación estándar (o la distribución normal en la población) como un cambio significativo.
             </div>
         </div>
-        <div class="outer" style="clear: both;width: 100%;height: 99px">
+        <div class="outer" style="clear: both;width: 100%;height: 123px">
             <div class="circle-outer">
                 <div class="grey-circle"></div>
             </div>
@@ -199,7 +199,7 @@
                 </div>
             </div>
 
-            <div class="outer" style="clear: both;width: 100%;height: 99px">
+            <div class="outer" style="clear: both;width: 100%;height: 112px">
                 <div class="circle-outer">
                     <div class="grey-circle"></div>
                 </div>
@@ -207,7 +207,7 @@
                     Preparamos el ADN de su saliva y luego medimos el nivel de metilación del ADN en varias posiciones en un fragmento de su genoma utilizando la secuenciación de la próxima generación y el mapeo de bisulfito. Sus estados de metilación del ADN se insertan en una ecuación matemática que calcula la 'edad epigenética' en función del nivel de metilación del ADN.
                 </div>
             </div>
-            <div class="outer" style="clear: both;width: 100%;height: 136px">
+            <div class="outer" style="clear: both;width: 100%;height: 156px">
                 <div class="circle-outer">
                     <div class="grey-circle"></div>
                 </div>
@@ -278,7 +278,7 @@
                 </div>
             </div>
             <div style="width: 100%; height: 189px">
-                <div class="outer" style="width: 60%;float: left; height: 189px">
+                <div class="outer" style="width: 60%;float: left; height: 234px">
                     <div class="circle-outer">
                         <div class="grey-circle"></div>
                     </div>
@@ -298,7 +298,7 @@
         <img src="static/images/ques/rep6.png" style="width: 100%;height: 100%">
     </div>
     <div style="width: 90%;margin: 0 auto;">
-        <div class="outer" style="clear: both; width: 100%; height: 77px">
+        <div class="outer" style="clear: both; width: 100%; height: 89px">
             <div class="circle-outer">
                 <div class="grey-circle"></div>
             </div>
