@@ -20,11 +20,11 @@
         <div style="position: absolute;">
             <img src="static/images/ques/rep1.png" style="width: 100%;height: 100%;">
         </div>
-        <div style="position: absolute;margin-left: 60%;margin-top: 20%;font-family: Arial;color: #0968aa;font-size: 18px">
-            <div>How old are you?</div>
-            <div style="color: #828181;font-size: 14px">Why is your</div>
-            <div>"Epigenetic Age"</div>
-            <div>important?</div>
+        <div style="position: absolute;margin-left: 55%;margin-top: 15%;font-family: Arial;color: #0968aa;font-size: 18px">
+            <div>Quantos anos você tem? </div>
+            <div style="color: #828181;font-size: 14px">Por que sua </div>
+            <div>"Era Epigenética"</div>
+            <div>é importante?</div>
         </div>
     </div>
     <div style="height: 34px;width: 100%;clear: both"></div>
@@ -38,7 +38,7 @@
                             <img src="static/images/ques/rep-cho.png" style="width: 100%;height: 100%">
                         </div>
                         <div style="width: 100%;height: 12px"></div>
-                        <div style="height: 30%;text-align: center">Your /Chronological Age/</div>
+                        <div style="height: 30%;text-align: center">Sua / Idade cronológica /</div>
                         <div style="width: 100%;height: 12px"></div>
                         <div style="height: 30%;text-align: center;color: #439e9d;font-size: 34px;font-weight: bold">
                             ${data.naturally}
@@ -52,7 +52,7 @@
                             <img src="static/images/ques/rep-bio.png" style="width: 100%;height: 100%">
                         </div>
                         <div style="width: 100%;height: 12px"></div>
-                        <div style="height: 30%;text-align: center">Your /Biological Age/</div>
+                        <div style="height: 30%;text-align: center">Sua /Idade biológica /</div>
                         <div style="width: 100%;height: 12px"></div>
                         <div style="height: 30%;text-align: center;color: #f15929;font-size: 34px;font-weight: bold">
                             ${data.biological}
@@ -64,7 +64,7 @@
                     <div style="width: 100%;">
                         <div style="width: 7%;float: left;margin-right: 2%"><img src="static/images/ques/smail.png"
                                                                                  style="width: 100%;height: 100%"></div>
-                        <div style="width: 91%;float: left">Your biological age is ${data.biological} years old</div>
+                        <div style="width: 91%;float: left">Sua idade biológica é de ${data.biological} anos</div>
                     </div>
                     <%-- <div style="width: 100%;clear: both">
                          <div style="width: 7%;float: left;margin-right: 2%"><img src="static/images/ques/sad.png"
@@ -85,25 +85,25 @@
         <div style="width: 100%;">
             <div style="width: 4%;float: left;padding-right: 2%;"><img src="static/images/ques/rep-green.png"
                                                     style="width: 100%;height: 100%"></div>
-            <div style="width: 91%;float: left">Your biological age is lower than your chronological age.</div>
+            <div style="width: 91%;float: left">Sua idade biológica é inferior à sua idade cronológica.</div>
             <div style="width: 100%;height:23px;clear: both"></div>
             <div style="width: 4%;float: left;padding-right: 2%;"><img src="static/images/ques/rep-red.png"
                                                     style="width: 100%;height: 100%"></div>
-            <div style="width: 91%;float: left">Your biological age is higher than your chronological age.</div>
+            <div style="width: 91%;float: left">Sua idade biológica é superior à sua idade cronológica.</div>
         </div>
         <div style="width: 100%;height:23px;clear: both"></div>
         <div style="width: 100%;">
             <div style="width: 6%;float: left">
                 <div style="width: 63%;height: 12px;border-radius: 30px;background-color: #008000"></div>
             </div>
-            <div style="width: 91%;float: left">People whose biological age is higher than chronological age</div>
+            <div style="width: 91%;float: left">Pessoas cuja idade biológica é superior à idade cronológica</div>
         </div>
         <div style="width: 100%;height: 23px;clear: both"></div>
         <div style="width: 100%;">
             <div style="width: 6%;float: left">
                 <div style="width: 63%;height: 12px;border-radius: 30px;background-color: #ff3333"></div>
             </div>
-            <div style="width: 91%;float: left">People whose Biological age is lower than Chronological age</div>
+            <div style="width: 91%;float: left">Pessoas cuja idade biológica é menor que a idade cronológica</div>
         </div>
     </div>
     <div style="width: 100%;height: 34px;clear: both"></div>
@@ -113,11 +113,11 @@
         <div style="position: absolute;">
             <img src="static/images/ques/rep1.png" style="width: 100%;height: 100%;">
         </div>
-        <div style="position: absolute;margin-left: 60%;margin-top: 20%;font-family: Arial;color: #0968aa;font-size: 18px">
-            <div>How old are you?</div>
-            <div style="color: #828181;font-size: 14px">Why is your</div>
-            <div>"Epigenetic Age"</div>
-            <div>important?</div>
+        <div style="position: absolute;margin-left: 55%;margin-top: 15%;font-family: Arial;color: #0968aa;font-size: 18px">
+            <div>Quantos anos você tem? </div>
+            <div style="color: #828181;font-size: 14px">Por que sua </div>
+            <div>"Era Epigenética"</div>
+            <div>é importante?</div>
         </div>
     </div>
     <div style="width: 90%;margin: 0 auto;">
@@ -125,8 +125,7 @@
             <div class="circle-outer">
                 <div class="grey-circle"></div>
             </div>
-            <div class="para">People age at different rates. Some “look” and “feel” older
-                than their chronological ages while other look younger than their chronological ages.
+            <div class="para">As pessoas envelhecem em taxas diferentes. Alguns \"parecem\" e \"parecem\" mais velhos que a idade cronológica, enquanto outros parecem mais jovens que a idade cronológica.
             </div>
         </div>
         <div class="outer" style="clear: both;width: 100%; height: 56px">
@@ -134,18 +133,15 @@
                 <div class="grey-circle"></div>
             </div>
             <div class="para">
-                Our biological ages are better parameters of our health well being and life span than our chronological
-                ages.
+                Nossa idade biológica é um parâmetro melhor de nossa saúde, bem-estar e expectativa de vida do que nossa idade cronológica.
             </div>
         </div>
-        <div class="outer" style="clear: both;width: 100%; height: 88px">
+        <div class="outer" style="clear: both;width: 100%; height: 62px">
             <div class="circle-outer">
                 <div class="grey-circle"></div>
             </div>
             <div class="para">
-                If we think about our cells as minicomputers, we can look at DNA as the hard ware,
-                genetics as the operating system and DNA methylation and other epigenetic factors
-                as the software that programs the genome.
+                O DNA é o hardware, a genética é o sistema operacional e a metilação do DNA e outros fatores epigenéticos são o software que programa o genoma.
             </div>
         </div>
         <div class="outer" style="clear: both;width: 100%; height: 99px">
@@ -153,10 +149,7 @@
                 <div class="grey-circle"></div>
             </div>
             <div class="para">
-                A paradigm shift in the search for biological age markers occurred with the discovery
-                of the “epigenetic clock” by Horvath, which is based on measurement of DNA methylation
-                status at hundreds of strategic positions in DNA. This “epigenetic clock” is a
-                measure of our biological ages.
+                Uma mudança de paradigma na busca de marcadores biológicos da idade ocorreu com a descoberta do \"relógio epigenético\" de Horvath, que se baseia na medição do status de metilação do DNA em centenas de posições estratégicas no DNA. Este 'relógio epigenético' é uma medida de nossas idades biológicas.
 
             </div>
         </div>
@@ -165,10 +158,7 @@
                 <div class="grey-circle"></div>
             </div>
             <div class="para">
-                In most people the“chronological age” measured by the epigenetic clock and the“chronological
-                age”measured by the calendar are very similar.
-                The correlation between the two measures across the population is close to 0.9 when 1 is a perfect
-                correlation.
+                Na maioria das pessoas, a 'idade epigenética' medida pelo relógio epigenético e a 'idade cronológica' medida pelo calendário são muito semelhantes. A correlação entre as duas medidas na população é próxima de 0,9 quando 1 é uma correlação perfeita.
             </div>
         </div>
         <div class="outer" style="clear: both;width: 100%;height: 99px">
@@ -176,21 +166,15 @@
                 <div class="grey-circle"></div>
             </div>
             <div class="para">
-                However in some people the “epigenetic age” is different from the “chronological
-                age”. Sometimes the “epigenetic clock” moves faster than the “chronological clock”.
-                We consider a difference that is larger than the standard deviation (or the normal
-                distribution in the population) as a significant change.
+                No entanto, em algumas pessoas, a \"idade epigenética\" é diferente da \"idade cronológica\". Às vezes, o 'relógio epigenético' se move mais rápido que o 'relógio cronológico'. Consideramos uma diferença maior que o desvio padrão (ou a distribuição normal na população) como uma mudança significativa.
             </div>
         </div>
-        <div class="outer" style="clear: both;width: 100%;height: 99px">
+        <div class="outer" style="clear: both;width: 100%;height: 123px">
             <div class="circle-outer">
                 <div class="grey-circle"></div>
             </div>
             <div class="para">
-                Studies suggest that accelerated “epigenetic clock” might be associated with
-                increased risks for several age-related chronic diseases such as cardiovascular
-                disease and cancer. ( https://www.ncbi.nlm.nih.gov/pubmed/?term=epigenetic+-clock+disease
-                ). This is however still an open field and more studies are needed.
+                Estudos sugerem que o “relógio epigenético” acelerado pode estar associado a um risco aumentado para várias doenças crônicas relacionadas à idade, como doenças cardiovasculares e câncer, mais tarde. (link: https://www.ncbi.nlm.nih.gov/pubmed/?term=epigenetic+clock+disease). No entanto, este ainda é um campo aberto e são necessários mais estudos.
             </div>
         </div>
     </div>
@@ -200,17 +184,15 @@
         <div style="width: 90%;margin: 0 auto;">
             <div style="width: 100%;clear: both;height: 166px">
                 <div style="width: 65%;float: left">
-                    What is the <span style="font-size: 22px;color: #1b6fae;">epiAging Test?</span><br> <span
-                        style="color: #1b6fae;"> What does it mean?</span>
+                    O que é o<span style="font-size: 22px;color: #1b6fae;">teste epiAging</span><br> <span
+                        style="color: #1b6fae;"> O que isso significa?</span>
                     <div style="height: 23px;width: 100%"></div>
                     <div class="outer" style="clear: both;width: 100%;height: 99px">
                         <div class="circle-outer">
                             <div class="grey-circle" style="height:45%;width: 67%;"></div>
                         </div>
                         <div class="para">
-                            After extensive data mining, we have discovered a single
-                            age-related CG methylation region that was sufficient to
-                            accurately predict biological age using saliva.
+                            Após extensa mineração de dados, descobrimos uma única região de metilação por CG relacionada à idade que era suficiente para prever com precisão a idade biológica usando saliva.
                         </div>
                     </div>
                 </div>
@@ -219,41 +201,28 @@
                 </div>
             </div>
 
-            <div class="outer" style="clear: both;width: 100%;height: 99px">
+            <div class="outer" style="clear: both;width: 100%;height: 114px">
                 <div class="circle-outer">
                     <div class="grey-circle"></div>
                 </div>
                 <div class="para">
-                    We prepare DNA from your saliva and then measure the level of DNA methylation in
-                    several positions in a fragment of your genome using next generation sequencing
-                    and bisulfite mapping. Your states of DNA methylation are inserted into a mathematical
-                    equation that calculates the “epigenetic age” as a function of the level of DNA
-                    methylation.
+                    Preparamos o DNA da sua saliva e medimos o nível de metilação do DNA em várias posições em um fragmento do seu genoma, usando o sequenciamento de próxima geração e o mapeamento de bissulfito. Seus estados de metilação do DNA são inseridos em uma equação matemática que calcula a 'idade epigenética' em função do nível de metilação do DNA.
                 </div>
             </div>
-            <div class="outer" style="clear: both;width: 100%;height: 136px">
+            <div class="outer" style="clear: both;width: 100%;height: 167px">
                 <div class="circle-outer">
                     <div class="grey-circle"></div>
                 </div>
                 <div class="para">
-                    We consider it as a “red flag” when your “epigenetic age” deviates from your
-                    “chronological age” by one standard deviation. Standard deviation provides an idea
-                    about the distribution of difference from the mean in the normal population, which
-                    at this point of analysis is around 5 years. At this stage, if your “epigenetic age” is 5
-                    years older than your “chronological age” you might consider the result as a “red
-                    flag”. As more tests are accumulated we will get a more accurate value of the
-                    “normal distribution”.
+                    Consideramos isso como uma \"bandeira vermelha\" quando sua \"idade epigenética\" se desvia da sua \"idade cronológica\" em um desvio padrão. O desvio padrão fornece uma idéia sobre a distribuição da diferença em relação à média na população normal, que neste momento da análise é de 5 anos. Nesse estágio, se a sua 'idade epigenética' for 5 anos mais antiga que a sua 'idade cronológica', considere o resultado como uma 'bandeira vermelha'. À medida que mais testes são acumulados, obteremos um número mais preciso da 'distribuição normal'.
                 </div>
             </div>
-            <div class="outer" style="clear: both;width: 100%;height: 99px">
+            <div class="outer" style="clear: both;width: 100%;height: 112px">
                 <div class="circle-outer">
                     <div class="grey-circle"></div>
                 </div>
                 <div class="para">
-                    Although it is still not clear how one can decelerate his “epigenetic clock”, lifestyle
-                    changes recommended by most national medical associations are perhaps a starting
-                    point. An older “epigenetic age” is a “red flag” which hints that it is time to make
-                    some lifestyle changes.
+                    Embora ainda não esteja claro como se pode desacelerar seu \"relógio epigenético\", as mudanças no estilo de vida recomendadas pela maioria das associações médicas nacionais talvez sejam um ponto de partida. Uma idade avançada é uma “bandeira vermelha” e não mais que sugere que talvez seja hora de fazer algumas mudanças no estilo de vida.
                 </div>
             </div>
             <div style="width: 100%;height: auto">
@@ -262,8 +231,7 @@
                         <div class="grey-circle" style="height:45%;width: 67%;"></div>
                     </div>
                     <div class="para">
-                        A red "flag" might prompt you to act on your lifestyle or consult your physician for a
-                        check up.
+                        Uma 'bandeira vermelha' pode levar você a agir de acordo com seu estilo de vida ou consultar seu médico para um check-up.
                     </div>
                 </div>
                 <div style="width: 35%;float: right">
@@ -280,8 +248,8 @@
                 <div style="width: 35%;float: left"><img src="static/images/ques/rep4.png"
                                                          style="width: 100%;height: 100%"></div>
                 <div style="width: 60%;margin-left: 5%; float: left">
-                    What can i do if my <span
-                        style="font-size: 22px;color: #1b6fae;">"epigenetic Age is Older"</span>
+                    O que posso fazer se minha idade  <span
+                        style="font-size: 22px;color: #1b6fae;">epigenética 'for mais antiga?</span>
                     <div style="height: 23px;width: 100%"></div>
 
                 </div>
@@ -292,9 +260,7 @@
                     <div class="grey-circle"></div>
                 </div>
                 <div class="para">
-                    "Epigenetics" is different from "genetics" in a
-                    substantial way that epigenetics is potentially reversible by dietary interventions and life
-                    style changes. So, it might be possible to reverse the“epigenetic clock”.
+                    'Epigenética' é diferente de 'genética', de maneira substancial que a epigenética é potencialmente reversível por intervenções alimentares e mudanças no estilo de vida. Portanto, pode ser possível reverter o \"relógio epigenético\".
                 </div>
             </div>
             <div class="outer" style="clear: both;width: 100%;height: 99px">
@@ -302,9 +268,7 @@
                     <div class="grey-circle"></div>
                 </div>
                 <div class="para">
-                    Preliminary studies show that dietary changes can cause deceleration of epigenetic
-                    clock in certain people, however this is still an open question.
-                    ( https://www.ncbi.nlm.nih.gov/pubmed/30350398)
+                    Estudos preliminares mostram que mudanças na dieta podem causar desaceleração do relógio epigenético em certas pessoas, porém essa ainda é uma questão em aberto. (https://www.ncbi.nlm.nih.gov/pubmed/30350398)
                 </div>
             </div>
             <div class="outer" style="clear: both;width: 100%;height: 99px">
@@ -312,24 +276,16 @@
                     <div class="grey-circle"></div>
                 </div>
                 <div class="para">
-                    Lifestyle changes including exercise and dietary habits have been recommended by
-                    national medical associations for some time, however, we need more data about the
-                    most advisable changes and they should be personalized.
+                    As mudanças no estilo de vida, incluindo exercícios e hábitos alimentares, são recomendadas pelas associações médicas nacionais há algum tempo; no entanto, precisamos de mais dados sobre as mudanças mais recomendáveis ​​e elas devem ser personalizadas.
                 </div>
             </div>
-            <div style="width: 100%; height: 189px">
-                <div class="outer" style="width: 60%;float: left; height: 189px">
+            <div style="width: 100%; height: 223px">
+                <div class="outer" style="width: 60%;float: left; height: 223px">
                     <div class="circle-outer">
                         <div class="grey-circle"></div>
                     </div>
                     <div class="para">
-                        A way for us to learn about advisable
-                        lifestyle changes is sharing our experiences
-                        with others and analyzing the impact of
-                        differences in lifestyle in a large population.
-                        This is now possible using sharing technologies such as Apps as well as artificial
-                        intelligence that could determine how different
-                        inputs such as “lifestyle” habits affect an outcome--the “epigenetic clock”.
+                        Uma maneira de aprender sobre mudanças de estilo de vida recomendáveis ​​é compartilhar nossas experiências com outras pessoas e analisar o impacto das diferenças no estilo de vida em uma grande população. Agora é possível usar tecnologias de compartilhamento como o Apps e inteligência artificial que podem determinar como diferentes entradas, como hábitos de 'estilo de vida', afetam um resultado - o 'relógio epigenético'.
                     </div>
                 </div>
                 <div style="width: 40%;float: left">
@@ -344,30 +300,21 @@
         <img src="static/images/ques/rep6.png" style="width: 100%;height: 100%">
     </div>
     <div style="width: 90%;margin: 0 auto;">
-        <div class="outer" style="clear: both; width: 100%; height: 77px">
+        <div class="outer" style="clear: both; width: 100%; height: 89px">
             <div class="circle-outer">
                 <div class="grey-circle"></div>
             </div>
             <div class="para">
-                Our App links you to information on recommended lifestyle behaviors by important
-                US national medical association as well as possible nutritional supplements such as
-                SAMe, vitamin A, D and C.
+                Nosso aplicativo conecta você a informações sobre comportamentos recomendados no estilo de vida de importantes associações médicas nacionais dos EUA, bem como a possíveis suplementos nutricionais, como SAMe, vitamina A, D e C.
             </div>
         </div>
-        <div class="outer" style="clear: both;width: 100%; height: 56px">
-            <div class="circle-outer">
-                <div class="grey-circle"></div>
-            </div>
-        </div>
+
         <div class="outer" style="clear: both;width: 100%; height: 88px">
             <div class="circle-outer">
                 <div class="grey-circle"></div>
             </div>
             <div class="para">
-                These links are updated regularly and we suggest that you keep updating by examining the links
-                periodically. These recommendations are based on what “science”
-                knows today, they are not perfect. With more data and more analysis science is
-                improving.
+                Esses links são atualizados regularmente e sugerimos que você continue atualizando examinando os links periodicamente. Essas recomendações são baseadas no que a “ciência” sabe hoje, elas não são perfeitas. Com mais dados e mais análises, a ciência está melhorando.
             </div>
         </div>
         <div class="outer" style="clear: both;width: 100%; height: 99px">
@@ -375,9 +322,7 @@
                 <div class="grey-circle"></div>
             </div>
             <div class="para">
-                Our first report is based on the lifestyle data that you have entered which shows how
-                far your lifestyle parameters deviate from consensus recommendations. You might
-                decide to make changes based on this first report.
+                Nosso primeiro relatório é baseado nos dados de estilo de vida que você inseriu, que mostram até que ponto seus parâmetros de estilo de vida se desviam das recomendações de consenso. Você pode decidir fazer alterações com base neste relatório.
 
             </div>
         </div>
@@ -388,18 +333,15 @@
         <img src="static/images/ques/rep7.png" style="width: 100%;height: 100%">
     </div>
     <div style="width: 90%;margin: 0 auto;">
-        <div style="width: 80%;height: 88px; margin: 0 auto;text-align: center">A dynamic long-term partnership to
-            achive <span style="color: #1b6fae;font-size: 22px">“Healthy Aging”</span>
+        <div style="width: 80%;height: 88px; margin: 0 auto;text-align: center">Uma parceria dinâmica de longo prazo para <span style="color: #1b6fae;font-size: 22px">alcançar o 'envelhecimento saudável'</span>
         </div>
 
-        <div class="outer" style="clear: both; width: 100%; height:88px">
+        <div class="outer" style="clear: both; width: 100%; height:107px">
             <div class="circle-outer">
                 <div class="grey-circle"></div>
             </div>
             <div class="para">
-                You will update your life style data as regularly as you wish. You might update all
-                questions, some or none. However, we believe that accurate reporting will allow us to
-                provide you with a better analysis.
+                Sugerimos que você continue inserindo seus dados de estilo de vida.Você atualizará seus dados de estilo de vida com a mesma regularidade que deseja. Você pode atualizar todas as perguntas, algumas ou nenhuma. No entanto, acreditamos que os relatórios precisos nos permitirão fornecer uma análise melhor.
             </div>
         </div>
         <div class="outer" style="clear: both;width: 100%; height: 56px">
@@ -407,7 +349,7 @@
                 <div class="grey-circle"></div>
             </div>
             <div class="para">
-                We suggest that in 6 months or maximally a year you submit your saliva to a second test.
+                Sugerimos que em 6 meses ou no máximo um ano você submeta sua saliva a um segundo teste.
 
             </div>
         </div>
@@ -416,9 +358,7 @@
                 <div class="grey-circle"></div>
             </div>
             <div class="para">
-                Your data will be anonymized. Your data and data from many other anonymous users
-                will be analyzed by artificial intelligence to develop a “model”, which measures the
-                impact of life style changes on “epigenetic clock”.
+                Seus dados serão anonimizados. Seus dados e dados de outros usuários anônimos são analisados ​​por inteligência artificial para desenvolver um 'modelo', que mede o impacto das mudanças no estilo de vida no 'relógio epigenético'.
             </div>
         </div>
         <div class="outer" style="clear: both;width: 100%; height: 66px">
@@ -426,8 +366,7 @@
                 <div class="grey-circle"></div>
             </div>
             <div class="para">
-                Once more data is accumulated, the “model” will examine your life style data and
-                results of the test will be shared with you.
+                Depois que mais dados forem acumulados, o 'modelo' examinará seus dados de estilo de vida e os resultados do teste serão compartilhados com você.
             </div>
         </div>
         <div class="outer" style="clear: both;width: 100%; height: 66px">
@@ -435,8 +374,7 @@
                 <div class="grey-circle"></div>
             </div>
             <div class="para">
-                We will analyze your “epigenetic age” and report on the progress and the lifestyle changes that you have
-                made.
+                Analisaremos sua 'idade epigenética' e informaremos sobre o progresso e as mudanças de estilo de vida que você fez.
             </div>
         </div>
         <div class="outer" style="clear: both;width: 100%; height: 66px">
@@ -444,7 +382,7 @@
                 <div class="grey-circle"></div>
             </div>
             <div class="para">
-                Possible routes for change will be offered based on our “model” and your data.
+                rotas possíveis para a mudança será oferecido com base no nosso 'modelo' e seus dados.
             </div>
         </div>
         <div class="outer" style="clear: both;width: 100%; height: 66px">
@@ -452,8 +390,7 @@
                 <div class="grey-circle"></div>
             </div>
             <div class="para">
-                We hope that together we will be able to coevolve your well being and our “epiAging”
-                learning environment.
+                Esperamos que juntos possamos co-evoluir o seu bem-estar e nosso ambiente de aprendizado 'epiAging'.
             </div>
         </div>
     </div>
@@ -472,10 +409,10 @@
             }
             var option = {
                 legend: {
-                    data: ['Chronological Age<Biological Age', 'Chronological Age>Biological Age']
+                    data: ['Idade cronologica<Idade biológica', 'Idade cronologica<Idade biológica']
                 },
                 xAxis: [{
-                    name: 'Chronological Age',
+                    name: 'Idade cronologica',
                     type: 'value',
                     nameLocation: 'middle',
                     nameGap: 20,
@@ -486,7 +423,7 @@
                     }
                 }],
                 yAxis: [{
-                    name: 'Biological Age',
+                    name: 'Idade biológica',
                     nameLocation: 'middle',
                     nameGap: 22,
                     nameRotate: 90,
@@ -499,7 +436,7 @@
                 }],
                 series: [
                     {
-                        name: 'Chronological Age<Biological Age',
+                        name: 'Idade cronologica<Idade biológica',
                         type: 'scatter',
                         //圆点的颜色为红色
                         itemStyle: {
@@ -512,7 +449,7 @@
                         markPoint: {
                             data: [
                                 {
-                                    name: 'Biological Age',
+                                    name: 'Idade biológica',
                                     value: window.parseFloat(${data.biological}).toFixed(2),
                                     xAxis: window.parseFloat(${data.naturally}).toFixed(2),
                                     yAxis: window.parseFloat(${data.biological}).toFixed(2)
@@ -521,7 +458,7 @@
                         },
                     },
                     {
-                        name: 'Chronological Age>Biological Age',
+                        name: 'Idade cronologica>Idade biológica',
                         type: 'scatter',
                         //圆点的颜色为绿色
                         itemStyle: {
@@ -534,7 +471,7 @@
                         markPoint: {
                             data: [
                                 {
-                                    name: 'Biological Age',
+                                    name: 'Idade biológica',
                                     value: window.parseFloat(${data.biological}).toFixed(2),
                                     xAxis: window.parseFloat(${data.naturally}).toFixed(2),
                                     yAxis: window.parseFloat(${data.biological}).toFixed(2)

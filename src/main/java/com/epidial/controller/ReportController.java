@@ -150,7 +150,7 @@ public class ReportController {
         modelView.addObject("ntrGtBioUsers", JSON.toJSONString(ntrGtBioUsers));
         modelView.addObject("ntrLtBioUsers", JSON.toJSONString(ntrLtBioUsers));
         modelView.addObject("data", data);
-        modelView.setViewName("/WEB-INF/front/dnaview.jsp");
+        modelView.setViewName("/WEB-INF/front/dnaview-sp.jsp");
         return modelView;
     }
 }
