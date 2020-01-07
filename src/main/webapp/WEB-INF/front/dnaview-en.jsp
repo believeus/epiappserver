@@ -16,62 +16,59 @@
 </head>
 <body style="margin: 0;padding: 0">
 <div style="width: 100%;">
-    <div style="width: 100%;height:234px; margin: auto;position: relative">
+    <div style="width: 100%;height:567px; margin: auto;position: relative">
         <div style="position: absolute;">
             <img src="static/images/ques/rep1.png" style="width: 100%;height: 100%;">
         </div>
         <div style="position: absolute;margin-left: 60%;margin-top: 20%;font-family: Arial;color: #0968aa;font-size: 18px">
-            <div>How old are you?</div>
+            <div style="font-size: 24px">How old are you?</div>
             <div style="color: #828181;font-size: 14px">Why is your</div>
-            <div>"Epigenetic Age"</div>
-            <div>important?</div>
+            <div style="font-size: 24px">"Epigenetic Age"</div>
+            <div style="font-size: 24px">important?</div>
         </div>
     </div>
     <div style="height: 34px;width: 100%;clear: both"></div>
-    <div style="width: 100%;">
+    <div style="width: 100%;height:456px">
         <div style="width: 90%;height: auto; margin: 0 auto">
-            <div style="background-color: #f3f6fa;width: 100%;height: 289px;border-radius: 10px">
+            <div style="background-color: #f3f6fa;width: 100%;height: 389px;border-radius: 10px">
                 <div style="width: 100%;height: 12px"></div>
-                <div style="width: 100%;height: 177px;">
-                    <div style="width: 33%;height: 177px; float: left">
-                        <div style="height: 34px;width: 30%;margin: auto; ">
+                <div style="width: 100%;height: 65%;">
+                    <div style="width: 33%;height: 65%; float: left">
+                        <div style="height:45%;width: 30%;margin: auto; ">
                             <img src="static/images/ques/rep-cho.png" style="width: 100%;height: 100%">
                         </div>
-                        <div style="width: 100%;height: 12px"></div>
+                        <div style="width: 100%;height: 10%"></div>
                         <div style="height: 30%;text-align: center">Your /Chronological Age/</div>
-                        <div style="width: 100%;height: 12px"></div>
+                        <div style="width: 100%;height: 10%"></div>
                         <div style="height: 30%;text-align: center;color: #439e9d;font-size: 34px;font-weight: bold">
                             ${data.naturally}
                         </div>
                     </div>
-                    <div style="width: 33%;height: 159px; float: left">
+                    <div style="width: 33%;height:89%; float: left">
                         <img src="static/images/ques/rep-man.png" style="width: 100%;height: 100%">
                     </div>
-                    <div style="width: 33%;height: 177px; float: left">
-                        <div style="height: 34px;width: 30%;margin: auto;">
+                    <div style="width: 33%;height: 65%; float: left">
+                        <div style="height: 45%;width: 30%;margin: auto;">
                             <img src="static/images/ques/rep-bio.png" style="width: 100%;height: 100%">
                         </div>
-                        <div style="width: 100%;height: 12px"></div>
+                        <div style="width: 100%;height: 10%"></div>
                         <div style="height: 30%;text-align: center">Your /Biological Age/</div>
-                        <div style="width: 100%;height: 12px"></div>
+                        <div style="width: 100%;height: 10%"></div>
                         <div style="height: 30%;text-align: center;color: #f15929;font-size: 34px;font-weight: bold">
                             ${data.biological}
                         </div>
                     </div>
                 </div>
                 <hr>
-                <div style="width: 90%;margin: 0 auto;padding-top: 29px">
-                    <div style="width: 100%;">
-                        <div style="width: 7%;float: left;margin-right: 2%"><img src="static/images/ques/smail.png"
-                                                                                 style="width: 100%;height: 100%"></div>
-                        <div style="width: 91%;float: left">Your biological age is ${data.biological} years old</div>
+                <div style="width: 90%;margin: 0 auto;padding-top: 5%">
+                <div style="width: 100%;height:45px">
+                    <div style="width: 5%;margin-right: 3%; float: left">
+                        <img src="static/images/ques/smail.png"style="width: 100%;height: 100%">
                     </div>
-                    <%-- <div style="width: 100%;clear: both">
-                         <div style="width: 7%;float: left;margin-right: 2%"><img src="static/images/ques/sad.png"
-                                                                                  style="width: 100%;height: 100%"></div>
-                         <div style="width: 91%;float: left">Your biological age is 5 years heighter than your chronological age.</div>
-                     </div>--%>
+                    <div style="width: 91%;float: left;line-height: 45px;font-size: 26px;">Your biological age is ${data.biological} years old</div>
                 </div>
+
+            </div>
             </div>
 
         </div>
@@ -92,16 +89,14 @@
             <div style="width: 91%;float: left">Your biological age is higher than your chronological age.</div>
         </div>
         <div style="width: 100%;height:23px;clear: both"></div>
-        <div style="width: 100%;">
-            <div style="width: 6%;float: left">
-                <div style="width: 63%;height: 12px;border-radius: 30px;background-color: #008000"></div>
+        <div style="width: 100%;height: 45px;">
+            <div style=";height: 34%;width: 2%;margin-right: 3%;margin-left: 1%; border-radius: 30px;background-color: #FF3334; float: left">
             </div>
-            <div style="width: 91%;float: left">People whose biological age is higher than chronological age</div>
+            <div style="width: 91%;float: left">People whose Biological age is higher than Chronological age</div>
         </div>
         <div style="width: 100%;height: 23px;clear: both"></div>
-        <div style="width: 100%;">
-            <div style="width: 6%;float: left">
-                <div style="width: 63%;height: 12px;border-radius: 30px;background-color: #ff3333"></div>
+        <div style="width: 100%;height: 45px;">
+            <div style=";height: 34%;width: 2%;margin-right: 3%;margin-left: 1%; border-radius: 30px;background-color: #008000; float: left">
             </div>
             <div style="width: 91%;float: left">People whose Biological age is lower than Chronological age</div>
         </div>
@@ -109,15 +104,15 @@
     <div style="width: 100%;height: 34px;clear: both"></div>
 
 
-    <div style="width: 100%;height:234px; margin: auto;position: relative">
+    <div style="width: 100%;height:567px; margin: auto;position: relative">
         <div style="position: absolute;">
             <img src="static/images/ques/rep1.png" style="width: 100%;height: 100%;">
         </div>
         <div style="position: absolute;margin-left: 60%;margin-top: 20%;font-family: Arial;color: #0968aa;font-size: 18px">
-            <div>How old are you?</div>
+            <div style="font-size: 24px">How old are you?</div>
             <div style="color: #828181;font-size: 14px">Why is your</div>
-            <div>"Epigenetic Age"</div>
-            <div>important?</div>
+            <div style="font-size: 24px">"Epigenetic Age"</div>
+            <div style="font-size: 24px">important?</div>
         </div>
     </div>
     <div style="width: 90%;margin: 0 auto;">
@@ -199,10 +194,10 @@
     <div style="width: 100%">
         <div style="width: 90%;margin: 0 auto;">
             <div style="width: 100%;clear: both;height: 166px">
-                <div style="width: 65%;float: left">
-                    What is the <span style="font-size: 22px;color: #1b6fae;">epiAging Test?</span><br> <span
+                <div style="width: 65%;float: left;font-size: 18px;">
+                    What is the <span style="font-size: 24px;color: #1b6fae;">epiAging Test?</span><br> <span
                         style="color: #1b6fae;"> What does it mean?</span>
-                    <div style="height: 23px;width: 100%"></div>
+                    <div style="height: 67px;width: 100%"></div>
                     <div class="outer" style="clear: both;width: 100%;height: 99px">
                         <div class="circle-outer">
                             <div class="grey-circle" style="height:45%;width: 67%;"></div>
@@ -279,9 +274,9 @@
             <div style="width: 100%;clear: both;height: 123px">
                 <div style="width: 35%;float: left"><img src="static/images/ques/rep4.png"
                                                          style="width: 100%;height: 100%"></div>
-                <div style="width: 60%;margin-left: 5%; float: left">
+                <div style="width: 60%;margin-left: 5%; float: left;font-size: 18px">
                     What can i do if my <span
-                        style="font-size: 22px;color: #1b6fae;">"epigenetic Age is Older"</span>
+                        style="font-size: 24px;color: #1b6fae;">"epigenetic Age is Older"</span>
                     <div style="height: 23px;width: 100%"></div>
 
                 </div>
@@ -354,11 +349,6 @@
                 SAMe, vitamin A, D and C.
             </div>
         </div>
-        <div class="outer" style="clear: both;width: 100%; height: 56px">
-            <div class="circle-outer">
-                <div class="grey-circle"></div>
-            </div>
-        </div>
         <div class="outer" style="clear: both;width: 100%; height: 88px">
             <div class="circle-outer">
                 <div class="grey-circle"></div>
@@ -388,8 +378,8 @@
         <img src="static/images/ques/rep7.png" style="width: 100%;height: 100%">
     </div>
     <div style="width: 90%;margin: 0 auto;">
-        <div style="width: 80%;height: 88px; margin: 0 auto;text-align: center">A dynamic long-term partnership to
-            achive <span style="color: #1b6fae;font-size: 22px">“Healthy Aging”</span>
+        <div style="width: 80%;height: 88px;font-size: 18px; margin: 0 auto;text-align: center">A dynamic long-term partnership to
+            achive <span style="color: #1b6fae;font-size: 24px ">“Healthy Aging”</span>
         </div>
 
         <div class="outer" style="clear: both; width: 100%; height:88px">
