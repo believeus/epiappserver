@@ -26,6 +26,10 @@ public class Life {
     private Double vitaminC;
     private Double vitaminD;
     private Double calories;
+    private Double same;
+    private Double resveratrol;
+    private Double nmn;
+    private Double dhea;
     private long updateTime;
 
     public int getId() {
@@ -190,6 +194,38 @@ public class Life {
         this.calories = calories;
     }
 
+    public Double getSame() {
+        return same;
+    }
+
+    public void setSame(Double same) {
+        this.same = same;
+    }
+
+    public Double getResveratrol() {
+        return resveratrol;
+    }
+
+    public void setResveratrol(Double resveratrol) {
+        this.resveratrol = resveratrol;
+    }
+
+    public Double getNmn() {
+        return nmn;
+    }
+
+    public void setNmn(Double nmn) {
+        this.nmn = nmn;
+    }
+
+    public Double getDhea() {
+        return dhea;
+    }
+
+    public void setDhea(Double dhea) {
+        this.dhea = dhea;
+    }
+
     public long getUpdateTime() {
         return updateTime;
     }
@@ -221,6 +257,10 @@ public class Life {
                 ", vitaminC=" + vitaminC +
                 ", vitaminD=" + vitaminD +
                 ", calories=" + calories +
+                ", same=" + same +
+                ", resveratrol=" + resveratrol +
+                ", nmn=" + nmn +
+                ", dhea=" + dhea +
                 ", updateTime=" + updateTime +
                 '}';
     }
