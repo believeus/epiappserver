@@ -111,9 +111,10 @@
 						var processing="processing";
 						var na="NA (non-available)"
 						for (var i = 0; i < udata.length; i++) {
+						    html+="<table class=\"table table-border table-bordered table-hover table-bg table-sort\">"
 							html+="<tr class='text-c'>";
-							html+="<td><input name='naturally' style='border: none' value='\""+udata[i].naturally+"\' readonly=\"readonly\"> "+"</td>";
-							html+="<td><input name='biological' style='border: none' value='\""+udata[i].biological+"\' readonly=\"readonly\"> "+"</td>";
+							html+="<td><input name='naturally' data-id='"+udata[i].id+"' style='border: none' value='"+udata[i].naturally+"\' readonly=\"readonly\"> "+"</td>";
+							html+="<td><input name='biological' data-id='"+udata[i].id+"' style='border: none' value='"+udata[i].biological+"\' readonly=\"readonly\"> "+"</td>";
                             // if (udata[i].naturally>0.0) {
                             //     html+="<td><input name='naturally' style='border: none' value='\""+udata[i].naturally+"\' readonly=\"readonly\"> "+"</td>";
                             // }else {
@@ -126,8 +127,8 @@
                             // }
 							html+="<td>"+udata[i].barcode+"</td>";
 							html+="<td>";
-							html+="<select data-id=\""+udata[i].id+"\">";
-							if(udata[i].status=='finished'){
+							html+="<select data-id="+udata[i].id+">";
+							if(udata[i].status=='ready'||udata[i].status=='finished'){
 								html+="<option  selected='selected' data-id='"+udata[i].id+"'>"+finished+"</option>"
 								html+="<option data-id='"+udata[i].id+"'>"+pending+"</option>"
 								html+="<option  data-id='"+udata[i].id+"'>"+processing+"</option>"
@@ -144,10 +145,11 @@
 							}
 							html+="</select>";
 							html+="</td>";
-							html+="<td><input name='createtime' style='border: none' value='\""+udata[i].createTime+"'> "+"</td>";
-							html+="<td><input name='uploadtime' style='border: none' value='\""+udata[i].uploadTime+"'> "+"</td>";
+							html+="<td><input name='createtime' style='border: none' value='"+udata[i].createTime+"'> "+"</td>";
+							html+="<td><input name='uploadtime' style='border: none' value='"+udata[i].uploadTime+"'> "+"</td>";
 							html+="<td class='td-manage'><a title='删除' href='javascript:;'onclick='member_del(this,udata[i].id)' class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a>"+"</td>";
 							html+="</tr>";
+							html+="</table>";
 						}
 						$("#tody").html(html);
 
