@@ -341,7 +341,6 @@
                 Nuestro primer informe se basa en los datos de estilo de vida que ingresó,
                 que muestran hasta qué punto sus parámetros de estilo de vida se desvían de las recomendaciones de consenso.
                 Puede decidir realizar cambios basados en este informe.
-
             </div>
         </div>
     </div>

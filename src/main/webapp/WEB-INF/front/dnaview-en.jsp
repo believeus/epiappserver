@@ -119,6 +119,7 @@
                 If we think about our cells as minicomputers, we can look at DNA as the hard ware,
                 genetics as the operating system and DNA methylation and other epigenetic factors
                 as the software that programs the genome.
+
             </div>
         </div>
         <div class="outer" style="clear: both;width: 100%; height: 134px">
