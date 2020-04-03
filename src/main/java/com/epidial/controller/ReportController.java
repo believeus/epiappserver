@@ -3,6 +3,7 @@ package com.epidial.controller;
 import com.alibaba.fastjson.JSON;
 import com.epidial.bean.*;
 import com.epidial.dao.epi.*;
+import com.epidial.serivce.MailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +30,8 @@ public class ReportController {
     private UdataDao udataDao;
     @Resource
     private DnakitDao dnakitDao;
+    @Resource
+    private MailService mailService;
 
     @Autowired
     ServletContext context;
@@ -108,7 +111,7 @@ public class ReportController {
 
     @ResponseBody
     @RequestMapping("/user/report/upbarcode")
-    public Udata upbarcode(String barcode, String uuid) {
+    public Udata upbarcode(String barcode, String uuid,String email,byte allow) {
         //如果AgeManager中已经存在
         Dnakit dnakit = dnakitDao.find("barcode", barcode);
         //直接输入barcode
@@ -116,10 +119,16 @@ public class ReportController {
             Udata data = new Udata(uuid, "pending");
             data.setBarcode(barcode);
             data.setUploadTime(System.currentTimeMillis());
+            data.setNaturally(0);
+            data.setEmail(email);
+            data.setPermit(allow);
             udataDao.save(data);
             dnakitDao.delete(dnakit.getId());
         }
         Udata data = udataDao.find("uuid", uuid, "barcode", barcode);
+        data.setEmail(email);
+        data.setPermit(allow);
+        udataDao.update(data);
         return (data == null) ? new Udata("", "invalid") : data;
     }
     @ResponseBody
@@ -189,10 +198,7 @@ public class ReportController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
-
     @RequestMapping("/user/report/{uuid}/{barcode}/{locale}/dnaview")
     public ModelAndView dnaview(@PathVariable String uuid, @PathVariable String barcode,@PathVariable String locale) {
         ModelAndView modelView = new ModelAndView();
@@ -203,7 +209,43 @@ public class ReportController {
         modelView.addObject("ntrLtBioUsers", JSON.toJSONString(ntrLtBioUsers));
         modelView.addObject("data", data);
         String lang = locales.get(locale);
-        modelView.setViewName("/WEB-INF/front/dnaview-"+lang+".jsp");
+        if (lang==null||lang.length()==0){
+            modelView.setViewName("/WEB-INF/front/dnaview-en.jsp");
+            return modelView;
+        }else {
+            modelView.setViewName("/WEB-INF/front/dnaview-"+lang+".jsp");
+            return modelView;
+        }
+    }
+    @RequestMapping("/user/report/{uuid}/{barcode}/emailView")
+    public  ModelAndView emailView(@PathVariable String uuid, @PathVariable String barcode){
+        ModelAndView modelView = new ModelAndView();
+        Udata data = udataDao.find("uuid", uuid, "barcode", barcode);
+        modelView.addObject("data", data);
+        modelView.setViewName("/WEB-INF/back/notifyEmail.jsp");
         return modelView;
+    }
+    @ResponseBody
+    @RequestMapping("/user/report/sendmail")
+    public String sendmail(String email,String title,String content){
+        return mailService.sendMail(title, content, email);
+    }
+    @ResponseBody
+    @RequestMapping("/user/report/{uuid}/{email}/{barcode}/{permit}/notify")
+    public String notifyEmail(@PathVariable String uuid,@PathVariable String email,@PathVariable String barcode,@PathVariable byte permit){
+        Udata data = udataDao.find("uuid", uuid, "barcode", barcode);
+        if (data!=null){
+            data.setEmail(email);
+            data.setPermit(permit);
+            udataDao.update(data);
+            return "success";
+        }
+        return "error";
+    }
+    @ResponseBody
+    @RequestMapping("/user/report/{uuid}/{barcode}/findEmail")
+    public Udata findEmail(@PathVariable String uuid,@PathVariable String barcode){
+        Udata data = udataDao.find("uuid", uuid, "barcode", barcode);
+        return  data;
     }
 }

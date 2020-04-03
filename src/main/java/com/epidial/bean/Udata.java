@@ -10,6 +10,8 @@ public class Udata {
     private String status;//状态：pending processing finished
     private long createTime;//创建时间
     private long uploadTime;//上传barcode时间
+    private String email;
+    private byte permit;
     public Udata(){}
 
     public Udata(String uuid,String status) {
@@ -83,5 +85,21 @@ public class Udata {
 
     public void setUuid(String uuid) {
         this.uuid = uuid;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public byte getPermit() {
+        return permit;
+    }
+
+    public void setPermit(byte permit) {
+        this.permit = permit;
     }
 }

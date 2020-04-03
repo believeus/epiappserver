@@ -43,12 +43,14 @@
 	<table class="table table-border table-bordered table-hover table-bg table-sort">
 		<thead>
 			<tr class="text-c">
-				<th width="70">chronological age</th>
-				<th width="70">EpiAge</th>
+				<th width="30">chronological age</th>
+				<th width="30">EpiAge</th>
 				<th width="80">barcode</th>
 				<th width="50">status</th>
+				<th width="80">email</th>
 				<th width="100">createTime</th>
 				<th width="100">uploadTime</th>
+                <th width="50">notify</th>
 				<th width="50">edit</th>
 			</tr>
 		</thead>
@@ -79,6 +81,7 @@
 							</c:choose>
 						</select>
 					</td>
+					<td>${task.email}</td>
 					<c:choose>
 						<c:when test="${task.createTime eq 0}"><td></td></c:when>
 						<c:otherwise><td><date:date value="${task.createTime}" pattern="yyyy-MM-dd hh:mm:ss"></date:date></td></c:otherwise>
@@ -87,8 +90,20 @@
 						<c:when test="${task.uploadTime eq 0}"><td></td></c:when>
 						<c:otherwise><td><date:date value="${task.uploadTime}" pattern="yyyy-MM-dd hh:mm:ss"></date:date></td></c:otherwise>
 					</c:choose>
-					<td class="td-manage"><a title="删除" href="javascript:;" onclick="member_del(this,'${task.id}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${task.permit == 1}">
+                                <a  href="javascript:;" onclick="emailView('Email Notify','/user/report/${task.uuid}/${task.barcode}/emailView.jhtml','','510')" class="ml-5" style="text-decoration:none;color: green">Notification</a>
+                            </c:when>
+                            <c:otherwise>
+                                <span style="color: red"></span>
+                            </c:otherwise>
+                        </c:choose>
 
+                    </td>
+					<td class="td-manage">
+                        <a title="删除" href="javascript:;" onclick="member_del(this,'${task.id}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+                    </td>
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -153,11 +168,7 @@
 						}
 						$("#tody").html(html);
 
-
-
 					}
-
-
 				})
 			}
 		</script>
@@ -224,7 +235,7 @@ function member_add(title,url,w,h){
 	layer_show(title,url,w,h);
 }
 /*用户-查看*/
-function member_show(title,url,id,w,h){
+function emailView(title,url,id,w,h){
 	layer_show(title,url,w,h);
 }
 /*用户-停用*/
