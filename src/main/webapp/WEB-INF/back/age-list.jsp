@@ -121,7 +121,7 @@
 					success:function (data) {
 						var udata = JSON.parse(data);
 						var html='';
-						var finished="finished";
+						var finished="ready";
 						var pending="pending";
 						var processing="processing";
 						var na="NA (non-available)"
@@ -143,8 +143,8 @@
 							html+="<td>"+udata[i].barcode+"</td>";
 							html+="<td>";
 							html+="<select data-id="+udata[i].id+">";
-							if(udata[i].status=='ready'||udata[i].status=='finished'){
-								html+="<option  selected='selected' data-id='"+udata[i].id+"'>"+finished+"</option>"
+							if(udata[i].status=='ready'||udata[i].status=='ready'){
+								html+="<option  selected='selected' data-id='"+udata[i].id+"'>"+ready+"</option>"
 								html+="<option data-id='"+udata[i].id+"'>"+pending+"</option>"
 								html+="<option  data-id='"+udata[i].id+"'>"+processing+"</option>"
 							}
