@@ -113,70 +113,44 @@
             点击搜索，查询barcode 返回List<>
             * */
 			function seardnakit() {
-				var url="/admin/age/bybarcode?barcode="+$("#txtbarcode").val();
-				$.ajax({
-					type: 'POST',
-					url: url,
-					datatype:JSON,
-					success:function (data) {
-						var udata = JSON.parse(data);
-						var html='';
-						var finished="ready";
-						var pending="pending";
-						var processing="processing";
-						var na="NA (non-available)"
+				var url="/admin/age/bybarcode.jhtml?barcode="+$("#txtbarcode").val();
+				$.post(url,function (data) {
+						var udata = JSON.parse(data)
+                        console.info(udata)
+                        var html=new Array()
 						for (var i = 0; i < udata.length; i++) {
-						    html+="<table class=\"table table-border table-bordered table-hover table-bg table-sort\">"
-							html+="<tr class='text-c'>";
-							html+="<td><input name='naturally' data-id='"+udata[i].id+"' style='border: none' value='"+udata[i].naturally+"\' readonly=\"readonly\"> "+"</td>";
-							html+="<td><input name='biological' data-id='"+udata[i].id+"' style='border: none' value='"+udata[i].biological+"\' readonly=\"readonly\"> "+"</td>";
-                            // if (udata[i].naturally>0.0) {
-                            //     html+="<td><input name='naturally' style='border: none' value='\""+udata[i].naturally+"\' readonly=\"readonly\"> "+"</td>";
-                            // }else {
-                            //     html+="<td><input name='naturally' style='border: none' value='\""+na+"\' readonly=\"readonly\"> "+"</td>";
-                            // }
-                            // if (udata[i].biological>0.0) {
-                            //     html+="<td><input name='naturally' style='border: none' value='\""+udata[i].biological+"\' readonly=\"readonly\"> "+"</td>";
-                            // }else {
-                            //     html+="<td><input name='naturally' style='border: none' value='\""+na+"\' readonly=\"readonly\"> "+"</td>";
-                            // }
-							html+="<td>"+udata[i].barcode+"</td>";
-							html+="<td>";
-							html+="<select data-id="+udata[i].id+">";
-							if(udata[i].status=='ready'||udata[i].status=='ready'){
-								html+="<option  selected='selected' data-id='"+udata[i].id+"'>"+ready+"</option>"
-								html+="<option data-id='"+udata[i].id+"'>"+pending+"</option>"
-								html+="<option  data-id='"+udata[i].id+"'>"+processing+"</option>"
-							}
-							if(udata[i].status=='pending'){
-								html+="<option  data-id='"+udata[i].id+"'>"+finished+"</option>"
-								html+="<option  selected='selected' data-id='"+udata[i].id+"'>"+pending+"</option>"
-								html+="<option data-id='"+udata[i].id+"'>"+processing+"</option>"
-							}
-							if(udata[i].status=='processing'){
-								html+="<option data-id='"+udata[i].id+"'>"+finished+"</option>"
-								html+="<option data-id='"+udata[i].id+"'>"+pending+"</option>"
-								html+="<option selected='selected' data-id='"+udata[i].id+"'>"+processing+"</option>"
-							}
-							html+="</select>";
-							html+="</td>";
-							html+="<td><input name='createtime' style='border: none' value='"+udata[i].createTime+"'> "+"</td>";
-							html+="<td><input name='uploadtime' style='border: none' value='"+udata[i].uploadTime+"'> "+"</td>";
-							html+="<td class='td-manage'><a title='删除' href='javascript:;'onclick='member_del(this,udata[i].id)' class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a>"+"</td>";
-							html+="</tr>";
-							html+="</table>";
-						}
-						$("#tody").html(html);
+						    html.push("<table class='table table-border table-bordered table-hover table-bg table-sort'>")
+                            html.push("<tr class='text-c'>")
+                            html.push("<td><input name='naturally' data-id='"+udata[i].id+"' style='border: none' value='"+udata[i].naturally+"\' readonly=\"readonly\"> "+"</td>")
+							html.push("<td><input name='biological' data-id='"+udata[i].id+"' style='border: none' value='"+udata[i].biological+"\' readonly=\"readonly\"> "+"</td>")
+							html.push("<td>"+udata[i].barcode+"</td>")
+                            html.push("<td>")
+                            html.push("<select data-id='"+udata[i].id+"'>")
+                            html.push("<option ".concat("data-id=\"").concat(udata[i].id).concat("\"").concat(udata[i].status=="ready"?"selected=selected":"").concat(" >").concat("ready").concat("</option>"))
+                            html.push("<option ".concat("data-id=\"").concat(udata[i].id).concat("\"").concat(udata[i].status=="pending"?"selected=selected":"").concat(" >").concat("pending").concat("</option>"))
+                            html.push("<option ".concat("data-id=\"").concat(udata[i].id).concat("\"").concat(udata[i].status=="processing"?"selected=selected":"").concat(" >").concat("processing").concat("</option>"))
+                            html.push("</select>")
+                            html.push("</td>")
+                            html.push("<td>"+udata[i].email+"</td>")//
+                            html.push("<td><input name='createtime' style='border: none' value='"+new Date(udata[i].createTime).toLocaleString()+"'></td>")
+                            html.push("<td><input name='uploadtime' style='border: none' value='"+new Date(udata[i].uploadTime).toLocaleString()+"'></td>")
+                            html.push("<td>") //${task.permit == 1}
+                            html.push("<a href='javascript:;'".concat(" onclick=").concat(udata[i].permit==1?"emailView('Email-Nofify','/user/report/"+udata[i].uuid+"/"+udata[i].barcode+"/emailView.jhtml','','510')":"").concat(" class='ml-5'").concat(" style='text-decoration:none;color: green'>").concat(udata[i].permit==1?"Notification":"").concat("</a>"))
+                            html.push("</td>")
 
-					}
+
+                            html.push("<td class='td-manage'><a title='删除' href='javascript:;'onclick='member_del(this,udata[i].id)' class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a>"+"</td>")
+							html.push("</tr>")
+                            html.push("</table>")
+						}
+						$("#tody").html(html.join(""));
 				})
 			}
 		</script>
 
 		<script>
 			$(function(){
-                $("body").on("keydown dblclick change","input,select",function(event){
-                    console.info(event);
+                $("body").on("keydown dblclick change","input[name=naturally],input[name=biological],select",function(event){
                     var _oThis = $(event.currentTarget);
                     switch (event.type) {
                         case "dblclick":
