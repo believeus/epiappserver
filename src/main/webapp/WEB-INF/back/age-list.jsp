@@ -92,7 +92,7 @@
 					</c:choose>
                     <td>
                         <c:choose>
-                            <c:when test="${task.permit == 1}">
+                            <c:when test="${task.allow == 1}">
                                 <a  href="javascript:;" onclick="emailView('Email Notify','/user/report/${task.uuid}/${task.barcode}/emailView.jhtml','','510')" class="ml-5" style="text-decoration:none;color: green">Notification</a>
                             </c:when>
                             <c:otherwise>
@@ -134,8 +134,8 @@
                             html.push("<td>"+udata[i].email+"</td>")//
                             html.push("<td><input name='createtime' style='border: none' value='"+new Date(udata[i].createTime).toLocaleString()+"'></td>")
                             html.push("<td><input name='uploadtime' style='border: none' value='"+new Date(udata[i].uploadTime).toLocaleString()+"'></td>")
-                            html.push("<td>") //${task.permit == 1}
-                            html.push("<a href='javascript:;'".concat(" onclick=").concat(udata[i].permit==1?"emailView('Email-Nofify','/user/report/"+udata[i].uuid+"/"+udata[i].barcode+"/emailView.jhtml','','510')":"").concat(" class='ml-5'").concat(" style='text-decoration:none;color: green'>").concat(udata[i].permit==1?"Notification":"").concat("</a>"))
+                            html.push("<td>") //${task.allow == 1}
+                            html.push("<a href='javascript:;'".concat(" onclick=").concat(udata[i].allow==1?"emailView('Email-Nofify','/user/report/"+udata[i].uuid+"/"+udata[i].barcode+"/emailView.jhtml','','510')":"").concat(" class='ml-5'").concat(" style='text-decoration:none;color: green'>").concat(udata[i].allow==1?"Notification":"").concat("</a>"))
                             html.push("</td>")
 
 

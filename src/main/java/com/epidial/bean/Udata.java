@@ -11,7 +11,7 @@ public class Udata {
     private long createTime;//创建时间
     private long uploadTime;//上传barcode时间
     private String email;
-    private byte permit;
+    private byte allow;
     public Udata(){}
 
     public Udata(String uuid,String status) {
@@ -95,11 +95,11 @@ public class Udata {
         this.email = email;
     }
 
-    public byte getPermit() {
-        return permit;
+    public byte getAllow() {
+        return allow;
     }
 
-    public void setPermit(byte permit) {
-        this.permit = permit;
+    public void setAllow(byte allow) {
+        this.allow = allow;
     }
 }

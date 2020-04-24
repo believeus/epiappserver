@@ -111,7 +111,7 @@ public class ReportController {
 
     @ResponseBody
     @RequestMapping("/user/report/upbarcode")
-    public Udata upbarcode(String barcode, String uuid,String email,byte allow) {
+    public Udata upbarcode(String barcode, String uuid,String email) {
         //如果AgeManager中已经存在
         Dnakit dnakit = dnakitDao.find("barcode", barcode);
         //直接输入barcode
@@ -121,13 +121,13 @@ public class ReportController {
             data.setUploadTime(System.currentTimeMillis());
             data.setNaturally(0);
             data.setEmail(email);
-            data.setPermit(allow);
+            data.setAllow((byte)0);
             udataDao.save(data);
             dnakitDao.delete(dnakit.getId());
         }
         Udata data = udataDao.find("uuid", uuid, "barcode", barcode);
         data.setEmail(email);
-        data.setPermit(allow);
+        data.setAllow((byte)0);
         udataDao.update(data);
         return (data == null) ? new Udata("", "invalid") : data;
     }
@@ -231,12 +231,12 @@ public class ReportController {
         return mailService.sendMail(title, content, email);
     }
     @ResponseBody
-    @RequestMapping("/user/report/{uuid}/{email}/{barcode}/{permit}/notify")
-    public String notifyEmail(@PathVariable String uuid,@PathVariable String email,@PathVariable String barcode,@PathVariable byte permit){
+    @RequestMapping("/user/report/{uuid}/{email}/{barcode}/{allow}/notify")
+    public String notifyEmail(@PathVariable String uuid,@PathVariable String email,@PathVariable String barcode,@PathVariable byte allow){
         Udata data = udataDao.find("uuid", uuid, "barcode", barcode);
         if (data!=null){
             data.setEmail(email);
-            data.setPermit(permit);
+            data.setAllow(allow);
             udataDao.update(data);
             return "success";
         }
