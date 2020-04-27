@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
@@ -111,7 +113,7 @@ public class ReportController {
 
     @ResponseBody
     @RequestMapping("/user/report/upbarcode")
-    public Udata upbarcode(String barcode, String uuid,String email) {
+    public Udata upbarcode(String barcode, String uuid) {
         //如果AgeManager中已经存在
         Dnakit dnakit = dnakitDao.find("barcode", barcode);
         //直接输入barcode
@@ -120,13 +122,20 @@ public class ReportController {
             data.setBarcode(barcode);
             data.setUploadTime(System.currentTimeMillis());
             data.setNaturally(0);
-            data.setEmail(email);
             data.setAllow((byte)0);
             udataDao.save(data);
             dnakitDao.delete(dnakit.getId());
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    String registertime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date());
+                    String message="<!DOCTYPE html><html><head></head><body><div>the following barcode has registered</div><div>barcode number:"+barcode+"</div><div>Register time:"+registertime+"</div></body></html>";
+                    mailService.sendMail("[DO NOT REPLY]",message,"do_not_reply@hkgepitherapeutics.com");
+                }
+            }).start();
+
         }
         Udata data = udataDao.find("uuid", uuid, "barcode", barcode);
-        data.setEmail(email);
         data.setAllow((byte)0);
         udataDao.update(data);
         return (data == null) ? new Udata("", "invalid") : data;

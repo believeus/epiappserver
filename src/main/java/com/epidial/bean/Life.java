@@ -30,6 +30,10 @@ public class Life {
     private Double resveratrol;
     private Double nmn;
     private Double dhea;
+    private Double tmg;
+    private Double lipoic;
+    private Double vitaminD2;
+    private Double vitaminK2;
     private long updateTime;
 
     public int getId() {
@@ -224,6 +228,38 @@ public class Life {
 
     public void setDhea(Double dhea) {
         this.dhea = dhea;
+    }
+
+    public Double getTmg() {
+        return tmg;
+    }
+
+    public void setTmg(Double tmg) {
+        this.tmg = tmg;
+    }
+
+    public Double getLipoic() {
+        return lipoic;
+    }
+
+    public void setLipoic(Double lipoic) {
+        this.lipoic = lipoic;
+    }
+
+    public Double getVitaminD2() {
+        return vitaminD2;
+    }
+
+    public void setVitaminD2(Double vitaminD2) {
+        this.vitaminD2 = vitaminD2;
+    }
+
+    public Double getVitaminK2() {
+        return vitaminK2;
+    }
+
+    public void setVitaminK2(Double vitaminK2) {
+        this.vitaminK2 = vitaminK2;
     }
 
     public long getUpdateTime() {

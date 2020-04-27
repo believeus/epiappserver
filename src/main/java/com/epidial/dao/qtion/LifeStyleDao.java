@@ -22,15 +22,18 @@ public interface LifeStyleDao {
             "sexfrequency=#{sexfrequency},sexscore=#{sexscore},smoking=#{smoking}," +
             "alcohol=#{alcohol},vitaminA=#{vitaminA}," +
             "vitaminC=#{vitaminC},vitaminD=#{vitaminD},calories=#{calories}," +
-            "same=#{same},resveratrol=#{resveratrol},nmn=#{nmn},dhea=#{dhea},updateTime=#{updateTime} where id=#{id}")
+            "same=#{same},resveratrol=#{resveratrol},nmn=#{nmn},dhea=#{dhea},updateTime=#{updateTime}," +
+            "lipoic=#{lipoic},vitaminD2=#{vitaminD2},vitaminK2=#{vitaminK2},tmg=#{tmg} where id=#{id}")
     public void updata(Life life);
 
     @Insert("insert into lifestyle" +
             "(uuid,height,weight,bmi,sport,heartrate,systolicBP,diastolicBP,cholesterol,sleep,meditation," +
-            "sexfrequency,sexscore,smoking,alcohol,vitaminA,vitaminC,vitaminD,calories,same,resveratrol,nmn,dhea,updateTime) " +
+            "sexfrequency,sexscore,smoking,alcohol,vitaminA,vitaminC,vitaminD,calories,same,resveratrol," +
+            "nmn,dhea,lipoic,vitaminD2,vitaminK2,tmg,updateTime) " +
             "value" +
             "(#{uuid},#{height},#{weight},#{bmi},#{sport},#{heartrate},#{systolicBP},#{diastolicBP}," +
             "#{cholesterol},#{sleep},#{meditation},#{sexfrequency},#{sexscore},#{smoking}," +
-            "#{alcohol},#{vitaminA},#{vitaminC},#{vitaminD},#{calories},#{same},#{resveratrol},#{nmn},#{dhea},#{updateTime}) ")
+            "#{alcohol},#{vitaminA},#{vitaminC},#{vitaminD},#{calories},#{same},#{resveratrol},#{nmn},#{dhea}," +
+            "#{lipoic},#{vitaminD2},#{vitaminK2},#{tmg},#{updateTime}) ")
     public void save(Life life);
 }
