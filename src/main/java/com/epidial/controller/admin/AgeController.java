@@ -19,22 +19,27 @@ public class AgeController {
     private UdataDao udataDao;
     @Resource
     private DnakitDao dnakitDao;
+
     @RequestMapping("/admin/age/view")
-    public ModelAndView view(int idx, int size){
-        ModelAndView modelView=new ModelAndView();
+    public ModelAndView view(int idx, int size) {
+        ModelAndView modelView = new ModelAndView();
         List<Udata> databox = udataDao.findAll(idx, size);
         modelView.setViewName("/WEB-INF/back/age-list.jsp");
-        modelView.addObject("databox",databox);
-        return  modelView;
+        modelView.addObject("databox", databox);
+        return modelView;
     }
 
     @ResponseBody
     @RequestMapping("/admin/age/update")
-    public String update(int id,String v){
+    public String update(int id, String v) {
         Udata udata = udataDao.findBy("id", id);
         udata.setNaturally(Float.parseFloat(v.split("@")[0]));
         udata.setBiological(Float.parseFloat(v.split("@")[1]));
-        udata.setStatus(v.split("@")[2]);
+        String status = v.split("@")[2];
+        if (!status.equals("in-transit") && udata.getDetectTime() == 0) {
+            udata.setDetectTime(System.currentTimeMillis());
+        }
+        udata.setStatus(status);
         udataDao.update(udata);
         return "success";
     }
@@ -42,28 +47,31 @@ public class AgeController {
 
     @ResponseBody
     @RequestMapping("/admin/age/del")
-    public String del(int id){
-        udataDao.delete("id",id);
+    public String del(int id) {
+        udataDao.delete("id", id);
         return "success";
     }
+
     @RequestMapping("/admin/age/addView")
-    public String addView(){
+    public String addView() {
         return "/WEB-INF/back/age-add.jsp";
     }
+
     @ResponseBody
     @RequestMapping("/admin/age/save")
-    public String save(Udata udata){
+    public String save(Udata udata) {
         Dnakit dnakit = dnakitDao.find("barcode", udata.getBarcode());
-        if (dnakit!=null){
-            dnakitDao.deleteBy("barcode",udata.getBarcode());
+        if (dnakit != null) {
+            dnakitDao.deleteBy("barcode", udata.getBarcode());
             udataDao.save(udata);
             return "success";
         }
         return "error";
     }
+
     @RequestMapping("/admin/age/bybarcode")
     @ResponseBody
-    public String getbybarcode(String barcode){
+    public String getbybarcode(String barcode) {
         List<Udata> udataList = udataDao.getBybarcode(barcode);
         return JSONObject.toJSONString(udataList);
     }

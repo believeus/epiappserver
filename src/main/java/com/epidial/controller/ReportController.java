@@ -118,8 +118,9 @@ public class ReportController {
         Dnakit dnakit = dnakitDao.find("barcode", barcode);
         //直接输入barcode
         if (dnakit != null) {
-            Udata data = new Udata(uuid, "pending");
+            Udata data = new Udata(uuid, "in-transit");
             data.setBarcode(barcode);
+            data.setDetectTime(0);
             data.setUploadTime(System.currentTimeMillis());
             data.setNaturally(0);
             data.setAllow((byte)0);

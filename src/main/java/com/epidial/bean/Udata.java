@@ -10,6 +10,7 @@ public class Udata {
     private String status;//状态：pending processing finished
     private long createTime;//创建时间
     private long uploadTime;//上传barcode时间
+    private long detectTime;//开始检测时间
     private String email;
     private byte allow;
     public Udata(){}
@@ -101,5 +102,13 @@ public class Udata {
 
     public void setAllow(byte allow) {
         this.allow = allow;
+    }
+
+    public long getDetectTime() {
+        return detectTime;
+    }
+
+    public void setDetectTime(long detectTime) {
+        this.detectTime = detectTime;
     }
 }
