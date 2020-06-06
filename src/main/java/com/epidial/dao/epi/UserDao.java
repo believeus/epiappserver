@@ -12,6 +12,8 @@ public interface UserDao {
 
     @Select("select * from user limit #{idx},#{size}")
     public List<User> pagingUser(@Param("idx") int idx, @Param("size") int size);
+    @Select("SELECT COUNT(*) FROM `user`")
+    public int count();
 
     /**功能描述: 用户注册*/
     @Insert("insert into user" +

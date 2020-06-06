@@ -77,6 +77,15 @@
 	</table>
 
 	</div>
+	<p align="center"> 当前页数:[${page.dang}/${page.zong}]
+		<c:if test="${page.currPageNo > 1}">
+			<a href="admin/user/view.jhtml?idx=0">首页</a>&nbsp;
+			<a href="admin/user/view.jhtml?idx=${page.currPageNo - 10}">上一页</a>
+		</c:if>
+		<c:if test="${page.currPageNo+10 <page.totalPageCount+1}">
+			<a href="admin/user/view.jhtml?idx=${page.currPageNo + 10}">下一页</a>
+			<a href="admin/user/view.jhtml?idx=${page.mypage}">末页</a>
+		</c:if></p>
 </div>
 <!--_footer 作为公共模版分离出去-->
 <script type="text/javascript" src="static/h-ui.admin/lib/jquery/1.9.1/jquery.min.js"></script>

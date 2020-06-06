@@ -1,10 +1,12 @@
 package com.epidial.controller.admin;
 
 import com.epidial.bean.User;
+import com.epidial.common.Page;
 import com.epidial.dao.epi.UserDao;
 import com.epidial.utils.UserCreate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -19,9 +21,34 @@ public class UManagerController {
     private UserDao userDao;
 
     @RequestMapping("/admin/user/view")
-    public ModelAndView view(int idx, int size) {
-        List<User> users = userDao.pagingUser(idx, size);
+    public ModelAndView view(@RequestParam(defaultValue = "0",value = "idx") int idx) {
+        int size1=10;
         ModelAndView modelView = new ModelAndView();
+        List<User> users = userDao.pagingUser(idx, size1);
+        int c=userDao.count();
+        Page page=new Page();
+        page.setCurrPageNo(idx);
+        page.setPageSize(size1);
+        page.setTotalPageCount(c-1);
+         if(c%10==0){
+                 page.setMypage(c-11);
+                 page.setZong(c/10);
+                 page.setDang((idx+1)/10);
+            }else{
+              int a=(int)(Math.floor(c/10));
+                 page.setMypage(a*10);
+                 page.setZong(a+1);
+                 if(idx+1>=a*10){
+                     page.setDang(a+1);
+                 }else{
+                     if(idx<10){
+                         page.setDang(1);
+                     }else{
+                         page.setDang(((idx+1)+10)/10);
+                     }
+                 }
+            }
+        modelView.addObject("page",page);
         modelView.setViewName("/WEB-INF/back/member-list.jsp");
         modelView.addObject("users", users);
         return modelView;
