@@ -150,8 +150,8 @@ public class ReportController {
         return "success";
     }
     @ResponseBody
-    @RequestMapping("/user/report/{uuid}/{barcode}/{locale}/buildPDF")
-    public String buildPDF(@PathVariable("uuid") String uuid, @PathVariable("barcode") String barcode,@PathVariable("locale") String locale, HttpServletResponse response) {
+    @RequestMapping("/user/report/{uuid}/{barcode}/{locale}/{userage}/buildPDF")
+    public String buildPDF(@PathVariable("uuid") String uuid, @PathVariable("barcode") String barcode,@PathVariable("locale") String locale,@PathVariable("userage")String userage, HttpServletResponse response) {
         try {
             Properties properties = new Properties();
             ClassLoader classLoader = this.getClass().getClassLoader();
@@ -169,7 +169,7 @@ public class ReportController {
             String phantomjs = "phantomjs"; //phantonjs已经配置好环境变量
             String rasterize = classpath + "rasterize.js";
             String filename = properties.getProperty("pdfpath") + "biological-age-barcode-" + barcode + "-"+locale+".pdf";
-            String url = properties.getProperty("host") + "user/report/" + uuid + "/" + barcode + "/"+locale+"/dnaview.jhtml";
+            String url = properties.getProperty("host") + "user/report/" + uuid + "/" + barcode + "/"+locale+"/"+userage+"/dnaview.jhtml";
             String cmd = phantomjs + " " + rasterize + " " + url + " " + filename;
             System.out.println(cmd);
 
@@ -209,8 +209,8 @@ public class ReportController {
             e.printStackTrace();
         }
     }
-    @RequestMapping("/user/report/{uuid}/{barcode}/{locale}/dnaview")
-    public ModelAndView dnaview(@PathVariable String uuid, @PathVariable String barcode,@PathVariable String locale) {
+    @RequestMapping("/user/report/{uuid}/{barcode}/{locale}/{userage}/dnaview")
+    public ModelAndView dnaview(@PathVariable String uuid, @PathVariable String barcode,@PathVariable String locale,@PathVariable String userage) {
         ModelAndView modelView = new ModelAndView();
         List<Udata> ntrGtBioUsers = udataDao.findNtrGtBio();//查找自然年龄大于生物学年龄的用户
         List<Udata> ntrLtBioUsers = udataDao.findNtrLtBio();//查找自然年龄小于生物学年龄的用户
@@ -218,6 +218,7 @@ public class ReportController {
         modelView.addObject("ntrGtBioUsers", JSON.toJSONString(ntrGtBioUsers));
         modelView.addObject("ntrLtBioUsers", JSON.toJSONString(ntrLtBioUsers));
         modelView.addObject("data", data);
+        modelView.addObject("userage",userage);
         String lang = locales.get(locale);
         if (lang==null||lang.length()==0){
             modelView.setViewName("/WEB-INF/front/dnaview-en.jsp");
