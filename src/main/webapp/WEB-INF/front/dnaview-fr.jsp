@@ -35,7 +35,7 @@
                         <div style="height: 33%;text-align: center;font-size:10px">Votre /Âge chronologique/</div>
                         <div style="width: 100%;height: 13%"></div>
                         <div style="height: 30%;text-align: center;color: #439e9d;font-size: 26px;font-weight: bold" id="natura">
-                            ${data.naturally}11
+                            ${data.naturally}
                         </div>
                         <div style="width: 100%;height: 100%;">
                             <div style="width: 100%;height: 10%"></div>
@@ -43,7 +43,6 @@
                             <div style="height: 15%;text-align: center;font-size:10px">/Âge chronologique/</div>
                             <div style="width: 100%;height: 15%"></div>
                             <div style="height: 20%;text-align: center;color: #439e9d;font-size: 26px;font-weight: bold" id="expect">
-                                11
                             </div>
                         </div>
                     </div>
@@ -58,13 +57,13 @@
                         <div style="height: 30%;text-align: center;font-size:10px">Votre /Âge biologique/</div>
                         <div style="width: 100%;height: 10%"></div>
                         <div style="height: 30%;text-align: center;color: #f15929;font-size: 34px;font-weight: bold" id="bio">
-                            ${data.biological}12
+                            ${data.biological}
                         </div>
                     </div>
                 </div>
                 <hr>
                 <div style="width: 90%;margin: 0 auto;padding-top: 5%">
-                    <div style="width: 100%;height:45px">
+                    <div id="smail" style="width: 100%;height:45px">
                         <div style="width: 8%;margin-right: 2%; float: left">
                             <img src="static/images/ques/smail.png"style="width: 100%;height: 100%">
                         </div>

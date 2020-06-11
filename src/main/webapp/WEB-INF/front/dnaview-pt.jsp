@@ -22,6 +22,7 @@
         </div>
     </div>
     <div style="height: 34px;width: 100%;clear: both"></div>
+    <div id="main"style="width: 100%;height:300px;margin: 0px auto;position: relative" ></div>
     <div style="width: 100%;height:389px">
         <div style="width: 90%;height: auto; margin: 0 auto">
             <div style="background-color: #f3f6fa;width: 100%;height: 389px;border-radius: 10px">
@@ -35,7 +36,7 @@
                         <div style="height: 33%;text-align: center;font-size:10px">Sua / Idade cronológica /</div>
                         <div style="width: 100%;height: 13%"></div>
                         <div style="height: 30%;text-align: center;color: #439e9d;font-size: 26px;font-weight: bold" id="natura">
-                            ${data.naturally}11
+                            ${userage}
                         </div>
                         <div style="width: 100%;height: 100%;">
                             <div style="width: 100%;height: 10%"></div>
@@ -43,7 +44,6 @@
                             <div style="height: 15%;text-align: center;font-size:10px">/ cronológica esperada/</div>
                             <div style="width: 100%;height: 15%"></div>
                             <div style="height: 20%;text-align: center;color: #439e9d;font-size: 26px;font-weight: bold" id="expect">
-                                11
                             </div>
                         </div>
                     </div>
@@ -58,18 +58,18 @@
                         <div style="height: 30%;text-align: center;font-size:10px">Sua /Idade biológica /</div>
                         <div style="width: 100%;height: 10%"></div>
                         <div style="height: 30%;text-align: center;color: #f15929;font-size: 34px;font-weight: bold" id="bio">
-                            ${data.biological}12
+                            ${data.biological}
                         </div>
                     </div>
                 </div>
                 <hr>
                 <div style="width: 90%;margin: 0 auto;padding-top: 5%">
-                    <div style="width: 100%;height:45px">
+                    <div id="smail"  style="width: 100%;height:45px">
                         <div style="width: 8%;margin-right: 2%; float: left">
                             <img src="static/images/ques/smail.png"style="width: 100%;height: 100%">
                         </div>
                         <div style="width: 89%;float: left;margin-left: 1%;text-align: center;line-height: 20px;font-size: 16px;font-weight: bold;color: #439e9d">
-                            Seu Epigenético é <Span class="Pobre"></Span> anos menor que a média esperada da população para a sua idade cronológica.</div>
+                            Sua epigenética é <Span class="Pobre"></Span>Anos menor do que a idade cronológica Na população.</div>
                     </div>
 
                 </div>
@@ -80,7 +80,7 @@
 
     <div style="width: 100%;height: 34px;clear: both"></div>
     <div style="width: 100%;margin: 0px auto;">
-        <div id="main" style="width: 100%;height:320px;margin: 0px auto;position: relative">
+        <div id="top-pic" style="width: 100%;height:320px;margin: 0px auto;position: relative">
             <div style="position: absolute;">
                 <img src="static/images/ques/rep12.jpg" style="width: 100%;height: 100%;">
             </div>
@@ -527,15 +527,62 @@
     </script>
     <script>
         $(function () {
+            var uage=parseInt(${userage})
             //您的预估真实年龄
             var epiAge = parseFloat($("#bio").text());
             var natura = parseFloat($("#natura").text());
             //var sqrt_value=Math.sqrt(2.6876+0.0288*-(epiAge+7.5806));
-            var result=(-1.6394+Math.sqrt(2.6876+0.0288*-(epiAge+7.5806)))/-0.0144
+            var expectedage=((-1.6394+Math.sqrt(2.6876+0.0288*-(epiAge+7.5806)))/-0.0144).toFixed(2)
             //alert(sqrt_value);
-            console.info("你输入的生物学年龄为："+epiAge+" 您的预估真实年龄为："+parseFloat(result));
-            $("#expect").html(result)
-            $(".Pobre").html(Math.abs(result-natura).toFixed(2))
+            //console.info("你输入的生物学年龄为："+epiAge+" 您的预估真实年龄为："+parseFloat(expectedage));
+            $("#expect").html(expectedage)
+
+
+            var real1="<div id=\"smail\" style=\"width: 100%;height:45px\" >\n" +
+                "                    <div style=\"width: 8%;margin-right: 2%; float: left\">\n" +
+                "                        <img src=\"static/images/ques/smail.png\"style=\"width: 100%;height: 100%\">\n" +
+                "                    </div>\n" +
+                "                    <div style=\"width: 89%;float: left;margin-left: 1%;text-align: center;line-height: 20px;font-size: 16px;font-weight: bold;color: #439e9d\"> Sua epigenética é  <Span class=\"Pobre\"></Span>\n" +
+                "                      Anos menor do que a idade cronológica Na população.</div>\n" +
+                "                </div>"
+            var real2="<div id=\"smail\" style=\"width: 100%;height:45px\" >\n" +
+                "                    <div style=\"width: 8%;margin-right: 2%; float: left\">\n" +
+                "                        <img src=\"static/images/ques/sad.png\"style=\"width: 100%;height: 100%\">\n" +
+                "                    </div>\n" +
+                "                    <div style=\"width: 89%;float: left;margin-left: 1%;text-align: center;line-height: 20px;font-size: 16px;font-weight: bold;color: #439e9d\">Sua epigenética é <Span class=\"Pobre\"></Span>\n" +
+                "                       Anos Mais Alta do que a idade cronológica Da população.</div>\n" +
+                "                </div>"
+
+            var test1="<div id=\"smail\" style=\"width: 100%;height:45px\" >\n" +
+                "                    <div style=\"width: 8%;margin-right: 2%; float: left\">\n" +
+                "                        <img src=\"static/images/ques/smail.png\"style=\"width: 100%;height: 100%\">\n" +
+                "                    </div>\n" +
+                "                    <div style=\"width: 89%;float: left;margin-left: 1%;text-align: center;line-height: 20px;font-size: 16px;font-weight: bold;color: #439e9d\">Sua epigenética é  <Span class=\"Pobre\"></Span>\n" +
+                "                      Anos menor do que a idade cronológica esperada Na população.</div>\n" +
+                "                </div>"
+            var test2="<div id=\"smail\" style=\"width: 100%;height:45px\" >\n" +
+                "                    <div style=\"width: 8%;margin-right: 2%; float: left\">\n" +
+                "                        <img src=\"static/images/ques/sad.png\"style=\"width: 100%;height: 100%\">\n" +
+                "                    </div>\n" +
+                "                    <div style=\"width: 89%;float: left;margin-left: 1%;text-align: center;line-height: 20px;font-size: 16px;font-weight: bold;color: #439e9d\">Sua epigenética é  <Span class=\"Pobre\"></Span>\n" +
+                "                       Anos Mais Alta do que a idade cronológica esperada Na população.</div>\n" +
+                "                </div>"
+
+            if (uage==0) {
+                if(epiAge<expectedage){
+                    $("#smail").html(test1)
+                }else{
+                    $("#smail").html(test2)
+                }
+                $(".Pobre").html(Math.abs(expectedage-epiAge).toFixed(2))
+            }else {
+                if(epiAge<uage){
+                    $("#smail").html(real1)
+                }else {
+                    $("#smail").html(real2)
+                }
+                $(".Pobre").html(Math.abs(uage-epiAge).toFixed(2))
+            }
         })
     </script>
 

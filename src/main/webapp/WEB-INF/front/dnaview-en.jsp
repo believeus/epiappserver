@@ -22,6 +22,7 @@
         </div>
     </div>
     <div style="height: 34px;width: 100%;clear: both"></div>
+    <div id="main"style="width: 100%;height:300px;margin: 0px auto;position: relative" ></div>
     <div style="width: 100%;height:389px">
         <div style="width: 90%;height: auto; margin: 0 auto">
             <div style="background-color: #f3f6fa;width: 100%;height: 389px;border-radius: 10px">
@@ -68,8 +69,8 @@
                     <div style="width: 8%;margin-right: 2%; float: left">
                         <img src="static/images/ques/sad.png"style="width: 100%;height: 100%">
                     </div>
-                    <div style="width: 89%;float: left;margin-left: 1%;text-align: center;line-height: 20px;font-size: 16px;font-weight: bold;color: #439e9d">Your Epigenetic is  <Span class="Pobre"></Span>
-                        years higher than chronological age in the population.</div>
+                    <div style="width: 89%;float: left;margin-left: 1%;text-align: center;line-height: 20px;font-size: 16px;font-weight: bold;color: #439e9d">Your Epigenetic age is  <Span class="Pobre"></Span>
+                        years lower than chronological age in the population.</div>
                 </div>
 
             </div>
@@ -80,7 +81,8 @@
 
     <div style="width: 100%;height: 34px;clear: both"></div>
     <div style="width: 100%;margin: 0px auto;">
-        <div id="main" style="width: 100%;height:300px;margin: 0px auto;position: relative">
+
+        <div id="top-pic" style="width: 100%;height:300px;margin: 0px auto;position: relative">
             <div style="position: absolute;">
                 <img src="static/images/ques/rep12.jpg" style="width: 100%;height: 100%;">
             </div>
@@ -551,31 +553,31 @@
 
             var real1="<div id=\"smail\" style=\"width: 100%;height:45px\" >\n" +
                 "                    <div style=\"width: 8%;margin-right: 2%; float: left\">\n" +
-                "                        <img src=\"static/images/ques/sad.png\"style=\"width: 100%;height: 100%\">\n" +
+                "                        <img src=\"static/images/ques/smail.png\"style=\"width: 100%;height: 100%\">\n" +
                 "                    </div>\n" +
-                "                    <div style=\"width: 89%;float: left;margin-left: 1%;text-align: center;line-height: 20px;font-size: 16px;font-weight: bold;color: #439e9d\">Your Epigenetic is  <Span class=\"Pobre\"></Span>\n" +
+                "                    <div style=\"width: 89%;float: left;margin-left: 1%;text-align: center;line-height: 20px;font-size: 16px;font-weight: bold;color: #439e9d\">Your Epigenetic age is  <Span class=\"Pobre\"></Span>\n" +
                 "                       years lower than chronological age in the population.</div>\n" +
                 "                </div>"
             var real2="<div id=\"smail\" style=\"width: 100%;height:45px\" >\n" +
                 "                    <div style=\"width: 8%;margin-right: 2%; float: left\">\n" +
                 "                        <img src=\"static/images/ques/sad.png\"style=\"width: 100%;height: 100%\">\n" +
                 "                    </div>\n" +
-                "                    <div style=\"width: 89%;float: left;margin-left: 1%;text-align: center;line-height: 20px;font-size: 16px;font-weight: bold;color: #439e9d\">Your Epigenetic is  <Span class=\"Pobre\"></Span>\n" +
+                "                    <div style=\"width: 89%;float: left;margin-left: 1%;text-align: center;line-height: 20px;font-size: 16px;font-weight: bold;color: #439e9d\">Your Epigenetic age is  <Span class=\"Pobre\"></Span>\n" +
                 "                        years higher than chronological age in the population.</div>\n" +
                 "                </div>"
 
             var test1="<div id=\"smail\" style=\"width: 100%;height:45px\" >\n" +
                 "                    <div style=\"width: 8%;margin-right: 2%; float: left\">\n" +
-                "                        <img src=\"static/images/ques/sad.png\"style=\"width: 100%;height: 100%\">\n" +
+                "                        <img src=\"static/images/ques/smail.png\"style=\"width: 100%;height: 100%\">\n" +
                 "                    </div>\n" +
-                "                    <div style=\"width: 89%;float: left;margin-left: 1%;text-align: center;line-height: 20px;font-size: 16px;font-weight: bold;color: #439e9d\">Your Epigenetic is  <Span class=\"Pobre\"></Span>\n" +
+                "                    <div style=\"width: 89%;float: left;margin-left: 1%;text-align: center;line-height: 20px;font-size: 16px;font-weight: bold;color: #439e9d\">Your Epigenetic age is  <Span class=\"Pobre\"></Span>\n" +
                 "                       years lower than expected chronological age in the population.</div>\n" +
                 "                </div>"
             var test2="<div id=\"smail\" style=\"width: 100%;height:45px\" >\n" +
                 "                    <div style=\"width: 8%;margin-right: 2%; float: left\">\n" +
                 "                        <img src=\"static/images/ques/sad.png\"style=\"width: 100%;height: 100%\">\n" +
                 "                    </div>\n" +
-                "                    <div style=\"width: 89%;float: left;margin-left: 1%;text-align: center;line-height: 20px;font-size: 16px;font-weight: bold;color: #439e9d\">Your Epigenetic is  <Span class=\"Pobre\"></Span>\n" +
+                "                    <div style=\"width: 89%;float: left;margin-left: 1%;text-align: center;line-height: 20px;font-size: 16px;font-weight: bold;color: #439e9d\">Your Epigenetic age is  <Span class=\"Pobre\"></Span>\n" +
                 "                        years higher than expected chronological age in the population.</div>\n" +
                 "                </div>"
 
