@@ -164,7 +164,7 @@ public class ReportController {
             String rasterizejs = os.toLowerCase().startsWith("win") ? rasterizejsPath.substring(1) : rasterizejsPath;
             String url = properties.getProperty("host") + "user/report/" + uuid + "/" + barcode + "/"+locale+"/"+userage+"/dnaview.jhtml";
             String filename = properties.getProperty("pdfpath") + "biological-age-barcode-" + barcode + "-"+locale+".pdf";
-            String cmd = "cmd /c " + phantomjsexe + " " + rasterizejs + " " + url + " " + filename;
+            String cmd = (os.toLowerCase().startsWith("win") ? "cmd /c " : "") + phantomjsexe + " " + rasterizejs + " " + url + " " + filename;
             System.out.println(cmd);
             Process proc = Runtime.getRuntime().exec(cmd);
             int exitVal = proc.waitFor(); // 阻塞当前线程，并等待外部程序中止后获取结果码
