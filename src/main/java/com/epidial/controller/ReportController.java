@@ -157,23 +157,15 @@ public class ReportController {
             ClassLoader classLoader = this.getClass().getClassLoader();
             FileInputStream in = new FileInputStream(classLoader.getResource("application.properties").getPath());
             properties.load(in);
-           //String classpath = classLoader.getResource("/").getPath().substring(1);
-           //Window
-            String phantomjs ="D:/usr/local/window-x64-phantomjs.exe";
-            String rasterize = "D:/usr/local/rasterize.js";
+            String os = System.getProperty("os.name");
+            String phantomjsexePath = getClass().getClassLoader().getResource(os.toLowerCase().startsWith("win") ? "window-x64-phantomjs.exe" : "linux-x64-phantomjs.exe").getPath();
+            String phantomjsexe = os.toLowerCase().startsWith("win") ? phantomjsexePath.substring(1) : phantomjsexePath;
+            String rasterizejsPath = getClass().getClassLoader().getResource("rasterize.js").getPath();
+            String rasterizejs = os.toLowerCase().startsWith("win") ? rasterizejsPath.substring(1) : rasterizejsPath;
             String url = properties.getProperty("host") + "user/report/" + uuid + "/" + barcode + "/"+locale+"/"+userage+"/dnaview.jhtml";
-            System.out.println(url);
             String filename = properties.getProperty("pdfpath") + "biological-age-barcode-" + barcode + "-"+locale+".pdf";
-            String cmd = "cmd /c " + phantomjs + " " + rasterize + " " + url + " " + filename;
-
-            //linux
-            /*String phantomjs = "phantomjs"; //phantonjs已经配置好环境变量
-            String rasterize = classpath + "rasterize.js";
-            String filename = properties.getProperty("pdfpath") + "biological-age-barcode-" + barcode + "-"+locale+".pdf";
-            String url = properties.getProperty("host") + "user/report/" + uuid + "/" + barcode + "/"+locale+"/"+userage+"/dnaview.jhtml";
-            String cmd = phantomjs + " " + rasterize + " " + url + " " + filename;
-            System.out.println(cmd);*/
-
+            String cmd = "cmd /c " + phantomjsexe + " " + rasterizejs + " " + url + " " + filename;
+            System.out.println(cmd);
             Process proc = Runtime.getRuntime().exec(cmd);
             int exitVal = proc.waitFor(); // 阻塞当前线程，并等待外部程序中止后获取结果码
             in.close();
