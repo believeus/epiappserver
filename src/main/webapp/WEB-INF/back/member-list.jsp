@@ -26,12 +26,17 @@
 	<script type="text/javascript" src="static/h-ui.admin/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
+<script src="static/js/jquery-2.1.0.min.js" type="text/javascript"></script>
 <title>user manager</title>
 </head>
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> index <span class="c-gray en">&gt;</span> user center <span class="c-gray en">&gt;</span> user manager <a id="btn-refresh" class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
-
+	<div style="width: 500px;height: 40px;margin: auto">
+		<span style="color: #00CC99;font-size: 16px;font-weight: 700">email:</span>
+		<input type="text" id="txtemail" style="width: 300px;height: 36px"/>
+		<input type="button" value="search" id="btnSearch" onclick="seardemail()" style="border-radius: 10%;background: #00a0e9;height:40px;width: 100px;color: white;font-size: 24px" />
+	</div>
 	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="member_add('添加用户','/admin/user/addview.jhtml','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> Add user</a></span> </div>
 	<div class="mt-20">
 	<table class="table table-border table-bordered table-hover table-bg table-sort">
@@ -46,7 +51,7 @@
 				<th width="50">operation</th>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody id="tody">
 			<c:forEach items="${users}" var="user">
 				<tr name="item" data-id="${user.id}" class="text-c">
 					<td>${user.uuid}</td>
@@ -194,6 +199,44 @@ function member_del(obj,id){
 
 	});
 }
+</script>
+<script>
+
+	/*
+	点击搜索，查询barcode 返回List<>
+	* */
+	function seardemail() {
+
+		var url="/admin/user/mail?email="+$("#txtemail").val();
+		$.ajax({
+			type: 'POST',
+			url: url,
+			datatype:JSON,
+			success:function (data) {
+				var users = JSON.parse(data);
+				var html=new Array()
+				html.push("<table class='table table-border table-bordered table-hover table-bg table-sort'>")
+					html.push("<tr name='item' class='text-c' data-id=\""+users.id+"\">");
+					html.push("<td>"+users.uuid+"</td>");
+					html.push("<td><input name='username' style='cursor:pointer;border: none' value='\""+users.nickname+"\'> "+"</td>");
+					html.push("<td><input name='email' style='cursor:pointer;border: none' value='\""+users.mail+"\'> "+"</td>")
+					if(users.valid==0){
+						html.push("<td class=\"td-status\"><span class=\"label label-error radius\">inactivated</span></td>")
+					}else {
+						html.push("<td class=\"td-status\"><span class=\"label label-success radius\">activation</span></td>")
+					}
+					html.push("<td><input name='register' style='border: none' value='"+new Date(users.register).toLocaleString()+"'></td>")
+					html.push("<td><input name='register' style='border: none' value='"+new Date(users.lastLogin).toLocaleString()+"'></td>")
+					html.push("<td class='td-manage'><a title='删除' href='javascript:;'onclick='member_del(this,users.id)' class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a>"+"</td>")
+					html.push("</tr>")
+
+					$("#tody").html(html.join(""));
+
+
+			}
+
+		})
+	}
 </script>
 </body>
 </html>

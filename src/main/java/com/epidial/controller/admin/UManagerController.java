@@ -1,5 +1,6 @@
 package com.epidial.controller.admin;
 
+import com.alibaba.fastjson.JSONObject;
 import com.epidial.bean.User;
 import com.epidial.common.Page;
 import com.epidial.dao.epi.UserDao;
@@ -91,5 +92,13 @@ public class UManagerController {
     public String  del(int id){
         userDao.delete(id);//删除用户
         return "success";
+    }
+    @ResponseBody
+    @RequestMapping("/admin/user/mail")
+    public String getEamilfind(String email){
+        System.out.println(email);
+        String mail ="mail";
+        User user =userDao.findUser(mail,email);
+        return JSONObject.toJSONString(user);
     }
 }

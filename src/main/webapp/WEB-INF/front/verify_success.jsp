@@ -33,7 +33,7 @@
             <div style="clear: both"></div>
             <div style="width: 100%;height: 35%;text-align: center;overflow: hidden;">
                 <div style="font-size: 24px;color:#fc8d6b">Registration completed. <br>You can start by logging in to
-                    Epi-Aging using this email address. </div>
+                    Epi-Age using this email address. </div>
             </div>
             <div style="width: 100%;height: 20%;text-align: center">
                 <div style="width: 100%;height: 40px;">
