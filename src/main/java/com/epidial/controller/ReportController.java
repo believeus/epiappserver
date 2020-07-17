@@ -39,6 +39,7 @@ public class ReportController {
     ServletContext context;
     private HashMap<String,String> locales=new HashMap<String,String>();
     {
+        locales.put("hk","hk");
         locales.put("en","en");
         locales.put("fr","fr");
         locales.put("fr-be","fr");

@@ -16,7 +16,7 @@
 </head>
 <body style="margin: 0;padding: 0">
 <div style="width: 100%;">
-    <div style="width: 100%;height:567px; margin: auto;position: relative">
+    <div style="width: 100%;height:267px; margin: auto;position: relative">
         <div style="position: absolute;">
             <img src="static/images/ques/rep1.png" style="width: 100%;height: 100%;">
         </div>
@@ -82,11 +82,11 @@
     <div style="width: 100%;height: 34px;clear: both"></div>
     <div style="width: 100%;margin: 0px auto;">
 
-        <div id="top-pic" style="width: 100%;height:300px;margin: 0px auto;position: relative">
-            <div style="position: absolute;">
+        <div id="top-pic" style="width: 100%;height:345px;margin: 0px auto;position: relative">
+            <div style="">
                 <img src="static/images/ques/rep12.jpg" style="width: 100%;height: 100%;">
             </div>
-            <div style="position: absolute;top: 70%;text-align: right;width: 96%;font-family: Arial;color: #0968aa;">
+            <div style="overflow: hidden; top: 60%;text-align: right;width: 96%;font-family: Arial;color: #0968aa;">
                 <div style="font-size: 24px">HOW OLD ARE YOU?</div>
                 <div style="color: #828181;font-size: 16px">Why is your</div>
                 <div style="font-size: 24px">"Epigenetic age" important?</div>
@@ -293,7 +293,7 @@
                     most advisable changes and they should be personalized.
                 </div>
             </div>
-            <div style="width: 100%; height: 400px">
+            <div style="width: 100%; height: 338px">
                 <div class="outer" style="width: 60%;float: left; height: 189px">
                     <div class="circle-outer">
                         <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
@@ -314,11 +314,11 @@
             </div>
         </div>
     </div>
-    <div style="width: 100%;height:350px; margin: auto 0;position: relative">
-        <div style="position: absolute;">
+    <div style="width: 100%;height:384px; margin: auto 0;position: relative">
+        <div style="">
             <img src="static/images/ques/rep6-1.png" style="width: 100%;height: 100%;">
         </div>
-        <div style="position: absolute;top: 68%;left: 4%;text-align: center;width: 96%;font-family: Arial;color: #0968aa;">
+        <div style="top: 92%;text-align: right;width: 96%;font-family: Arial;color: #0968aa;">
             <div style="font-size: 24px">Personalized and</div>
             <div style="font-size: 24px;">systematic positioning</div>
             <div style="color: #828181;font-size: 16px">of out intelligent app for your health</div>
@@ -359,11 +359,11 @@
         </div>
     </div>
     <div style="height: 34px;width: 100%"></div>
-    <div style="width: 100%;height:300px; margin: auto 0;position: relative">
-        <div style="position: absolute;">
+    <div style="width: 100%;height:356px; margin: auto 0;position: relative">
+        <div style="">
             <img src="static/images/ques/rep7.png" style="width: 100%;height: 100%;">
         </div>
-        <div style="position: absolute;top: 72%;left: 4%;text-align: center;width: 96%;font-family: Arial;color: #0968aa;">
+        <div style="text-align: center;width: 96%;font-family: Arial;color: #0968aa;">
             <div style="color: #828181;font-size: 16px">A dynamic long-term partnership</div>
             <div style="font-size: 24px">to achieve  'Healthy Aging'</div>
 
