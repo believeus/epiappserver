@@ -9,10 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
 import javax.annotation.Resource;
-import java.io.IOException;
-import java.nio.file.FileSystems;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -44,8 +42,11 @@ public class DnaController {
     @ResponseBody
     @RequestMapping("/admin/dnakit/save")
     public String save(Dnakit dnakit){
-        dnakit.setCreatetime(System.currentTimeMillis());
-        dnakitDao.save(dnakit);
+        Dnakit val=dnakitDao.find("barcode",dnakit.getBarcode());
+        if (val==null) {
+            dnakit.setCreatetime(System.currentTimeMillis());
+            dnakitDao.save(dnakit);
+       }
         return "success";
     }
 
