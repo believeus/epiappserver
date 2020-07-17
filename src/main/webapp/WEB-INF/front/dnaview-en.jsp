@@ -21,7 +21,7 @@
             <img src="static/images/ques/rep1.png" style="width: 100%;height: 100%;">
         </div>
     </div>
-    <div style="height: 34px;width: 100%;clear: both"></div>
+    <div style="height: 134px;width: 100%;clear: both"></div>
     <div id="main"style="width: 100%;height:300px;margin: 0px auto;position: relative" ></div>
     <div style="width: 100%;height:389px">
         <div style="width: 90%;height: auto; margin: 0 auto">
@@ -86,7 +86,7 @@
             <div style="">
                 <img src="static/images/ques/rep12.jpg" style="width: 100%;height: 100%;">
             </div>
-            <div style="overflow: hidden; top: 60%;text-align: right;width: 96%;font-family: Arial;color: #0968aa;">
+            <div style="overflow: hidden; height: 123px; text-align: right;width: 96%;font-family: Arial;color: #0968aa;">
                 <div style="font-size: 24px">HOW OLD ARE YOU?</div>
                 <div style="color: #828181;font-size: 16px">Why is your</div>
                 <div style="font-size: 24px">"Epigenetic age" important?</div>
@@ -318,7 +318,7 @@
         <div style="">
             <img src="static/images/ques/rep6-1.png" style="width: 100%;height: 100%;">
         </div>
-        <div style="top: 92%;text-align: right;width: 96%;font-family: Arial;color: #0968aa;">
+        <div style=" height: 123px;text-align: right;width: 96%;font-family: Arial;color: #0968aa;">
             <div style="font-size: 24px">Personalized and</div>
             <div style="font-size: 24px;">systematic positioning</div>
             <div style="color: #828181;font-size: 16px">of out intelligent app for your health</div>
@@ -363,7 +363,7 @@
         <div style="">
             <img src="static/images/ques/rep7.png" style="width: 100%;height: 100%;">
         </div>
-        <div style="text-align: center;width: 96%;font-family: Arial;color: #0968aa;">
+        <div style="text-align: center;height: 123px; width: 96%;font-family: Arial;color: #0968aa;">
             <div style="color: #828181;font-size: 16px">A dynamic long-term partnership</div>
             <div style="font-size: 24px">to achieve  'Healthy Aging'</div>
 
@@ -425,14 +425,14 @@
                 made.
             </div>
         </div>
-        <div class="outer" style="width: 100%; height: 30px">
+        <div class="outer" style="width: 100%; height: 67px">
             <div class="circle-outer">
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
-            <div class="para" style="margin-left: 20px;width: 53%">
+            <div class="para" style="margin-left: 5%;width: 58%">
                 Possible routes for change will be offered based on our “model” and your data.
             </div>
-            <div style="width: 36%;float: right">
+            <div style="width: 36%;height: auto; float: right">
                 <img src="static/images/ques/rep13.png" style="width: 100%;height: 100%">
             </div>
         </div>
@@ -440,7 +440,7 @@
             <div class="circle-outer">
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
-            <div class="para" style="margin-left: 20px;width: 53%">
+            <div class="para" style="margin-left: 5%;width: 55%">
                 We hope that together we will be able to coevolve your well being and our “epiAging”
                 learning environment.
             </div>
