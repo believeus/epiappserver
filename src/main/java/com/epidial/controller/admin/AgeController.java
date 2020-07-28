@@ -5,6 +5,7 @@ import com.epidial.bean.Dnakit;
 import com.epidial.bean.Udata;
 import com.epidial.dao.epi.DnakitDao;
 import com.epidial.dao.epi.UdataDao;
+import com.epidial.serivce.MailService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,7 +20,8 @@ public class AgeController {
     private UdataDao udataDao;
     @Resource
     private DnakitDao dnakitDao;
-
+    @Resource
+    private MailService mailService;
     @RequestMapping("/admin/age/view")
     public ModelAndView view(int idx, int size) {
         ModelAndView modelView = new ModelAndView();
@@ -38,6 +40,31 @@ public class AgeController {
         String status = v.split("@")[2];
         if (!status.equals("in-transit") && udata.getDetectTime() == 0) {
             udata.setDetectTime(System.currentTimeMillis());
+        }
+        if (status.equals("ready")&&udata.getAllow()==1){
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    String title="User test results";
+                    String message="<html>" +
+                            "<head></head>" +
+                            "<body>" +
+                            "<p>Dear distinguished user</p>" +
+                            "<p style=\"color:#0071bc\">Your Epigenetic age test result has been uploaded successfully.Please Go to your app and click \"My Report\", then click the kit whose status has changed to \"Test Completed\" to view your report.</p>" +
+                            "<p>Thank you very much for your patience</p>" +
+                            "<div style=\"color:grey\">" +
+                            "<div>Best regards</div>" +
+                            "<div>HKG Epitherapeutics - Hong Kong Unit 119, 1/F Biotech Centre 2, 11 Science Park West Avenue Hong Kong Science Park, Shatin, NT, Hong Kong, HK,</div>" +
+                            "<div>https://www.hkgepitherapeutics.com</div>" +
+                            "<div>(+852) 2354 8297</div>" +
+                            "<div>info@hkgepitherapeutics.com</div>" +
+                            "<div>2020 All rights reserved</div>" +
+                            "</div>" +
+                            "</body>" +
+                            "</html>";
+                    mailService.sendMail(title,message,udata.getEmail());
+                }
+            }).start();
         }
         udata.setStatus(status);
         udataDao.update(udata);
