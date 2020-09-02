@@ -42,11 +42,11 @@
 		<table class="table table-border table-bordered table-hover table-bg table-sort">
 			<thead>
 			<tr class="text-c">
-				<th width="120">ID</th>
+				<th width="90">ID</th>
 				<th width="100">name</th>
 				<th width="120">createtime</th>
-				<th width="120">barcode</th>
-				<th width="120">operation</th>
+				<th width="160">barcode</th>
+				<th width="100">operation</th>
 			</tr>
 			</thead>
 			<tbody id="tody">
@@ -123,7 +123,7 @@
 					html+="<td>"+dnakit[i].id+"</td>";
 					html+="<td><input name='name' style='cursor:pointer;border: none' value='\""+dnakit[i].name+"\'> "+"</td>";
 					html+="<td><input name='createtime' style='cursor:pointer;border: none' value='\""+dnakit[i].createtime+"' pattern='yyyy-MM-dd hh:mm:ss'> "+"</td>";
-					html+="<td><input name='barcode' style='cursor:pointer;border: none' value='\""+dnakit[i].barcode+"\'> "+"</td>";
+					html+="<td><input name='barcode' style='cursor:pointer;width: 160px;border: none' value='\""+dnakit[i].barcode+"\'> "+"</td>";
 					html+="<td class='td-manage'><a title='删除' href='javascript:;'onclick='member_del(this,dnakit[i].id)' class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a>"+"</td>";
 					html+="</tr>";
 
