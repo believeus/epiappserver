@@ -44,7 +44,7 @@
 			<tr class="text-c">
 				<th width="90">ID</th>
 				<th width="100">name</th>
-				<th width="120">createtime</th>
+				<th width="110">createtime</th>
 				<th width="160">barcode</th>
 				<th width="100">operation</th>
 			</tr>
