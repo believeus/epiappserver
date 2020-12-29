@@ -62,7 +62,7 @@
 			</tbody>
 		</table>
 	</div>
-	<p align="center"> 当前页数:[${page.currPageNo}/${page.totalPageCount}]&nbsp;
+	<p align="center" id="pagetest"> 当前页数:[${page.currPageNo}/${page.totalPageCount}]&nbsp;
 		<c:if test="${page.currPageNo > 1}">
 			<a href="admin/dnakit/view.jhtml?idx=1">首页</a>&nbsp;
 			<a href="admin/dnakit/view.jhtml?idx=${page.currPageNo - 1}">上一页</a>
@@ -100,40 +100,7 @@
 		});
 	});
 </script>
-<script>
 
-	/*
-	点击搜索，查询barcode 返回List<>
-	* */
-	function seardnakit() {
-		// if($("#txtbarcode").val()==null){
-		// 	window.location.href=""
-		// }
-
-		var url="/admin/dnakit/getbybarcode?barcode="+$("#txtbarcode").val();
-		$.ajax({
-			type: 'POST',
-			url: url,
-			datatype:JSON,
-			success:function (data) {
-				var dnakit = JSON.parse(data);
-				var html='';
-				for (var i = 0; i < dnakit.length; i++) {
-					html+="<tr name='item' class='text-c' data-id=\""+dnakit[i].id+"\">"
-					html+="<td>"+dnakit[i].id+"</td>";
-					html+="<td><input name='name' style='cursor:pointer;border: none' value='\""+dnakit[i].name+"\'> "+"</td>";
-					html+="<td><input name='createtime' style='cursor:pointer;border: none' value='\""+dnakit[i].createtime+"' pattern='yyyy-MM-dd hh:mm:ss'> "+"</td>";
-					html+="<td><input name='barcode' style='cursor:pointer;width: 160px;border: none' value='\""+dnakit[i].barcode+"\'> "+"</td>";
-					html+="<td class='td-manage'><a title='删除' href='javascript:;'onclick='member_del(this,dnakit[i].id)' class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a>"+"</td>";
-					html+="</tr>";
-
-				}
-				$("#tody").html(html);
-			}
-
-		})
-	}
-</script>
 <script type="text/javascript">
 
 	/*用户-添加*/
@@ -198,9 +165,44 @@
 			$.post("admin/dnakit/del.jhtml?id="+id,function(msg){
 				$(obj).parents("tr").remove();
 				layer.msg('已删除!',{icon:1,time:1000});
+
 			});
 
 		});
+	}
+</script>
+<script>
+
+	/*
+	点击搜索，查询barcode 返回List<>
+	* */
+	function seardnakit() {
+		// if($("#txtbarcode").val()==null){
+		// 	window.location.href=""
+		// }
+
+		var url="/admin/dnakit/getbybarcode?barcode="+$("#txtbarcode").val();
+		$.ajax({
+			type: 'POST',
+			url: url,
+			datatype:JSON,
+			success:function (data) {
+				var dnakit = JSON.parse(data);
+				var html='';
+				for (var i = 0; i < dnakit.length; i++) {
+					html+="<tr name='item' class='text-c' data-id=\""+dnakit[i].id+"\">"
+					html+="<td>"+dnakit[i].id+"</td>";
+					html+="<td><input name='name' style='cursor:pointer;border: none' value='\""+dnakit[i].name+"\'> "+"</td>";
+					html+="<td><input name='createtime' style='cursor:pointer;border: none' value='\""+new Date(dnakit[i].createtime).toLocaleString()+"' pattern='yyyy-MM-dd hh:mm:ss'> "+"</td>";
+					html+="<td><input name='barcode' style='cursor:pointer;width: 160px;border: none' value='\""+dnakit[i].barcode+"\'> "+"</td>";
+					html+="<td class='td-manage'><a title='删除' href='javascript:;'onclick=\"+member_del(this,"+dnakit[i].id+")\"+ class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a>"+"</td>";
+					html+="</tr>";
+				}
+
+				$("#tody").html(html);
+			}
+
+		})
 	}
 </script>
 </body>

@@ -58,13 +58,13 @@
 			<c:forEach items="${databox}" var="task">
 				<tr  class="text-c">
 					<td><input name="naturally" data-id="${task.id}" value="${task.naturally}" style="border: none" readonly="readonly"></td>
-					<td><input name="biological" data-id="${task.id}" value="${task.biological}" style="border: none" readonly="readonly"></td>
+					<td><input name="biological" data-id="${task.id}" id="${task.id}" onclick="onclickready(${task.id})" value="${task.biological}" style="border: none" readonly="readonly"></td>
 					<td>${task.barcode}</td>
 					<td>
-						<select  data-id="${task.id}">
+						<select  data-id="${task.id}" >
 							<c:choose>
 								<c:when test="${task.status eq 'in-transit'}">
-									<option data-id="${task.id}" selected="selected" value="in-transit" >in-transit</option>
+									<option data-id="${task.id}" selected="selected" value="in-transit">in-transit</option>
 									<option data-id="${task.id}"   value="pending" >pending</option>
 									<option  data-id="${task.id}"  value="processing">processing</option>
 									<option  data-id="${task.id}"  value="ready">ready</option>
@@ -117,6 +117,24 @@
 			</c:forEach>
 		</tbody>
 	</table>
+		
+		<script>
+			function onclickready(data) {
+
+				console.log("xxxxxxxxxxx"+data);
+                var  tests = data;
+				var  biological =$("#"+tests).val();
+				console.log("testbio_______"+biological);
+				// var biological = $("input[ name='biological']").val();
+				// console.log("biological________"+biological);
+				if(biological =='0.0'){
+					alert("epiage为空，不能ready状态");
+					window.location.reload();
+				}
+
+
+			}
+		</script>
 		<script>
 			/*
             点击搜索，查询barcode 返回List<>
@@ -124,9 +142,8 @@
 			function seardnakit() {
 				var url="/admin/age/bybarcode.jhtml?barcode="+$("#txtbarcode").val();
 				$.post(url,function (data) {
-						var udata = JSON.parse(data)
-                        console.info(udata)
-                        var html=new Array()
+						var udata = JSON.parse(data);
+                        var html=new Array();
 						for (var i = 0; i < udata.length; i++) {
 						    html.push("<table class='table table-border table-bordered table-hover table-bg table-sort'>")
                             html.push("<tr class='text-c'>")
@@ -148,7 +165,7 @@
                             html.push("</td>")
 
 
-                            html.push("<td class='td-manage'><a title='删除' href='javascript:;'onclick='member_del(this,udata[i].id)' class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a>"+"</td>")
+                            html.push("<td class='td-manage'><a title='删除' href='javascript:;'onclick=\"+member_del(this,"+udata[i].id+")\"+ class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a>"+"</td>")
 							html.push("</tr>")
                             html.push("</table>")
 						}
@@ -277,6 +294,8 @@ function member_del(obj,id){
 		});
 	});
 }
+
+
 </script>
 </body>
 </html>

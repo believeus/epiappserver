@@ -214,8 +214,9 @@ function member_del(obj,id){
 			datatype:JSON,
 			success:function (data) {
 				var users = JSON.parse(data);
-				var html=new Array()
-				html.push("<table class='table table-border table-bordered table-hover table-bg table-sort'>")
+                var html=new Array();
+                if(users){
+					html.push("<table class='table table-border table-bordered table-hover table-bg table-sort'>")
 					html.push("<tr name='item' class='text-c' data-id=\""+users.id+"\">");
 					html.push("<td>"+users.uuid+"</td>");
 					html.push("<td><input name='username' style='cursor:pointer;border: none' value='\""+users.nickname+"\'> "+"</td>");
@@ -227,9 +228,9 @@ function member_del(obj,id){
 					}
 					html.push("<td><input name='register' style='border: none' value='"+new Date(users.register).toLocaleString()+"'></td>")
 					html.push("<td><input name='register' style='border: none' value='"+new Date(users.lastLogin).toLocaleString()+"'></td>")
-					html.push("<td class='td-manage'><a title='删除' href='javascript:;'onclick='member_del(this,users.id)' class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a>"+"</td>")
+					html.push("<td class='td-manage'><a title='删除' href='javascript:;'onclick=\"member_del(this,"+users.id+")\"+ class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a>"+"</td>")
 					html.push("</tr>")
-
+                }
 					$("#tody").html(html.join(""));
 
 
