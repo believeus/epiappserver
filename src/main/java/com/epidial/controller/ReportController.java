@@ -138,9 +138,13 @@ public class ReportController {
 
         }
         Udata data = udataDao.find("uuid", uuid, "barcode", barcode);
-        data.setAllow((byte)0);
-        udataDao.update(data);
-        return (data == null) ? new Udata("", "invalid") : data;
+        if(data==null){
+            return new Udata("", "invalid");
+        }else {
+            data.setAllow((byte) 0);
+            udataDao.update(data);
+            return data;
+        }
     }
     @ResponseBody
     @RequestMapping("/user/age/upmyage")
