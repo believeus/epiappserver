@@ -11,6 +11,8 @@ public class Udata {
     private long createTime;//创建时间
     private long uploadTime;//上传barcode时间
     private long detectTime;//开始检测时间
+    private long pendingTime;//暂停时间
+    private long curtime;//系统当前时间
     private String email;
     private byte allow;
     public Udata(){}
@@ -110,5 +112,21 @@ public class Udata {
 
     public void setDetectTime(long detectTime) {
         this.detectTime = detectTime;
+    }
+
+    public long getPendingTime() {
+        return pendingTime;
+    }
+
+    public void setPendingTime(long pendingTime) {
+        this.pendingTime = pendingTime;
+    }
+
+    public long getCurtime() {
+        return System.currentTimeMillis();
+    }
+
+    public void setCurtime(long curtime) {
+        this.curtime = curtime;
     }
 }

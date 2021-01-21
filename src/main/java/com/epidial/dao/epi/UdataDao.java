@@ -24,7 +24,7 @@ public interface UdataDao {
     @Select("select * from udata where uuid=#{uuid}")
     public List<Udata> findByUUID(@Param("uuid") String uuid);
 
-    @Update("update udata set uuid=#{uuid},naturally=#{naturally},biological=#{biological},barcode=#{barcode},status=#{status},email=#{email},allow=#{allow},uploadTime=#{uploadTime},detectTime=#{detectTime} where id=#{id}")
+    @Update("update udata set uuid=#{uuid},naturally=#{naturally},biological=#{biological},barcode=#{barcode},status=#{status},email=#{email},allow=#{allow},uploadTime=#{uploadTime},detectTime=#{detectTime},pendingTime=#{pendingTime} where id=#{id}")
     public void update(Udata data);
 
     @Select("select * from udata where naturally > biological and biological > 0  and naturally >0 and status='ready' limit 0,50")

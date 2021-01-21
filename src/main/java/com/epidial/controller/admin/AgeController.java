@@ -40,8 +40,9 @@ public class AgeController {
         String status = v.split("@")[2];
         if (!status.equals("in-transit") && udata.getDetectTime() == 0) {
             udata.setDetectTime(System.currentTimeMillis());
-        }
-        if (status.equals("ready")&&udata.getAllow()==1){
+        }else if(status.equals("pending")){
+            udata.setPendingTime(System.currentTimeMillis());
+        }else if (status.equals("ready")&&udata.getAllow()==1){
             new Thread(new Runnable() {
                 @Override
                 public void run() {

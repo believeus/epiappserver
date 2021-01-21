@@ -109,7 +109,8 @@ public class ReportController {
     @ResponseBody
     @RequestMapping("/user/report/findDataByUuid")
     public List<Udata> findDataByUuid(String uuid){
-        return udataDao.findByUUID(uuid);
+         List<Udata> box=udataDao.findByUUID(uuid);
+         return  box;
     }
 
     @ResponseBody

@@ -28,9 +28,7 @@
 	<script type="text/javascript" src="static/h-ui.admin/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
-    <link rel="stylesheet" type="text/css" href="/static/css/sweetalert.css">
-	<script type="text/javascript" src="/static/js/sweetalert-dev.js"></script>
-    <title>Age manager</title>
+<title>Age manager</title>
 </head>
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> index <span class="c-gray en">&gt;</span> Age center <span class="c-gray en">&gt;</span> Age manager <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
@@ -60,33 +58,33 @@
 			<c:forEach items="${databox}" var="task">
 				<tr  class="text-c">
 					<td><input name="naturally" data-id="${task.id}" value="${task.naturally}" style="border: none" readonly="readonly"></td>
-					<td><input name="biological" data-id="${task.id}" id="${task.id}" value="${task.biological}" style="border: none" readonly="readonly"></td>
+					<td><input name="biological" data-id="${task.id}" id="${task.id}" onclick="onclickready(${task.id})" value="${task.biological}" style="border: none" readonly="readonly"></td>
 					<td>${task.barcode}</td>
 					<td>
 						<select  data-id="${task.id}" >
 							<c:choose>
 								<c:when test="${task.status eq 'in-transit'}">
 									<option data-id="${task.id}" selected="selected" value="in-transit">in-transit</option>
-									<option data-id="${task.id}"   value="pending" >pending</option>
-									<option  data-id="${task.id}"  value="processing">processing</option>
+                                    <option  data-id="${task.id}"  value="processing">processing</option>
+                                    <option data-id="${task.id}"   value="pending" >pending</option>
 									<option  data-id="${task.id}"  value="ready">ready</option>
 								</c:when>
 								<c:when test="${task.status eq 'pending'}">
 									<option data-id="${task.id}"value="in-transit" >in-transit</option>
+                                    <option  data-id="${task.id}"  value="processing">processing</option>
 									<option data-id="${task.id}" selected="selected" value="pending" >pending</option>
-									<option  data-id="${task.id}"  value="processing">processing</option>
 									<option  data-id="${task.id}"  value="ready">ready</option>
 								</c:when>
 								<c:when test="${task.status eq 'processing'}">
 									<option data-id="${task.id}"value="in-transit" >in-transit</option>
+                                    <option  data-id="${task.id}" selected="selected"  value="processing">processing</option>
 									<option data-id="${task.id}"  value="pending" >pending</option>
-									<option  data-id="${task.id}" selected="selected"  value="processing">processing</option>
 									<option  data-id="${task.id}"  value="ready">ready</option>
 								</c:when>
 								<c:otherwise>
 									<option data-id="${task.id}"value="in-transit" >in-transit</option>
+                                    <option  data-id="${task.id}"   value="processing">processing</option>
 									<option data-id="${task.id}"  value="pending" >pending</option>
-									<option  data-id="${task.id}"   value="processing">processing</option>
 									<option  data-id="${task.id}" selected="selected"  value="ready">ready</option>
 								</c:otherwise>
 							</c:choose>
@@ -119,6 +117,24 @@
 			</c:forEach>
 		</tbody>
 	</table>
+		
+		<script>
+			function onclickready(data) {
+
+				console.log("xxxxxxxxxxx"+data);
+                var  tests = data;
+				var  biological =$("#"+tests).val();
+				console.log("testbio_______"+biological);
+				// var biological = $("input[ name='biological']").val();
+				// console.log("biological________"+biological);
+				if(biological =='0.0'){
+					alert("epiage为空，不能ready状态");
+					window.location.reload();
+				}
+
+
+			}
+		</script>
 		<script>
 			/*
             点击搜索，查询barcode 返回List<>
@@ -147,6 +163,8 @@
                             html.push("<td>") //${task.allow == 1}
                             html.push("<a href='javascript:;'".concat(" onclick=").concat(udata[i].allow==1?"emailView('Email-Nofify','/user/report/"+udata[i].uuid+"/"+udata[i].barcode+"/emailView.jhtml','','510')":"").concat(" class='ml-5'").concat(" style='text-decoration:none;color: green'>").concat(udata[i].allow==1?"Notification":"").concat("</a>"))
                             html.push("</td>")
+
+
                             html.push("<td class='td-manage'><a title='删除' href='javascript:;'onclick=\"+member_del(this,"+udata[i].id+")\"+ class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a>"+"</td>")
 							html.push("</tr>")
                             html.push("</table>")
@@ -174,29 +192,10 @@
                                 var data = {};
                                 data.id = _oThis.attr("data-id");
                                 data.v = naturally + "@" + biological+"@"+status;
-                                console.log("naturally"+naturally+"...bio:"+biological);
-                                if(biological=='0.0'&status =='ready'){
-                                    // alert("When epiage is empty, the status cannot be changed to ready")
-                                    swal({
-                                            title: "",
-                                            text: "When epiage is empty, the status cannot be changed to ready！",
-                                            type: "warning",
-                                            confirmButtonColor: "#DD6B55",
-                                            confirmButtonText: "ok",
-                                        },
-                                        function(isConfirm) {
-                                            if (isConfirm) {
-                                                window.location.reload();
-                                            } else {
-                                                window.location.reload();
-                                            }
-                                        });
-                                }else {
-                                    $.post("/admin/age/update.jhtml", data, function () {
-                                        _oThis.attr("readonly", "readonly");
-                                        _oThis.css("border", "none");
-                                    });
-                                }
+                                 $.post("/admin/age/update.jhtml", data, function () {
+                                     _oThis.attr("readonly", "readonly")
+                                     _oThis.css("border", "none");
+                                 });
                             }
                             break;
                     }
