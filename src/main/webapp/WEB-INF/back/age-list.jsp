@@ -175,7 +175,7 @@
                                 data.id = _oThis.attr("data-id");
                                 data.v = naturally + "@" + biological+"@"+status;
                                 console.log("naturally"+naturally+"...bio:"+biological);
-                                if(biological=='0.0'|biological=='0'&status =='ready'){
+                                if(biological=='0.0'&status =='ready'){
                                     // alert("When epiage is empty, the status cannot be changed to ready")
                                     swal({
                                             title: "",
