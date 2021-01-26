@@ -58,7 +58,7 @@
 			<c:forEach items="${databox}" var="task">
 				<tr  class="text-c">
 					<td><input name="naturally" data-id="${task.id}" value="${task.naturally}" style="border: none" readonly="readonly"></td>
-					<td><input name="biological" data-id="${task.id}" id="${task.id}" onclick="onclickready(${task.id})" value="${task.biological}" style="border: none" readonly="readonly"></td>
+					<td><input name="biological" data-id="${task.id}" id="${task.id}" value="${task.biological}" style="border: none" readonly="readonly"></td>
 					<td>${task.barcode}</td>
 					<td>
 						<select  data-id="${task.id}" >
@@ -117,24 +117,7 @@
 			</c:forEach>
 		</tbody>
 	</table>
-		
-		<script>
-			function onclickready(data) {
 
-				console.log("xxxxxxxxxxx"+data);
-                var  tests = data;
-				var  biological =$("#"+tests).val();
-				console.log("testbio_______"+biological);
-				// var biological = $("input[ name='biological']").val();
-				// console.log("biological________"+biological);
-				if(biological =='0.0'){
-					alert("epiage为空，不能ready状态");
-					window.location.reload();
-				}
-
-
-			}
-		</script>
 		<script>
 			/*
             点击搜索，查询barcode 返回List<>
@@ -163,8 +146,6 @@
                             html.push("<td>") //${task.allow == 1}
                             html.push("<a href='javascript:;'".concat(" onclick=").concat(udata[i].allow==1?"emailView('Email-Nofify','/user/report/"+udata[i].uuid+"/"+udata[i].barcode+"/emailView.jhtml','','510')":"").concat(" class='ml-5'").concat(" style='text-decoration:none;color: green'>").concat(udata[i].allow==1?"Notification":"").concat("</a>"))
                             html.push("</td>")
-
-
                             html.push("<td class='td-manage'><a title='删除' href='javascript:;'onclick=\"+member_del(this,"+udata[i].id+")\"+ class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a>"+"</td>")
 							html.push("</tr>")
                             html.push("</table>")
@@ -192,10 +173,17 @@
                                 var data = {};
                                 data.id = _oThis.attr("data-id");
                                 data.v = naturally + "@" + biological+"@"+status;
-                                 $.post("/admin/age/update.jhtml", data, function () {
-                                     _oThis.attr("readonly", "readonly")
-                                     _oThis.css("border", "none");
-                                 });
+                                console.log("naturally"+naturally+"...bio:"+biological);
+                                if(biological=='0.0'&status =='ready'){
+                                    alert('When epiage is empty, the status cannot be changed to ready！');
+                                    window.location.reload();
+                                }else {
+                                    $.post("/admin/age/update.jhtml", data, function () {
+                                        _oThis.attr("readonly", "readonly");
+                                        _oThis.css("border", "none");
+                                    });
+                                }
+
                             }
                             break;
                     }
