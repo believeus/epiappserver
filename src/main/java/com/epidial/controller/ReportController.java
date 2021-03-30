@@ -4,6 +4,9 @@ import com.alibaba.fastjson.JSON;
 import com.epidial.bean.*;
 import com.epidial.dao.epi.*;
 import com.epidial.serivce.MailService;
+import com.epidial.utils.AmazonS3;
+import com.epidial.utils.Amazondb;
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -16,10 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 @Controller
 @CrossOrigin
@@ -174,6 +174,24 @@ public class ReportController {
             System.out.println(cmd);
             Process proc = Runtime.getRuntime().exec(cmd);
             int exitVal = proc.waitFor(); // 阻塞当前线程，并等待外部程序中止后获取结果码
+            //let pdf save in aws s3 bucker
+            String bucketName=properties.getProperty("bucketName");
+            byte[] fdata = FileUtils.readFileToByteArray(new File(filename));
+            AmazonS3.putS3Object(bucketName,"biological-age-barcode-" + barcode + "-"+locale+".pdf",fdata);
+            //put the data to dynamnodb
+            HashMap<String, String> mdata = new HashMap<String, String>();
+            mdata.put("barcodeId", barcode);
+            mdata.put("pdfname","biological-age-barcode-" + barcode + "-"+locale+".pdf");
+            mdata.put("status","create");
+            mdata.put("url",properties.getProperty("host")+"/user/report/"+barcode+"/"+locale+"/pdf");
+            Amazondb.putItem(Amazondb.epixFlowBarcodeStatusTable,mdata);
+            Udata data = udataDao.find("uuid", uuid, "barcode", barcode);
+            HashMap<String, String> vdata = new HashMap<String, String>();
+            vdata.put("barcodeId", barcode);
+            vdata.put("epiage", String.valueOf(data.getBiological()));
+            vdata.put("accuracy", "97%");
+            vdata.put("expected", "45");
+            Amazondb.putItem(Amazondb.epixFlowReportsTable,vdata);
             in.close();
             return exitVal == 0 ? "success" : "error";
         } catch (Exception e) {
@@ -182,27 +200,31 @@ public class ReportController {
         return "error";
     }
 
-    @RequestMapping("/user/report/{barcode}/{locale}/pdf")
-    public void pdf(@PathVariable("barcode") String barcode,@PathVariable("locale") String locale, HttpServletResponse response) {
+    @RequestMapping("/user/report/{barcode}/{locale}/downloadpdf")
+    public void downloadpdf(@PathVariable("barcode") String barcode,@PathVariable("locale") String locale, HttpServletResponse response) {
         try {
             Properties properties = new Properties();
             ClassLoader classLoader = this.getClass().getClassLoader();
             FileInputStream in = new FileInputStream(classLoader.getResource("application.properties").getPath());
             properties.load(in);
+            response.reset();
+            response.setCharacterEncoding("UTF-8");
+            response.setContentType("multipart/form-data");
             response.setHeader("Content-Disposition", "attachment;fileName=" + URLEncoder.encode("biological-age-barcode-" + barcode + "-"+locale+".pdf", "UTF-8"));
-            String filename = properties.getProperty("pdfpath") + "biological-age-barcode-" + barcode + "-"+locale+".pdf";
-            File file=new File(filename);
-            if (file.exists()) {
-                InputStream fileIn = new FileInputStream(filename);
+            // download from
+            byte[] fdata = AmazonS3.download(AmazonS3.bucketName, "biological-age-barcode-" + barcode + "-" + locale + ".pdf");
+            if (fdata!=null) {
                 OutputStream fileOut = response.getOutputStream();
-                byte[] buff = new byte[1024];
-                int len = 0;
-                while ((len = fileIn.read(buff)) != -1) {
-                    fileOut.write(buff, 0, len);
-                }
+                fileOut.write(fdata, 0, fdata.length);
                 fileOut.close();
-                fileIn.close();
             }
+            // recode into db
+            HashMap<String, String> mdata = new HashMap<String, String>();
+            mdata.put("barcodeId", barcode);
+            mdata.put("pdfname","biological-age-barcode-" + barcode + "-"+locale+".pdf");
+            mdata.put("status","dowlaod");
+            mdata.put("url",properties.getProperty("host")+"/user/report/"+barcode+"/"+locale+"/pdf");
+            Amazondb.putItem(Amazondb.epixFlowBarcodeStatusTable,mdata);
             in.close();
         } catch (Exception e) {
             e.printStackTrace();
