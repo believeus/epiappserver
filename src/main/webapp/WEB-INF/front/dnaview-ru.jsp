@@ -16,121 +16,180 @@
 </head>
 <body style="margin: 0;padding: 0">
 <div style="width: 100%;">
-    <div style="width: 100%;height:567px; margin: auto;position: relative">
+    <div style="width: 100%;height:267px; margin: auto;position: relative">
         <div style="position: absolute;">
             <img src="static/images/ques/rep1.png" style="width: 100%;height: 100%;">
         </div>
     </div>
-    <div style="height: 34px;width: 100%;clear: both"></div>
+
+    <div style="width: 90%;height: 50px;margin: 0 auto; text-align: left;background-color: #f1f5f6;border-radius: 5px;font-size: 18px;line-height: 50px;font-weight: bold;padding-left: 10px">Barcode | ${data.barcode}</div>
+    <div style="height: 123px;width: 100%;clear: both"></div>
     <div id="main"style="width: 100%;height:300px;margin: 0px auto;position: relative" ></div>
-    <div style="width: 100%;height:389px">
-        <div style="width: 90%;height: auto; margin: 0 auto">
-            <div style="background-color: #f3f6fa;width: 100%;height: 389px;border-radius: 10px">
-                <div style="width: 100%;height: 12px"></div>
-                <div style="width: 100%;height: 62%;">
-                    <div style="width: 34%;height: 50%; float: left">
-                        <div style="height:30%;width: 30%;margin: auto; ">
-                            <img src="static/images/ques/rep-cho.png" style="width: 100%;height: 100%">
-                        </div>
-                        <div style="width: 100%;height: 10%"></div>
-                        <div style="height: 33%;text-align: center;font-size:10px">Ваш /Хронологический возраст/</div>
-                        <div style="width: 100%;height: 10%"></div>
-                        <div style="height: 30%;text-align: center;color: #439e9d;font-size: 26px;font-weight: bold" id="natura">
-                            ${userage}
-                        </div>
-                        <div style="width: 100%;height: 100%;">
-                            <div style="width: 100%;height: 10%"></div>
-                            <div style="height: 15%;text-align: center;font-size:10px">Ваш ожидаемый</div>
-                            <div style="height: 15%;text-align: center;font-size:10px">/хронологический возраст/</div>
-                            <div style="width: 100%;height: 30%"></div>
-                            <div style="height: 20%;text-align: center;color: #439e9d;font-size: 26px;font-weight: bold" id="expect">
 
-                            </div>
-                        </div>
-                    </div>
-                    <div style="width: 31%;height:80%; float: left">
-                        <img src="static/images/ques/rep-man.png" style="width: 100%;height: 100%">
-                    </div>
-                    <div style="width: 33%;height: 50%; float: left">
-                        <div style="height: 30%;width: 30%;margin: auto;">
-                            <img src="static/images/ques/rep-bio.png" style="width: 100%;height: 100%">
-                        </div>
-                        <div style="width: 100%;height: 10%"></div>
-                        <div style="height: 30%;text-align: center;font-size:10px">Ваш /Биологический возраст/</div>
-                        <div style="width: 100%;height: 10%"></div>
-                        <div style="height: 28%;text-align: center;color: #f15929;font-size: 34px;font-weight: bold" id="bio">
-                            ${data.biological}
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div style="width: 90%;margin: 0 auto;padding-top: 5%">
-                    <div id="smail"  style="width: 100%;height:100px">
-                        <div style="width: 8%;margin-right: 2%; float: left">
-                            <img src="static/images/ques/smail.png"style="width: 100%;height: 100%">
-                        </div>
-                        <div style="width: 89%;float: left;margin-left: 1%;text-align: center;line-height: 20px;font-size: 16px;font-weight: bold;color: #439e9d">
-                            Ваша эпигенетика на <Span class="Pobre"></Span> год ниже ожидаемой средней численности
-                            населения для вашего хронологического возраста.</div>
-                    </div>
-
-                </div>
+    <div style="width: 90%;height: 200px;margin: 0 auto; text-align: left;background-color: #f1f5f6;border-radius: 15px;">
+        <div style="width: 90%;margin: 0 auto">
+            <div style="height: 30px;padding-top: 20px">
+                <img src="static/images/ques/rep-green.png" style="float: left;width: 8%;height: 100%;padding-left: 2%">
+                <img src="static/images/ques/rep-red.png" style="float: left;width: 8%;height: 100%;padding-left: 2%">
+                <span style="float: left;height: 30px;width: 78%;font-size: 16px;line-height: 30px; padding-left: 2%">Your Epigenetic Age</span>
             </div>
-
+            <div style="height: 20px;width: 100%;clear: both"></div>
+            <div style=" height: 60px;width: 100%;">
+                <div style="float: left;width: 5%;height:60px; ">
+                    <div style="width: 10px;height: 10px;background-color: green;border-radius: 50px;"></div>
+                </div>
+                <div style="float: left;width: 95%;height: 60px;font-size: 16px">The others,who were tested,whose Epigenetic age is higher than Chronological age.</div>
+            </div>
+            <div style=" height: 60px;width: 100%;">
+                <div style="float: left;width: 5%;height: 60px; ">
+                    <div style="width: 10px;height: 10px;background-color: red;border-radius: 50px;"></div>
+                </div>
+                <div style="float: left;width: 95%;height: 60px;font-size: 16px">The others,who were tested,whose Epigenetic age is higher than Chronological age.</div>
+            </div>
         </div>
     </div>
+    <div style="height: 20px;width: 100%;clear: both"></div>
+    <div style="width: 90%;height: 109px;margin: 0 auto;background-color: #f1f5f6;border-radius: 15px;">
+        <div style="height: 50px;margin:0 auto; width: 70%;padding-top: 20px">
+            <img src="static/images/ques/olive-leaf.png" style="float: left;width: 18%;height: 40px;padding-left: 20%">
+            <span style="float: left;height: 50px;width: 30%;font-size: 16px;line-height: 30px;text-align: center; font-size: 28px;font-weight: bold"id="natura">${userage}</span>
+            <span style="float: left;height: 50px;width: 20%;font-size: 16px;line-height: 30px;text-align: center; font-size: 18px;">Years</span>
+        </div>
+        <div style="height: 40px;text-align: center;font-size: 16px;font-weight: bold;color: #cdcdcd">Your Chronological Age</div>
+    </div>
+    <div style="height: 20px;width: 100%;clear: both"></div>
+    <div style="width: 90%;height: 209px;margin: 0 auto;background-color: #f1f5f6;border-radius: 15px;">
+        <div style="height: 50px;margin:0 auto; width: 70%;padding-top: 20px">
+            <img src="static/images/ques/olive-leaf.png" style="float: left;width: 18%;height: 40px;padding-left: 15%">
+            <div style="float: left;height: 50px;width: 40%;font-size: 16px;line-height: 30px;text-align: center; font-size: 28px;font-weight: bold"id="expect"> </div>
+            <span style="float: left;height: 50px;width: 20%;font-size: 16px;line-height: 30px;text-align: center; font-size: 18px;">Years</span>
+        </div>
+        <div style="height: 40px;text-align: center;font-size: 16px;font-weight: bold;border-bottom: 2px dotted #cdcdcd;color: #cdcdcd;">Your Excepted Chronological Age</div>
+        <div style="height: 40px;text-align: center;font-size: 16px;padding-top: 20px"> The "normal" chronological age of people with similar EpiAge results (calculated using a mathematical equation from our tests)</div>
+    </div>
+    <div style="height: 20px;width: 100%;clear: both"></div>
+    <div style="width: 90%;height: 360px;margin: 0 auto;background-color: #f1f5f6;border-radius: 15px;">
+        <div style="height: 30px;margin:0 auto; width: 90%;padding-top: 20px">
+            <div style="float: left;height: 30px; width: 100%;">
+                <img src="static/images/ques/dna-icon.png" style="float: left;width: 30px;height: 30px;">
+            </div>
+        </div>
+        <div style="clear: both; height: 80px;width: 30%;margin: 0 auto;background-color: #ebeced;border-radius: 15px;text-align: center;">
+            <span style="height: 80px;width: 100%;font-size: 16px;line-height: 80px; font-size: 30px;font-weight: bold;"id="bio">${data.biological}</span>
+        </div>
+        <div style="height: 110px;text-align: center;font-size: 18px;line-height: 80px; font-weight: bold;align-self: center">Your Epigenetic Age</div>
+        <div id="smail" style="height: 120px;width: 100%;background-color: #ebeced;border-radius: 15px;">
+            <div style="width:60px;height: 60px;border-radius: 50px;background-color: #ebeced;align-self: center; position: absolute">
+                <img src="static/images/ques/sad-black.png" style="width: 80%;height: 80%;padding-left: 6px;padding-top: 5px;">
+            </div>
+            <div style="height: 60px;text-align: center;font-size: 16px;padding-top: 35px">
+                Your Epigenetic age is <span class="Pobre" ></span> years lower than chronological age in the population.
+            </div>
+        </div>
+
+    </div>
+
+
+    <div style="height: 20px;width: 100%;clear: both"></div>
+    <%--    <div style="width: 100%;height:389px">--%>
+    <%--        <div style="width: 90%;height: auto; margin: 0 auto">--%>
+    <%--            <div style="background-color: #f3f6fa;width: 100%;height: 389px;border-radius: 10px">--%>
+    <%--                <div style="width: 100%;height: 12px"></div>--%>
+    <%--                <div style="width: 100%;height: 60%;">--%>
+    <%--                    <div style="width: 34%;height: 50%; float: left">--%>
+    <%--                        <div style="height:30%;width: 30%;margin: auto; ">--%>
+    <%--                            <img src="static/images/ques/rep-cho.png" style="width: 100%;height: 100%">--%>
+    <%--                        </div>--%>
+    <%--                        <div style="width: 100%;height: 10%"></div>--%>
+    <%--                        <div style="height: 33%;text-align: center;font-size:10px">Your /Chronological Age/</div>--%>
+    <%--                        <div style="width: 100%;height: 13%"></div>--%>
+    <%--                        <div style="height: 30%;text-align: center;color: #439e9d;font-size: 26px;font-weight: bold" id="natura">--%>
+    <%--                            ${userage}--%>
+    <%--                        </div>--%>
+    <%--                        <div style="width: 100%;height: 100%;">--%>
+    <%--                            <div style="width: 100%;height: 10%"></div>--%>
+    <%--                            <div style="height: 15%;text-align: center;font-size:10px">Your Expected</div>--%>
+    <%--                            <div style="height: 15%;text-align: center;font-size:10px">/Chronological Age/</div>--%>
+    <%--                            <div style="width: 100%;height: 15%"></div>--%>
+    <%--&lt;%&ndash;                            <div style="height: 20%;text-align: center;color: #439e9d;font-size: 26px;font-weight: bold" id="expect">&ndash;%&gt;--%>
+    <%--&lt;%&ndash;                                &ndash;%&gt;--%>
+    <%--&lt;%&ndash;                            </div>&ndash;%&gt;--%>
+    <%--                        </div>--%>
+    <%--                    </div>--%>
+    <%--                    <div style="width: 31%;height:80%; float: left">--%>
+    <%--                        <img src="static/images/ques/rep-man.png" style="width: 100%;height: 100%">--%>
+    <%--                    </div>--%>
+    <%--                    <div style="width: 33%;height: 50%; float: left">--%>
+    <%--                        <div style="height: 30%;width: 30%;margin: auto;">--%>
+    <%--                            <img src="static/images/ques/rep-bio.png" style="width: 100%;height: 100%">--%>
+    <%--                        </div>--%>
+    <%--                        <div style="width: 100%;height: 10%"></div>--%>
+    <%--                        <div style="height: 30%;text-align: center;font-size:10px">Your /Epigenetic Age/</div>--%>
+    <%--                        <div style="width: 100%;height: 10%">${data.barcode}</div>--%>
+    <%--                        <div style="height: 30%;text-align: center;color: #f15929;font-size: 34px;font-weight: bold" id="bio">--%>
+    <%--                            ${data.biological}--%>
+    <%--                        </div>--%>
+    <%--                    </div>--%>
+    <%--                </div>--%>
+    <%--                <hr>--%>
+    <%--                <div style="width: 90%;margin: 0 auto;padding-top: 5%">--%>
+    <%--                <div id="smail" style="width: 100%;height:45px" >--%>
+    <%--                    <div style="width: 8%; float: left">--%>
+    <%--                        <img src="static/images/ques/sad.png"style="width: 100%;height: 100%">--%>
+    <%--                    </div>--%>
+    <%--                    <div style="width: 89%;float: left;margin-left: 1%;text-align: center;line-height: 20px;font-size: 16px;font-weight: bold;color: #439e9d">Your Epigenetic age is  <Span class="Pobre"></Span>--%>
+    <%--                        years lower than chronological age in the population.</div>--%>
+    <%--                </div>--%>
+
+    <%--            </div>--%>
+    <%--            </div>--%>
+
+    <%--        </div>--%>
+    <%--    </div>--%>
 
     <div style="width: 100%;height: 34px;clear: both"></div>
     <div style="width: 100%;margin: 0px auto;">
-        <div id="top-pic" style="width: 100%;height:300px;margin: 0px auto;position: relative">
-            <div style="position: absolute;">
-                <img src="static/images/ques/rep12.jpg" style="width: 100%;height: 100%;">
+        <div id="top-pic" style="width: 100%;height:389px;margin: 0px auto;position: relative">
+            <div style="border-top-left-radius: 15px;border-top-right-radius: 15px">
+                <img src="static/images/ques/rep12.jpg" style="width: 100%;height: 100%;border-top-left-radius: 30px;border-top-right-radius: 30px">
             </div>
-            <div style="position: absolute;top: 70%;text-align: right;width: 96%;font-family: Arial;color: #0968aa;">
-                <div style="font-size: 24px">СКОЛЬКО ТЕБЕ ЛЕТ?</div>
-                <div style="color: #828181;font-size: 16px">Почему важен ваш </div>
-                <div style="font-size: 24px">«эпигенетический возраст»??</div>
+
+            <div style="overflow: hidden; height: 123px;float: left; text-align: right;width: 96%;color: #0968aa;">
+                <div style="font-size: 24px">HOW OLD ARE YOU?</div>
+                <div style="color: #828181;font-size: 16px">Why is your</div>
+                <div style="font-size: 24px">"Epigenetic age" important?</div>
             </div>
         </div>
     </div>
     <div style="width: 100%;height: 20px;clear: both"></div>
 
     <div style="width: 90%;margin: 0 auto;">
-        <div class="outer" style="clear: both; width: 100%; height: 114px">
+        <div class="outer" style="clear: both; width: 100%; height: 80px">
             <div class="circle-outer">
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
-            <div class="para" style="margin-left: 20px;line-height: 18px">Люди стареют с разной скоростью. Некоторые «выглядят» и «чувствуют» себя старше своего
-                хронологического возраста, в то время как другие выглядят моложе своего хронологического возраста.
+            <div class="para" style="margin-left: 20px;line-height: 18px">People age at different rates. Some “look” and “feel” older
+                than their chronological ages while other look younger than their chronological ages.
             </div>
         </div>
-        <div class="outer" style="clear: both;width: 100%; height: 78px">
+        <div class="outer" style="clear: both;width: 100%; height: 64px">
             <div class="circle-outer">
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px;line-height: 18px">
-                Наш биологический возраст является лучшим показателем нашего здоровья и продолжительности жизни, чем наш
-                хронологический возраст.
+                Our epigenetic ages are better parameters of our health well being and life span than our chronological
+                ages.
             </div>
         </div>
-        <div class="outer" style="clear: both;width: 100%; height: 150px">
+        <div class="outer" style="clear: both;width: 100%; height: 116px">
             <div class="circle-outer">
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px;line-height: 18px">
-                Если мы думаем о наших клетках как о миникомпьютерах, мы можем рассматривать ДНК как аппаратное
-                обеспечение, генетику как операционную систему, метилирование ДНК и другие эпигенетические факторы как
-                программное обеспечение, которое программирует геном.
-            </div>
-        </div>
-        <div class="outer" style="clear: both;width: 100%; height: 170px">
-            <div class="circle-outer">
-                <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
-            </div>
-            <div class="para" style="margin-left: 20px;line-height: 18px">
-                Сдвиг парадигмы в поиске биологических маркеров возраста произошел с открытием Хорватом «эпигенетических
-                часов», который основан на измерении статуса метилирования ДНК на сотнях стратегических позиций в ДНК.
-                Эти «эпигенетические часы» являются мерой нашего биологического возраста.
+                If we think about our cells as minicomputers, we can look at DNA as the hard ware,
+                genetics as the operating system and DNA methylation and other epigenetic factors
+                as the software that programs the genome.
+
             </div>
         </div>
         <div class="outer" style="clear: both;width: 100%; height: 134px">
@@ -138,32 +197,45 @@
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px;line-height: 18px">
-                У большинства людей «эпигенетический возраст», измеряемый эпигенетическими часами, и «хронологический
-                возраст», измеряемый календарем, очень похожи. Корреляция между двумя показателями в популяции близка к
-                0,9, когда 1 является идеальной корреляцией.
+                A paradigm shift in the search for epigenetic age markers occurred with the discovery
+                of the “epigenetic clock” by Horvath, which is based on measurement of DNA methylation
+                status at hundreds of strategic positions in DNA. This “epigenetic clock” is a
+                measure of our epigenetic ages.
+
             </div>
         </div>
-        <div class="outer" style="clear: both;width: 100%;height: 184px">
+        <div class="outer" style="clear: both;width: 100%; height: 134px">
             <div class="circle-outer">
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px;line-height: 18px">
-                Однако у некоторых людей «эпигенетический возраст» отличается от «хронологического возраста». Иногда
-                «эпигенетические часы» движутся быстрее, чем «хронологические часы». Мы рассматриваем разницу, которая
-                больше стандартного отклонения (или нормального распределения в популяции), как существенное изменение.
+                In most people the“chronological age” measured by the epigenetic clock and the“chronological
+                age”measured by the calendar are very similar.
+                The correlation between the two measures across the population is close to 0.9 when 1 is a perfect
+                correlation.
+            </div>
+        </div>
+        <div class="outer" style="clear: both;width: 100%;height: 150px">
+            <div class="circle-outer">
+                <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
+            </div>
+            <div class="para" style="margin-left: 20px;line-height: 18px">
+                However in some people the “epigenetic age” is different from the “chronological
+                age”. Sometimes the “epigenetic clock” moves faster than the “chronological clock”.
+                We consider a difference that is larger than the standard deviation (or the normal
+                distribution in the population) as a significant change.
             </div>
         </div>
 
-        <div class="outer" style="clear: both;width: 100%;height: 240px">
+        <div class="outer" style="clear: both;width: 100%;height: 160px">
             <div class="circle-outer">
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px;line-height: 18px">
-                Исследования показывают, что ускоренные «эпигенетические часы» могут быть связаны с повышенным риском
-                развития некоторых хронических заболеваний, связанных с возрастом, таких как сердечно-сосудистые
-                заболевания и рак в более позднем возрасте. (link:
-                https://www.ncbi.nlm.nih.gov/pubmed/?term=epigenetic+clock+disease).Это, однако, все еще открытое поле,
-                и необходимы дополнительные исследования.
+                Studies suggest that accelerated “epigenetic clock” might be associated with
+                increased risks for several age-related chronic diseases such as cardiovascular
+                disease and cancer. ( https://www.ncbi.nlm.nih.gov/pubmed/?term=epigenetic+-clock+disease
+                ). This is however still an open field and more studies are needed.
             </div>
         </div>
     </div>
@@ -173,8 +245,8 @@
         <div style="width: 90%;margin: 0 auto;">
             <div style="width: 100%;clear: both;height: 150px">
                 <div style="width: 65%;float: left;font-size: 18px;">
-                    Что такое тест<span style="font-size: 24px;color: #1b6fae;">Epiaging?</span><br> <span
-                        style="color: #1b6fae;"> Что он означает?</span>
+                    What is the <span style="font-size: 24px;color: #1b6fae;">epiAging Test?</span><br> <span
+                        style="color: #1b6fae;"> What does it mean?</span>
                     <div style="height: 40px;width: 100%"></div>
 
                 </div>
@@ -183,41 +255,40 @@
                 </div>
             </div>
 
-            <div class="outer" style="clear: both;width: 100%;height: 300px">
+            <div class="outer" style="clear: both;width: 100%;height: 100px">
                 <div class="circle-outer">
                     <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
                 </div>
                 <div class="para" style="margin-left: 20px;line-height: 18px">
-                    После обширных исследований, мы обнаружили область метилирования ЦГ, которая была
-                    достаточной для точного определения биологического возраста с использованием слюны.",
-                    "dna": "Мы выделяем ДНК из вашей слюны, а затем измеряем уровень метилирования ДНК в нескольких
-                    позициях во фрагменте вашего генома, используя бисульфитную конверсию и секвенирование следующего
-                    поколения. Ваши показатели метилирования ДНК вставляются в математическое уравнение, которое и
-                    вычисляет «эпигенетический возраст», как функцию уровня метилирования ДНК.
+                    After extensive data mining, we have discovered a single
+                    age-related CG methylation region that was sufficient to
+                    accurately predict epigenetic age using saliva.
                 </div>
             </div>
-            <div class="outer" style="clear: both;width: 100%;height: 225px">
+            <div class="outer" style="clear: both;width: 100%;height: 175px">
                 <div class="circle-outer">
                     <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
                 </div>
                 <div class="para" style="margin-left: 20px;line-height: 18px">
-                    Мы готовим ДНК из вашей слюны, а затем измеряем уровень метилирования ДНК в нескольких положениях
-                    фрагмента вашего генома с использованием секвенирования следующего поколения и картирования бисульфита.
-                    Ваши состояния метилирования ДНК вставляются в математическое уравнение, которое вычисляет
-                    «эпигенетический возраст» как функцию уровня метилирования ДНК.
+                    We prepare DNA from your saliva and then measure the level of DNA methylation in
+                    several positions in a fragment of your genome using next generation sequencing
+                    and bisulfite mapping. Your states of DNA methylation are inserted into a mathematical
+                    equation that calculates the “epigenetic age” as a function of the level of DNA
+                    methylation.
                 </div>
             </div>
-            <div class="outer" style="clear: both;width: 100%;height: 316px">
+            <div class="outer" style="clear: both;width: 100%;height: 266px">
                 <div class="circle-outer">
                     <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
                 </div>
                 <div class="para" style="margin-left: 20px;line-height: 18px">
-                    Когда ваш «эпигенетический возраст» отклоняется от вашего «хронологического возраста» на одно
-                    стандартное отклонение, мы считаем это «красным флагом». Стандартное отклонение даёт представление о
-                    распределении разницы от среднего значения в нормальной популяции, которая на этом этапе анализа
-                    составляет около 5 лет. На этом этапе, если ваш «эпигенетический возраст» на 5 лет старше вашего
-                    «хронологического возраста», вы можете считать это «красным флагом». По мере накопления большего
-                    количества тестов, мы будем получать более точное значение «нормального распределения».
+                    We consider it as a “red flag” when your “epigenetic age” deviates from your
+                    “chronological age” by one standard deviation. Standard deviation provides an idea
+                    about the distribution of difference from the mean in the normal population, which
+                    at this point of analysis is around 5 years. At this stage, if your “epigenetic age” is 5
+                    years older than your “chronological age” you might consider the result as a “red
+                    flag”. As more tests are accumulated we will get a more accurate value of the
+                    “normal distribution”.
                 </div>
             </div>
             <div class="outer" style="clear: both;width: 100%;height: 140px">
@@ -225,10 +296,10 @@
                     <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
                 </div>
                 <div class="para" style="margin-left: 20px;line-height: 18px">
-                    Хотя до сих пор неясно, как можно замедлить его «эпигенетические часы», изменения образа жизни,
-                    рекомендованные большинством национальных медицинских ассоциаций, являются, пожалуй, отправной точкой.
-                    Пожилой «эпигенетический возраст» - это «красный флаг», который намекает на то, что пришло время
-                    внести некоторые изменения в образ жизни.
+                    Although it is still not clear how one can decelerate his “epigenetic clock”, lifestyle
+                    changes recommended by most national medical associations are perhaps a starting
+                    point. An older “epigenetic age” is a “red flag” which hints that it is time to make
+                    some lifestyle changes.
                 </div>
             </div>
             <div style="width: 100%;height: auto">
@@ -237,8 +308,8 @@
                         <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
                     </div>
                     <div class="para" style="margin-left: 20px;line-height: 18px">
-                        «Красный флаг» может побудить вас действовать в соответствии с вашим образом жизни или
-                        проконсультироваться с врачом для проверки.
+                        A red "flag" might prompt you to act on your lifestyle or consult your physician for a
+                        check up.
                     </div>
                 </div>
                 <div style="width: 35%;float: right">
@@ -253,54 +324,56 @@
         <div style="width: 90%;margin: 0 auto;">
             <div style="width: 100%;clear: both;height: 123px">
                 <div style="width: 100%;margin-left: 5%; float: left;font-size: 16px">
-                    Что я могу сделать, если мой <span
-                        style="font-size: 18px;color: #1b6fae;font-weight: bold">"«эпигенетический возраст» старше?</span>
+                    What can i do if my <span
+                        style="font-size: 18px;color: #1b6fae;font-weight: bold">'epigenetic Age' is Older?</span>
                     <div style="width: 40%;float: left"><img src="static/images/ques/rep4.png"
                                                              style="width: 100%;height: 100%"></div>
                 </div>
             </div>
             <div style="width: 100%;color: white;height: 30px"></div>
-            <div class="outer" style="clear: both;width: 100%;height: 128px">
+            <div class="outer" style="clear: both;width: 100%;height: 99px">
                 <div class="circle-outer">
                     <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
                 </div>
                 <div class="para" style="margin-left: 20px">
-                    «Эпигенетика» отличается от «генетики» тем, что эпигенетика потенциально обратима в результате
-                    диетических вмешательств и изменений в образе жизни. Таким образом, можно было бы обратить вспять
-                    «эпигенетические часы».
+                    "Epigenetics" is different from "genetics" in a
+                    substantial way that epigenetics is potentially reversible by dietary interventions and life
+                    style changes. So, it might be possible to reverse the“epigenetic clock”.
                 </div>
             </div>
-            <div class="outer" style="clear: both;width: 100%;height: 146px">
+            <div class="outer" style="clear: both;width: 100%;height: 99px">
                 <div class="circle-outer">
                     <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
                 </div>
                 <div class="para" style="margin-left: 20px">
-                    Предварительные исследования показывают, что изменения в питании могут замедлять «эпигенетические
-                    часы» у некоторых людей, однако этот вопрос всё ещё остаётся открытым. (
-                    https://www.ncbi.nlm.nih.gov/pubmed/3<p style="margin: auto 0">0350398)</p>
+                    Preliminary studies show that dietary changes can cause deceleration of epigenetic
+                    clock in certain people, however this is still an open question.
+                    ( https://www.ncbi.nlm.nih.gov/pubmed/30350398)
                 </div>
             </div>
-            <div class="outer" style="clear: both;width: 100%;height: 189px">
+            <div class="outer" style="clear: both;width: 100%;height: 99px">
                 <div class="circle-outer">
                     <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
                 </div>
                 <div class="para" style="margin-left: 20px">
-                    Изменения образа жизни , включая физические упражнения и пищевые привычки, уже на протяжении
-                    некоторого времени рекомендуются национальными медицинскими ассоциациями, однако, нам нужно больше
-                    данных о наиболее рекомендуемых изменениях, а также они должны быть персонализированы.
+                    Lifestyle changes including exercise and dietary habits have been recommended by
+                    national medical associations for some time, however, we need more data about the
+                    most advisable changes and they should be personalized.
                 </div>
             </div>
-            <div style="width: 100%; height: 470px">
-                <div class="outer" style="width: 60%;float: left; height: 379px">
+            <div style="width: 100%; height: 338px">
+                <div class="outer" style="width: 60%;float: left; height: 189px">
                     <div class="circle-outer">
                         <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
                     </div>
                     <div class="para" style="margin-left: 20px">
-                        Чтобы изучить рекомендуемые изменения в образе жизни, нам нужно делиться своим опытом с другими
-                        и анализировать влияние различий в образе жизни большого количества людей. Теперь это возможно
-                        при помощи таких технологий, как приложения, а также искусственный интеллект, которые способны
-                        определить, как различные исходные данные, такие как «образ жизни», влияют на результат-
-                        «эпигенетические часы».
+                        A way for us to learn about advisable
+                        lifestyle changes is sharing our experiences
+                        with others and analyzing the impact of
+                        differences in lifestyle in a large population.
+                        This is now possible using sharing technologies such as Apps as well as artificial
+                        intelligence that could determine how different
+                        inputs such as “lifestyle” habits affect an outcome--the “epigenetic clock”.
                     </div>
                 </div>
                 <div style="width: 36%;float: left;margin-top: 50px">
@@ -309,35 +382,36 @@
             </div>
         </div>
     </div>
-    <div style="width: 100%;height:370px; margin: auto 0;position: relative">
-        <div style="position: absolute;">
+    <div style="width: 100%;height:389px; margin: auto 0;position: relative">
+        <div style="">
             <img src="static/images/ques/rep6-1.png" style="width: 100%;height: 100%;">
         </div>
-        <div style="position: absolute;top: 64%;left: 4%;text-align: center;width: 96%;font-family: Arial;color: #0968aa;">
-            <div style="font-size: 24px">Персонализированное и</div>
-            <div style="font-size: 24px;"> систематическое позиционирование</div>
-            <div style="color: #828181;font-size: 16px">интеллектуальное приложение для вашего здоровья</div>
+        <div style=" height: 123px;text-align: right;float: left; width: 96%;color: #0968aa;">
+            <div style="font-size: 24px">Personalized and</div>
+            <div style="font-size: 24px;">systematic positioning</div>
+            <div style="color: #828181;font-size: 16px">of out intelligent app for your health</div>
         </div>
     </div>
     <div style="width: 90%;margin: 0 auto;">
-        <div class="outer" style="clear: both; width: 100%; height: 148px">
+        <div class="outer" style="clear: both; width: 100%; height: 106px">
             <div class="circle-outer">
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px">
-                Наше приложение предоставляет вам доступ к информации, рекомендуемой авторитетной национальной
-                медицинской ассоциацией США, об образе жизни, а также о возможных пищевых добавках, таких как
-                S-аденозилметианин, витамины А, Д и Ц.
+                Our App links you to information on recommended lifestyle behaviors by important
+                US national medical association as well as possible nutritional supplements such as
+                SAMe, vitamin A, D and C.
             </div>
         </div>
-        <div class="outer" style="clear: both;width: 100%; height: 172px">
+        <div class="outer" style="clear: both;width: 100%; height: 150px">
             <div class="circle-outer">
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px">
-                Эти ссылки регулярно обновляются и мы рекомендуем вам проводить обновления, периодически проверяя эти
-                ссылки. Эти рекомендации основаны на том, что «наука» знает сегодня, но они не идеальны. С увеличением
-                количества данных и увеличением числа анализов, знания совершенствуются.
+                These links are updated regularly and we suggest that you keep updating by examining the links
+                periodically. These recommendations are based on what “science”
+                knows today, they are not perfect. With more data and more analysis science is
+                improving.
             </div>
         </div>
         <div class="outer" style="clear: both;width: 100%; height: 139px">
@@ -345,59 +419,60 @@
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px">
-                Наш первый отчёт основан на вводимых вами данных об образе жизни, и они демонстрируют, на сколько сильно
-                ваши параметры образа жизни отклоняются от общепринятых рекомендаций. Вы можете принять решение о
-                внесении изменений на основе этого отчёта.
+                Our first report is based on the lifestyle data that you have entered which shows how
+                far your lifestyle parameters deviate from consensus recommendations. You might
+                decide to make changes based on this first report.
 
             </div>
         </div>
     </div>
     <div style="height: 34px;width: 100%"></div>
-    <div style="width: 100%;height:300px; margin: auto 0;position: relative">
-        <div style="position: absolute;">
+    <div style="width: 100%;height:389px; margin: auto 0;position: relative">
+        <div>
             <img src="static/images/ques/rep7.png" style="width: 100%;height: 100%;">
         </div>
-        <div style="position: absolute;top: 72%;left: 4%;text-align: center;width: 96%;font-family: Arial;color: #0968aa;">
-            <div style="color: #828181;font-size: 16px">Динамичное долгосрочное партнерство</div>
-            <div style="font-size: 24px">достичь «Здорового старения»</div>
+        <div style="text-align: center;float: left; height: 123px; width: 96%;color: #0968aa;">
+            <div style="color: #828181;font-size: 16px">A dynamic long-term partnership</div>
+            <div style="font-size: 24px">to achieve  'Healthy Aging'</div>
 
         </div>
     </div>
-    <div style="width: 90%;margin: 0 auto;">
-        <div class="outer" style="clear: both;width: 100%; height:48px">
+    <div style="width: 90%;margin: 0 auto;clear: both;">
+        <div class="outer" style="width: 100%; height:44px">
             <div class="circle-outer">
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px;">
-                Мы предлагаем вам продолжать вводить данные о вашем образе жизни.
+                We suggest that you keep entering your life style data.
             </div>
         </div>
-        <div class="outer" style="clear: both; width: 100%; height:126px">
+        <div class="outer" style="clear: both; width: 100%; height:106px">
             <div class="circle-outer">
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px;">
-                Вы будете обновлять данные о вашем образе жизни так регулярно, как вы хотите.
-                Вы можете обновить все вопросы, некоторые или нет. Тем не менее, мы считаем, что точные отчеты позволят
-                нам предоставить вам лучший анализ.
+                You will update your life style data as regularly as you wish. You might update all
+                questions, some or none. However, we believe that accurate reporting will allow us to
+                provide you with a better analysis.
             </div>
         </div>
-        <div class="outer" style="clear: both;width: 100%; height: 66px">
+        <div class="outer" style="clear: both;width: 100%; height: 46px">
             <div class="circle-outer">
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px;">
-                Мы предлагаем вам отправить вашу слюну на вторичную проверку через 6 месяцев или максимум через год.
+                We suggest that in 6 months or maximally a year you submit your saliva to a second test.
+
             </div>
         </div>
-        <div class="outer" style="clear: both;width: 100%; height: 164px">
+        <div class="outer" style="clear: both;width: 100%; height: 124px">
             <div class="circle-outer">
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px;">
-                Ваши данные будут анонимными. Ваши данные и данные от многих других анонимных пользователей будут
-                проанализированы с помощью искусственного интеллекта для разработки «модели», которая измеряет влияние
-                изменений образа жизни на «эпигенетические часы».
+                Your data will be anonymized. Your data and data from many other anonymous users
+                will be analyzed by artificial intelligence to develop a “model”, which measures the
+                impact of life style changes on “epigenetic clock”.
             </div>
         </div>
         <div class="outer" style="clear: both;width: 100%; height: 88px">
@@ -405,28 +480,27 @@
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px;">
-                Как только будет накоплено больше данных, «модель» проверит данные о вашем образе жизни,
-                и результаты теста будут переданы вам.
+                Once more data is accumulated, the “model” will examine your life style data and
+                results of the test will be shared with you.
             </div>
         </div>
-        <div class="outer" style="clear: both;width: 100%; height: 86px">
+        <div class="outer" style="clear: both;width: 100%; height: 66px">
             <div class="circle-outer">
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px;">
-                Мы проанализируем ваш «эпигенетический возраст» и сообщим о достигнутом вами прогрессе и изменениях
-                образа жизни.
-                
+                We will analyze your “epigenetic age” and report on the progress and the lifestyle changes that you have
+                made.
             </div>
         </div>
-        <div class="outer" style="width: 100%; height: 30px">
+        <div class="outer" style="width: 100%; height: 67px">
             <div class="circle-outer">
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
-            <div class="para" style="margin-left: 20px;width: 53%">
-                Возможные маршруты для изменений будут предложены на основе нашей «модели» и ваших данных.
+            <div class="para" style="margin-left: 5%;width: 58%">
+                Possible routes for change will be offered based on our “model” and your data.
             </div>
-            <div style="width: 36%;float: right">
+            <div style="width: 36%;height: auto; float: right">
                 <img src="static/images/ques/rep13.png" style="width: 100%;height: 100%">
             </div>
         </div>
@@ -434,8 +508,9 @@
             <div class="circle-outer">
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
-            <div class="para" style="margin-left: 20px;width: 53%">
-                Мы надеемся, что вместе мы сможем улучшить ваше самочувствие и нашу среду для обучения «умопомрачению».
+            <div class="para" style="margin-left: 5%;width: 55%">
+                We hope that together we will be able to coevolve your well being and our “epiAging”
+                learning environment.
             </div>
         </div>
 
@@ -454,7 +529,7 @@
             }
             var option = {
                 legend: {
-                    data: ['Chronological Age<Biological Age', 'Chronological Age>Biological Age']
+                    data: ['Chronological Age<Epigenetic Age', 'Chronological Age>Epigenetic Age']
                 },
                 xAxis: [{
                     name: 'Chronological Age',
@@ -462,48 +537,47 @@
                     nameLocation: 'middle',
                     nameGap: 20,
                     scale: true,
-                    nameTextStyle: {color: "#0071BC"},
+                    nameTextStyle: {color: "#404bc2"},
                     axisLabel: {
                         formatter: '{value}'
                     }
                 }],
                 yAxis: [{
-                    name: 'Biological Age',
+                    name: 'Epigenetic Age',
                     nameLocation: 'middle',
                     nameGap: 22,
                     nameRotate: 90,
                     type: 'value',
                     scale: true,
-                    nameTextStyle: {color: "#0071BC"},
+                    nameTextStyle: {color: "#404bc2"},
                     axisLabel: {
                         formatter: '{value}'
                     }
                 }],
-                series: [
-                    {
-                        name: 'Chronological Age<Biological Age',
-                        type: 'scatter',
-                        //圆点的颜色为红色
-                        itemStyle: {
-                            normal: {
-                                color: 'red'
-                            }
-                        },
-                        //自然年龄<生物学年龄
-                        data: ntrLtBioData,
-                        markPoint: {
-                            data: [
-                                {
-                                    name: 'Biological Age',
-                                    value: window.parseFloat(${data.biological}).toFixed(2),
-                                    xAxis: window.parseFloat(${data.naturally}).toFixed(2),
-                                    yAxis: window.parseFloat(${data.biological}).toFixed(2)
-                                }
-                            ]
-                        },
+                series: [{
+                    name: 'Chronological Age<Epigenetic Age',
+                    type: 'scatter',
+                    //圆点的颜色为红色
+                    itemStyle: {
+                        normal: {
+                            color: 'red'
+                        }
                     },
+                    //自然年龄<生物学年龄
+                    data: ntrLtBioData,
+                    markPoint: {
+                        data: [
+                            {
+                                name: 'Epigenetic Age',
+                                value: window.parseFloat(${data.biological}).toFixed(2),
+                                xAxis: window.parseFloat(${data.naturally}).toFixed(2),
+                                yAxis: window.parseFloat(${data.biological}).toFixed(2)
+                            }
+                        ]
+                    },
+                },
                     {
-                        name: 'Chronological Age>Biological Age',
+                        name: 'Chronological Age>Epigenetic Age',
                         type: 'scatter',
                         //圆点的颜色为绿色
                         itemStyle: {
@@ -516,7 +590,7 @@
                         markPoint: {
                             data: [
                                 {
-                                    name: 'Biological Age',
+                                    name: 'Epigenetic Age',
                                     value: window.parseFloat(${data.biological}).toFixed(2),
                                     xAxis: window.parseFloat(${data.naturally}).toFixed(2),
                                     yAxis: window.parseFloat(${data.biological}).toFixed(2)
@@ -533,46 +607,50 @@
     </script>
     <script>
         $(function () {
-            var uage=parseInt(${userage})
+            var uage=parseFloat(${userage}).toFixed(2)
             //您的预估真实年龄
             var epiAge = parseFloat($("#bio").text());
             var natura = parseFloat($("#natura").text());
             //var sqrt_value=Math.sqrt(2.6876+0.0288*-(epiAge+7.5806));
-            var expectedage=((-1.6394+Math.sqrt(2.6876+0.0288*-(epiAge+7.5806)))/-0.0144).toFixed(2)
+            var expectedage=parseFloat((-1.6394+Math.sqrt(2.6876+0.0288*-(epiAge+7.5806)))/-0.0144).toFixed(2)
             //alert(sqrt_value);
-            //console.info("你输入的生物学年龄为："+epiAge+" 您的预估真实年龄为："+parseFloat(expectedage));
+            // console.info($("#bio").text())
+            // console.info("你输入的生物学年龄为："+epiAge+" 您的预估真实年龄为："+ expectedage);
             $("#expect").html(expectedage)
 
-            var real1="<div id=\"smail\" style=\"width: 100%;height:45px\" >\n" +
-                "                    <div style=\"width: 8%;margin-right: 2%; float: left\">\n" +
-                "                        <img src=\"static/images/ques/smail.png\"style=\"width: 100%;height: 100%\">\n" +
-                "                    </div>\n" +
-                "                    <div style=\"width: 89%;float: left;margin-left: 1%;text-align: center;line-height: 20px;font-size: 16px;font-weight: bold;color: #439e9d\">у вас генетический возраст на <Span class=\"Pobre\"></Span>\n" +
-                "                      года ниже, чем у населения. </div>\n" +
-                "                </div>"
-            var real2="<div id=\"smail\" style=\"width: 100%;height:45px\" >\n" +
-                "                    <div style=\"width: 8%;margin-right: 2%; float: left\">\n" +
-                "                        <img src=\"static/images/ques/sad.png\"style=\"width: 100%;height: 100%\">\n" +
-                "                    </div>\n" +
-                "                    <div style=\"width: 89%;float: left;margin-left: 1%;text-align: center;line-height: 20px;font-size: 16px;font-weight: bold;color: #439e9d\"> у вас генетический возраст на  <Span class=\"Pobre\"></Span>\n" +
-                "                      года выше, чем у населения.</div>\n" +
-                "                </div>"
 
-            var test1="<div id=\"smail\" style=\"width: 100%;height:45px\" >\n" +
-                "                    <div style=\"width: 8%;margin-right: 2%; float: left\">\n" +
-                "                        <img src=\"static/images/ques/smail.png\"style=\"width: 100%;height: 100%\">\n" +
-                "                    </div>\n" +
-                "                    <div style=\"width: 89%;float: left;margin-left: 1%;text-align: center;line-height: 20px;font-size: 16px;font-weight: bold;color: #439e9d\">Ваш график показывает, что генетический возраст на  <Span class=\"Pobre\"></Span>\n" +
-                "                        года ниже, чем ожидаемый возраст населения.</div>\n" +
-                "                </div>"
-            var test2="<div id=\"smail\" style=\"width: 100%;height:45px\" >\n" +
-                "                    <div style=\"width: 8%;margin-right: 2%; float: left\">\n" +
-                "                        <img src=\"static/images/ques/sad.png\"style=\"width: 100%;height: 100%\">\n" +
-                "                    </div>\n" +
-                "                    <div style=\"width: 89%;float: left;margin-left: 1%;text-align: center;line-height: 20px;font-size: 16px;font-weight: bold;color: #439e9d\">Ваша таблица показывает генетический возраст на <Span class=\"Pobre\"></Span>\n" +
-                "                          года выше, чем ожидалось население.</div>\n" +
-                "                </div>"
-
+            var real1=" <div id=\"smail\" style=\"height: 120px;width: 100%;background-color: #ebeced;border-radius: 15px;\">\n" +
+                "            <div style=\"width:60px;height: 60px;border-radius: 50px;background-color: #ebeced;margin-left: 38%;margin-top: -35px;position: absolute\">\n" +
+                "                <img src=\"static/images/ques/smile-black.png\" style=\"width: 80%;height: 80%;padding-left: 6px;padding-top: 5px;\">\n" +
+                "            </div>\n" +
+                "            <div style=\"height: 60px;text-align: center;font-size: 16px;padding-top: 35px\">\n" +
+                "                Your Epigenetic age is <span class=\"Pobre\"style=\"font-size: 18px;font-weight: bold;\"></span> years lower than chronological age in the population.\n" +
+                "            </div>\n" +
+                "        </div>"
+            var real2=" <div id=\"smail\" style=\"height: 120px;width: 100%;background-color: #ebeced;border-radius: 15px;\">\n" +
+                "            <div style=\"width:60px;height: 60px;border-radius: 50px;background-color: #ebeced;margin-left: 38%;margin-top: -35px;position: absolute\">\n" +
+                "                <img src=\"static/images/ques/sad-black.png\" style=\"width: 80%;height: 80%;padding-left: 6px;padding-top: 5px;\">\n" +
+                "            </div>\n" +
+                "            <div style=\"height: 60px;text-align: center;font-size: 16px;padding-top: 35px\">\n" +
+                "                Your Epigenetic age is <span class=\"Pobre\"style=\"font-size: 18px;font-weight: bold;\"></span> years higher than chronological age in the population.\n" +
+                "            </div>\n" +
+                "        </div>"
+            var test1=" <div id=\"smail\" style=\"height: 120px;width: 100%;background-color: #ebeced;border-radius: 15px;\">\n" +
+                "            <div style=\"width:60px;height: 60px;border-radius: 50px;background-color: #ebeced;margin-left: 38%;margin-top: -35px;position: absolute\">\n" +
+                "                <img src=\"static/images/ques/smile-black.png\" style=\"width: 80%;height: 80%;padding-left: 6px;padding-top: 5px;\">\n" +
+                "            </div>\n" +
+                "            <div style=\"height: 60px;text-align: center;font-size: 16px;padding-top: 35px\">\n" +
+                "                Your Epigenetic age is <span class=\"Pobre\"style=\"font-size: 18px;font-weight: bold;\"></span> years lower than chronological age in the population.\n" +
+                "            </div>\n" +
+                "        </div>"
+            var test2=" <div id=\"smail\" style=\"height: 120px;width: 100%;background-color: #ebeced;border-radius: 15px;\">\n" +
+                "            <div style=\"width:60px;height: 60px;border-radius: 50px;background-color: #ebeced;margin-left: 38%;margin-top: -35px;position: absolute\">\n" +
+                "                <img src=\"static/images/ques/sad-black.png\" style=\"width: 80%;height: 80%;padding-left: 6px;padding-top: 5px;\">\n" +
+                "            </div>\n" +
+                "            <div style=\"height: 60px;text-align: center;font-size: 16px;padding-top: 35px\">\n" +
+                "                Your Epigenetic age is <span class=\"Pobre\"style=\"font-size: 18px;font-weight: bold;\"></span> years higher than chronological age in the population.\n" +
+                "            </div>\n" +
+                "        </div>"
 
             if (uage==0) {
                 if(epiAge<expectedage){
