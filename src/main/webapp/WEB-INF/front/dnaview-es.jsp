@@ -604,18 +604,18 @@
 
         })
 
-    </script>
-    <script>
+        <script>
         $(function () {
             var uage=parseFloat(${userage}).toFixed(2)
             //您的预估真实年龄
             var epiAge = parseFloat($("#bio").text());
+            var expectedage=parseFloat(epiAge-8.9657/0.9044).toFixed(2)
+            // var expectedage=parseFloat((-1.6394+Math.sqrt(2.6876+0.0288*-(epiAge+7.5806)))/-0.0144).toFixed(2)
             var natura = parseFloat($("#natura").text());
-            //var sqrt_value=Math.sqrt(2.6876+0.0288*-(epiAge+7.5806));
-            var expectedage=parseFloat((-1.6394+Math.sqrt(2.6876+0.0288*-(epiAge+7.5806)))/-0.0144).toFixed(2)
             //alert(sqrt_value);
             // console.info($("#bio").text())
             // console.info("你输入的生物学年龄为："+epiAge+" 您的预估真实年龄为："+ expectedage);
+            //var sqrt_value=Math.sqrt(2.6876+0.0288*-(epiAge+7.5806));
             $("#expect").html(expectedage)
 
 
@@ -668,6 +668,7 @@
                 $(".Pobre").html(Math.abs(uage-epiAge).toFixed(2))
             }
         })
+    </script>
     </script>
 
 </div>
