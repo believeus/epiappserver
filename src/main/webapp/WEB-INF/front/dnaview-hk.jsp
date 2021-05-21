@@ -16,22 +16,20 @@
 </head>
 <body style="margin: 0;padding: 0">
 <div style="width: 100%;">
-    <div style="width: 100%;height:267px; margin: auto;position: relative">
-        <div style="position: absolute;">
-            <img src="static/images/ques/rep1.png" style="width: 100%;height: 100%;">
-        </div>
+    <div style="width: 100%;height:500px; margin:0 auto;">
+        <img src="static/images/ques/rep1.png" style="width: 100%;height: 100%;">
     </div>
 
-    <div style="width: 90%;height: 50px;margin: 0 auto; text-align: left;background-color: #f1f5f6;border-radius: 5px;font-size: 18px;line-height: 50px;font-weight: bold;padding-left: 10px">Barcode | ${data.barcode}</div>
+    <div style="width: 60%;height: 80px;margin: 0 auto; text-align: center;background-color: #f1f5f6;border-radius: 5px;font-size: 24px;line-height: 80px;font-weight: bold;">Barcode | ${data.barcode}</div>
     <div style="height: 123px;width: 100%;clear: both"></div>
     <div id="main"style="width: 100%;height:300px;margin: 0px auto;position: relative" ></div>
 
     <div style="width: 90%;height: 200px;margin: 0 auto; text-align: left;background-color: #f1f5f6;border-radius: 15px;">
         <div style="width: 90%;margin: 0 auto">
             <div style="height: 30px;padding-top: 20px">
-                <img src="static/images/ques/rep-green.png" style="float: left;width: 8%;height: 100%;padding-left: 2%">
-                <img src="static/images/ques/rep-red.png" style="float: left;width: 8%;height: 100%;padding-left: 2%">
-                <span style="float: left;height: 30px;width: 78%;font-size: 16px;line-height: 30px; padding-left: 2%">Your Epigenetic Age</span>
+                <img src="static/images/ques/rep-green.png" style="float: left;width: 30px;height: 30px;padding-left: 2%">
+                <img src="static/images/ques/rep-red.png" style="float: left;width: 30px;height: 30px;padding-left: 2%">
+                <span style="float: left;height: 30px;width: 78%;font-size: 16px;line-height: 30px; padding-left: 2%;">Your Epigenetic Age</span>
             </div>
             <div style="height: 20px;width: 100%;clear: both"></div>
             <div style=" height: 60px;width: 100%;">
@@ -51,24 +49,24 @@
     <div style="height: 20px;width: 100%;clear: both"></div>
     <div style="width: 90%;height: 109px;margin: 0 auto;background-color: #f1f5f6;border-radius: 15px;">
         <div style="height: 50px;margin:0 auto; width: 70%;padding-top: 20px">
-            <img src="static/images/ques/olive-leaf.png" style="float: left;width: 18%;height: 40px;padding-left: 20%">
+            <img src="static/images/ques/olive-leaf.png" style="float: left;width: 40px;height: 40px;padding-left: 20%">
             <span style="float: left;height: 50px;width: 30%;font-size: 16px;line-height: 30px;text-align: center; font-size: 28px;font-weight: bold"id="natura">${userage}</span>
             <span style="float: left;height: 50px;width: 20%;font-size: 16px;line-height: 30px;text-align: center; font-size: 18px;">Years</span>
         </div>
-        <div style="height: 40px;text-align: center;font-size: 16px;font-weight: bold;color: #cdcdcd">Your Chronological Age</div>
+        <div style="height: 40px;text-align: center;font-size: 16px;font-weight: bold;color:#000">Your Chronological Age</div>
     </div>
     <div style="height: 20px;width: 100%;clear: both"></div>
     <div style="width: 90%;height: 209px;margin: 0 auto;background-color: #f1f5f6;border-radius: 15px;">
         <div style="height: 50px;margin:0 auto; width: 70%;padding-top: 20px">
-            <img src="static/images/ques/olive-leaf.png" style="float: left;width: 18%;height: 40px;padding-left: 15%">
+            <img src="static/images/ques/olive-leaf.png" style="float: left;width: 40px;height: 40px;padding-left: 15%">
             <div style="float: left;height: 50px;width: 40%;font-size: 16px;line-height: 30px;text-align: center; font-size: 28px;font-weight: bold"id="expect"> </div>
             <span style="float: left;height: 50px;width: 20%;font-size: 16px;line-height: 30px;text-align: center; font-size: 18px;">Years</span>
         </div>
-        <div style="height: 40px;text-align: center;font-size: 16px;font-weight: bold;border-bottom: 2px dotted #cdcdcd;color: #cdcdcd;">Your Excepted Chronological Age</div>
-        <div style="height: 40px;text-align: center;font-size: 16px;padding-top: 20px"> The "normal" chronological age of people with similar EpiAge results (calculated using a mathematical equation from our tests)</div>
+        <div style="height: 40px;text-align: center;font-size: 16px;font-weight: bold;border-bottom: 2px dotted #cdcdcd;color:#000">Your Excepted Chronological Age</div>
+        <div style="height: 40px;text-align: center;font-size: 16px;padding: 20px"> The "normal" chronological age of people with similar EpiAge results (calculated using a mathematical equation from our tests)</div>
     </div>
     <div style="height: 20px;width: 100%;clear: both"></div>
-    <div style="width: 90%;height: 360px;margin: 0 auto;background-color: #f1f5f6;border-radius: 15px;">
+    <div style="width: 90%;height: 260px;margin: 0 auto;background-color: #f1f5f6;border-radius: 15px;">
         <div style="height: 30px;margin:0 auto; width: 90%;padding-top: 20px">
             <div style="float: left;height: 30px; width: 100%;">
                 <img src="static/images/ques/dna-icon.png" style="float: left;width: 30px;height: 30px;">
@@ -78,74 +76,15 @@
             <span style="height: 80px;width: 100%;font-size: 16px;line-height: 80px; font-size: 30px;font-weight: bold;"id="bio">${data.biological}</span>
         </div>
         <div style="height: 110px;text-align: center;font-size: 18px;line-height: 80px; font-weight: bold;align-self: center">Your Epigenetic Age</div>
-        <div id="smail" style="height: 120px;width: 100%;background-color: #ebeced;border-radius: 15px;">
-            <div style="width:60px;height: 60px;border-radius: 50px;background-color: #ebeced;align-self: center; position: absolute">
-                <img src="static/images/ques/sad-black.png" style="width: 80%;height: 80%;padding-left: 6px;padding-top: 5px;">
-            </div>
-            <div style="height: 60px;text-align: center;font-size: 16px;padding-top: 35px">
-                Your Epigenetic age is <span class="Pobre" ></span> years lower than chronological age in the population.
-            </div>
-        </div>
 
+        <div id="smail">
+
+        </div>
     </div>
 
 
-    <div style="height: 20px;width: 100%;clear: both"></div>
-    <%--    <div style="width: 100%;height:389px">--%>
-    <%--        <div style="width: 90%;height: auto; margin: 0 auto">--%>
-    <%--            <div style="background-color: #f3f6fa;width: 100%;height: 389px;border-radius: 10px">--%>
-    <%--                <div style="width: 100%;height: 12px"></div>--%>
-    <%--                <div style="width: 100%;height: 60%;">--%>
-    <%--                    <div style="width: 34%;height: 50%; float: left">--%>
-    <%--                        <div style="height:30%;width: 30%;margin: auto; ">--%>
-    <%--                            <img src="static/images/ques/rep-cho.png" style="width: 100%;height: 100%">--%>
-    <%--                        </div>--%>
-    <%--                        <div style="width: 100%;height: 10%"></div>--%>
-    <%--                        <div style="height: 33%;text-align: center;font-size:10px">Your /Chronological Age/</div>--%>
-    <%--                        <div style="width: 100%;height: 13%"></div>--%>
-    <%--                        <div style="height: 30%;text-align: center;color: #439e9d;font-size: 26px;font-weight: bold" id="natura">--%>
-    <%--                            ${userage}--%>
-    <%--                        </div>--%>
-    <%--                        <div style="width: 100%;height: 100%;">--%>
-    <%--                            <div style="width: 100%;height: 10%"></div>--%>
-    <%--                            <div style="height: 15%;text-align: center;font-size:10px">Your Expected</div>--%>
-    <%--                            <div style="height: 15%;text-align: center;font-size:10px">/Chronological Age/</div>--%>
-    <%--                            <div style="width: 100%;height: 15%"></div>--%>
-    <%--&lt;%&ndash;                            <div style="height: 20%;text-align: center;color: #439e9d;font-size: 26px;font-weight: bold" id="expect">&ndash;%&gt;--%>
-    <%--&lt;%&ndash;                                &ndash;%&gt;--%>
-    <%--&lt;%&ndash;                            </div>&ndash;%&gt;--%>
-    <%--                        </div>--%>
-    <%--                    </div>--%>
-    <%--                    <div style="width: 31%;height:80%; float: left">--%>
-    <%--                        <img src="static/images/ques/rep-man.png" style="width: 100%;height: 100%">--%>
-    <%--                    </div>--%>
-    <%--                    <div style="width: 33%;height: 50%; float: left">--%>
-    <%--                        <div style="height: 30%;width: 30%;margin: auto;">--%>
-    <%--                            <img src="static/images/ques/rep-bio.png" style="width: 100%;height: 100%">--%>
-    <%--                        </div>--%>
-    <%--                        <div style="width: 100%;height: 10%"></div>--%>
-    <%--                        <div style="height: 30%;text-align: center;font-size:10px">Your /Epigenetic Age/</div>--%>
-    <%--                        <div style="width: 100%;height: 10%">${data.barcode}</div>--%>
-    <%--                        <div style="height: 30%;text-align: center;color: #f15929;font-size: 34px;font-weight: bold" id="bio">--%>
-    <%--                            ${data.biological}--%>
-    <%--                        </div>--%>
-    <%--                    </div>--%>
-    <%--                </div>--%>
-    <%--                <hr>--%>
-    <%--                <div style="width: 90%;margin: 0 auto;padding-top: 5%">--%>
-    <%--                <div id="smail" style="width: 100%;height:45px" >--%>
-    <%--                    <div style="width: 8%; float: left">--%>
-    <%--                        <img src="static/images/ques/sad.png"style="width: 100%;height: 100%">--%>
-    <%--                    </div>--%>
-    <%--                    <div style="width: 89%;float: left;margin-left: 1%;text-align: center;line-height: 20px;font-size: 16px;font-weight: bold;color: #439e9d">Your Epigenetic age is  <Span class="Pobre"></Span>--%>
-    <%--                        years lower than chronological age in the population.</div>--%>
-    <%--                </div>--%>
+    <div style="height: 100px;width: 100%;clear: both"></div>
 
-    <%--            </div>--%>
-    <%--            </div>--%>
-
-    <%--        </div>--%>
-    <%--    </div>--%>
 
     <div style="width: 100%;height: 34px;clear: both"></div>
     <div style="width: 100%;margin: 0px auto;">
@@ -516,55 +455,77 @@
 
     </div>
     <div style="width: 100%;height: 200px"></div>
-
-    <script type="text/javascript">
-        $(function () {
-            var ntrLtBioData = []
-            var ntrGtBioData = []
-            for (var i in ${ntrLtBioUsers}) {
-                ntrLtBioData.push([window.parseFloat(${ntrLtBioUsers}[i].naturally).toFixed(2), window.parseFloat(${ntrLtBioUsers}[i].biological).toFixed(2)])
-            }
-            for (var i in ${ntrGtBioUsers}) {
-                ntrGtBioData.push([window.parseFloat(${ntrGtBioUsers}[i].naturally).toFixed(2), window.parseFloat(${ntrGtBioUsers}[i].biological).toFixed(2)])
-            }
-            var option = {
-                legend: {
-                    data: ['Chronological Age<Epigenetic Age', 'Chronological Age>Epigenetic Age']
+</div>
+<script type="text/javascript">
+    $(function () {
+        var ntrLtBioData = []
+        var ntrGtBioData = []
+        for (var i in ${ntrLtBioUsers}) {
+            ntrLtBioData.push([window.parseFloat(${ntrLtBioUsers}[i].naturally).toFixed(2), window.parseFloat(${ntrLtBioUsers}[i].biological).toFixed(2)])
+        }
+        for (var i in ${ntrGtBioUsers}) {
+            ntrGtBioData.push([window.parseFloat(${ntrGtBioUsers}[i].naturally).toFixed(2), window.parseFloat(${ntrGtBioUsers}[i].biological).toFixed(2)])
+        }
+        var option = {
+            legend: {
+                data: ['Chronological Age<Epigenetic Age', 'Chronological Age>Epigenetic Age']
+            },
+            xAxis: [{
+                name: 'Chronological Age',
+                type: 'value',
+                nameLocation: 'middle',
+                nameGap: 20,
+                scale: true,
+                nameTextStyle: {color: "#404bc2"},
+                axisLabel: {
+                    formatter: '{value}'
+                }
+            }],
+            yAxis: [{
+                name: 'Epigenetic Age',
+                nameLocation: 'middle',
+                nameGap: 22,
+                nameRotate: 90,
+                type: 'value',
+                scale: true,
+                nameTextStyle: {color: "#404bc2"},
+                axisLabel: {
+                    formatter: '{value}'
+                }
+            }],
+            series: [{
+                name: 'Chronological Age<Epigenetic Age',
+                type: 'scatter',
+                //圆点的颜色为红色
+                itemStyle: {
+                    normal: {
+                        color: 'red'
+                    }
                 },
-                xAxis: [{
-                    name: 'Chronological Age',
-                    type: 'value',
-                    nameLocation: 'middle',
-                    nameGap: 20,
-                    scale: true,
-                    nameTextStyle: {color: "#404bc2"},
-                    axisLabel: {
-                        formatter: '{value}'
-                    }
-                }],
-                yAxis: [{
-                    name: 'Epigenetic Age',
-                    nameLocation: 'middle',
-                    nameGap: 22,
-                    nameRotate: 90,
-                    type: 'value',
-                    scale: true,
-                    nameTextStyle: {color: "#404bc2"},
-                    axisLabel: {
-                        formatter: '{value}'
-                    }
-                }],
-                series: [{
-                    name: 'Chronological Age<Epigenetic Age',
+                //自然年龄<生物学年龄
+                data: ntrLtBioData,
+                markPoint: {
+                    data: [
+                        {
+                            name: 'Epigenetic Age',
+                            value: window.parseFloat(${data.biological}).toFixed(2),
+                            xAxis: window.parseFloat(${data.naturally}).toFixed(2),
+                            yAxis: window.parseFloat(${data.biological}).toFixed(2)
+                        }
+                    ]
+                },
+            },
+                {
+                    name: 'Chronological Age>Epigenetic Age',
                     type: 'scatter',
-                    //圆点的颜色为红色
+                    //圆点的颜色为绿色
                     itemStyle: {
                         normal: {
-                            color: 'red'
+                            color: 'green'
                         }
                     },
-                    //自然年龄<生物学年龄
-                    data: ntrLtBioData,
+                    //自然年龄>生物学年龄
+                    data: ntrGtBioData,
                     markPoint: {
                         data: [
                             {
@@ -575,101 +536,92 @@
                             }
                         ]
                     },
-                },
-                    {
-                        name: 'Chronological Age>Epigenetic Age',
-                        type: 'scatter',
-                        //圆点的颜色为绿色
-                        itemStyle: {
-                            normal: {
-                                color: 'green'
-                            }
-                        },
-                        //自然年龄>生物学年龄
-                        data: ntrGtBioData,
-                        markPoint: {
-                            data: [
-                                {
-                                    name: 'Epigenetic Age',
-                                    value: window.parseFloat(${data.biological}).toFixed(2),
-                                    xAxis: window.parseFloat(${data.naturally}).toFixed(2),
-                                    yAxis: window.parseFloat(${data.biological}).toFixed(2)
-                                }
-                            ]
-                        },
-                    }]
-            }
-            // 使用刚指定的配置项和数据显示图表。
-            echarts.init(document.getElementById("main")).setOption(option);
+                }]
+        }
+        // 使用刚指定的配置项和数据显示图表。
+        echarts.init(document.getElementById("main")).setOption(option);
 
-        })
-
-    </script>
-    <script>
-        $(function () {
-            var uage=parseFloat(${userage}).toFixed(2)
-            //您的预估真实年龄
-            var epiAge = parseFloat($("#bio").text());
-            var natura = parseFloat($("#natura").text());
-            var expectedage=parseFloat(epiAge-8.9657/0.9044).toFixed(2)
-            //var sqrt_value=Math.sqrt(2.6876+0.0288*-(epiAge+7.5806));
-            //alert(sqrt_value);
-            // console.info($("#bio").text())
-            // console.info("你输入的生物学年龄为："+epiAge+" 您的预估真实年龄为："+ expectedage);
-            $("#expect").html(expectedage)
+    })
 
 
-            var real1=" <div id=\"smail\" style=\"height: 120px;width: 100%;background-color: #ebeced;border-radius: 15px;\">\n" +
-                "            <div style=\"width:60px;height: 60px;border-radius: 50px;background-color: #ebeced;margin-left: 38%;margin-top: -35px;position: absolute\">\n" +
-                "                <img src=\"static/images/ques/smile-black.png\" style=\"width: 80%;height: 80%;padding-left: 6px;padding-top: 5px;\">\n" +
-                "            </div>\n" +
-                "            <div style=\"height: 60px;text-align: center;font-size: 16px;padding-top: 35px\">\n" +
-                "                Your Epigenetic age is <span class=\"Pobre\"style=\"font-size: 18px;font-weight: bold;\"></span> years lower than chronological age in the population.\n" +
-                "            </div>\n" +
-                "        </div>"
-            var real2=" <div id=\"smail\" style=\"height: 120px;width: 100%;background-color: #ebeced;border-radius: 15px;\">\n" +
-                "            <div style=\"width:60px;height: 60px;border-radius: 50px;background-color: #ebeced;margin-left: 38%;margin-top: -35px;position: absolute\">\n" +
-                "                <img src=\"static/images/ques/sad-black.png\" style=\"width: 80%;height: 80%;padding-left: 6px;padding-top: 5px;\">\n" +
-                "            </div>\n" +
-                "            <div style=\"height: 60px;text-align: center;font-size: 16px;padding-top: 35px\">\n" +
-                "                Your Epigenetic age is <span class=\"Pobre\"style=\"font-size: 18px;font-weight: bold;\"></span> years higher than chronological age in the population.\n" +
-                "            </div>\n" +
-                "        </div>"
-            var test1=" <div id=\"smail\" style=\"height: 120px;width: 100%;background-color: #ebeced;border-radius: 15px;\">\n" +
-                "            <div style=\"width:60px;height: 60px;border-radius: 50px;background-color: #ebeced;margin-left: 38%;margin-top: -35px;position: absolute\">\n" +
-                "                <img src=\"static/images/ques/smile-black.png\" style=\"width: 80%;height: 80%;padding-left: 6px;padding-top: 5px;\">\n" +
-                "            </div>\n" +
-                "            <div style=\"height: 60px;text-align: center;font-size: 16px;padding-top: 35px\">\n" +
-                "                Your Epigenetic age is <span class=\"Pobre\"style=\"font-size: 18px;font-weight: bold;\"></span> years lower than chronological age in the population.\n" +
-                "            </div>\n" +
-                "        </div>"
-            var test2=" <div id=\"smail\" style=\"height: 120px;width: 100%;background-color: #ebeced;border-radius: 15px;\">\n" +
-                "            <div style=\"width:60px;height: 60px;border-radius: 50px;background-color: #ebeced;margin-left: 38%;margin-top: -35px;position: absolute\">\n" +
-                "                <img src=\"static/images/ques/sad-black.png\" style=\"width: 80%;height: 80%;padding-left: 6px;padding-top: 5px;\">\n" +
-                "            </div>\n" +
-                "            <div style=\"height: 60px;text-align: center;font-size: 16px;padding-top: 35px\">\n" +
-                "                Your Epigenetic age is <span class=\"Pobre\"style=\"font-size: 18px;font-weight: bold;\"></span> years higher than chronological age in the population.\n" +
-                "            </div>\n" +
-                "        </div>"
+    $(function () {
+        //客户填写的真实年龄
 
-            if (uage==0) {
-                if(epiAge<expectedage){
-                    $("#smail").html(test1)
-                }else{
-                    $("#smail").html(test2)
-                }
-                $(".Pobre").html(Math.abs(expectedage-epiAge).toFixed(2))
+        var uage=window.parseFloat(${data.naturally}).toFixed(2)
+        //生物学年龄
+        var epiAge = window.parseFloat(${data.biological}).toFixed(2);
+        //您的预估真实年龄
+        var expectedage=parseFloat(epiAge-8.9657/0.9044).toFixed(2)
+        // var expectedage=parseFloat((-1.6394+Math.sqrt(2.6876+0.0288*-(epiAge+7.5806)))/-0.0144).toFixed(2)
+        var natura = parseFloat($("#natura").text());
+        //alert(sqrt_value);
+        console.info(uage)
+        <%--console.info(${userage ne 0})--%>
+        // console.info($("#bio").text())
+        // console.info("你输入的生物学年龄为："+epiAge+" 您的预估真实年龄为："+ expectedage);
+        //var sqrt_value=Math.sqrt(2.6876+0.0288*-(epiAge+7.5806));
+        $("#expect").html(expectedage)
+
+
+        var real1="<div id=\"smail\" >\n"+
+            " <div style=\"height: 90px;width: 100%;background-color: #ebeced;border-radius: 15px;margin-bottom: 120px;\">\n" +
+            "            <div style=\"width:60px;height: 60px;border-radius: 50px;background-color: #ebeced;margin-left: 40%;margin-top: -35px;position: absolute\">\n" +
+            "                <img src=\"static/images/ques/smile-black.png\" style=\"width: 80%;height: 80%;padding-left: 6px;padding-top: 5px;\">\n" +
+            "            </div>\n" +
+            "            <div style=\"height: 60px;text-align: center;font-size: 16px;padding-top: 35px\">\n" +
+            "                Your Expected Chronological age is <span class=\"Pobre\"style=\"font-size: 18px;font-weight: bold;\"></span> years lower than your chronological age.\n" +
+            "            </div>\n" +
+            "        </div>"+
+            "    <div style=\"height: 100px;width: 100%\"></div>\n"+
+            "</div>"
+        var real2="<div id=\"smail\">\n"+
+            " <div  style=\"height: 90px;width: 100%;background-color: #ebeced;border-radius: 15px;margin-bottom: 120px;\">\n" +
+            "            <div style=\"width:60px;height: 60px;border-radius: 50px;background-color: #ebeced;margin-left: 40%;margin-top: -35px;position: absolute\">\n" +
+            "                <img src=\"static/images/ques/sad-black.png\" style=\"width: 80%;height: 80%;padding-left: 6px;padding-top: 5px;\">\n" +
+            "            </div>\n" +
+            "            <div style=\"height: 60px;text-align: center;font-size: 16px;padding-top: 35px\">\n" +
+            "                Your Expected Chronological age is <span class=\"Pobre\"style=\"font-size: 18px;font-weight: bold;\"></span> years higher than your chronological age.\n" +
+            "            </div>\n" +
+            "        </div>\n"+
+            "    <div style=\"height: 100px;width: 100%\"></div>\n"+
+            "</div>"
+        var test1=" <div id=\"smail\" style=\"height: 90px;width: 100%;background-color: #ebeced;border-radius: 15px;margin-bottom: 100px;\">\n" +
+            "            <div style=\"width:60px;height: 60px;border-radius: 50px;background-color: #ebeced;margin-left: 38%;margin-top: -35px;position: absolute\">\n" +
+            "                <img src=\"static/images/ques/smile-black.png\" style=\"width: 80%;height: 80%;padding-left: 6px;padding-top: 5px;\">\n" +
+            "            </div>\n" +
+            "            <div style=\"height: 60px;text-align: center;font-size: 16px;padding-top: 35px\">\n" +
+            "                Your Epigenetic age is <span class=\"Pobre\"style=\"font-size: 18px;font-weight: bold;\"></span> years lower than your expected chronological age in the population.\n" +
+            "            </div>\n" +
+            "        </div>"
+        var test2=" <div id=\"smail\" style=\"height: 90px;width: 100%;background-color: #ebeced;border-radius: 15px;margin-bottom: 100px;\">\n" +
+            "            <div style=\"width:60px;height: 60px;border-radius: 50px;background-color: #ebeced;margin-left: 38%;margin-top: -35px;position: absolute\">\n" +
+            "                <img src=\"static/images/ques/sad-black.png\" style=\"width: 80%;height: 80%;padding-left: 6px;padding-top: 5px;\">\n" +
+            "            </div>\n" +
+            "            <div style=\"height: 60px;text-align: center;font-size: 16px;padding-top: 35px\">\n" +
+            "                Your Epigenetic age is <span class=\"Pobre\"style=\"font-size: 18px;font-weight: bold;\"></span> years higher than your expected chronological age in the population.\n" +
+            "            </div>\n" +
+            "        </div>"
+
+        if (uage==0) {
+            null
+            // if(epiAge<expectedage){
+            //     $("#smail").html(test2)
+            // }else{
+            //     $("#smail").html(test1)
+            // }
+            // $(".Pobre").html(Math.abs(expectedage-epiAge).toFixed(2))
+        }else {
+            if(expectedage<uage){
+                $("#smail").html(real2)
             }else {
-                if(epiAge<uage){
-                    $("#smail").html(real1)
-                }else {
-                    $("#smail").html(real2)
-                }
-                $(".Pobre").html(Math.abs(uage-epiAge).toFixed(2))
+                $("#smail").html(real1)
             }
-        })
-    </script>
+            $(".Pobre").html(Math.abs(uage-expectedage).toFixed(2))
+        }
+    })
 
-</div>
+</script>
+
+
 </body>
 </html>
