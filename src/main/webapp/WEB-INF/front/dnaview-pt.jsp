@@ -50,7 +50,7 @@
     <div style="width: 90%;height: 109px;margin: 0 auto;background-color: #f1f5f6;border-radius: 15px;">
         <div style="height: 50px;margin:0 auto; width: 70%;padding-top: 20px">
             <img src="static/images/ques/olive-leaf.png" style="float: left;width: 40px;height: 40px;padding-left: 20%">
-            <span style="float: left;height: 50px;width: 30%;font-size: 16px;line-height: 30px;text-align: center; font-size: 28px;font-weight: bold"id="natura">${userage}</span>
+            <span style="float: left;height: 50px;width: 30%;font-size: 16px;line-height: 30px;text-align: center; font-size: 28px;font-weight: bold"id="natura">${data.naturally}</span>
             <span style="float: left;height: 50px;width: 20%;font-size: 16px;line-height: 30px;text-align: center; font-size: 18px;">Years</span>
         </div>
         <div style="height: 40px;text-align: center;font-size: 16px;font-weight: bold;color:#000">Your Chronological Age</div>
@@ -612,9 +612,9 @@
             // $(".Pobre").html(Math.abs(expectedage-epiAge).toFixed(2))
         }else {
             if(expectedage<uage){
-                $("#smail").html(real2)
-            }else {
                 $("#smail").html(real1)
+            }else {
+                $("#smail").html(real2)
             }
             $(".Pobre").html(Math.abs(uage-expectedage).toFixed(2))
         }

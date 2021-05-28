@@ -73,7 +73,7 @@
             </div>
         </div>
         <div style="clear: both; height: 80px;width: 30%;margin: 0 auto;background-color: #ebeced;border-radius: 15px;text-align: center;">
-            <span style="height: 80px;width: 100%;font-size: 16px;line-height: 80px; font-size: 30px;font-weight: bold;"id="bio">${data.biological}</span>
+            <span style="height: 80px;width: 100%;font-size: 16px;line-height: 80px; font-size: 30px;font-weight: bold;"id="bio">${data.naturally}</span>
         </div>
         <div style="height: 110px;text-align: center;font-size: 18px;line-height: 80px; font-weight: bold;align-self: center">Your Epigenetic Age</div>
 
@@ -612,9 +612,9 @@
             // $(".Pobre").html(Math.abs(expectedage-epiAge).toFixed(2))
         }else {
             if(expectedage<uage){
-                $("#smail").html(real2)
-            }else {
                 $("#smail").html(real1)
+            }else {
+                $("#smail").html(real2)
             }
             $(".Pobre").html(Math.abs(uage-expectedage).toFixed(2))
         }

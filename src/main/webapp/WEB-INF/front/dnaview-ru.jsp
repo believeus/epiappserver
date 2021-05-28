@@ -612,9 +612,9 @@
             // $(".Pobre").html(Math.abs(expectedage-epiAge).toFixed(2))
         }else {
             if(expectedage<uage){
-                $("#smail").html(real2)
-            }else {
                 $("#smail").html(real1)
+            }else {
+                $("#smail").html(real2)
             }
             $(".Pobre").html(Math.abs(uage-expectedage).toFixed(2))
         }

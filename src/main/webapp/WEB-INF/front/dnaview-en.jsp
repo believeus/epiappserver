@@ -16,11 +16,11 @@
 </head>
 <body style="margin: 0;padding: 0">
 <div style="width: 100%;">
-    <div style="width: 100%;height:500px; margin:0 auto;">
+    <div style="width: 100%;height:300px; margin:0 auto;">
         <img src="static/images/ques/rep1.png" style="width: 100%;height: 100%;">
     </div>
-
-    <div style="width: 60%;height: 80px;margin: 0 auto; text-align: center;background-color: #f1f5f6;border-radius: 5px;font-size: 24px;line-height: 80px;font-weight: bold;">Barcode | ${data.barcode}</div>
+    <div style="height: 200px;width: 100%;"></div>
+    <div style="width: 90%;height: 80px;margin: 0 auto; text-align: center;background-color: #f1f5f6;border-radius: 5px;font-size: 22px;line-height: 80px;font-weight: bold;">Barcode | ${data.barcode}</div>
     <div style="height: 123px;width: 100%;clear: both"></div>
     <div id="main"style="width: 100%;height:300px;margin: 0px auto;position: relative" ></div>
 
@@ -50,7 +50,7 @@
     <div style="width: 90%;height: 109px;margin: 0 auto;background-color: #f1f5f6;border-radius: 15px;">
         <div style="height: 50px;margin:0 auto; width: 70%;padding-top: 20px">
             <img src="static/images/ques/olive-leaf.png" style="float: left;width: 40px;height: 40px;padding-left: 20%">
-            <span style="float: left;height: 50px;width: 30%;font-size: 16px;line-height: 30px;text-align: center; font-size: 28px;font-weight: bold"id="natura">${userage}</span>
+            <span style="float: left;height: 50px;width: 30%;font-size: 16px;line-height: 30px;text-align: center; font-size: 28px;font-weight: bold"id="natura">${data.naturally}</span>
             <span style="float: left;height: 50px;width: 20%;font-size: 16px;line-height: 30px;text-align: center; font-size: 18px;">Years</span>
         </div>
         <div style="height: 40px;text-align: center;font-size: 16px;font-weight: bold;color:#000">Your Chronological Age</div>
@@ -89,8 +89,8 @@
     <div style="width: 100%;height: 34px;clear: both"></div>
     <div style="width: 100%;margin: 0px auto;">
         <div id="top-pic" style="width: 100%;height:389px;margin: 0px auto;position: relative">
-            <div style="border-top-left-radius: 15px;border-top-right-radius: 15px">
-                <img src="static/images/ques/rep12.jpg" style="width: 100%;height: 100%;border-top-left-radius: 30px;border-top-right-radius: 30px">
+            <div style="border-top-left-radius: 30px;border-top-right-radius: 30px">
+                <img src="static/images/ques/rep12.jpg" style="width: 100%;height: 100%;">
             </div>
 
             <div style="overflow: hidden; height: 123px;float: left; text-align: right;width: 96%;color: #0968aa;">
@@ -547,7 +547,7 @@
     $(function () {
         //客户填写的真实年龄
 
-        var uage=window.parseFloat(${data.naturally}).toFixed(2)
+        var uage=window.parseInt(${data.naturally})
         //生物学年龄
         var epiAge = window.parseFloat(${data.biological}).toFixed(2);
         //您的预估真实年龄
@@ -555,8 +555,7 @@
         // var expectedage=parseFloat((-1.6394+Math.sqrt(2.6876+0.0288*-(epiAge+7.5806)))/-0.0144).toFixed(2)
         var natura = parseFloat($("#natura").text());
         //alert(sqrt_value);
-        console.info(uage)
-        <%--console.info(${userage ne 0})--%>
+        console.info(uage+"iiiiiiiiiiiiiiiiiiiii")
         // console.info($("#bio").text())
         // console.info("你输入的生物学年龄为："+epiAge+" 您的预估真实年龄为："+ expectedage);
         //var sqrt_value=Math.sqrt(2.6876+0.0288*-(epiAge+7.5806));
@@ -612,9 +611,9 @@
             // $(".Pobre").html(Math.abs(expectedage-epiAge).toFixed(2))
         }else {
             if(expectedage<uage){
-                $("#smail").html(real2)
-            }else {
                 $("#smail").html(real1)
+            }else {
+                $("#smail").html(real2)
             }
             $(".Pobre").html(Math.abs(uage-expectedage).toFixed(2))
         }
