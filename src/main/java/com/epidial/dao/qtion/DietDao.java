@@ -8,7 +8,7 @@ import java.util.List;
 @Mapper
 @Repository
 public interface DietDao {
-    @Select("select * from diet where uuid=#{uuid} order by updateTime desc")
+    @Select("select * from diet where uuid=#{uuid} order by updateTime asc")
     public List<Diet> find(@Param("uuid") String uuid);
 
     @Select("select * from diet where #{start}< updateTime and updateTime < #{end} and uuid=#{uuid}")

@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 @Repository
 public interface SleepDao {
-    @Select("select * from sleep where uuid=#{uuid} order by updateTime desc")
+    @Select("select * from sleep where uuid=#{uuid} order by updateTime asc")
     public List<Sleep> find(@Param("uuid") String uuid);
 
     @Select("select * from sleep where #{start}< updateTime and updateTime < #{end} and uuid=#{uuid}")

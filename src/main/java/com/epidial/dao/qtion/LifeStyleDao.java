@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper
 @Repository
 public interface LifeStyleDao {
-    @Select("select * from lifestyle where uuid=#{uuid} order by updateTime desc")
+    @Select("select * from lifestyle where uuid=#{uuid} order by updateTime asc")
     public List<Life> find(@Param("uuid") String uuid);
 
     @Select("select * from lifestyle where #{start}< updateTime and updateTime < #{end} and uuid=#{uuid}")

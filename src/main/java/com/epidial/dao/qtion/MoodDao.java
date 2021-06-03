@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 @Repository
 public interface MoodDao {
-    @Select("select * from mood where uuid=#{uuid} order by updateTime desc")
+    @Select("select * from mood where uuid=#{uuid} order by updateTime asc")
     public List<Mood> find(@Param("uuid") String uuid);
 
     @Select("select * from mood where #{start}< updateTime and updateTime < #{end} and uuid=#{uuid}")
