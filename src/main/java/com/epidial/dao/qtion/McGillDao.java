@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper
 @Repository
 public interface McGillDao {
-    @Select("select * from mcgill where uuid=#{uuid} order by updateTime asc")
+    @Select("select * from mcgill where uuid=#{uuid} order by updateTime desc")
     public List<McGill> find(@Param("uuid") String uuid);
 
     @Select("select * from mcgill where #{start}< updateTime and updateTime < #{end} and uuid=#{uuid}")
