@@ -13,7 +13,7 @@ public interface McGillDao {
     public List<McGill> find(@Param("uuid") String uuid);
 
     @Select("select * from mcgill where #{start}< updateTime and updateTime < #{end} and uuid=#{uuid}")
-    public McGill findToday(@Param("uuid") String uuid, long start, long end);
+    public McGill findToday(@Param("uuid") String uuid, @Param("start")long start,@Param("end")long end);
 
     @Update("update mcgill set uuid=#{uuid},throbbing=#{throbbing},shooting=#{shooting}," +
             "stabbing=#{stabbing},sharp=#{sharp},cramping=#{cramping}," +

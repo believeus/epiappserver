@@ -13,7 +13,7 @@ public interface LifeStyleDao {
     public List<Life> find(@Param("uuid") String uuid);
 
     @Select("select * from lifestyle where #{start}< updateTime and updateTime < #{end} and uuid=#{uuid}")
-    public Life findToday(@Param("uuid") String uuid, long start, long end);
+    public Life findToday(@Param("uuid") String uuid,@Param("start") long start,@Param("end") long end);
 
     @Update("update lifestyle set uuid=#{uuid}," +
             "height=#{height},weight=#{weight},bmi=#{bmi}," +
