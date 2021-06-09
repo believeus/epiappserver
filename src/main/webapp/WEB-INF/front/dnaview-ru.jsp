@@ -19,7 +19,7 @@
     <div style="width: 100%;height:300px; margin:0 auto;">
         <img src="static/images/ques/rep1.png" style="width: 100%;height: 100%;">
     </div>
-    <div style="height: 200px;width: 100%;"></div>
+    <div style="height: 90px;width: 100%;"></div>
     <div style="width: 90%;height: 80px;margin: 0 auto; text-align: center;background-color: #f1f5f6;border-radius: 5px;font-size: 22px;line-height: 80px;font-weight: bold;">Barcode | ${data.barcode}</div>
     <div style="height: 123px;width: 100%;clear: both"></div>
     <div id="main"style="width: 100%;height:300px;margin: 0px auto;position: relative" ></div>

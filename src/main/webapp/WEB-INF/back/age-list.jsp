@@ -138,9 +138,10 @@
                             html.push("<option ".concat("data-id=\"").concat(udata[i].id).concat("\"").concat(udata[i].status=="ready"?"selected=selected":"").concat(" >").concat("ready").concat("</option>"))
                             html.push("<option ".concat("data-id=\"").concat(udata[i].id).concat("\"").concat(udata[i].status=="pending"?"selected=selected":"").concat(" >").concat("pending").concat("</option>"))
                             html.push("<option ".concat("data-id=\"").concat(udata[i].id).concat("\"").concat(udata[i].status=="processing"?"selected=selected":"").concat(" >").concat("processing").concat("</option>"))
-                            html.push("</select>")
+							html.push("<option ".concat("data-id=\"").concat(udata[i].id).concat("\"").concat(udata[i].status=="in-transit"?"selected=selected":"").concat(" >").concat("in-transit").concat("</option>"))
+							html.push("</select>")
                             html.push("</td>")
-                            html.push("<td>"+udata[i].email+"</td>")//
+                           if(udata[i].email){html.push("<td>"+udata[i].email+"</td>")}else{ html.push("<td></td>")}
                             html.push("<td><input name='createtime' style='border: none' value='"+new Date(udata[i].createTime).toLocaleString()+"'></td>")
                             html.push("<td><input name='uploadtime' style='border: none' value='"+new Date(udata[i].uploadTime).toLocaleString()+"'></td>")
                             html.push("<td>") //${task.allow == 1}
