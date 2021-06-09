@@ -551,7 +551,7 @@
         //生物学年龄
         var epiAge = window.parseFloat(${data.biological}).toFixed(2);
         //您的预估真实年龄
-        var expectedage=parseFloat(epiAge-8.9657/0.9044).toFixed(2)
+        var expectedage=parseFloat((epiAge-8.9657)/0.9044).toFixed(2)
         // var expectedage=parseFloat((-1.6394+Math.sqrt(2.6876+0.0288*-(epiAge+7.5806)))/-0.0144).toFixed(2)
         var natura = parseFloat($("#natura").text());
         //alert(sqrt_value);
