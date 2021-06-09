@@ -14,7 +14,7 @@ public interface SleepDao {
     public List<Sleep> find(@Param("uuid") String uuid);
 
     @Select("select * from sleep where #{start}< updateTime and updateTime < #{end} and uuid=#{uuid}")
-    public Sleep findToday(@Param("uuid") String uuid, long start, long end);
+    public Sleep findToday(@Param("uuid") String uuid,@Param("start")long start, @Param("end")long end);
 
     @Update("update sleep set uuid=#{uuid}," +
             "awake=#{awake},fallasleep=#{fallasleep},sleepquality=#{sleepquality}," +

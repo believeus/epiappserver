@@ -12,7 +12,7 @@ public interface DietDao {
     public List<Diet> find(@Param("uuid") String uuid);
 
     @Select("select * from diet where #{start}< updateTime and updateTime < #{end} and uuid=#{uuid}")
-    public Diet findToday(@Param("uuid") String uuid, long start, long end);
+    public Diet findToday(@Param("uuid") String uuid,@Param("start") long start,@Param("end") long end);
 
     @Update("update diet set uuid=#{uuid},foodname=#{foodname},calories=#{calories}," +
             "updateTime=#{updateTime} " +

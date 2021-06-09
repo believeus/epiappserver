@@ -14,7 +14,7 @@ public interface MoodDao {
     public List<Mood> find(@Param("uuid") String uuid);
 
     @Select("select * from mood where #{start}< updateTime and updateTime < #{end} and uuid=#{uuid}")
-    public Mood findToday(@Param("uuid") String uuid, long start, long end);
+    public Mood findToday(@Param("uuid") String uuid, @Param("start")long start,@Param("end")long end);
 
     @Update("update mood set uuid=#{uuid},pleasure=#{pleasure},depressed=#{depressed}," +
             "asleep=#{asleep},energy=#{energy},overeating=#{overeating}," +
