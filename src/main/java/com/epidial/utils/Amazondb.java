@@ -1,7 +1,9 @@
 package com.epidial.utils;
 
 
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Component;
+import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
 import software.amazon.awssdk.core.waiters.WaiterResponse;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
@@ -13,20 +15,25 @@ import java.util.*;
 public class Amazondb {
     public static String epixFlowReportsTable = "EpixFlowReports";
     public static String epixFlowBarcodeStatusTable="EpixFlowBarcodeStatus";
-    public Amazondb(){
+    private DynamoDbClient ddb;
+    private String tablename;
+
+    private Amazondb(){}
+    public Amazondb(String tablename){
+        this.tablename=tablename;
+        //如果以匿名用户登录需要配置环境变量指向credentials
+        // export AWS_CREDENTIAL_PROFILES_FILE=/root/.aws/credentials
+        ddb =DynamoDbClient.builder().credentialsProvider(EnvironmentVariableCredentialsProvider.create()).region(Region.US_EAST_1).build();
         initTable(epixFlowReportsTable);
         initTable(epixFlowBarcodeStatusTable);
     }
-    public  void deleteItem(String tableName, String key, String keyVal) {
-        DynamoDbClient ddb =DynamoDbClient.builder().region(Region.US_EAST_1).build();
+    public  void remove(String key, String keyVal) {
         HashMap<String,AttributeValue> keyToGet = new HashMap<String,AttributeValue>();
         keyToGet.put(key, AttributeValue.builder().s(keyVal).build());
-        DeleteItemRequest deleteReq = DeleteItemRequest.builder().tableName(tableName).key(keyToGet).build();
+        DeleteItemRequest deleteReq = DeleteItemRequest.builder().tableName(this.tablename).key(keyToGet).build();
         ddb.deleteItem(deleteReq);
-        ddb.close();
     }
     public  void initTable(String tablename) {
-        DynamoDbClient ddb =DynamoDbClient.builder().region(Region.US_EAST_1).build();
         ListTablesRequest request = ListTablesRequest.builder().build();
         ListTablesResponse response = ddb.listTables(request);
         List<String> tableNames = response.tableNames();
@@ -43,16 +50,36 @@ public class Amazondb {
             WaiterResponse<DescribeTableResponse> waiterResponse =  dbWaiter.waitUntilTableExists(tableRequest);
             waiterResponse.matched().response().ifPresent(System.out::println);
             System.out.println(resp.tableDescription().tableName());
-            ddb.close();
         }else{
             System.out.println(tablename+" table already exists");
         }
     }
-
-    public  void putItem(String tableName, HashMap<String, String> mdata) {
-        DynamoDbClient ddb =DynamoDbClient.builder().region(Region.US_EAST_1).build();
+    public String find(Map<String, String> mdata){
+        HashMap<String,AttributeValue> keyToGet = new HashMap<String,AttributeValue>();
+        Iterator<String> it = mdata.keySet().iterator();
+        while (it.hasNext()) {
+            String key = it.next();
+            String value = mdata.get(key);
+            System.out.println(key+":"+value);
+            keyToGet.put(key, AttributeValue.builder().s(value).build());
+        }
+        GetItemRequest request = GetItemRequest.builder().key(keyToGet).tableName(this.tablename).build();
+        Map<String, AttributeValue> item = ddb.getItem(request).item();
+        if (item!=null){
+            Map<String,String> jm=new HashMap<String,String>();
+            Iterator<String> iterator = item.keySet().iterator();
+            while (iterator.hasNext()){
+                String k=iterator.next();
+                String v=item.get(k).s();
+                jm.put(k,v);
+            }
+            return JSONObject.toJSONString(jm);
+        }
+        return "";
+    }
+    public  void save(Map<String, String> mdata) {
+        try {
         HashMap<String, AttributeValue> itemValues = new HashMap<String, AttributeValue>();
-        mdata.put("id", UUID.randomUUID().toString().substring(0,8));
         Iterator<String> it = mdata.keySet().iterator();
         while (it.hasNext()) {
             String key = it.next();
@@ -60,17 +87,16 @@ public class Amazondb {
             itemValues.put(key, AttributeValue.builder().s(value).build());
         }
         // Add all content to the table
-        PutItemRequest request = PutItemRequest.builder().tableName(tableName).item(itemValues).build();
-        try {
+        PutItemRequest request = PutItemRequest.builder().tableName(tablename).item(itemValues).build();
+
             ddb.putItem(request);
-            System.out.println(tableName + " was successfully updated");
-        } catch (ResourceNotFoundException e) {
-            System.err.format("Error: The Amazon DynamoDB table \"%s\" can't be found.\n", tableName);
-            System.err.println("Be sure that it exists and that you've typed its name correctly!");
-            System.exit(1);
-        } catch (DynamoDbException e) {
-            System.err.println(e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+    }
+    public void close(){
         ddb.close();
     }
+
+
 }
