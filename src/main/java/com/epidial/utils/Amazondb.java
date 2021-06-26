@@ -3,7 +3,9 @@ package com.epidial.utils;
 
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Component;
+import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
 import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
+import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
 import software.amazon.awssdk.core.waiters.WaiterResponse;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
@@ -23,7 +25,11 @@ public class Amazondb {
         this.tablename=tablename;
         //如果以匿名用户登录需要配置环境变量指向credentials
         // export AWS_CREDENTIAL_PROFILES_FILE=/root/.aws/credentials
-        ddb =DynamoDbClient.builder().credentialsProvider(EnvironmentVariableCredentialsProvider.create()).region(Region.US_EAST_1).build();
+        AwsBasicCredentials awsCreds = AwsBasicCredentials.create(
+                "your_access_key_id",
+                "your_secret_access_key");
+
+        ddb =DynamoDbClient.builder().credentialsProvider(StaticCredentialsProvider.create(awsCreds)).region(Region.US_EAST_1).build();
         initTable(epixFlowReportsTable);
         initTable(epixFlowBarcodeStatusTable);
     }
