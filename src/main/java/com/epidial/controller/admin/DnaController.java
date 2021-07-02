@@ -2,8 +2,10 @@ package com.epidial.controller.admin;
 
 import com.alibaba.fastjson.JSONObject;
 import com.epidial.bean.Dnakit;
+import com.epidial.bean.Udata;
 import com.epidial.common.Page;
 import com.epidial.dao.epi.DnakitDao;
+import com.epidial.dao.epi.UdataDao;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +19,8 @@ import java.util.List;
 public class DnaController {
     @Resource
     private DnakitDao dnakitDao;
+    @Resource
+    private UdataDao udataDao;
     @RequestMapping("/admin/dnakit/view")
     public ModelAndView view(@RequestParam(defaultValue = "1",value = "idx") int idx,@RequestParam(defaultValue = "200",value = "size") int size){
         ModelAndView modelView=new ModelAndView();
@@ -42,8 +46,13 @@ public class DnaController {
     @ResponseBody
     @RequestMapping("/admin/dnakit/save")
     public String save(Dnakit dnakit){
+        /**Begin: wuqiwei:2021/7/2 去库存表里查**/
         Dnakit val=dnakitDao.find("barcode",dnakit.getBarcode());
-        if (val==null) {
+        /**End: wuqiwei:2021/7/2 去库存表里查**/
+        /**Begin: wuqiwei:2021/7/2 去报告表里查**/
+        Udata udata = udataDao.findBy("barcode", dnakit.getBarcode());
+        /**End: wuqiwei:2021/7/2 去报告表里查**/
+        if (val==null&&udata==null) {
             dnakit.setCreatetime(System.currentTimeMillis());
             dnakitDao.save(dnakit);
        }
