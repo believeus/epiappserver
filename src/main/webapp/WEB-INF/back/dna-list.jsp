@@ -44,8 +44,11 @@
 			<tr class="text-c">
 				<th width="90">ID</th>
 				<th width="100">name</th>
-				<th width="110">createtime</th>
 				<th width="160">barcode</th>
+				<th width="100">biological</th>
+				<th width="100">accuracy</th>
+				<th width="100">expage</th>
+				<th width="110">createtime</th>
 				<th width="100">operation</th>
 			</tr>
 			</thead>
@@ -54,8 +57,12 @@
 				<tr name="item" data-id="${dnakit.id}" class="text-c">
 					<td>${dnakit.id}</td>
 					<td><input name="name" style="cursor:pointer;border: none;" readonly  value="${dnakit.name}"> </td>
-					<td><input name="createtime" style="cursor:pointer;border: none;" readonly  value="<date:date value="${dnakit.createtime}" pattern="yyyy-MM-dd hh:mm:ss"></date:date>"> </td>
 					<td><input name="barcode" style="cursor:pointer;border: none;" readonly value="${dnakit.barcode}"></td>
+					<td><input name="epiage" style="cursor:pointer;border: none;" readonly value="${dnakit.biological}"></td>
+					<td><input name="accuracy" style="cursor:pointer;border: none;" readonly value="${dnakit.accuracy}"></td>
+					<td><input name="expage" style="cursor:pointer;border: none;" readonly value="${dnakit.expage}"></td>
+					<td><input name="createtime" style="cursor:pointer;border: none;" readonly  value="<date:date value="${dnakit.createtime}" pattern="yyyy-MM-dd hh:mm:ss"></date:date>"> </td>
+
 					<td class="td-manage"><a title="删除" href="javascript:;" onclick="member_del(this,'${dnakit.id}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 				</tr>
 			</c:forEach>
@@ -188,18 +195,21 @@
 			datatype:JSON,
 			success:function (data) {
 				var dnakit = JSON.parse(data);
-				var html='';
+				var html=[];
 				for (var i = 0; i < dnakit.length; i++) {
-					html+="<tr name='item' class='text-c' data-id=\""+dnakit[i].id+"\">"
-					html+="<td>"+dnakit[i].id+"</td>";
-					html+="<td><input name='name' style='cursor:pointer;border: none' value='\""+dnakit[i].name+"\'> "+"</td>";
-					html+="<td><input name='createtime' style='cursor:pointer;border: none' value='\""+new Date(dnakit[i].createtime).toLocaleString()+"' pattern='yyyy-MM-dd hh:mm:ss'> "+"</td>";
-					html+="<td><input name='barcode' style='cursor:pointer;width: 160px;border: none' value='\""+dnakit[i].barcode+"\'> "+"</td>";
-					html+="<td class='td-manage'><a title='删除' href='javascript:;'onclick=\"+member_del(this,"+dnakit[i].id+")\"+ class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a>"+"</td>";
-					html+="</tr>";
+					html.push("<tr name='item' class='text-c' data-id=\""+dnakit[i].id+"\">");
+					html.push("<td>"+dnakit[i].id+"</td>");
+					html.push("<td><input name='name' style='cursor:pointer;border: none' value='\""+dnakit[i].name+"\'> "+"</td>");
+					html.push("<td><input name='barcode' style='cursor:pointer;width: 160px;border: none' value='\""+dnakit[i].barcode+"\'> "+"</td>");
+					html.push("<td><input name='barcode' style='cursor:pointer;width: 160px;border: none' value='\""+dnakit[i].biological+"\'> "+"</td>");
+					html.push("<td><input name='barcode' style='cursor:pointer;width: 160px;border: none' value='\""+dnakit[i].accuracy+"\'> "+"</td>");
+					html.push("<td><input name='barcode' style='cursor:pointer;width: 160px;border: none' value='\""+dnakit[i].expage+"\'> "+"</td>");
+					html.push("<td><input name='createtime' style='cursor:pointer;border: none' value='\""+new Date(dnakit[i].createtime).toLocaleString()+"' pattern='yyyy-MM-dd hh:mm:ss'> "+"</td>");
+					html.push("<td class='td-manage'><a title='删除' href='javascript:;'onclick=\"+member_del(this,"+dnakit[i].id+")\"+ class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a>"+"</td>");
+					html.push("</tr>");
 				}
 
-				$("#tody").html(html);
+				$("#tody").html(html.join(""));
 			}
 
 		})

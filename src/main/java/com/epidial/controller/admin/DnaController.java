@@ -53,6 +53,9 @@ public class DnaController {
         Udata udata = udataDao.findBy("barcode", dnakit.getBarcode());
         /**End: wuqiwei:2021/7/2 去报告表里查**/
         if (val==null&&udata==null) {
+            dnakit.setBiological("0");
+            dnakit.setAccuracy("0");
+            dnakit.setExpage("0");
             dnakit.setCreatetime(System.currentTimeMillis());
             dnakitDao.save(dnakit);
        }

@@ -18,14 +18,17 @@ public interface DnakitDao {
 
     /**功能描述: 用户注册*/
     @Insert("insert into dnakit" +
-                "(name,barcode,createtime) " +
+                "(name,barcode,createtime,biological,expage,accuracy) " +
             "values" +
-                "(#{name},#{barcode},#{createtime})")
+                "(#{name},#{barcode},#{createtime},#{biological},#{expage},#{accuracy})")
     public void save(Dnakit dnakit);
 
     @Update("update dnakit set " +
                     "name=#{name}," +
                     "barcode=#{barcode}," +
+                    "biological=#{biological},"+
+                    "expage=#{expage},"+
+                    "accuracy=#{accuracy},"+
                     "createtime=#{createtime} "+
                     "where id=#{id}")
     public boolean  update(Dnakit dnakit);
