@@ -199,12 +199,12 @@
 				for (var i = 0; i < dnakit.length; i++) {
 					html.push("<tr name='item' class='text-c' data-id=\""+dnakit[i].id+"\">");
 					html.push("<td>"+dnakit[i].id+"</td>");
-					html.push("<td><input name='name' style='cursor:pointer;border: none' value='\""+dnakit[i].name+"\'> "+"</td>");
-					html.push("<td><input name='barcode' style='cursor:pointer;width: 160px;border: none' value='\""+dnakit[i].barcode+"\'> "+"</td>");
-					html.push("<td><input name='barcode' style='cursor:pointer;width: 160px;border: none' value='\""+dnakit[i].biological+"\'> "+"</td>");
-					html.push("<td><input name='barcode' style='cursor:pointer;width: 160px;border: none' value='\""+dnakit[i].accuracy+"\'> "+"</td>");
-					html.push("<td><input name='barcode' style='cursor:pointer;width: 160px;border: none' value='\""+dnakit[i].expage+"\'> "+"</td>");
-					html.push("<td><input name='createtime' style='cursor:pointer;border: none' value='\""+new Date(dnakit[i].createtime).toLocaleString()+"' pattern='yyyy-MM-dd hh:mm:ss'> "+"</td>");
+					html.push("<td><input readonly name='name' style='cursor:pointer;border: none' value='"+dnakit[i].name+"'> "+"</td>");
+					html.push("<td><input readonly name='barcode' style='cursor:pointer;width: 160px;border: none' value='"+dnakit[i].barcode+"'>"+"</td>");
+					html.push("<td><input readonly name='biological' style='cursor:pointer;width: 160px;border: none' value='"+dnakit[i].biological+"'> "+"</td>");
+					html.push("<td><input readonly name='accuracy' style='cursor:pointer;width: 160px;border: none' value='"+dnakit[i].accuracy+"'> "+"</td>");
+					html.push("<td><input readonly name='expage' style='cursor:pointer;width: 160px;border: none' value='"+dnakit[i].expage+"'> "+"</td>");
+					html.push("<td><input readonly name='createtime' style='cursor:pointer;border: none' value='"+new Date(dnakit[i].createtime).toLocaleString()+"' pattern='yyyy-MM-dd hh:mm:ss'> "+"</td>");
 					html.push("<td class='td-manage'><a title='删除' href='javascript:;'onclick=\"+member_del(this,"+dnakit[i].id+")\"+ class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a>"+"</td>");
 					html.push("</tr>");
 				}
