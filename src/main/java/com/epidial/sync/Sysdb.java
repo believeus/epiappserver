@@ -45,10 +45,10 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
             if (!isrun) {
                 isrun = true;
                 new Thread(new Runnable() {
-                    private String qurl = "https://sqs.us-east-1.amazonaws.com/381270507532/epi-sqs-data";
+                    private String qurl = "https://sqs.us-east-1.amazonaws.com/381270507532/epi-sync-data";
                     private int maxNumberOfMessages = 10;
                     //SqsClient sqsclient = SqsClient.builder().region(Region.US_EAST_1).build();
-                    AwsBasicCredentials awsCreds = AwsBasicCredentials.create("accessKeyId", "secretAccessKey");
+                    AwsBasicCredentials awsCreds = AwsBasicCredentials.create("", "");
                     SqsClient sqsclient = SqsClient.builder().credentialsProvider(StaticCredentialsProvider.create(awsCreds)).region(Region.US_EAST_1).build();
                     ReceiveMessageRequest receiveRequest = ReceiveMessageRequest.builder().queueUrl(qurl).maxNumberOfMessages(maxNumberOfMessages).waitTimeSeconds(5).build();
                     @Override
