@@ -26,8 +26,8 @@ public class Amazondb {
         //如果以匿名用户登录需要配置环境变量指向credentials
         // export AWS_CREDENTIAL_PROFILES_FILE=/root/.aws/credentials
         AwsBasicCredentials awsCreds = AwsBasicCredentials.create(
-                "your_access_key_id",
-                "your_secret_access_key");
+                "accessKeyId",
+                "secretAccessKey");
 
         ddb =DynamoDbClient.builder().credentialsProvider(StaticCredentialsProvider.create(awsCreds)).region(Region.US_EAST_1).build();
         initTable(epixFlowReportsTable);
@@ -55,9 +55,9 @@ public class Amazondb {
             // Wait until the Amazon DynamoDB table is created
             WaiterResponse<DescribeTableResponse> waiterResponse =  dbWaiter.waitUntilTableExists(tableRequest);
             waiterResponse.matched().response().ifPresent(System.out::println);
-            System.out.println(resp.tableDescription().tableName());
+            //System.out.println(resp.tableDescription().tableName());
         }else{
-            System.out.println(tablename+" table already exists");
+            //System.out.println(tablename+" table already exists");
         }
     }
     public String find(Map<String, String> mdata){
