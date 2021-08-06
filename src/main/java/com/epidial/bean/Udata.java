@@ -6,6 +6,7 @@ public class Udata {
     private String uuid;//用户id
     private double naturally;
     private double biological;
+    private String accuracy;
     private String barcode;
     private String status;//状态：pending processing finished
     private long createTime;//创建时间
@@ -21,6 +22,7 @@ public class Udata {
         this.uuid = uuid;
         this.naturally=0;
         this.biological=0;
+        this.accuracy="0";
         this.status=status;
         this.createTime=System.currentTimeMillis();
         this.barcode="";
@@ -128,5 +130,13 @@ public class Udata {
 
     public void setCurtime(long curtime) {
         this.curtime = curtime;
+    }
+
+    public String getAccuracy() {
+        return accuracy;
+    }
+
+    public void setAccuracy(String accuracy) {
+        this.accuracy = accuracy;
     }
 }

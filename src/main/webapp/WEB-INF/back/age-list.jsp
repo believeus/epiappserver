@@ -46,6 +46,7 @@
 				<th width="30">chronological age</th>
 				<th width="30">EpiAge</th>
 				<th width="80">barcode</th>
+				<th width="80">accuracy</th>
 				<th width="50">status</th>
 				<th width="80">email</th>
 				<th width="100">createTime</th>
@@ -60,6 +61,7 @@
 					<td><input name="naturally" data-id="${task.id}" value="${task.naturally}" style="border: none" readonly="readonly"></td>
 					<td><input name="biological" data-id="${task.id}" id="${task.id}" value="${task.biological}" style="border: none" readonly="readonly"></td>
 					<td>${task.barcode}</td>
+					<td><input name="accuracy" data-id="${task.id}" value="${task.accuracy}" style="border: none" readonly="readonly"></td>
 					<td>
 						<select  data-id="${task.id}" >
 							<c:choose>
@@ -133,6 +135,7 @@
                             html.push("<td><input name='naturally' data-id='"+udata[i].id+"' style='border: none' value='"+udata[i].naturally+"\' readonly=\"readonly\"> "+"</td>")
 							html.push("<td><input name='biological' data-id='"+udata[i].id+"' style='border: none' value='"+udata[i].biological+"\' readonly=\"readonly\"> "+"</td>")
 							html.push("<td>"+udata[i].barcode+"</td>")
+							html.push("<td>"+udata[i].accuracy+"</td>")
                             html.push("<td>")
                             html.push("<select data-id='"+udata[i].id+"'>")
                             html.push("<option ".concat("data-id=\"").concat(udata[i].id).concat("\"").concat(udata[i].status=="ready"?"selected=selected":"").concat(" >").concat("ready").concat("</option>"))
@@ -158,7 +161,7 @@
 
 		<script>
 			$(function(){
-                $("body").on("keydown dblclick change","input[name=naturally],input[name=biological],select",function(event){
+                $("body").on("keydown dblclick change","input[name=naturally],input[name=biological],input[name=accuracy],select",function(event){
                     var _oThis = $(event.currentTarget);
                     switch (event.type) {
                         case "dblclick":
@@ -170,6 +173,7 @@
                             if(event.which == "13"||event.type=="change") {
                                 var naturally = _oThis.parents("tr").find("[name=naturally]").val();
                                 var biological = _oThis.parents("tr").find("[name=biological]").val();
+								var biological = _oThis.parents("tr").find("[name=biological]").val();
                                 var status = _oThis.parents("tr").find("option:selected").text();
                                 var data = {};
                                 data.id = _oThis.attr("data-id");

@@ -126,6 +126,7 @@ public class ReportController {
             data.setDetectTime(0);
             data.setUploadTime(System.currentTimeMillis());
             data.setNaturally(0);
+            data.setAccuracy(dnakit.getAccuracy());
             data.setBiological(biological);
             data.setAllow((byte)0);
             udataDao.save(data);

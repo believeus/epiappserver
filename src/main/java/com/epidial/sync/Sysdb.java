@@ -108,19 +108,21 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
                                                 JSONArray objects = JSONObject.parseArray(JSONObject.toJSONString(jl));
                                                 for (Iterator<Object> iterator = objects.iterator(); iterator.hasNext(); ) {
                                                     JSONObject jsonObject = (JSONObject) iterator.next();
-                                                    logmap.put("PK", jsondata.getString("PK"));
-                                                    logmap.put("SK", jsonObject.getString("SK"));
-                                                    logmap.put("created",jsondata.getString("created"));
-                                                    logmap.put("type", "event");
                                                     String bc = jsonObject.getString("PK").split("#")[1];
                                                     Dnakit dnakit = dnakitDao.find("barcode", bc);
                                                     Udata udata = udataDao.findBy("barcode", bc);
+                                                    logmap.put("PK", jsondata.getString("PK"));
+                                                    String logsk=jsonObject.getString("SK").replaceAll("(?<=#SEQDATE#[0-9]{0,13}#)BCAPPROVED#[0-9]{0,13}", bc + "#" + System.currentTimeMillis());
+                                                    logmap.put("SK", logsk);
+                                                    logmap.put("created",jsondata.getString("created"));
+                                                    logmap.put("type", "event");
                                                     HashMap<String, String> jm = new HashMap<String, String>();
                                                     if (dnakit != null || udata != null) {
                                                         jm.put("PK", jsonObject.getString("PK"));
                                                         String regex = "(?<=#SEQDATE#[0-9]{0,13}#)BCAPPROVED#[0-9]{0,13}";
                                                         String v = bc + "#" + System.currentTimeMillis();
                                                         String sk = jsonObject.getString("SK").replaceAll(regex, v);
+                                                        System.out.println("SK:"+sk);
                                                         jm.put("SK", sk);
                                                         jm.put("source", "app_db_result_approval");
                                                         jm.put("type", "event");
@@ -144,6 +146,13 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
                                                     String biological = jv.getString("epiage");
                                                     String accuracy = jv.getString("accuracy");
                                                     String expage = jv.getString("expage");
+                                                    jm.put("PK", jsonObject.getString("PK"));
+                                                    String v2 = jsonObject.getString("SK").replaceAll("(?<=#SEQDATE#[0-9]{0,13}#)BCAPPROVED#[0-9]{0,13}", bc + "#" + System.currentTimeMillis());
+                                                    jm.put("SK", v2);
+                                                    jm.put("source", "app_db_result_approval");
+                                                    jm.put("type", "event");
+                                                    jm.put("created",jsondata.getString("created"));
+                                                    jm.put("eventtype", "BC-Approved-by-client-send-to-App");
                                                     if (dnakit == null && udata == null) {
                                                         Dnakit dnk = new Dnakit();
                                                         dnk.setName("DNA Methylation Kit");
@@ -153,6 +162,7 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
                                                         dnk.setBiological(biological);
                                                         dnk.setCreatetime(System.currentTimeMillis());
                                                         dnakitDao.save(dnk);
+                                                        amazondb.save(jm);
                                                     } else {
                                                         if (dnakit != null) {
                                                             dnakit.setBiological(biological);
@@ -161,18 +171,12 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
                                                             dnakitDao.update(dnakit);
                                                         } else if (udata != null) {
                                                             udata.setBiological(Double.parseDouble(biological));
+                                                            udata.setAccuracy(accuracy);
                                                             udataDao.update(udata);
                                                         }
-                                                        jm.put("PK", jsonObject.getString("PK"));
-                                                        String v2 = jsonObject.getString("SK").replaceAll("(?<=#SEQDATE#[0-9]{0,13}#)BCAPPROVED#[0-9]{0,13}", bc + "#" + System.currentTimeMillis());
-                                                        jm.put("SK", v2);
-                                                        jm.put("source", "app_db_result_approval");
-                                                        jm.put("type", "event");
-                                                        jm.put("created",jsondata.getString("created"));
-                                                        jm.put("eventtype", "BC-Approved-by-client-send-to-App");
                                                         amazondb.save(jm);
-                                                        jm.clear();
                                                     }
+                                                    jm.clear();
                                                     // {PK: "BC#BATCH", SK: "#BCADDED#1621896770657", source: "app_db_result_approval", type: "event",  eventtype: "Batch-of-BCs-Approved-by-sqsclient-App-sync-results", results: "Failed-Partially",
 //                                            barcodes: [{ "barcode": 5215318261, "sequencing_date": 1617880032 }, { "barcode": 3413530753, "sequencing_date": 1617880032 }] ,created: 1621896770657 }
                                                     System.out.println(msg.body());
