@@ -95,7 +95,7 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
                                                         String barcode = jsonObject.getString("barcode");
                                                         String SEQDATE = jsonObject.getString("sequencing_date");
                                                         System.out.println(barcode + ":" + SEQDATE);
-                                                        jdata.put("PK", "BC#" + barcode);
+                                                        jdata.put("PK", "BC#BATCH#" + barcode);
                                                         jdata.put("SK", "#SEQDATE#" + SEQDATE + "#BCAPPROVED#1622418658001");
                                                         jdata.put("type", "event");
                                                         jdata.put("eventtype","Batch-of-BCs-Approved-by-client");
@@ -111,7 +111,7 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
                                                     String bc = jsonObject.getString("PK").split("#")[1];
                                                     Dnakit dnakit = dnakitDao.find("barcode", bc);
                                                     Udata udata = udataDao.findBy("barcode", bc);
-                                                    logmap.put("PK", jsondata.getString("PK"));
+                                                    logmap.put("PK", jsonObject.getString("PK"));
                                                     String logsk=jsonObject.getString("SK").replaceAll("(?<=#SEQDATE#[0-9]{0,13}#)BCAPPROVED#[0-9]{0,13}", bc + "#" + System.currentTimeMillis());
                                                     logmap.put("SK", logsk);
                                                     logmap.put("created",jsondata.getString("created"));
@@ -132,7 +132,7 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
                                                         // {PK: "BC#TST00000123" , SK: "#SEQDATE#1623067916" ,type: "report" , script: "epiage", result: {"epiage": 43, "accuracy": 98, "expage": 37, "deviation": 1, "quality_level": "green", "new_sample_required": false}}
                                                         jm.clear();
                                                     }
-                                                    jm.put("PK", jsonObject.getString("PK"));
+                                                    jm.put("PK", jsonObject.getString("PK").replace("#BATCH",""));
                                                     String v1 = jsonObject.getString("SK").replaceAll("(?<=#SEQDATE#[0-9]{0,13})#BCAPPROVED#[0-9]{0,13}", "");
                                                     jm.put("SK", v1);
                                                     JSONObject jsondb = JSONObject.parseObject(amazondb.find(jm)); //{}
