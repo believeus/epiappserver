@@ -108,7 +108,8 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
                                                 JSONArray objects = JSONObject.parseArray(JSONObject.toJSONString(jl));
                                                 for (Iterator<Object> iterator = objects.iterator(); iterator.hasNext(); ) {
                                                     JSONObject jsonObject = (JSONObject) iterator.next();
-                                                    String bc = jsonObject.getString("PK").split("#")[1];
+                                                    int index=event.equals("Batch-of-BCs-Approved-by-client")?2:1;
+                                                    String bc = jsonObject.getString("PK").split("#")[index];
                                                     Dnakit dnakit = dnakitDao.find("barcode", bc);
                                                     Udata udata = udataDao.findBy("barcode", bc);
                                                     logmap.put("PK", jsonObject.getString("PK"));
