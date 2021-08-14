@@ -4,7 +4,6 @@ package com.epidial.utils;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Component;
 import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
-import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
 import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
 import software.amazon.awssdk.core.waiters.WaiterResponse;
 import software.amazon.awssdk.regions.Region;
@@ -17,7 +16,7 @@ import java.util.*;
 public class Amazondb {
     public static String epixFlowReportsTable = "EpixFlowReports";
     public static String epixFlowBarcodeStatusTable="EpixFlowBarcodeStatus";
-    private DynamoDbClient ddb;
+    private DynamoDbClient dbClient;
     private String tablename;
 
     private Amazondb(){}
@@ -29,7 +28,7 @@ public class Amazondb {
                 "",
                 "");
 
-        ddb =DynamoDbClient.builder().credentialsProvider(StaticCredentialsProvider.create(awsCreds)).region(Region.US_EAST_1).build();
+        dbClient =DynamoDbClient.builder().credentialsProvider(StaticCredentialsProvider.create(awsCreds)).region(Region.US_EAST_1).build();
         initTable(epixFlowReportsTable);
         initTable(epixFlowBarcodeStatusTable);
     }
@@ -37,20 +36,20 @@ public class Amazondb {
         HashMap<String,AttributeValue> keyToGet = new HashMap<String,AttributeValue>();
         keyToGet.put(key, AttributeValue.builder().s(keyVal).build());
         DeleteItemRequest deleteReq = DeleteItemRequest.builder().tableName(this.tablename).key(keyToGet).build();
-        ddb.deleteItem(deleteReq);
+        dbClient.deleteItem(deleteReq);
     }
     public  void initTable(String tablename) {
         ListTablesRequest request = ListTablesRequest.builder().build();
-        ListTablesResponse response = ddb.listTables(request);
+        ListTablesResponse response = dbClient.listTables(request);
         List<String> tableNames = response.tableNames();
         if(!tableNames.contains(tablename)){
-            DynamoDbWaiter dbWaiter = ddb.waiter();
+            DynamoDbWaiter dbWaiter = dbClient.waiter();
             CreateTableRequest req = CreateTableRequest.builder().attributeDefinitions(AttributeDefinition.builder().attributeName("id").attributeType(ScalarAttributeType.S).build())
                     .keySchema(KeySchemaElement.builder().attributeName("id").keyType(KeyType.HASH).build())
                     .provisionedThroughput(ProvisionedThroughput.builder().readCapacityUnits(new Long(10)).writeCapacityUnits(new Long(10)).build())
                     .tableName(tablename)
                     .build();
-            CreateTableResponse resp = ddb.createTable(req);
+            CreateTableResponse resp = dbClient.createTable(req);
             DescribeTableRequest tableRequest = DescribeTableRequest.builder().tableName(tablename).build();
             // Wait until the Amazon DynamoDB table is created
             WaiterResponse<DescribeTableResponse> waiterResponse =  dbWaiter.waitUntilTableExists(tableRequest);
@@ -70,7 +69,7 @@ public class Amazondb {
             keyToGet.put(key, AttributeValue.builder().s(value).build());
         }
         GetItemRequest request = GetItemRequest.builder().key(keyToGet).tableName(this.tablename).build();
-        Map<String, AttributeValue> item = ddb.getItem(request).item();
+        Map<String, AttributeValue> item = dbClient.getItem(request).item();
         if (item!=null){
             Map<String,String> jm=new HashMap<String,String>();
             Iterator<String> iterator = item.keySet().iterator();
@@ -95,13 +94,31 @@ public class Amazondb {
         // Add all content to the table
         PutItemRequest request = PutItemRequest.builder().tableName(tablename).item(itemValues).build();
 
-            ddb.putItem(request);
+            dbClient.putItem(request);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+    public  void  updata(Map<String,String> PKMap,Map<String, String> updatekeyvalue){
+        HashMap<String,AttributeValue> itemKey = new HashMap<String,AttributeValue>();
+        for ( Iterator<String> it = PKMap.keySet().iterator();it.hasNext();) {
+            String key = it.next();
+            String value = PKMap.get(key);
+            itemKey.put(key, AttributeValue.builder().s(value).build());
+        }
+        HashMap<String,AttributeValueUpdate> updatedValues = new HashMap<String,AttributeValueUpdate>();
+        for(Iterator<String> it = updatekeyvalue.keySet().iterator();it.hasNext();){
+            // Update the column specified by name with updatedVal
+            String updatakey = it.next();
+            String updateVal = updatekeyvalue.get(updatakey);
+            updatedValues.put(updatakey, AttributeValueUpdate.builder().value(AttributeValue.builder().s(updateVal).build()).action(AttributeAction.PUT).build());
+        }
+        UpdateItemRequest request = UpdateItemRequest.builder().tableName(tablename).key(itemKey).attributeUpdates(updatedValues).build();
+        dbClient.updateItem(request);
+
+    }
     public void close(){
-        ddb.close();
+        dbClient.close();
     }
 
 
