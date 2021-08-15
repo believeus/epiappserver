@@ -135,7 +135,7 @@
                             html.push("<td><input name='naturally' data-id='"+udata[i].id+"' style='border: none' value='"+udata[i].naturally+"\' readonly=\"readonly\"> "+"</td>")
 							html.push("<td><input name='biological' data-id='"+udata[i].id+"' style='border: none' value='"+udata[i].biological+"\' readonly=\"readonly\"> "+"</td>")
 							html.push("<td>"+udata[i].barcode+"</td>")
-							html.push("<td>"+udata[i].accuracy+"</td>")
+                            html.push("<td><input name='accuracy' data-id='"+udata[i].id+"' style='border: none' value='"+udata[i].accuracy+"\' readonly=\"readonly\"> "+"</td>")
                             html.push("<td>")
                             html.push("<select data-id='"+udata[i].id+"'>")
                             html.push("<option ".concat("data-id=\"").concat(udata[i].id).concat("\"").concat(udata[i].status=="ready"?"selected=selected":"").concat(" >").concat("ready").concat("</option>"))
@@ -173,11 +173,11 @@
                             if(event.which == "13"||event.type=="change") {
                                 var naturally = _oThis.parents("tr").find("[name=naturally]").val();
                                 var biological = _oThis.parents("tr").find("[name=biological]").val();
-								var biological = _oThis.parents("tr").find("[name=biological]").val();
+								var accuracy = _oThis.parents("tr").find("[name=accuracy]").val();
                                 var status = _oThis.parents("tr").find("option:selected").text();
                                 var data = {};
                                 data.id = _oThis.attr("data-id");
-                                data.v = naturally + "@" + biological+"@"+status;
+                                data.v = naturally + "@" + biological+"@"+status+"@"+accuracy;
                                 console.log("naturally"+naturally+"...bio:"+biological);
                                 if(biological=='0.0'&status =='ready'){
                                     alert('When epiage is empty, the status cannot be changed to ready！');

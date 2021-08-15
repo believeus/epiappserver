@@ -38,6 +38,7 @@ public class AgeController {
         udata.setNaturally(Float.parseFloat(v.split("@")[0]));
         udata.setBiological(Float.parseFloat(v.split("@")[1]));
         String status = v.split("@")[2];
+        udata.setAccuracy(v.split("@")[3]);
         if (!status.equals("in-transit") && udata.getDetectTime() == 0) {
             udata.setDetectTime(System.currentTimeMillis());
         }else if(status.equals("pending")){
