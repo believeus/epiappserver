@@ -2,6 +2,7 @@ package com.epidial.sync;
 
 import javax.annotation.Resource;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.aliyuncs.utils.StringUtils;
@@ -45,7 +46,7 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
             if (!isrun) {
                 isrun = true;
                 new Thread(new Runnable() {
-                    private String qurl = "https://sqs.us-east-1.amazonaws.com/381270507532/epi-sync-data";
+                    private String qurl = "https://sqs.us-east-1.amazonaws.com/381270507532/dev-sync-epi";
                     private int maxNumberOfMessages = 10;
                     //SqsClient sqsclient = SqsClient.builder().region(Region.US_EAST_1).build();
                     AwsBasicCredentials awsCreds = AwsBasicCredentials.create("", "");
@@ -200,15 +201,23 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
                                     System.out.println(JSONObject.toJSONString(logmap));
                                     if (JSONObject.parseObject(msg.body()).getString("type").equals("Batch-of-BCs-Approved-by-client")) {
                                         int len = JSONArray.parseArray(JSONObject.parseObject(msg.body()).getString("barcodes")).size();
-                                        Map<String, String> batchlog = new HashMap<String, String>();
-                                        Map<String, String> keymap = new HashMap<String, String>();
-                                        keymap.put("PK", JSONObject.parseObject(msg.body()).getString("PK"));
-                                        keymap.put("SK", JSONObject.parseObject(msg.body()).getString("SK"));
-                                        String status=errortimes == 0?"success":errortimes == len?"failed":"partial-success";
-                                        batchlog.put("result",status);
-                                        System.out.println(JSONObject.toJSONString(keymap));
-                                        System.out.println(JSONObject.toJSONString(batchlog));
-                                        amazondb.updata(keymap, batchlog);
+                                        Map<String, String> bresult = new HashMap<String, String>();
+                                        bresult.put("PK",JSONObject.parseObject(msg.body()).getString("PK"));
+                                        bresult.put("SK","#BCADDED#"+System.currentTimeMillis());
+                                        bresult.put("type","event");
+                                        bresult.put("eventtype","Batch-of-BCs-Approved-by-client-App-sync-results");
+                                        bresult.put("result",errortimes == 0?"success":errortimes == len?"failed":"partial-success");
+                                        bresult.put("barcodes",JSONObject.parseObject(msg.body()).getString("barcodes"));
+                                        amazondb.save(bresult);
+                                        // Map<String, String> keymap = new HashMap<String, String>();
+//                                        keymap.put("PK", JSONObject.parseObject(msg.body()).getString("PK"));
+//                                        keymap.put("SK", JSONObject.parseObject(msg.body()).getString("SK"));
+//
+//                                        String status=errortimes == 0?"success":errortimes == len?"failed":"partial-success";
+//                                        batchlog.put("result",status);
+//                                        System.out.println(JSONObject.toJSONString(keymap));
+//                                        System.out.println(JSONObject.toJSONString(batchlog));
+                                        //amazondb.updata(keymap, batchlog);
                                     }
                                     //删除消息
                                     DeleteMessageRequest deleteMessageRequest = DeleteMessageRequest.builder().queueUrl(qurl).receiptHandle(msg.receiptHandle()).build();
