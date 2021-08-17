@@ -79,18 +79,18 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
                                             if (!StringUtils.isEmpty(msg.body())) {
                                                 System.out.println(msg.body());
                                                 JSONObject jsondata = JSONObject.parseObject(msg.body());
-                                                String event = jsondata.getString("type");
-                                                System.out.println(event);
+                                                String eventtype = jsondata.getString("eventtype");
+                                                System.out.println(eventtype);
                                                 List<Map<String, String>> jl = new ArrayList<Map<String, String>>();
                                                 //装填数据
-                                                if (event.equals("BC-Approved-by-client")) {
+                                                if (eventtype.equals("BC-Approved-by-client")) {
                                                     Map<String, String> jdata = new HashMap<String, String>();
                                                     jdata.put("PK", jsondata.getString("PK"));
                                                     jdata.put("SK", jsondata.getString("SK"));
                                                     jdata.put("type", "event");
                                                     jdata.put("eventtype", "BC-Approved-by-client");
                                                     jl.add(jdata);
-                                                } else if (event.equals("Batch-of-BCs-Approved-by-client")) {
+                                                } else if (eventtype.equals("Batch-of-BCs-Approved-by-client")) {
                                                     JSONArray barcodes = JSONObject.parseArray(jsondata.getString("barcodes"));
                                                     for (Iterator<Object> iterator = barcodes.iterator(); iterator.hasNext(); ) {
                                                         JSONObject jsonObject = (JSONObject) iterator.next();
@@ -113,7 +113,7 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
                                                 for (Iterator<Object> iterator = objects.iterator(); iterator.hasNext(); ) {
                                                     try {
                                                         JSONObject jsonObject = (JSONObject) iterator.next();
-                                                        int index = event.equals("Batch-of-BCs-Approved-by-client") ? 2 : 1;
+                                                        int index = eventtype.equals("Batch-of-BCs-Approved-by-client") ? 2 : 1;
                                                         String bc = jsonObject.getString("PK").split("#")[index];
                                                         Dnakit dnakit = dnakitDao.find("barcode", bc);
                                                         Udata udata = udataDao.findBy("barcode", bc);
@@ -199,7 +199,7 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
                                         e.printStackTrace();
                                     }
                                     System.out.println(JSONObject.toJSONString(logmap));
-                                    if (JSONObject.parseObject(msg.body()).getString("type").equals("Batch-of-BCs-Approved-by-client")) {
+                                    if (JSONObject.parseObject(msg.body()).getString("eventtype").equals("Batch-of-BCs-Approved-by-client")) {
                                         int len = JSONArray.parseArray(JSONObject.parseObject(msg.body()).getString("barcodes")).size();
                                         Map<String, String> bresult = new HashMap<String, String>();
                                         bresult.put("PK",JSONObject.parseObject(msg.body()).getString("PK"));
