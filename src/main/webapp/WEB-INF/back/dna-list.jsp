@@ -39,12 +39,13 @@
 	</div>
 	<div class="cl pd-5 bg-1 bk-gray mt-20">
 		<span class="l"><a href="javascript:;" onclick="member_add('add dna kit','/admin/dnakit/addview.jhtml','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i>Add a new barcode to inventory</a></span>
-		<div style="margin: 0px auto;">
+		<div >
 			<form name="imgform" method="post" action="admin/dnakit/uploadcvs.jhtml" enctype="multipart/form-data">
-				　<input type="file" name="file"  name="picpath" id="picpath" style="display:none;" onChange="document.imgform.path.value=this.value">
-				　<input name="path"  style="width: 250px;height: 25px;" readonly>
-				　<input type="button"  class="btn btn-primary radius" value="select .cvs file" onclick="document.imgform.picpath.click()">
-				<input type="submit"  class="btn btn-primary radius" value="upload">
+				&nbsp;&nbsp;<input type="file" name="file"  name="picpath" id="picpath" style="display:none;" onChange="document.imgform.path.value=this.value">
+				<input name="path"  style="width: 250px;height: 25px;" readonly/>
+				<input type="button"  class="btn btn-primary radius" value="select .cvs file" onclick="document.imgform.picpath.click()">
+				<input type="submit"  class="btn btn-primary radius" value="upload"/>
+				<a href="javascript:void(0)" onclick="member_add('upload cvs file sample','admin/dnakit/cvsbarcode.jhtml','900','700')" >[upload cvs sample]</a>
 			</form>
 		</div>
 	</div>
