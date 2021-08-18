@@ -46,7 +46,7 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
             if (!isrun) {
                 isrun = true;
                 new Thread(new Runnable() {
-                    private String qurl = "https://sqs.us-east-1.amazonaws.com/381270507532/dev-sync-epi";
+                    private String qurl = "https://sqs.us-east-1.amazonaws.com/381270507532/lucksqs";
                     private int maxNumberOfMessages = 10;
                     //SqsClient sqsclient = SqsClient.builder().region(Region.US_EAST_1).build();
                     AwsBasicCredentials awsCreds = AwsBasicCredentials.create("", "");
@@ -128,7 +128,7 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
                                                             String regex = "(?<=#SEQDATE#[0-9]{0,13}#)BCAPPROVED#[0-9]{0,13}";
                                                             String v = bc + "#" + System.currentTimeMillis();
                                                             String sk = jsonObject.getString("SK").replaceAll(regex, v);
-                                                            System.out.println("SK:" + sk);
+                                                            System.out.println("[dnakit != null|| udata != null]--->SK:" + sk);
                                                             jm.put("SK", sk);
                                                             jm.put("source", "app_db_result_approval");
                                                             jm.put("type", "event");
@@ -206,6 +206,7 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
                                         bresult.put("SK","#BCADDED#"+System.currentTimeMillis());
                                         bresult.put("type","event");
                                         bresult.put("eventtype","Batch-of-BCs-Approved-by-client-App-sync-results");
+                                        bresult.put("created",String.valueOf(System.currentTimeMillis()));
                                         bresult.put("result",errortimes == 0?"success":errortimes == len?"failed":"partial-success");
                                         bresult.put("barcodes",JSONObject.parseObject(msg.body()).getString("barcodes"));
                                         amazondb.save(bresult);
