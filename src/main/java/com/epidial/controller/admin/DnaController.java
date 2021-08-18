@@ -1,6 +1,7 @@
 package com.epidial.controller.admin;
 
 import com.alibaba.fastjson.JSONObject;
+import com.aliyuncs.utils.StringUtils;
 import com.epidial.bean.Dnakit;
 import com.epidial.bean.Udata;
 import com.epidial.common.Page;
@@ -96,13 +97,17 @@ public class DnaController {
         return JSONObject.toJSONString(dnakitList);
     }
 
+    @RequestMapping(value = "/admin/dnakit/cvsbarcode")
+    public String cvsbarcode(){
+        return "/WEB-INF/back/cvsbarcode.jsp";
+    }
     @RequestMapping(value = "/admin/dnakit/uploadcvs", method = RequestMethod.POST)
     public String upload(@RequestParam("file") MultipartFile file) {
         try {
             List<String> barcodes = new ArrayList<String>();
             List<Dnakit> dnakits = new ArrayList<Dnakit>();
             BufferedReader br = new BufferedReader(new InputStreamReader(file.getInputStream()));
-            for (String barcode; (barcode = br.readLine()) != null; barcodes.add(barcode)) ;
+            for (String barcode; (((barcode = br.readLine()) != null)&& (!StringUtils.isEmpty(barcode))); barcodes.add(barcode.trim())) ;
             br.close();
             List<String> dnakitbarcodes = (!barcodes.isEmpty()) ? dnakitDao.findDnakits(barcodes) : new ArrayList<String>();
             if (!dnakitbarcodes.isEmpty()) barcodes.removeAll(dnakitbarcodes);//去除在dnakit已存在的barcode
