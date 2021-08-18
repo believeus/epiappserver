@@ -22,6 +22,27 @@ public interface DnakitDao {
             "values" +
                 "(#{name},#{barcode},#{createtime},#{biological},#{expage},#{accuracy})")
     public void save(Dnakit dnakit);
+    @Insert({
+            "<script>",
+            "insert into dnakit" ,
+            "(name,barcode,createtime,biological,expage,accuracy) " ,
+            "values" ,
+            "<foreach collection='dnakits' item='item' index='index' separator=','>",
+                "(#{item.name},#{item.barcode},#{item.createtime},#{item.biological},#{item.expage},#{item.accuracy})",
+            "</foreach>",
+            "</script>"
+    })
+    public void saveDnakits(@Param(value="dnakits")  List<Dnakit> dnakits);
+
+    @Select({
+            "<script>",
+                "select barcode from dnakit where barcode in " ,
+                "<foreach item = 'item' index = 'index' collection = 'barcodes' open='(' separator=',' close=')'>" ,
+                    "#{item}" ,
+                "</foreach>",
+            "</script>"
+    })
+    public  List<String> findDnakits(@Param(value="barcodes")  List<String> barcodes);
 
     @Update("update dnakit set " +
                     "name=#{name}," +

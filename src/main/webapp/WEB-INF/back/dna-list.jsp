@@ -37,7 +37,18 @@
 		<input type="text" id="txtbarcode" style="width: 300px;height: 36px"/>
 	    <input type="button" value="search" id="btnSearch" onclick="seardnakit()" style="border-radius: 10%;background: #00a0e9;height:40px;width: 100px;color: white;font-size: 24px" />
 	</div>
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="member_add('add dna kit','/admin/dnakit/addview.jhtml','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i>Add new barcode to inventory</a></span> </div>
+	<div class="cl pd-5 bg-1 bk-gray mt-20">
+		<span class="l"><a href="javascript:;" onclick="member_add('add dna kit','/admin/dnakit/addview.jhtml','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i>Add a new barcode to inventory</a></span>
+		<div style="margin: 0px auto;">
+			<form name="imgform" method="post" action="admin/dnakit/uploadcvs.jhtml" enctype="multipart/form-data">
+				　<input type="file" name="file"  name="picpath" id="picpath" style="display:none;" onChange="document.imgform.path.value=this.value">
+				　<input name="path"  style="width: 250px;height: 25px;" readonly>
+				　<input type="button"  class="btn btn-primary radius" value="select .cvs file" onclick="document.imgform.picpath.click()">
+				<input type="submit"  class="btn btn-primary radius" value="upload">
+			</form>
+		</div>
+	</div>
+
 	<div class="mt-20">
 		<table class="table table-border table-bordered table-hover table-bg table-sort">
 			<thead>

@@ -17,6 +17,15 @@ public interface UdataDao {
     //pending processing finished
     @Select("select * from udata where ${c1}=#{v1} and ${c2}=#{v2}")
     public Udata find(@Param("c1") String c1, @Param("v1") Object v1, @Param("c2") String c2, @Param("v2") Object v2);
+    @Select({
+            "<script>",
+            "select barcode from udata where barcode in " ,
+            "<foreach item = 'item' index = 'index' collection = 'barcodes' open='(' separator=',' close=')'>" ,
+            "#{item}" ,
+            "</foreach>",
+            "</script>"
+    })
+    public  List<String> findUdatas(@Param(value="barcodes")  List<String> barcodes);
 
     @Select("select * from udata where ${c}=#{v}")
     public Udata findBy(@Param("c") String c, @Param("v") Object v);

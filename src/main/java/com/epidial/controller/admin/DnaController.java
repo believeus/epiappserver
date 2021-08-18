@@ -6,14 +6,23 @@ import com.epidial.bean.Udata;
 import com.epidial.common.Page;
 import com.epidial.dao.epi.DnakitDao;
 import com.epidial.dao.epi.UdataDao;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import java.io.*;
+import java.util.*;
 
 @Controller
 public class DnaController {
@@ -21,20 +30,21 @@ public class DnaController {
     private DnakitDao dnakitDao;
     @Resource
     private UdataDao udataDao;
+
     @RequestMapping("/admin/dnakit/view")
-    public ModelAndView view(@RequestParam(defaultValue = "1",value = "idx") int idx,@RequestParam(defaultValue = "200",value = "size") int size){
-        ModelAndView modelView=new ModelAndView();
-        int idx2=(idx-1)*200;
+    public ModelAndView view(@RequestParam(defaultValue = "1", value = "idx") int idx, @RequestParam(defaultValue = "200", value = "size") int size) {
+        ModelAndView modelView = new ModelAndView();
+        int idx2 = (idx - 1) * 200;
         List<Dnakit> databox = dnakitDao.paging(idx2, size);
-        int c=dnakitDao.count();
-        Page page=new Page();
+        int c = dnakitDao.count();
+        Page page = new Page();
         page.setTotalCount(c);
         page.setCurrPageNo(idx);
         page.setPageSize(size);
-        modelView.addObject("page",page);
+        modelView.addObject("page", page);
         modelView.setViewName("/WEB-INF/back/dna-list.jsp");
-        modelView.addObject("databox",databox);
-        return  modelView;
+        modelView.addObject("databox", databox);
+        return modelView;
     }
 
     @RequestMapping("/admin/dnakit/addview")
@@ -45,95 +55,78 @@ public class DnaController {
 
     @ResponseBody
     @RequestMapping("/admin/dnakit/save")
-    public String save(Dnakit dnakit){
+    public String save(Dnakit dnakit) {
         /**Begin: wuqiwei:2021/7/2 去库存表里查**/
-        Dnakit val=dnakitDao.find("barcode",dnakit.getBarcode());
+        Dnakit val = dnakitDao.find("barcode", dnakit.getBarcode());
         /**End: wuqiwei:2021/7/2 去库存表里查**/
         /**Begin: wuqiwei:2021/7/2 去报告表里查**/
         Udata udata = udataDao.findBy("barcode", dnakit.getBarcode());
         /**End: wuqiwei:2021/7/2 去报告表里查**/
-        if (val==null&&udata==null) {
+        if (val == null && udata == null) {
             dnakit.setBiological("0");
             dnakit.setAccuracy("0");
             dnakit.setExpage("0");
             dnakit.setCreatetime(System.currentTimeMillis());
             dnakitDao.save(dnakit);
-       }
+        }
         return "success";
     }
 
     @ResponseBody
     @RequestMapping("/admin/dnakit/update")
-    public String update(Dnakit dnakit){
+    public String update(Dnakit dnakit) {
         dnakitDao.update(dnakit);
         return "success";
     }
 
     @ResponseBody
     @RequestMapping("/admin/dnakit/del")
-    public String  del(int id){
+    public String del(int id) {
         dnakitDao.delete(id);//删除用户
         return "success";
     }
 
     /*
-    * 根据barcode 查看
-    * */
+     * 根据barcode 查看
+     * */
     @RequestMapping("/admin/dnakit/getbybarcode")
     @ResponseBody
-    public String getBybarcode(String barcode){
+    public String getBybarcode(String barcode) {
         List<Dnakit> dnakitList = dnakitDao.getBybarcode(barcode);
         return JSONObject.toJSONString(dnakitList);
     }
-    /*
-    * 创建索引库
-    * */
-//    @RequestMapping("/create")
-//    public void create(String barcode){
-//        //1收集数据
-//        List<Dnakit> dnakitList=dnakitDao.getBybarcode(barcode);
-//        List<Document> documents = new ArrayList<>();
-//        Document document;
-//        if(dnakitList!=null&&dnakitList.size()>0){
-//            for (Dnakit dnakit:dnakitList) {
-//                //2创建文本对象
-//                 document =new Document();
-//                //3根据不同字段的需求创建file对象
-//                // 分词 索引 存储
-////              id  不分词，存储
-//                document.add(new StoredField("id",String.valueOf(dnakit.getId())));
-//                // 分词 索引 存储
-//                document.add(new TextField("name",dnakit.getName(), Field.Store.YES));
-//                // 分词 索引 存储
-//                document.add(new TextField("barcode",dnakit.getBarcode(), Field.Store.YES));
-//                // 分词 索引 不存储
-//                document.add(new TextField("createtime",String.valueOf(dnakit.getCreatetime()), Field.Store.NO));
-//                //将文档对象放入到文档集合
-//                documents.add(document);
-//            }
-//        }
-//        //将document对象用分词器进行分词
-//        Analyzer analyzer= new StandardAnalyzer();//中午分词器
-//        //创建索引目录
-//        try {
-//            Directory directory = FSDirectory.open(FileSystems.getDefault().getPath("D:\\user\\local\\workspace\\luceneindex"));
-//            //创建索引的配置对象
-//            IndexWriterConfig config = new IndexWriterConfig(analyzer);
-//            //开始构造索引 写入到指定目录
-//            IndexWriter indexWriter = new IndexWriter(directory,config);
-//            if(documents!=null&&documents.size()>0){
-//                for (Document document1:documents) {
-//                     indexWriter.addDocument(document1);
-//                }
-//            }
-//            indexWriter.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
 
-
+    @RequestMapping(value = "/admin/dnakit/uploadcvs", method = RequestMethod.POST)
+    public String upload(@RequestParam("file") MultipartFile file) {
+        try {
+            List<String> barcodes = new ArrayList<String>();
+            List<Dnakit> dnakits = new ArrayList<Dnakit>();
+            BufferedReader br = new BufferedReader(new InputStreamReader(file.getInputStream()));
+            for (String barcode; (barcode = br.readLine()) != null; barcodes.add(barcode)) ;
+            br.close();
+            List<String> dnakitbarcodes = (!barcodes.isEmpty()) ? dnakitDao.findDnakits(barcodes) : new ArrayList<String>();
+            if (!dnakitbarcodes.isEmpty()) barcodes.removeAll(dnakitbarcodes);//去除在dnakit已存在的barcode
+            List<String> udatabarcodes = (!barcodes.isEmpty()) ? udataDao.findUdatas(barcodes) : new ArrayList<String>();
+            if (!udatabarcodes.isEmpty()) barcodes.removeAll(udatabarcodes);//去除在udata已存在的barcode
+            for (Iterator<String> it = barcodes.iterator(); it.hasNext(); ) {
+                Dnakit dnakit = new Dnakit();
+                dnakit.setName("DNA Methylation Kit");
+                dnakit.setBarcode(it.next());
+                dnakit.setCreatetime(System.currentTimeMillis());
+                dnakit.setBiological("0");
+                dnakit.setExpage("0");
+                dnakit.setAccuracy("98");
+                dnakits.add(dnakit);
+                System.out.println("insert barcode:" + dnakit.getBarcode());
+            }
+            if (!dnakits.isEmpty()) {
+                dnakitDao.saveDnakits(dnakits);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "redirect:/admin/dnakit/view.jhtml";
+    }
 
 
 }
