@@ -63,6 +63,7 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
                                 FileInputStream in = new FileInputStream(classLoader.getResource("application.properties").getPath());
                                 properties.load(in);
                                 Boolean synchronize = Boolean.parseBoolean(properties.getProperty("synchronize", "false"));
+                                in.close();
                                 if (synchronize) {
                                     List<Message> messages = sqsclient.receiveMessage(receiveRequest).messages();
                                     Amazondb amazondb = new Amazondb("DataEventJournal");
@@ -225,8 +226,7 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
                                     sqsclient.deleteMessage(deleteMessageRequest);
                                 }
                                     amazondb.close();
-                                    in.close();
-                            }
+                                }
                         } catch(Exception e){
                             e.printStackTrace();
                         }
