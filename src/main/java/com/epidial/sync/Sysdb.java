@@ -223,9 +223,9 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
                                     //删除消息
                                     DeleteMessageRequest deleteMessageRequest = DeleteMessageRequest.builder().queueUrl(qurl).receiptHandle(msg.receiptHandle()).build();
                                     sqsclient.deleteMessage(deleteMessageRequest);
-                                    amazondb.close();
                                 }
-                                in.close();
+                                    amazondb.close();
+                                    in.close();
                             }
                         } catch(Exception e){
                             e.printStackTrace();
