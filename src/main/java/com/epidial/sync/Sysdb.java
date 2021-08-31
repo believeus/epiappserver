@@ -41,7 +41,7 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
 
     // tomcat第一次启动会调用这个方法
     @Override
-    @Transactional(rollbackFor={Exception.class})
+    @Transactional(rollbackFor = {Exception.class})
     public void onApplicationEvent(ApplicationEvent event) {
         // tomcat启动完毕调用该方法
         if (event instanceof ContextRefreshedEvent) {
@@ -70,12 +70,12 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
                                 if (synchronize) {
                                     Amazondb amazondb = new Amazondb("DataEventJournal");
                                     List<Message> messages = sqsclient.receiveMessage(receiveRequest).messages();
-                                    if(messages.size()==0){
-                                        properties.setProperty("synchronize","false");
+                                    if (messages.size() == 0) {
+                                        properties.setProperty("synchronize", "false");
                                         FileOutputStream fileout = new FileOutputStream(path);
-                                        properties.store(fileout,"");
+                                        properties.store(fileout, "");
                                         fileout.close();
-                                    }else {
+                                    } else {
                                         for (Message msg : messages) {
                                             HashMap<String, String> logmap = new HashMap<String, String>();
                                             try {
@@ -197,39 +197,27 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
 //                                            barcodes: [{ "barcode": 5215318261, "sequencing_date": 1617880032 }, { "barcode": 3413530753, "sequencing_date": 1617880032 }] ,created: 1621896770657 }
                                                             System.out.println(msg.body());
                                                             logmap.put("eventtype", "BC-Approved-by-client-update-success");
+                                                            amazondb.save(logmap);
                                                         } catch (Exception e) {
-                                                            logmap.put("eventtype", "BC-Approved-by-client-update-failed");
                                                             errortimes++;
+                                                            logmap.put("eventtype", "BC-Approved-by-client-update-failed");
+                                                            amazondb.save(logmap);
                                                             e.printStackTrace();
+                                                            throw new Exception(e.getMessage());
                                                         }
-                                                        amazondb.save(logmap);
                                                     }
                                                 }
                                             } catch (Exception e) {
+                                                batchmsg(errortimes, amazondb, msg);
+                                                amazondb.close();
+                                                in.close();
+                                                DeleteMessageRequest deleteMessageRequest = DeleteMessageRequest.builder().queueUrl(qurl).receiptHandle(msg.receiptHandle()).build();
+                                                sqsclient.deleteMessage(deleteMessageRequest);
                                                 e.printStackTrace();
+                                                throw new Exception(e.getMessage());
                                             }
                                             System.out.println(JSONObject.toJSONString(logmap));
-                                            if (JSONObject.parseObject(msg.body()).getString("eventtype").equals("Batch-of-BCs-Approved-by-client")) {
-                                                int len = JSONArray.parseArray(JSONObject.parseObject(msg.body()).getString("barcodes")).size();
-                                                Map<String, String> bresult = new HashMap<String, String>();
-                                                bresult.put("PK", JSONObject.parseObject(msg.body()).getString("PK"));
-                                                bresult.put("SK", "#BCADDED#" + System.currentTimeMillis());
-                                                bresult.put("type", "event");
-                                                bresult.put("eventtype", "Batch-of-BCs-Approved-by-client-App-sync-results");
-                                                bresult.put("created", String.valueOf(System.currentTimeMillis()));
-                                                bresult.put("result", errortimes == 0 ? "success" : errortimes == len ? "failed" : "partial-success");
-                                                bresult.put("barcodes", JSONObject.parseObject(msg.body()).getString("barcodes"));
-                                                amazondb.save(bresult);
-                                                // Map<String, String> keymap = new HashMap<String, String>();
-//                                        keymap.put("PK", JSONObject.parseObject(msg.body()).getString("PK"));
-//                                        keymap.put("SK", JSONObject.parseObject(msg.body()).getString("SK"));
-//
-//                                        String status=errortimes == 0?"success":errortimes == len?"failed":"partial-success";
-//                                        batchlog.put("result",status);
-//                                        System.out.println(JSONObject.toJSONString(keymap));
-//                                        System.out.println(JSONObject.toJSONString(batchlog));
-                                                //amazondb.updata(keymap, batchlog);
-                                            }
+                                            batchmsg(errortimes, amazondb, msg);
                                             //删除消息
                                             DeleteMessageRequest deleteMessageRequest = DeleteMessageRequest.builder().queueUrl(qurl).receiptHandle(msg.receiptHandle()).build();
                                             sqsclient.deleteMessage(deleteMessageRequest);
@@ -238,16 +226,32 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
                                     amazondb.close();
                                 }
                                 in.close();
-                        } catch(Exception e){
-                            e.printStackTrace();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                                throw new RuntimeException(e.getMessage());
+                            }
                         }
                     }
-                }
-            }).start();
-        }
 
+                    private void batchmsg(int errortimes, Amazondb amazondb, Message msg) {
+                        if (JSONObject.parseObject(msg.body()).getString("eventtype").equals("Batch-of-BCs-Approved-by-client")) {
+                            int len = JSONArray.parseArray(JSONObject.parseObject(msg.body()).getString("barcodes")).size();
+                            Map<String, String> bresult = new HashMap<String, String>();
+                            bresult.put("PK", JSONObject.parseObject(msg.body()).getString("PK"));
+                            bresult.put("SK", "#BCADDED#" + System.currentTimeMillis());
+                            bresult.put("type", "event");
+                            bresult.put("eventtype", "Batch-of-BCs-Approved-by-client-App-sync-results");
+                            bresult.put("created", String.valueOf(System.currentTimeMillis()));
+                            bresult.put("result", errortimes == 0 ? "success" : errortimes == len ? "failed" : "partial-success");
+                            bresult.put("barcodes", JSONObject.parseObject(msg.body()).getString("barcodes"));
+                            amazondb.save(bresult);
+                        }
+                    }
+                }).start();
+            }
+
+        }
     }
-}
 }
 
 
