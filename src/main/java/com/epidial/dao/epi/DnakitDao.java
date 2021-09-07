@@ -18,17 +18,17 @@ public interface DnakitDao {
 
     /**功能描述: 用户注册*/
     @Insert("insert into dnakit" +
-                "(name,barcode,createtime,biological,expage,accuracy) " +
+                "(name,barcode,createtime,biological,expage,accuracy,eventtype,detection) " +
             "values" +
-                "(#{name},#{barcode},#{createtime},#{biological},#{expage},#{accuracy})")
+                "(#{name},#{barcode},#{createtime},#{biological},#{expage},#{accuracy},#{eventtype},#{detection})")
     public void save(Dnakit dnakit);
     @Insert({
             "<script>",
             "insert into dnakit" ,
-            "(name,barcode,createtime,biological,expage,accuracy) " ,
+            "(name,barcode,createtime,biological,expage,accuracy,eventtype,detection) " ,
             "values" ,
             "<foreach collection='dnakits' item='item' index='index' separator=','>",
-                "(#{item.name},#{item.barcode},#{item.createtime},#{item.biological},#{item.expage},#{item.accuracy})",
+                "(#{item.name},#{item.barcode},#{item.createtime},#{item.biological},#{item.expage},#{item.accuracy},#{item.eventtype},#{item.detection})",
             "</foreach>",
             "</script>"
     })
@@ -50,7 +50,9 @@ public interface DnakitDao {
                     "biological=#{biological},"+
                     "expage=#{expage},"+
                     "accuracy=#{accuracy},"+
-                    "createtime=#{createtime} "+
+                    "createtime=#{createtime}, "+
+                    "detection=#{detection}, "+
+                    "eventtype=#{eventtype} "+
                     "where id=#{id}")
     public boolean  update(Dnakit dnakit);
 

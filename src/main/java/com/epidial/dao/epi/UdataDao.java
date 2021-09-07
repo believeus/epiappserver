@@ -9,9 +9,9 @@ import java.util.List;
 @Mapper
 public interface UdataDao {
     @Insert("insert into udata" +
-                "(uuid,naturally,biological,accuracy,barcode,status,email,allow,createTime,uploadTime,detectTime)" +
+                "(uuid,naturally,biological,accuracy,barcode,status,email,allow,createTime,uploadTime,detectTime,labevent)" +
             "values" +
-                "(#{uuid},#{naturally},#{biological},#{accuracy},#{barcode},#{status},#{email},#{allow},#{createTime},#{uploadTime},#{detectTime})")
+                "(#{uuid},#{naturally},#{biological},#{accuracy},#{barcode},#{status},#{email},#{allow},#{createTime},#{uploadTime},#{detectTime},#{labevent})")
     public void  save(Udata udata);
 
     //pending processing finished
@@ -33,7 +33,7 @@ public interface UdataDao {
     @Select("select * from udata where uuid=#{uuid}")
     public List<Udata> findByUUID(@Param("uuid") String uuid);
 
-    @Update("update udata set uuid=#{uuid},naturally=#{naturally},accuracy=#{accuracy},biological=#{biological},barcode=#{barcode},status=#{status},email=#{email},allow=#{allow},uploadTime=#{uploadTime},detectTime=#{detectTime},pendingTime=#{pendingTime} where id=#{id}")
+    @Update("update udata set uuid=#{uuid},naturally=#{naturally},accuracy=#{accuracy},biological=#{biological},barcode=#{barcode},status=#{status},email=#{email},allow=#{allow},uploadTime=#{uploadTime},detectTime=#{detectTime},pendingTime=#{pendingTime},labevent=#{labevent} where id=#{id}")
     public void update(Udata data);
 
     @Select("select * from udata where naturally > biological and biological > 0  and naturally >0 and status='ready' limit 0,50")

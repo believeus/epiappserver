@@ -1,6 +1,7 @@
 package com.epidial.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.aliyuncs.utils.StringUtils;
 import com.epidial.bean.*;
 import com.epidial.dao.epi.*;
 import com.epidial.serivce.MailService;
@@ -11,15 +12,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 @Controller
 @CrossOrigin
@@ -76,7 +73,15 @@ public class ReportController {
         locales.put("es-hn","es");
         locales.put("es-ni","es");
         locales.put("es-pr","es");
-
+    }
+    private  Map<String,String> maplabevent =new HashMap<String,String>();
+    {
+        maplabevent.put("POST_FROM_LAB","pending");
+        maplabevent.put("PARCEL_RECEIVED","pending");
+        maplabevent.put("REGISTERED_IN_LIMS","processing");
+        maplabevent.put("WAITING_DNA_PREP","processing");
+        maplabevent.put("SEQUENCING","processing");
+        maplabevent.put("Completed","ready");
     }
     @ResponseBody
     @RequestMapping(value = "/user/report/findNtrGtBio")
@@ -116,18 +121,25 @@ public class ReportController {
     @ResponseBody
     @RequestMapping("/user/report/upbarcode")
     public Udata upbarcode(String barcode, String uuid) {
+        System.out.println("upload barcode:"+barcode+" uuid:"+uuid);
         //如果AgeManager中已经存在
         Dnakit dnakit = dnakitDao.find("barcode", barcode);
         //直接输入barcode
         if (dnakit != null) {
-            double biological = Double.parseDouble(dnakit.getBiological());
-            Udata data = new Udata(uuid, biological==0.0?"in-transit":"ready");
+            String eventtype = StringUtils.isEmpty(dnakit.getEventtype())?"POST_FROM_LAB":dnakit.getEventtype();
+            String status = maplabevent.get(eventtype);
+            //RECEIVED_AT_LAB PARCEL_RECEIVED REGISTERED_IN_LIMS WAITING_DNA_PREP SEQUENCING Completed
+            Udata data = new Udata();
+            data.setUuid(uuid);
+            data.setStatus(status);
+            data.setLabevent(eventtype);
             data.setBarcode(barcode);
+            data.setCreateTime(dnakit.getCreatetime());
             data.setDetectTime(0);
             data.setUploadTime(System.currentTimeMillis());
             data.setNaturally(0);
             data.setAccuracy(dnakit.getAccuracy());
-            data.setBiological(biological);
+            data.setBiological(Double.parseDouble(dnakit.getBiological()));
             data.setAllow((byte)0);
             udataDao.save(data);
             dnakitDao.delete(dnakit.getId());
@@ -143,6 +155,7 @@ public class ReportController {
         }
         Udata data = udataDao.find("uuid", uuid, "barcode", barcode);
         if(data==null){
+            System.out.println("invalid barcode:"+barcode+" uuid:"+uuid);
             return new Udata("", "invalid");
         }else {
             data.setAllow((byte) 0);

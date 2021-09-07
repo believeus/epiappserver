@@ -16,6 +16,7 @@ public class Udata {
     private long curtime;//系统当前时间
     private String email;
     private byte allow;
+    private String labevent;
     public Udata(){}
 
     public Udata(String uuid,String status) {
@@ -138,5 +139,13 @@ public class Udata {
 
     public void setAccuracy(String accuracy) {
         this.accuracy = accuracy;
+    }
+
+    public String getLabevent() {
+        return labevent;
+    }
+
+    public void setLabevent(String labevent) {
+        this.labevent = labevent;
     }
 }

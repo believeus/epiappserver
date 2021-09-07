@@ -8,60 +8,86 @@ public class Dnakit {
     private String biological;
     private String accuracy;
     private String expage;
+    private String eventtype;
+    private String detection;
+    public String getEventtype() {
+        return eventtype;
+    }
+
+    public Dnakit setEventtype(String eventtype) {
+        this.eventtype = eventtype;
+        return  this;
+    }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public Dnakit setId(int id) {
         this.id = id;
+        return  this;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public Dnakit setName(String name) {
         this.name = name;
+        return this;
     }
 
     public String getBarcode() {
         return barcode;
     }
 
-    public void setBarcode(String barcode) {
+    public Dnakit setBarcode(String barcode) {
         this.barcode = barcode;
+        return  this;
     }
 
     public long getCreatetime() {
         return createtime;
     }
 
-    public void setCreatetime(long createtime) {
+    public Dnakit setCreatetime(long createtime) {
         this.createtime = createtime;
+        return  this;
     }
 
     public String getBiological() {
         return biological;
     }
 
-    public void setBiological(String biological) {
+    public Dnakit setBiological(String biological) {
         this.biological = biological;
+        return  this;
     }
 
     public String getAccuracy() {
         return accuracy;
     }
 
-    public void setAccuracy(String accuracy) {
+    public Dnakit setAccuracy(String accuracy) {
         this.accuracy = accuracy;
+        return this;
     }
 
     public String getExpage() {
         return expage;
     }
 
-    public void setExpage(String expage) {
+    public Dnakit setExpage(String expage) {
         this.expage = expage;
+        return this;
+    }
+
+    public String getDetection() {
+        return detection;
+    }
+
+    public Dnakit setDetection(String detection) {
+        this.detection = detection;
+        return this;
     }
 }

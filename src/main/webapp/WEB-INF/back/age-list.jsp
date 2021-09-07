@@ -48,6 +48,7 @@
 				<th width="80">barcode</th>
 				<th width="80">accuracy</th>
 				<th width="50">status</th>
+				<th width="50">labevent</th>
 				<th width="80">email</th>
 				<th width="100">createTime</th>
 				<th width="100">uploadTime</th>
@@ -92,6 +93,7 @@
 							</c:choose>
 						</select>
 					</td>
+					<td><input name="labevent" data-id="${task.id}" value="${task.labevent}" style="border: none" readonly="readonly"></td>
 					<td>${task.email}</td>
 					<c:choose>
 						<c:when test="${task.createTime eq 0}"><td></td></c:when>
@@ -144,6 +146,9 @@
 							html.push("<option ".concat("data-id=\"").concat(udata[i].id).concat("\"").concat(udata[i].status=="in-transit"?"selected=selected":"").concat(" >").concat("in-transit").concat("</option>"))
 							html.push("</select>")
                             html.push("</td>")
+
+							html.push("<td><input name='labevent' data-id='"+udata[i].id+"' style='border: none' value='"+udata[i].labevent+"\' readonly=\"readonly\"> "+"</td>")
+
                            if(udata[i].email){html.push("<td>"+udata[i].email+"</td>")}else{ html.push("<td></td>")}
                             html.push("<td><input name='createtime' style='border: none' value='"+new Date(udata[i].createTime).toLocaleString()+"'></td>")
                             html.push("<td><input name='uploadtime' style='border: none' value='"+new Date(udata[i].uploadTime).toLocaleString()+"'></td>")

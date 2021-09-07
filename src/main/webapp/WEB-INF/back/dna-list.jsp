@@ -59,6 +59,7 @@
 				<th width="160">barcode</th>
 				<th width="100">biological</th>
 				<th width="100">accuracy</th>
+				<th width="100">eventtype</th>
 				<th width="100">expage</th>
 				<th width="110">createtime</th>
 				<th width="100">operation</th>
@@ -72,6 +73,7 @@
 					<td><input name="barcode" style="cursor:pointer;border: none;" readonly value="${dnakit.barcode}"></td>
 					<td><input name="epiage" style="cursor:pointer;border: none;" readonly value="${dnakit.biological}"></td>
 					<td><input name="accuracy" style="cursor:pointer;border: none;" readonly value="${dnakit.accuracy}"></td>
+					<td><input name="eventtype" style="cursor:pointer;border: none;" readonly value="${dnakit.eventtype}"></td>
 					<td><input name="expage" style="cursor:pointer;border: none;" readonly value="${dnakit.expage}"></td>
 					<td><input name="createtime" style="cursor:pointer;border: none;" readonly  value="<date:date value="${dnakit.createtime}" pattern="yyyy-MM-dd hh:mm:ss"></date:date>"> </td>
 
@@ -215,6 +217,7 @@
 					html.push("<td><input readonly name='barcode' style='cursor:pointer;width: 160px;border: none' value='"+dnakit[i].barcode+"'>"+"</td>");
 					html.push("<td><input readonly name='biological' style='cursor:pointer;width: 160px;border: none' value='"+dnakit[i].biological+"'> "+"</td>");
 					html.push("<td><input readonly name='accuracy' style='cursor:pointer;width: 160px;border: none' value='"+dnakit[i].accuracy+"'> "+"</td>");
+					html.push("<td><input readonly name='eventtype' style='cursor:pointer;width: 160px;border: none' value='"+dnakit[i].eventtype+"'> "+"</td>");
 					html.push("<td><input readonly name='expage' style='cursor:pointer;width: 160px;border: none' value='"+dnakit[i].expage+"'> "+"</td>");
 					html.push("<td><input readonly name='createtime' style='cursor:pointer;border: none' value='"+new Date(dnakit[i].createtime).toLocaleString()+"' pattern='yyyy-MM-dd hh:mm:ss'> "+"</td>");
 					html.push("<td class='td-manage'><a title='删除' href='javascript:;'onclick=\"+member_del(this,"+dnakit[i].id+")\"+ class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a>"+"</td>");
