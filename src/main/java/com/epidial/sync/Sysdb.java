@@ -52,7 +52,7 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
                     private String qurl = "https://sqs.us-east-1.amazonaws.com/381270507532/lucksqs";
                     private int maxNumberOfMessages = 10;
                     //SqsClient sqsclient = SqsClient.builder().region(Region.US_EAST_1).build();
-                    AwsBasicCredentials awsCreds = AwsBasicCredentials.create("", "");
+                    AwsBasicCredentials awsCreds = AwsBasicCredentials.create("AKIAVRRL6IAGLVNK7FD4", "55E+5Iuh4kGMxa04u5FrdqRNBL+FwGYd9+lWerW5");
                     SqsClient sqsclient = SqsClient.builder().credentialsProvider(StaticCredentialsProvider.create(awsCreds)).region(Region.US_EAST_1).build();
                     ReceiveMessageRequest receiveRequest = ReceiveMessageRequest.builder().queueUrl(qurl).maxNumberOfMessages(maxNumberOfMessages).waitTimeSeconds(5).build();
 
@@ -176,7 +176,7 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
                                                                 dnk.setExpage(expage);
                                                                 dnk.setAccuracy(accuracy);
                                                                 dnk.setBiological(biological);
-                                                                dnk.setCreatetime(System.currentTimeMillis());
+                                                                dnk.setCreatetime(Long.parseLong(jsondata.getString("created")));
                                                                 dnakitDao.save(dnk);
                                                                 amazondb.save(jm);
                                                             } else {
@@ -184,10 +184,12 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
                                                                     dnakit.setBiological(biological);
                                                                     dnakit.setAccuracy(accuracy);
                                                                     dnakit.setExpage(expage);
+                                                                    dnakit.setCreatetime(Long.parseLong(jsondata.getString("created")));
                                                                     dnakitDao.update(dnakit);
                                                                 } else if (udata != null) {
                                                                     udata.setBiological(Double.parseDouble(biological));
                                                                     udata.setAccuracy(accuracy);
+                                                                    udata.setDetectTime(Long.parseLong(jsondata.getString("created")));
                                                                     udataDao.update(udata);
                                                                 }
                                                                 amazondb.save(jm);
