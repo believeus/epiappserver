@@ -64,7 +64,8 @@ public class Synlims implements ApplicationListener<ApplicationEvent> {
                     ReceiveMessageRequest receiveRequest = ReceiveMessageRequest.builder().queueUrl(qurl).maxNumberOfMessages(maxNumberOfMessages).waitTimeSeconds(5).build();
                     @Override
                     public void run() {
-                        while (true) {
+                        boolean syn=false;
+                        while (syn) {
                             List<Message> messages = client.receiveMessage(receiveRequest).messages();
                             Amazondb amazondb = new Amazondb("DataEventJournal");
                             for (Message msg : messages) {
@@ -76,7 +77,7 @@ public class Synlims implements ApplicationListener<ApplicationEvent> {
                                 client.changeMessageVisibility(req);
 //                               { "PK": "BC#HKA00013221", "SK": "#STATUS_CHANGE#TS#1629424242942","detection":"0","type":""event, "eventtype": "POST_FROM_LAB", "creation_time_utc": "1621896770657" ,"status":"RECEIVED_AT_LAB","SAMPLE_NAME": "saliva","Courier":"taobao","STATUS_DATE": "210820 09:50:42","TrackingID":"8765433222455"}
 //                              { "PK": "TN#8765433222455","SK": "#STATUS_CHANGE#TS#1629424111111", "detection":"0","type":"event", "eventtype": "PARCEL_RECEIVED", "creation_time_utc": "1629424111111" , "courier":"SF Express", "trackingID":"8765433222455", "STATUS": "Good_Condition", "STATUS_DATE": "210820 09:50:42"}
-//                              { "PK": "BC#HKA00013221", "SK": "#STATUS_CHANGE#TS#1629424242942", "detection":"0","type":"event", "eventtype": "REGISTERED_IN_LIMS", "creation_time_utc": "1621896770657" , "courier":"SF Express", "trackingID":"8765433222455", "STATUS": "Good_Condition", "STATUS_DATE": "210820 09:50:42" }
+//                             { "PK": "BC#HKA00013221", "SK": "#STATUS_CHANGE#TS#1629424242942", "detection":"0","type":"event", "eventtype": "REGISTERED_IN_LIMS", "creation_time_utc": "1621896770657" , "courier":"SF Express", "trackingID":"8765433222455", "STATUS": "Good_Condition", "STATUS_DATE": "210820 09:50:42" }
 //                              { "PK": "BC#HKA00013221", "SK": "#STATUS_CHANGE#TS#1629424242942", "detection":"1629424242942","type":"event", "eventtype": "WAITING_DNA_PREP", "creation_time_utc": "1621896770657" , "STATUS_DATE": "210820 09:50:42" }
 //                              { "PK": "BC#HKA00013221", "SK": "#STATUS_CHANGE#TS#1629424242942","detection":"1629424242942", "type":"event", "eventtype": "SEQUENCING", "SAMPLE_NAME": "HKA00013221-abcd_S100_L001_R1_001", "creation_time_utc": "1621896770657" , "STATUS_DATE": "210820 09:50:42" }
 //                              { "PK": "BC#HKA00013221", "SK": "#STATUS_CHANGE#TS#1629424242942",  "type":"event", "eventtype": "Completed", "SAMPLE_NAME": "HKA00013221-abcd_S100_L001_R1_001", "creation_time_utc": "1621896770657" , "STATUS_DATE": "210820 09:50:42" }

@@ -126,7 +126,11 @@ public class ReportController {
         Dnakit dnakit = dnakitDao.find("barcode", barcode);
         //直接输入barcode
         if (dnakit != null) {
-            String eventtype = StringUtils.isEmpty(dnakit.getEventtype())?"POST_FROM_LAB":dnakit.getEventtype();
+            //String eventtype = StringUtils.isEmpty(dnakit.getEventtype())?"POST_FROM_LAB":dnakit.getEventtype();
+            System.out.println("Double.parseDouble(dnakit.getBiological()):---> "+Double.parseDouble(dnakit.getBiological()));
+            System.out.println("dnakit.getEventtype()---> "+dnakit.getEventtype());
+            String eventtype = (!StringUtils.isEmpty(dnakit.getEventtype()))?dnakit.getEventtype():Double.parseDouble(dnakit.getBiological())>0?"Completed":"POST_FROM_LAB";
+            System.out.println("eventtype---> "+eventtype);
             String status = maplabevent.get(eventtype);
             //RECEIVED_AT_LAB PARCEL_RECEIVED REGISTERED_IN_LIMS WAITING_DNA_PREP SEQUENCING Completed
             Udata data = new Udata();
@@ -134,8 +138,8 @@ public class ReportController {
             data.setStatus(status);
             data.setLabevent(eventtype);
             data.setBarcode(barcode);
-            data.setCreateTime(dnakit.getCreatetime());
-            data.setDetectTime(0);
+            data.setCreateTime(System.currentTimeMillis());
+            data.setDetectTime(StringUtils.isEmpty(dnakit.getDetection())?0:Long.parseLong(dnakit.getDetection()));
             data.setUploadTime(System.currentTimeMillis());
             data.setNaturally(0);
             data.setAccuracy(dnakit.getAccuracy());
@@ -143,7 +147,7 @@ public class ReportController {
             data.setAllow((byte)0);
             udataDao.save(data);
             dnakitDao.delete(dnakit.getId());
-            new Thread(new Runnable() {
+             new Thread(new Runnable() {
                 @Override
                 public void run() {
                     String registertime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date());
