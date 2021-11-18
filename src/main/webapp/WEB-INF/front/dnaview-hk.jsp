@@ -36,7 +36,7 @@
                 <div style="float: left;width: 5%;height:60px; ">
                     <div style="width: 10px;height: 10px;background-color: green;border-radius: 50px;"></div>
                 </div>
-                <div style="float: left;width: 95%;height: 60px;font-size: 16px">The others,who were tested,whose Epigenetic age is higher than Chronological age.</div>
+                <div style="float: left;width: 95%;height: 60px;font-size: 16px">The others,who were tested,whose Epigenetic age is lower than Chronological age.</div>
             </div>
             <div style=" height: 60px;width: 100%;">
                 <div style="float: left;width: 5%;height: 60px; ">
