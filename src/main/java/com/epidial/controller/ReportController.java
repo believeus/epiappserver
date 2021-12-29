@@ -5,6 +5,7 @@ import com.aliyuncs.utils.StringUtils;
 import com.epidial.bean.*;
 import com.epidial.dao.epi.*;
 import com.epidial.serivce.MailService;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -110,6 +111,19 @@ public class ReportController {
         Udata data = udataDao.findBy("id", id);
         return data.getStatus();
     }
+
+    @ResponseBody
+    @RequestMapping("/user/secretKey/sendmail")
+    public String keyMail(String privatekey,String publickey,String mail) {
+        try {
+            String message="<!DOCTYPE html><html><head></head><body><div>Please keep your private key and public key</div><div>private key:"+privatekey+"</div><div>public key:"+publickey +"</div></body></html>";
+            String data=mailService.sendMail("[DO NOT REPLY]",message,mail);
+            return "success";
+        }catch (Exception e){
+            return "fail";
+        }
+    }
+
 
     @ResponseBody
     @RequestMapping("/user/report/findDataByUuid")
