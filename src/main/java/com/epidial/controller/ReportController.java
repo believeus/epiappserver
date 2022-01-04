@@ -116,7 +116,64 @@ public class ReportController {
     @RequestMapping("/user/secretKey/sendmail")
     public String keyMail(String privatekey,String publickey,String mail) {
         try {
-            String message="<!DOCTYPE html><html><head></head><body><div>Please keep your private key and public key</div><div>private key:"+privatekey+"</div><div>public key:"+publickey +"</div></body></html>";
+            String message="<!DOCTYPE html><html><head></head><body>" +
+                    "<div>" +
+                    "<div align=\"center\">" +
+                    "<div style=\"margin-left: 8px; margin-top: 8px; margin-bottom: 8px; margin-right: 8px;\">" +
+                    "<br>" +
+                    "<div style=\"word-break: break-all;box-sizing:border-box;text-align:center;min-width:320px; max-width:660px; border:1px solid #f6f6f6; background-color:#f7f8fa; margin:auto; padding:20px 0 30px; font-family:'helvetica neue',PingFangSC-Light,arial,'hiragino sans gb','microsoft yahei ui','microsoft yahei',simsun,sans-serif\">" +
+                    " <table style=\"width:100%;font-weight:300;margin-bottom:10px;border-collapse:collapse\">" +
+                    " <tbody>" +
+                    "<tr style=\"font-weight:300\">" +
+                    "<td style=\"width:3%;max-width:30px;\"></td>" +
+                    "<td style=\"max-width:600px;\">" +
+                    " <p style=\"height:2px;background-color: #00a4ff;border: 0;font-size:0;padding:0;width:100%;margin-top:20px;\"></p>" +
+                    "<div style=\"background-color:#fff; padding:23px 0 20px;box-shadow: 0px 1px 1px 0px rgba(122, 55, 55, 0.2);text-align:left;\">" +
+                    "<table style=\"width:100%;font-weight:300;margin-bottom:10px;border-collapse:collapse;text-align:left;\">" +
+                    " <tbody>" +
+                    " <tr style=\"font-weight:300\">" +
+                    "<td style=\"width:3.2%;max-width:30px;\"></td>" +
+                    " <td style=\"max-width:480px;text-align:left;\">" +
+                    "<p  style=\"font-size:14px;color:#333; line-height:24px; margin:0;\">Hello Dear Epi-Aging user,</p>" +
+                    "<p  style=\"line-height: 24px; margin: 6px 0px 0px; overflow-wrap: break-word; word-break: break-all;\"><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">The public key and private key have been sent to your mailbox. Please keep them carefully.</span></p>" +
+                    "<p  style=\"font-size:14px;color:#333; line-height:24px; margin:0;\">private key:"+privatekey+"</p>" +
+                    "<p  style=\"font-size:14px;color:#333; line-height:24px; margin:0;\">public key:"+publickey +"</p>" +
+                    "<dl style=\"font-size: 14px; color: rgb(51, 51, 51); line-height: 18px;\">" +
+                    "<dd style=\"margin: 0px 0px 6px; padding: 0px; font-size: 12px; line-height: 22px;\">" +
+                    "<p style=\"font-size: 14px; line-height: 26px; word-wrap: break-word; word-break: break-all; margin-top: 32px;\">Best,<br><strong>The Epi-Aging Team</strong></p>" +
+                    "<p  style=\"font-size:14px;color:#333; line-height:24px; margin:0;\">info@hkgepitherapeutics.com</p>" +
+                    "<p  style=\"font-size:14px;color:#333; line-height:24px; margin:0;\">(+852) 2354 8297</p>" +
+                    " </dd>" +
+                    "</dl>" +
+                    "</td>" +
+                    "<td style=\"width:3.2%;max-width:30px;\"></td>" +
+                    " </tr>" +
+                    "</tbody>" +
+                    "</table>" +
+                    "</div>" +
+                    "<div id=\"cTMail-copy\" style=\"text-align:center; font-size:12px; line-height:18px; color:#999\">" +
+                    " <table style=\"width:100%;font-weight:300;margin-bottom:10px;border-collapse:collapse\">" +
+                    "<tbody>" +
+                    "<tr style=\"font-weight:300\">" +
+                    "<td style=\"width:3.2%;max-width:30px;\"></td>" +
+                    "<td style=\"max-width:540px;\">" +
+                    "<p style=\"text-align:center; margin:20px auto 14px auto;font-size:12px;color:#999;\">This is a system email, please do not reply.</p>" +
+                    "<p style=\"text-align:center; margin:20px auto 14px auto;font-size:12px;color:#999;\">2019 All rights reserved</p>" +
+                    "<td style=\"width:3.2%;max-width:30px;\"></td>" +
+                    "</tr>" +
+                    "</tbody>" +
+                    " </table>" +
+                    "</div>" +
+                    "</td>" +
+                    "<td style=\"width:3%;max-width:30px;\"></td>" +
+                    "</tr>" +
+                    " </tbody>" +
+                    "</table>" +
+                    "</div>" +
+                    "</div>" +
+                    "</div>" +
+                    "</div>" +
+                    "</body></html>";
             String data=mailService.sendMail("[DO NOT REPLY]",message,mail);
             return "success";
         }catch (Exception e){
