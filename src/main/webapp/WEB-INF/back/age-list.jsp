@@ -67,28 +67,28 @@
 						<select  data-id="${task.id}" >
 							<c:choose>
 								<c:when test="${task.status eq 'in-transit'}">
-									<option data-id="${task.id}" selected="selected" value="in-transit">in-transit</option>
-                                    <option  data-id="${task.id}"  value="processing">processing</option>
-                                    <option data-id="${task.id}"   value="pending" >pending</option>
-									<option  data-id="${task.id}"  value="ready">ready</option>
+									<option data-id="${task.id}" selected="selected" value="in-transit">In-Transit</option>
+                                    <option  data-id="${task.id}"  value="processing">Processing</option>
+                                    <option data-id="${task.id}"   value="pending" >Received</option>
+									<option  data-id="${task.id}"  value="ready">Test Completed </option>
 								</c:when>
 								<c:when test="${task.status eq 'pending'}">
-									<option data-id="${task.id}"value="in-transit" >in-transit</option>
-                                    <option  data-id="${task.id}"  value="processing">processing</option>
-									<option data-id="${task.id}" selected="selected" value="pending" >pending</option>
-									<option  data-id="${task.id}"  value="ready">ready</option>
+									<option data-id="${task.id}"value="in-transit" >In-Transit</option>
+                                    <option  data-id="${task.id}"  value="processing">Processing</option>
+									<option data-id="${task.id}" selected="selected" value="pending" >Received</option>
+									<option  data-id="${task.id}"  value="ready">Test Completed </option>
 								</c:when>
 								<c:when test="${task.status eq 'processing'}">
-									<option data-id="${task.id}"value="in-transit" >in-transit</option>
-                                    <option  data-id="${task.id}" selected="selected"  value="processing">processing</option>
-									<option data-id="${task.id}"  value="pending" >pending</option>
-									<option  data-id="${task.id}"  value="ready">ready</option>
+									<option data-id="${task.id}"value="in-transit" >In-Transit</option>
+                                    <option  data-id="${task.id}" selected="selected"  value="processing">Processing</option>
+									<option data-id="${task.id}"  value="pending" >Received</option>
+									<option  data-id="${task.id}"  value="ready">Test Completed </option>
 								</c:when>
 								<c:otherwise>
-									<option data-id="${task.id}"value="in-transit" >in-transit</option>
-                                    <option  data-id="${task.id}"   value="processing">processing</option>
-									<option data-id="${task.id}"  value="pending" >pending</option>
-									<option  data-id="${task.id}" selected="selected"  value="ready">ready</option>
+									<option data-id="${task.id}"value="in-transit" >In-Transit</option>
+                                    <option  data-id="${task.id}"   value="processing">Processing</option>
+									<option data-id="${task.id}"  value="pending" >Received</option>
+									<option  data-id="${task.id}" selected="selected"  value="ready">Test Completed </option>
 								</c:otherwise>
 							</c:choose>
 						</select>

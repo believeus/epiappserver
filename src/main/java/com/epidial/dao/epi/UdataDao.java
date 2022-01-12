@@ -42,6 +42,9 @@ public interface UdataDao {
     @Select("select * from udata where naturally < biological and biological > 0  and naturally >0  and status='ready' limit 0,50")
     public List<Udata> findNtrLtBio();
 
+    @Select("select * from udata where  biological > 0  and naturally >0  and status='ready' limit 0,100")
+    public List<Udata> findAllNB();
+
     @Select("select * from udata order by id  desc limit #{idx},#{sz} ")
     public List<Udata> findAll(@Param("idx") int idx, @Param("sz") int sz);
 

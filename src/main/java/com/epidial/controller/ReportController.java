@@ -99,6 +99,13 @@ public class ReportController {
     }
 
     @ResponseBody
+    @RequestMapping(value = "/user/report/findAllNB")
+    public List<Udata> findAllNB() {
+        List<Udata> ntrLtBioUsers = udataDao.findAllNB();
+        return ntrLtBioUsers;
+    }
+
+    @ResponseBody
     @RequestMapping(value = "/user/report/findMyAge")
     public Udata findMyAge(String uuid, String barcode) {
         return udataDao.find("uuid", uuid, "barcode", barcode);
