@@ -141,13 +141,13 @@ public class ReportController {
                     " <tr style=\"font-weight:300\">" +
                     "<td style=\"width:3.2%;max-width:30px;\"></td>" +
                     " <td style=\"max-width:480px;text-align:left;\">" +
-                    "<p  style=\"font-size:14px;color:#333; line-height:24px; margin:0;\">Hello Dear Epi-Aging user,</p>" +
-                    "<p  style=\"line-height: 24px; margin: 6px 0px 0px; overflow-wrap: break-word; word-break: break-all;\"><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">The public key and private key have been sent to your mailbox. Please keep them carefully.</span></p>" +
+                    "<p  style=\"font-size:14px;color:#333; line-height:24px; margin:0;\">Dear Epi-Aging user,</p>" +
+                    "<p  style=\"line-height: 24px; margin: 6px 0px 0px; overflow-wrap: break-word; word-break: break-all;\"><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">These keys are very important to keep your data safe in epiAge APP, please keep them well in case you need them again.</span></p>" +
                     "<p  style=\"font-size:14px;color:#333; line-height:24px; margin:0;\">private key:"+privatekey+"</p>" +
                     "<p  style=\"font-size:14px;color:#333; line-height:24px; margin:0;\">public key:"+publickey +"</p>" +
                     "<dl style=\"font-size: 14px; color: rgb(51, 51, 51); line-height: 18px;\">" +
                     "<dd style=\"margin: 0px 0px 6px; padding: 0px; font-size: 12px; line-height: 22px;\">" +
-                    "<p style=\"font-size: 14px; line-height: 26px; word-wrap: break-word; word-break: break-all; margin-top: 32px;\">Best,<br><strong>The Epi-Aging Team</strong></p>" +
+                    "<p style=\"font-size: 14px; line-height: 26px; word-wrap: break-word; word-break: break-all; margin-top: 32px;\">Best,<br><strong>IT Support Team</strong></p>" +
                     "<p  style=\"font-size:14px;color:#333; line-height:24px; margin:0;\">info@hkgepitherapeutics.com</p>" +
                     "<p  style=\"font-size:14px;color:#333; line-height:24px; margin:0;\">(+852) 2354 8297</p>" +
                     " </dd>" +
@@ -165,7 +165,7 @@ public class ReportController {
                     "<td style=\"width:3.2%;max-width:30px;\"></td>" +
                     "<td style=\"max-width:540px;\">" +
                     "<p style=\"text-align:center; margin:20px auto 14px auto;font-size:12px;color:#999;\">This is a system email, please do not reply.</p>" +
-                    "<p style=\"text-align:center; margin:20px auto 14px auto;font-size:12px;color:#999;\">2019 All rights reserved</p>" +
+                    "<p style=\"text-align:center; margin:20px auto 14px auto;font-size:12px;color:#999;\">2022 All rights reserved</p>" +
                     "<td style=\"width:3.2%;max-width:30px;\"></td>" +
                     "</tr>" +
                     "</tbody>" +

@@ -53,7 +53,7 @@ public class AppUserController {
                     "<p>Dear user</p><p>Thank you for your registration on Epi-Aging. <br />Please click on the following link to complete your registration:</p>" +
                     "<span style='font-size: 24px;text-decoration: underline' >https://app.epi-age.com/user/authMail.jhtml?mail=" + u.getMail() + "</span>" +
                     "<p style='color:red;font-size: 18px;'>Note: If clicking the activation link fails to activate the user, copy the activation link to the browser address bar to activate the user's mailbox.</p><p>HKG epitherapeutics Limited<br />https://www.hkgepitherapeutics.com</p>" +
-                    "<p>(+852) 2354 8297<br/>info@hkgepitherapeutics.com</p><p>2019 All rights reserved</p>" +
+                    "<p>(+852) 2354 8297<br/>info@hkgepitherapeutics.com</p><p>2022 All rights reserved</p>" +
                     "</div>" +
                     "</body>" +
                     "</html>";
@@ -109,7 +109,7 @@ public class AppUserController {
                     "<p>Dear user</p><p>Thank you for your registration on Epi-Aging. <br />Please click on the following link to reset your password:</p>" +
                     "<a href='https://app.epi-age.com/user/repasswdview.jhtml?mail=" + user.getMail() + "&token=" + user.getToken() + "'>https://app.epi-age.com/user/repasswdview.jhtml?mail=" + user.getMail() + "&token=" + user.getToken() + "</a>" +
                     "<p style='color:red'>If you're unable to click on any of the links above, copy and paste the URL into a new browser window instead</p><p>HKG epitherapeutics Limited<br />https://www.hkgepitherapeutics.com</p>" +
-                    "<p>(+852) 2354 8297<br/>info@hkgepitherapeutics.com</p><p>2019 All rights reserved</p>" +
+                    "<p>(+852) 2354 8297<br/>info@hkgepitherapeutics.com</p><p>2022 All rights reserved</p>" +
                     "</div>" +
                     "</body>" +
                     "</html>";
@@ -120,9 +120,8 @@ public class AppUserController {
         }
     }
 
-
     @RequestMapping("/user/repasswdview")
-    public ModelAndView repasswdview(String mail, String token) {
+    public ModelAndView repasswdview(String mail, String token){
         ModelAndView modelView = new ModelAndView();
         User user = userDao.findUser("mail", mail);
         if (user != null) {
