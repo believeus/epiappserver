@@ -179,10 +179,11 @@
                                 var naturally = _oThis.parents("tr").find("[name=naturally]").val();
                                 var biological = _oThis.parents("tr").find("[name=biological]").val();
 								var accuracy = _oThis.parents("tr").find("[name=accuracy]").val();
-                                var status = _oThis.parents("tr").find("option:selected").text();
-                                var data = {};
+                                var status = _oThis.parents("tr").find("option:selected").val();
+                                var data = {}
                                 data.id = _oThis.attr("data-id");
                                 data.v = naturally + "@" + biological+"@"+status+"@"+accuracy;
+                                console.info(data)
                                 console.log("naturally"+naturally+"...bio:"+biological);
                                 if(biological=='0.0'&status =='ready'){
                                     alert('When epiage is empty, the status cannot be changed to ready！');
@@ -191,6 +192,7 @@
                                     $.post("/admin/age/update.jhtml", data, function () {
                                         _oThis.attr("readonly", "readonly");
                                         _oThis.css("border", "none");
+                                        _oThis.parents("tr").find("[name=labevent]").val(status =='ready'?"Completed":status =='processing'?"SEQUENCING":status =='pending'?"PARCEL_RECEIVED":"POST_FROM_LAB");
                                     });
                                 }
 

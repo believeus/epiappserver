@@ -77,7 +77,7 @@ public class ReportController {
     }
     private  Map<String,String> maplabevent =new HashMap<String,String>();
     {
-        maplabevent.put("POST_FROM_LAB","pending");
+        maplabevent.put("POST_FROM_LAB","in-transit");
         maplabevent.put("PARCEL_RECEIVED","pending");
         maplabevent.put("REGISTERED_IN_LIMS","processing");
         maplabevent.put("WAITING_DNA_PREP","processing");

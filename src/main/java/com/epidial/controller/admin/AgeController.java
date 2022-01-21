@@ -43,6 +43,17 @@ public class AgeController {
             udata.setDetectTime(System.currentTimeMillis());
         }else if(status.equals("pending")){
             udata.setPendingTime(System.currentTimeMillis());
+            String labevent= "PARCEL_RECEIVED";
+            udata.setLabevent(labevent);
+        }else if(status.equals("in-transit")){
+            String labevent= "POST_FROM_LAB";
+            udata.setLabevent(labevent);
+        }else if(status.equals("processing")){
+            String labevent= "SEQUENCING";
+            udata.setLabevent(labevent);
+        }else if(status.equals("ready")){
+            String labevent= "Completed";
+            udata.setLabevent(labevent);
         }else if (status.equals("ready")&&udata.getAllow()==1){
             new Thread(new Runnable() {
                 @Override
