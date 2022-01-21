@@ -140,10 +140,10 @@
                             html.push("<td><input name='accuracy' data-id='"+udata[i].id+"' style='border: none' value='"+udata[i].accuracy+"\' readonly=\"readonly\"> "+"</td>")
                             html.push("<td>")
                             html.push("<select data-id='"+udata[i].id+"'>")
-                            html.push("<option ".concat("data-id=\"").concat(udata[i].id).concat("\"").concat(udata[i].status=="ready"?"selected=selected":"").concat(" >").concat("Test Completed").concat("</option>"))
-                            html.push("<option ".concat("data-id=\"").concat(udata[i].id).concat("\"").concat(udata[i].status=="pending"?"selected=selected":"").concat(" >").concat("Received").concat("</option>"))
-                            html.push("<option ".concat("data-id=\"").concat(udata[i].id).concat("\"").concat(udata[i].status=="processing"?"selected=selected":"").concat(" >").concat("Processing").concat("</option>"))
-							html.push("<option ".concat("data-id=\"").concat(udata[i].id).concat("\"").concat(udata[i].status=="in-transit"?"selected=selected":"").concat(" >").concat("In-Transit").concat("</option>"))
+                            html.push("<option ".concat("data-id=\"").concat(udata[i].id).concat("\"").concat("value='ready'").concat(udata[i].status=="ready"?"selected=selected":"").concat(" >").concat("Test Completed").concat("</option>"))
+                            html.push("<option ".concat("data-id=\"").concat(udata[i].id).concat("\"").concat("value='pending'").concat(udata[i].status=="pending"?"selected=selected":"").concat(" >").concat("Received").concat("</option>"))
+                            html.push("<option ".concat("data-id=\"").concat(udata[i].id).concat("\"").concat("value='processing'").concat(udata[i].status=="processing"?"selected=selected":"").concat(" >").concat("Processing").concat("</option>"))
+							html.push("<option ".concat("data-id=\"").concat(udata[i].id).concat("\"").concat("value='in-transit'").concat(udata[i].status=="in-transit"?"selected=selected":"").concat(" >").concat("In-Transit").concat("</option>"))
 							html.push("</select>")
                             html.push("</td>")
 
@@ -181,6 +181,7 @@
 								var accuracy = _oThis.parents("tr").find("[name=accuracy]").val();
                                 var status = _oThis.parents("tr").find("option:selected").val();
                                 var data = {}
+								console.info(status)
                                 data.id = _oThis.attr("data-id");
                                 data.v = naturally + "@" + biological+"@"+status+"@"+accuracy;
                                 console.info(data)
@@ -189,7 +190,7 @@
                                     alert('When epiage is empty, the status cannot be changed to ready！');
                                     window.location.reload();
                                 }else {
-                                    $.post("/admin/age/update.jhtml", data, function () {
+                                    $.post("admin/age/update.jhtml", data, function () {
                                         _oThis.attr("readonly", "readonly");
                                         _oThis.css("border", "none");
                                         _oThis.parents("tr").find("[name=labevent]").val(status =='ready'?"Completed":status =='processing'?"SEQUENCING":status =='pending'?"PARCEL_RECEIVED":"POST_FROM_LAB");
