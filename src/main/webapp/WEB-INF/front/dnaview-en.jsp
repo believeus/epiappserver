@@ -20,14 +20,16 @@
         <img src="static/images/ques/rep1.png" style="width: 100%;height: 100%;">
     </div>
     <div style="height: 90px;width: 100%;"></div>
-    <div style="width: 90%;height: 80px;margin: 0 auto; text-align: center;background-color: #f1f5f6;border-radius: 5px;font-size: 22px;line-height: 80px;font-weight: bold;">Barcode | ${data.barcode}</div>
+    <div style="width: 90%;height: 80px;margin: 0 auto; text-align: center;background-color: #f1f5f6;border-radius: 5px;font-size: 22px;line-height: 80px;font-weight: bold;">
+        Barcode | ${data.barcode}</div>
     <div style="height: 123px;width: 100%;clear: both"></div>
-    <div id="main"style="width: 100%;height:300px;margin: 0px auto;position: relative" ></div>
+    <div id="main" style="width: 100%;height:300px;margin: 0px auto;position: relative"></div>
 
     <div style="width: 90%;height: 200px;margin: 0 auto; text-align: left;background-color: #f1f5f6;border-radius: 15px;">
         <div style="width: 90%;margin: 0 auto">
             <div style="height: 30px;padding-top: 20px">
-                <img src="static/images/ques/rep-green.png" style="float: left;width: 30px;height: 30px;padding-left: 2%">
+                <img src="static/images/ques/rep-green.png"
+                     style="float: left;width: 30px;height: 30px;padding-left: 2%">
                 <img src="static/images/ques/rep-red.png" style="float: left;width: 30px;height: 30px;padding-left: 2%">
                 <span style="float: left;height: 30px;width: 78%;font-size: 16px;line-height: 30px; padding-left: 2%;">Your Epigenetic Age</span>
             </div>
@@ -36,13 +38,17 @@
                 <div style="float: left;width: 5%;height:60px; ">
                     <div style="width: 10px;height: 10px;background-color: green;border-radius: 50px;"></div>
                 </div>
-                <div style="float: left;width: 95%;height: 60px;font-size: 16px">Other customers, who were tested, whose Epigenetic age is lower than Chronological age.</div>
+                <div style="float: left;width: 95%;height: 60px;font-size: 16px">Other customers, who were tested, whose
+                    Epigenetic age is lower than Chronological age.
+                </div>
             </div>
             <div style=" height: 60px;width: 100%;">
                 <div style="float: left;width: 5%;height: 60px; ">
                     <div style="width: 10px;height: 10px;background-color: red;border-radius: 50px;"></div>
                 </div>
-                <div style="float: left;width: 95%;height: 60px;font-size: 16px">Other customers, who were tested, whose Epigenetic age is higher than Chronological age.</div>
+                <div style="float: left;width: 95%;height: 60px;font-size: 16px">Other customers, who were tested, whose
+                    Epigenetic age is higher than Chronological age.
+                </div>
             </div>
         </div>
     </div>
@@ -50,20 +56,28 @@
     <div style="width: 90%;height: 109px;margin: 0 auto;background-color: #f1f5f6;border-radius: 15px;">
         <div style="height: 50px;margin:0 auto; width: 70%;padding-top: 20px">
             <img src="static/images/ques/olive-leaf.png" style="float: left;width: 40px;height: 40px;padding-left: 20%">
-            <span style="float: left;height: 50px;width: 30%;font-size: 16px;line-height: 30px;text-align: center; font-size: 28px;font-weight: bold"id="natura">${data.naturally}</span>
+            <span style="float: left;height: 50px;width: 30%;font-size: 16px;line-height: 30px;text-align: center; font-size: 28px;font-weight: bold"
+                  id="natura">${data.naturally}</span>
             <span style="float: left;height: 50px;width: 20%;font-size: 16px;line-height: 30px;text-align: center; font-size: 18px;">Years</span>
         </div>
-        <div style="height: 40px;text-align: center;font-size: 16px;font-weight: bold;color:#000">Your Chronological Age</div>
+        <div style="height: 40px;text-align: center;font-size: 16px;font-weight: bold;color:#000">Your Chronological
+            Age
+        </div>
     </div>
     <div style="height: 20px;width: 100%;clear: both"></div>
     <div style="width: 90%;height: 209px;margin: 0 auto;background-color: #f1f5f6;border-radius: 15px;">
         <div style="height: 50px;margin:0 auto; width: 70%;padding-top: 20px">
             <img src="static/images/ques/olive-leaf.png" style="float: left;width: 40px;height: 40px;padding-left: 15%">
-            <div style="float: left;height: 50px;width: 40%;font-size: 16px;line-height: 30px;text-align: center; font-size: 28px;font-weight: bold"id="expect"> </div>
+            <div style="float: left;height: 50px;width: 40%;font-size: 16px;line-height: 30px;text-align: center; font-size: 28px;font-weight: bold"
+                 id="expect"></div>
             <span style="float: left;height: 50px;width: 20%;font-size: 16px;line-height: 30px;text-align: center; font-size: 18px;">Years</span>
         </div>
-        <div style="height: 40px;text-align: center;font-size: 16px;font-weight: bold;border-bottom: 2px dotted #cdcdcd;color:#000">Your Excepted Chronological Age</div>
-        <div style="height: 40px;text-align: center;font-size: 16px;padding: 20px"> The "normal" chronological age of people with similar EpiAge results (calculated using a mathematical equation from our tests)</div>
+        <div style="height: 40px;text-align: center;font-size: 16px;font-weight: bold;border-bottom: 2px dotted #cdcdcd;color:#000">
+            Your Excepted Chronological Age
+        </div>
+        <div style="height: 40px;text-align: center;font-size: 16px;padding: 20px"> The "normal" chronological age of
+            people with similar EpiAge results (calculated using a mathematical equation from our tests)
+        </div>
     </div>
     <div style="height: 20px;width: 100%;clear: both"></div>
     <div style="width: 90%;height: 260px;margin: 0 auto;background-color: #f1f5f6;border-radius: 15px;">
@@ -73,9 +87,12 @@
             </div>
         </div>
         <div style="clear: both; height: 80px;width: 30%;margin: 0 auto;background-color: #ebeced;border-radius: 15px;text-align: center;">
-            <span style="height: 80px;width: 100%;font-size: 16px;line-height: 80px; font-size: 30px;font-weight: bold;"id="bio">${data.biological}</span>
+            <span style="height: 80px;width: 100%;font-size: 16px;line-height: 80px; font-size: 30px;font-weight: bold;"
+                  id="bio">${data.biological}</span>
         </div>
-        <div style="height: 110px;text-align: center;font-size: 18px;line-height: 80px; font-weight: bold;align-self: center">Your Epigenetic Age</div>
+        <div style="height: 110px;text-align: center;font-size: 18px;line-height: 80px; font-weight: bold;align-self: center">
+            Your Epigenetic Age
+        </div>
 
         <div id="smail">
 
@@ -107,8 +124,8 @@
             <div class="circle-outer">
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
-            <div class="para" style="margin-left: 20px;line-height: 18px">People age at different rates. Some “look” and “feel” older
-                than their chronological ages while other look younger than their chronological ages.
+            <div class="para" style="margin-left: 20px;line-height: 18px">
+                People age at different rates. Some “look” and “feel” older than their chronological age, while others look younger than their chronological age.
             </div>
         </div>
         <div class="outer" style="clear: both;width: 100%; height: 64px">
@@ -116,8 +133,7 @@
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px;line-height: 18px">
-                Epigenetic age is a better parameter of our health well being than chronological
-                age.
+                Epigenetic age is a better parameter of  our wellbeing than chronological age.
             </div>
         </div>
         <div class="outer" style="clear: both;width: 100%; height: 116px">
@@ -125,8 +141,8 @@
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px;line-height: 18px">
-                DNA as the hardware, genetics as the operating system and DNA methylation and other epigenetic factors
-                as the software that programs the genome.
+                DNA is the hardware, genetics is the operating system and DNA methylation and other epigenetic factors as
+                the software that programs the genome.
 
             </div>
         </div>
@@ -135,7 +151,8 @@
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px;line-height: 18px">
-                A paradigm shift in search for epigenetic age markers begin with the discovery of the “epigenetic clock” by Horvath, which is based on the measurement of DNA methylation status at hundreds of strategic positions in DNA. This 'epigenetic clock' measures our epigenetic age.
+                A paradigm shift in search for epigenetic age markers begin with the discovery of the “epigenetic clock” by Horvath, which is based on the measurement of DNA methylation status at hundreds of strategic positions in DNA. This 'epigenetic clock'
+                measures our epigenetic age.
 
             </div>
         </div>
@@ -144,7 +161,7 @@
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px;line-height: 18px">
-                IIn most people, the 'epigenetic age' measured by the epigenetic clock and the'chronological age' measured by the calendar are very similar. The correlation between the two measures across the population is close to 0.8 when 1 is a perfect correlation.
+                In most people, the 'epigenetic age' measured by the epigenetic clock and the'chronological age' measured by the calendar are very similar. The correlation between the two measures across the population is close to 0.8 when 1 is a perfect correlation.
             </div>
         </div>
         <div class="outer" style="clear: both;width: 100%;height: 150px">
@@ -152,7 +169,9 @@
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px;line-height: 18px">
-                HHowever in some people the 'epigenetic age' is different from the 'chronological age'. Sometimes the 'epigenetic clock' moves faster than the 'chronological clock'. We consider a difference that is larger than the 95% confidence interval of the population mean (or the normal distribution in the population) as a significant difference.
+                However in some people the 'epigenetic age' is different from the 'chronological age'. Sometimes the 'epigenetic clock' moves faster than the 'chronological clock'.
+                We consider a difference that is larger than the 95% confidence interval of the population
+                mean (or the normal distribution in the population) as a significant difference.
             </div>
         </div>
 
@@ -161,7 +180,9 @@
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px;line-height: 18px">
-                Studies suggest that accelerated “epigenetic clock” might be associated with increased risk for several age-related chronic diseases such as cardiovascular disease and cancer (link: https://www.ncbi.nlm.nih.gov/pubmed/?term=epigenetic+clock+disease). This is however still an open field and more studies are needed and there is no clear immediate correlation between older “epigenetic” age and chronic diseases.
+                Studies suggest that accelerated “epigenetic clock” might be associated with increased risk for several age-related chronic diseases such as cardiovascular disease and cancer
+                (link: https://www.ncbi.nlm.nih.gov/pubmed/?term=epigenetic+clock+disease). This is however still an open field and more studies are
+                needed and there is no clear immediate correlation between older “epigenetic” age and chronic diseases.
             </div>
         </div>
     </div>
@@ -171,7 +192,7 @@
         <div style="width: 90%;margin: 0 auto;">
             <div style="width: 100%;clear: both;height: 150px">
                 <div style="width: 65%;float: left;font-size: 18px;">
-                    What is the <span style="font-size: 24px;color: #1b6fae;">EpiAge Test?</span><br> <span
+                    What is the <span style="font-size: 24px;color: #1b6fae;">epiAging Test?</span><br> <span
                         style="color: #1b6fae;"> What does it mean?</span>
                     <div style="height: 40px;width: 100%"></div>
 
@@ -194,7 +215,10 @@
                     <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
                 </div>
                 <div class="para" style="margin-left: 20px;line-height: 18px">
-                    We prepare DNA from your saliva and measure the level of DNA methylation in several positions in a fragment of your genome using using bisulfite conversion followed by next generation sequencing. A specific computer script calculates the level of DNA methylation. Your DNA methylation results are inserted into a methematical equation that calculates the 'epigenetic age' as a function of the level of DNA methylation.
+                    We prepare DNA from your saliva and measure the level of DNA methylation in several positions in a fragment of your genome using using bisulfite
+                    conversion followed by next generation sequencing. A specific computer script calculates the level
+                    of DNA methylation. Your DNA methylation results
+                    are inserted into a methematical equation that calculates the 'epigenetic age' as a function of the level of DNA methylation.
                 </div>
             </div>
             <div class="outer" style="clear: both;width: 100%;height: 266px">
@@ -202,7 +226,12 @@
                     <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
                 </div>
                 <div class="para" style="margin-left: 20px;line-height: 18px">
-                    We consider it as a “red flag” when your “epigenetic age” deviates from the 95% confidence interval of the population mean. You will be able to calculate the expected “epigenetic age” of your age cohort using our web calculator. We don’t know your chronological age. However, based on an equation that calculate the relationship between “epiage” and chronological age in a large number of DNA methylation results in the public data we will provide you with the expected chronological age for people with your epigenetic age.
+                    We consider it as a “red flag” when your “epigenetic age” deviates from the 95% confidence interval
+                    of the population mean. You will be able to calculate the expected “epigenetic age” of your age
+                    cohort using our web calculator. We don’t know your chronological age. However, based on an equation
+                    that calculate the relationship between “epiage” and chronological age in a large number of DNA
+                    methylation results in the public data we will provide you with the expected chronological age for
+                    people with your epigenetic age.
                 </div>
             </div>
             <div class="outer" style="clear: both;width: 100%;height: 140px">
@@ -287,6 +316,7 @@
         <div style=" height: 123px;text-align: right;float: left; width: 96%;color: #0968aa;">
             <div style="font-size: 24px">Lifestyle</div>
             <div style="font-size: 24px;">recommendations</div>
+
         </div>
     </div>
     <div style="width: 90%;margin: 0 auto;">
@@ -323,7 +353,7 @@
         </div>
         <div style="text-align: center;float: left; height: 123px; width: 96%;color: #0968aa;">
             <div style="color: #828181;font-size: 16px">A dynamic long-term partnership</div>
-            <div style="font-size: 24px">to achieve  'Healthy Aging'</div>
+            <div style="font-size: 24px">to achieve 'Healthy Aging'</div>
 
         </div>
     </div>
@@ -333,7 +363,7 @@
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px;">
-                "We suggest that you continue to monitor your epiage by entering your lifestyle data.
+                We suggest that you continue to monitor your epiage by entering your lifestyle data.
             </div>
         </div>
         <div class="outer" style="clear: both; width: 100%; height:106px">
@@ -491,22 +521,22 @@
     $(function () {
         //客户填写的真实年龄
 
-        var uage=window.parseInt(${data.naturally})
+        var uage = window.parseInt(${data.naturally})
         //生物学年龄
         var epiAge = window.parseFloat(${data.biological}).toFixed(2);
         //您的预估真实年龄
-        var expectedage=parseFloat((epiAge-8.9657)/0.9044).toFixed(2)
+        var expectedage = parseFloat((epiAge - 8.9657) / 0.9044).toFixed(2)
         // var expectedage=parseFloat((-1.6394+Math.sqrt(2.6876+0.0288*-(epiAge+7.5806)))/-0.0144).toFixed(2)
         var natura = parseFloat($("#natura").text());
         //alert(sqrt_value);
-        console.info(uage+"iiiiiiiiiiiiiiiiiiiii")
+        console.info(uage + "iiiiiiiiiiiiiiiiiiiii")
         // console.info($("#bio").text())
         // console.info("你输入的生物学年龄为："+epiAge+" 您的预估真实年龄为："+ expectedage);
         //var sqrt_value=Math.sqrt(2.6876+0.0288*-(epiAge+7.5806));
         $("#expect").html(expectedage)
 
 
-        var real1="<div id=\"smail\" >\n"+
+        var real1 = "<div id=\"smail\" >\n" +
             " <div style=\"height: 90px;width: 100%;background-color: #ebeced;border-radius: 15px;margin-bottom: 120px;\">\n" +
             "            <div style=\"width:60px;height: 60px;border-radius: 50px;background-color: #ebeced;margin-left: 40%;margin-top: -35px;position: absolute\">\n" +
             "                <img src=\"static/images/ques/smile-black.png\" style=\"width: 80%;height: 80%;padding-left: 6px;padding-top: 5px;\">\n" +
@@ -514,10 +544,10 @@
             "            <div style=\"height: 60px;text-align: center;font-size: 16px;padding-top: 35px\">\n" +
             "                Your Expected Chronological age is <span class=\"Pobre\"style=\"font-size: 18px;font-weight: bold;\"></span> years lower than your chronological age.\n" +
             "            </div>\n" +
-            "        </div>"+
-        "    <div style=\"height: 100px;width: 100%\"></div>\n"+
-        "</div>"
-        var real2="<div id=\"smail\">\n"+
+            "        </div>" +
+            "    <div style=\"height: 100px;width: 100%\"></div>\n" +
+            "</div>"
+        var real2 = "<div id=\"smail\">\n" +
             " <div  style=\"height: 90px;width: 100%;background-color: #ebeced;border-radius: 15px;margin-bottom: 120px;\">\n" +
             "            <div style=\"width:60px;height: 60px;border-radius: 50px;background-color: #ebeced;margin-left: 40%;margin-top: -35px;position: absolute\">\n" +
             "                <img src=\"static/images/ques/sad-black.png\" style=\"width: 80%;height: 80%;padding-left: 6px;padding-top: 5px;\">\n" +
@@ -525,10 +555,10 @@
             "            <div style=\"height: 60px;text-align: center;font-size: 16px;padding-top: 35px\">\n" +
             "                Your Expected Chronological age is <span class=\"Pobre\"style=\"font-size: 18px;font-weight: bold;\"></span> years higher than your chronological age.\n" +
             "            </div>\n" +
-            "        </div>\n"+
-            "    <div style=\"height: 100px;width: 100%\"></div>\n"+
+            "        </div>\n" +
+            "    <div style=\"height: 100px;width: 100%\"></div>\n" +
             "</div>"
-        var test1=" <div id=\"smail\" style=\"height: 90px;width: 100%;background-color: #ebeced;border-radius: 15px;margin-bottom: 100px;\">\n" +
+        var test1 = " <div id=\"smail\" style=\"height: 90px;width: 100%;background-color: #ebeced;border-radius: 15px;margin-bottom: 100px;\">\n" +
             "            <div style=\"width:60px;height: 60px;border-radius: 50px;background-color: #ebeced;margin-left: 38%;margin-top: -35px;position: absolute\">\n" +
             "                <img src=\"static/images/ques/smile-black.png\" style=\"width: 80%;height: 80%;padding-left: 6px;padding-top: 5px;\">\n" +
             "            </div>\n" +
@@ -536,7 +566,7 @@
             "                Your Epigenetic age is <span class=\"Pobre\"style=\"font-size: 18px;font-weight: bold;\"></span> years lower than your expected chronological age in the population.\n" +
             "            </div>\n" +
             "        </div>"
-        var test2=" <div id=\"smail\" style=\"height: 90px;width: 100%;background-color: #ebeced;border-radius: 15px;margin-bottom: 100px;\">\n" +
+        var test2 = " <div id=\"smail\" style=\"height: 90px;width: 100%;background-color: #ebeced;border-radius: 15px;margin-bottom: 100px;\">\n" +
             "            <div style=\"width:60px;height: 60px;border-radius: 50px;background-color: #ebeced;margin-left: 38%;margin-top: -35px;position: absolute\">\n" +
             "                <img src=\"static/images/ques/sad-black.png\" style=\"width: 80%;height: 80%;padding-left: 6px;padding-top: 5px;\">\n" +
             "            </div>\n" +
@@ -545,7 +575,7 @@
             "            </div>\n" +
             "        </div>"
 
-        if (uage==0) {
+        if (uage == 0) {
             null
             // if(epiAge<expectedage){
             //     $("#smail").html(test2)
@@ -553,13 +583,13 @@
             //     $("#smail").html(test1)
             // }
             // $(".Pobre").html(Math.abs(expectedage-epiAge).toFixed(2))
-        }else {
-            if(expectedage<uage){
+        } else {
+            if (expectedage < uage) {
                 $("#smail").html(real1)
-            }else {
+            } else {
                 $("#smail").html(real2)
             }
-            $(".Pobre").html(Math.abs(uage-expectedage).toFixed(2))
+            $(".Pobre").html(Math.abs(uage - expectedage).toFixed(2))
         }
     })
 
