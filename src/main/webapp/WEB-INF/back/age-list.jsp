@@ -59,10 +59,10 @@
 		<tbody id="tody">
 			<c:forEach items="${databox}" var="task">
 				<tr  class="text-c">
-					<td><input name="naturally" data-id="${task.id}" value="${task.naturally}" style="border: none" readonly="readonly"></td>
-					<td><input name="biological" data-id="${task.id}" id="${task.id}" value="${task.biological}" style="border: none" readonly="readonly"></td>
+					<td><input style='width: 50px' name="naturally" data-id="${task.id}" value="${task.naturally}" style="border: none" readonly="readonly"></td>
+					<td><input style='width: 50px' name="biological" data-id="${task.id}" id="${task.id}" value="${task.biological}" style="border: none" readonly="readonly"></td>
 					<td>${task.barcode}</td>
-					<td><input name="accuracy" data-id="${task.id}" value="${task.accuracy}" style="border: none" readonly="readonly"></td>
+					<td><input style='width: 50px' name="accuracy" data-id="${task.id}" value="${task.accuracy}" style="border: none" readonly="readonly"></td>
 					<td>
 						<select  data-id="${task.id}" >
 							<c:choose>
@@ -79,13 +79,13 @@
 									<option  data-id="${task.id}"  value="ready">Test Completed </option>
 								</c:when>
 								<c:when test="${task.status eq 'processing'}">
-									<option data-id="${task.id}"value="in-transit" >In-Transit</option>
+									<option data-id="${task.id}" value="in-transit" >In-Transit</option>
                                     <option  data-id="${task.id}" selected="selected"  value="processing">Processing</option>
 									<option data-id="${task.id}"  value="pending" >Received</option>
 									<option  data-id="${task.id}"  value="ready">Test Completed </option>
 								</c:when>
 								<c:otherwise>
-									<option data-id="${task.id}"value="in-transit" >In-Transit</option>
+									<option data-id="${task.id}" value="in-transit" >In-Transit</option>
                                     <option  data-id="${task.id}"   value="processing">Processing</option>
 									<option data-id="${task.id}"  value="pending" >Received</option>
 									<option  data-id="${task.id}" selected="selected"  value="ready">Test Completed </option>
@@ -93,7 +93,7 @@
 							</c:choose>
 						</select>
 					</td>
-					<td><input name="labevent" data-id="${task.id}" value="${task.labevent}" style="border: none" readonly="readonly"></td>
+					<td><input style='width: 110px' name="labevent" data-id="${task.id}" value="${task.labevent}" style="border: none" readonly="readonly"></td>
 					<td>${task.email}</td>
 					<c:choose>
 						<c:when test="${task.createTime eq 0}"><td></td></c:when>
@@ -134,10 +134,10 @@
 						for (var i = 0; i < udata.length; i++) {
 						    html.push("<table class='table table-border table-bordered table-hover table-bg table-sort'>")
                             html.push("<tr class='text-c'>")
-                            html.push("<td><input name='naturally' data-id='"+udata[i].id+"' style='border: none' value='"+udata[i].naturally+"\' readonly=\"readonly\"> "+"</td>")
-							html.push("<td><input name='biological' data-id='"+udata[i].id+"' style='border: none' value='"+udata[i].biological+"\' readonly=\"readonly\"> "+"</td>")
+                            html.push("<td><input style='width: 50px' name='naturally' data-id='"+udata[i].id+"' style='border: none' value='"+udata[i].naturally+"\' readonly=\"readonly\"> "+"</td>")
+							html.push("<td><input style='width: 50px' name='biological' data-id='"+udata[i].id+"' style='border: none' value='"+udata[i].biological+"\' readonly=\"readonly\"> "+"</td>")
 							html.push("<td>"+udata[i].barcode+"</td>")
-                            html.push("<td><input name='accuracy' data-id='"+udata[i].id+"' style='border: none' value='"+udata[i].accuracy+"\' readonly=\"readonly\"> "+"</td>")
+                            html.push("<td><input style='width: 50px' name='accuracy' data-id='"+udata[i].id+"' style='border: none' value='"+udata[i].accuracy+"\' readonly=\"readonly\"> "+"</td>")
                             html.push("<td>")
                             html.push("<select data-id='"+udata[i].id+"'>")
                             html.push("<option ".concat("data-id=\"").concat(udata[i].id).concat("\"").concat("value='ready'").concat(udata[i].status=="ready"?"selected=selected":"").concat(" >").concat("Test Completed").concat("</option>"))
@@ -147,15 +147,15 @@
 							html.push("</select>")
                             html.push("</td>")
 
-							html.push("<td><input name='labevent' data-id='"+udata[i].id+"' style='border: none' value='"+udata[i].labevent+"\' readonly=\"readonly\"> "+"</td>")
+							html.push("<td><input style='width: 110px' name='labevent' data-id='"+udata[i].id+"' style='border: none' value='"+udata[i].labevent+"\' readonly=\"readonly\"> "+"</td>")
 
                            if(udata[i].email){html.push("<td>"+udata[i].email+"</td>")}else{ html.push("<td></td>")}
-                            html.push("<td><input name='createtime' style='border: none' value='"+new Date(udata[i].createTime).toLocaleString()+"'></td>")
-                            html.push("<td><input name='uploadtime' style='border: none' value='"+new Date(udata[i].uploadTime).toLocaleString()+"'></td>")
+                            html.push("<td><input name='createtime' style='border: none;width: 120px' value='"+new Date(udata[i].createTime).toLocaleString()+"'></td>")
+                            html.push("<td><input name='uploadtime' style='border: none;width: 120px' value='"+new Date(udata[i].uploadTime).toLocaleString()+"'></td>")
                             html.push("<td>") //${task.allow == 1}
                             html.push("<a href='javascript:;'".concat(" onclick=").concat(udata[i].allow==1?"emailView('Email-Nofify','/user/report/"+udata[i].uuid+"/"+udata[i].barcode+"/emailView.jhtml','','510')":"").concat(" class='ml-5'").concat(" style='text-decoration:none;color: green'>").concat(udata[i].allow==1?"Notification":"").concat("</a>"))
                             html.push("</td>")
-                            html.push("<td class='td-manage'><a title='删除' href='javascript:;'onclick=\"+member_del(this,"+udata[i].id+")\"+ class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a>"+"</td>")
+                            html.push("<td class='td-manage' ><a title='删除' href='javascript:;'onclick=\"+member_del(this,"+udata[i].id+")\"+ class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a>"+"</td>")
 							html.push("</tr>")
                             html.push("</table>")
 						}
