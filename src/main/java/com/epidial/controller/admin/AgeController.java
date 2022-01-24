@@ -39,22 +39,27 @@ public class AgeController {
         udata.setBiological(Float.parseFloat(v.split("@")[1]));
         String status = v.split("@")[2];
         udata.setAccuracy(v.split("@")[3]);
-        if (!status.equals("in-transit") && udata.getDetectTime() == 0) {
-            udata.setDetectTime(System.currentTimeMillis());
-        }else if(status.equals("pending")){
+        //if (!status.equals("in-transit") && udata.getDetectTime() == 0) {
+            //udata.setDetectTime(System.currentTimeMillis());
+        if(status.equals("pending")){
             udata.setPendingTime(System.currentTimeMillis());
+            udata.setDetectTime(System.currentTimeMillis());
             String labevent= "PARCEL_RECEIVED";
             udata.setLabevent(labevent);
         }else if(status.equals("in-transit")){
             String labevent= "POST_FROM_LAB";
             udata.setLabevent(labevent);
         }else if(status.equals("processing")){
+            udata.setDetectTime(System.currentTimeMillis());
             String labevent= "SEQUENCING";
             udata.setLabevent(labevent);
         }else if(status.equals("ready")){
+            udata.setDetectTime(System.currentTimeMillis());
             String labevent= "Completed";
             udata.setLabevent(labevent);
         }else if (status.equals("ready")&&udata.getAllow()==1){
+            String labevent= "Completed";
+            udata.setLabevent(labevent);
             new Thread(new Runnable() {
                 @Override
                 public void run() {
