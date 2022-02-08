@@ -108,7 +108,7 @@
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px;line-height: 18px">People age at different rates. Some “look” and “feel” older
-                than their chronological ages, while other look younger than their chronological ages.
+                than their chronological age, while other look younger than their chronological age.
             </div>
         </div>
         <div class="outer" style="clear: both;width: 100%; height: 64px">
@@ -116,7 +116,7 @@
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px;line-height: 18px">
-                Epigenetic ages is a better parameter of our health well being and life span than chronological
+                Epigenetic age is a better parameter of our wellbeing and than chronological
                 age.
             </div>
         </div>
@@ -125,8 +125,8 @@
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px;line-height: 18px">
-                DNA as the hard ware,genetics is the operating system and DNA methylation and other epigenetic factors
-                as the software that programs the genome.
+                DNA is the hardware,genetics is the operating system and DNA methylation and other epigenetic factors
+                are the software that programs the genome.
             </div>
         </div>
         <div class="outer" style="clear: both;width: 100%; height: 134px">
@@ -134,10 +134,10 @@
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px;line-height: 18px">
-                A paradigm shift in the search for epigenetic age markers begin with the discovery
-                of the “epigenetic clock” by Horvath, which is based on measurement of DNA methylation
+                A paradigm shift in search for epigenetic age markers begin with the discovery
+                of the “epigenetic clock” by Horvath, which is based on the measurement of DNA methylation
                 status at hundreds of strategic positions in DNA. This “epigenetic clock”
-                measures of our epigenetic age.
+                measures our epigenetic age.
 
             </div>
         </div>
@@ -146,7 +146,7 @@
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px;line-height: 18px">
-                In most people,the“chronological age” measured by the epigenetic clock and the“chronological
+                In most people,the“epigenetic age” measured by the epigenetic clock and the“chronological
                 age”measured by the calendar are very similar.
                 The correlation between the two measures across the population is close to 0.8 when 1 is a perfect
                 correlation.
@@ -163,7 +163,6 @@
                 distribution in the population) as a significant difference.
             </div>
         </div>
-
         <div class="outer" style="clear: both;width: 100%;height: 160px">
             <div class="circle-outer">
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
@@ -172,7 +171,7 @@
                 Studies suggest that accelerated “epigenetic clock” might be associated with
                 increased risks for several age-related chronic diseases such as cardiovascular
                 disease and cancer. ( https://www.ncbi.nlm.nih.gov/pubmed/?term=epigenetic+-clock+disease
-                ). This is however still an open field and more studies are needed, and there is no clear immediate correlation between older "epigeneric" age and chronic diseases.
+                ). This is however still an open field and more studies are needed, and there is no clear immediate correlation between older "epigenetic" age and chronic diseases.
             </div>
         </div>
     </div>
@@ -182,7 +181,7 @@
         <div style="width: 90%;margin: 0 auto;">
             <div style="width: 100%;clear: both;height: 150px">
                 <div style="width: 65%;float: left;font-size: 18px;">
-                    What is the <span style="font-size: 24px;color: #1b6fae;">epiAging Test?</span><br> <span
+                    What is the <span style="font-size: 24px;color: #1b6fae;">EpiAge Test?</span><br> <span
                         style="color: #1b6fae;"> What does it mean?</span>
                     <div style="height: 40px;width: 100%"></div>
 
@@ -208,10 +207,9 @@
                 </div>
                 <div class="para" style="margin-left: 20px;line-height: 18px">
                     We prepare DNA from your saliva and measure the level of DNA methylation in
-                    several positions in a fragment of your genome using bisulfite conversion followed by next generation sequencing
-                    and.A specific computer script calculates the level of DNA methylation. Your states of DNA methylation are inserted into a mathematical
-                    equation that calculates the “epigenetic age” as a function of the level of DNA
-                    methylation.
+                    several positions in a fragment of your genome using bisulfite conversion followed by next generation sequencing.
+                    A specific computer script calculates the level of DNA methylation. Your DNA methylation results are inserted into a mathematical
+                    equation that calculates the “epigenetic age” as a function of the level of DNA methylation.
                 </div>
             </div>
             <div class="outer" style="clear: both;width: 100%;height: 266px">
@@ -222,7 +220,7 @@
                     We consider it as a “red flag” when your “epigenetic age” deviates from the 95% confidence interval of the population mean.
                     You will be able to calculate the expected  "epigenetic age" of your age cohort using our web calculator.
                     We don't know your chronological age. However, based on an equation that calculate the relationship between "epiage" and
-                    chronological age in a large number of DNA methylation results in the public data we will provide you with the expected chronological
+                    chronological age in a large number of DNA methylation results in the public data, we will provide you with the expected chronological
                     age for people with your epigenetic age.
                 </div>
             </div>
@@ -272,7 +270,7 @@
                 </div>
                 <div class="para" style="margin-left: 20px">
                     "Epigenetics" is different from "genetics" in a
-                    substantial way that Epigenetics is potentially reversible by dietary interventions and by life
+                    substantial way. Epigenetics is potentially reversible by dietary interventions and by life
                     style changes. So, it might be possible to reverse the“epigenetic clock”.
                 </div>
             </div>
@@ -292,7 +290,7 @@
                 </div>
                 <div class="para" style="margin-left: 20px">
                     Lifestyle changes including exercise and dietary habits have been recommended by
-                    national medical associations.So is reduction of stress in your life. These changes should be personalized and more data are needed
+                    national medical associations. So is reduction of stress in your life. These changes should be personalized and more data are needed
                     to determine what these advisable changes should be.
                 </div>
             </div>
@@ -306,7 +304,7 @@
                         lifestyle changes is sharing our experiences
                         with others and analyzing the impact of the
                         differences in lifestyle in a large population.
-                        This is now possible using sharing technologies such as apps as well as artificial
+                        This is now possible using technologies such as apps as well as artificial
                         intelligence that could determine how different
                         inputs like “lifestyle” habits affect the “epigenetic clock”.
                     </div>
@@ -332,7 +330,7 @@
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px">
-                Our apps links you to information on lifestyle behaviors recommended by respected important
+                Our apps links you to information on lifestyle behaviors recommended by respected
                 US national medical associations and on nutritional supplements such as
                 SAMe, vitamin A, D and C.
             </div>
@@ -353,9 +351,9 @@
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px">
-                This first report is based on the lifestyle data that you have entered which shows how
+                This report is based on the lifestyle data that you have entered which shows how
                 your lifestyle parameters compare to the consensus recommendations. You might
-                decide to make changes based on this first report.
+                decide to make changes based on this report.
 
             </div>
         </div>
@@ -385,8 +383,8 @@
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px;">
-                You can update your life style data as regularly as you wish. You can update all
-                questions, some or none. We believe that accurate reporting will allow us to
+                You can update your lifestyle data as regularly as you wish. You can update all
+                questions, some or none. We believe accurate reporting will allow us to
                 provide you with a better analysis.
             </div>
         </div>
@@ -405,7 +403,7 @@
             <div class="para" style="margin-left: 20px;">
                 Your data will be anonymized. Your data along with data from other anonymous users
                 will be analyzed by artificial intelligence to develop a “model”, which measures the
-                impact of life style changes on “epigenetic clock”.
+                impact of lifestyle changes on the “epigenetic clock”.
             </div>
         </div>
         <div class="outer" style="clear: both;width: 100%; height: 88px">
@@ -413,7 +411,7 @@
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px;">
-                When more data is accumulated, the “model” will examine your life style data and the test
+                When more data is accumulated, the “model” will examine your lifestyle data and the test
                 results will be shared with you.
             </div>
         </div>
