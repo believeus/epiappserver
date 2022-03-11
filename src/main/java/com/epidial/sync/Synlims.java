@@ -52,20 +52,22 @@ public class Synlims implements ApplicationListener<ApplicationEvent> {
             if (!isrun) {
                 isrun = true;
                 new Thread(new Runnable() {
-                    private String qurl = "https://sqs.us-east-1.amazonaws.com/381270507532/dev-lims-data";
+                   private String qurl = "https://sqs.us-east-1.amazonaws.com/381270507532/dev-lims-data";
+ //                     private String qurl = "https://sqs.us-east-1.amazonaws.com/381270507532/lucksqs";
                     private int maxNumberOfMessages = 1;
                     //SqsClient client = SqsClient.builder().region(Region.US_EAST_1).build();
 
                     AwsBasicCredentials awsCreds = AwsBasicCredentials.create(
-                            "",
-                            "");
+                            "AKIAVRRL6IAGDBOWCH7V\n" +
+                                    "\n",
+                            "g+aUkPfo4RVfeDJ78dcP0jXLfgeJhIc0OE5wb5hd");
 
                     SqsClient client = SqsClient.builder().credentialsProvider(StaticCredentialsProvider.create(awsCreds)).region(Region.US_EAST_1).build();//us-west-2
                     ReceiveMessageRequest receiveRequest = ReceiveMessageRequest.builder().queueUrl(qurl).maxNumberOfMessages(maxNumberOfMessages).waitTimeSeconds(5).build();
                     @Override
                     public void run() {
                         boolean syn=false;
-                        while (syn) {
+                        while (!syn) {
                             List<Message> messages = client.receiveMessage(receiveRequest).messages();
                             Amazondb amazondb = new Amazondb("DataEventJournal");
                             for (Message msg : messages) {

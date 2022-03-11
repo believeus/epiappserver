@@ -57,7 +57,7 @@ public class AppUserController {
                     "</div>" +
                     "</body>" +
                     "</html>";
-            String data = mailService.sendMail(title, message, u.getMail());
+            String data = "success";//mailService.sendMail(title, message, u.getMail());
             if (data.equals("success")) {
                 String pwd = DigestUtils.md5Hex(u.getPassword());
                 u.setPassword(pwd);

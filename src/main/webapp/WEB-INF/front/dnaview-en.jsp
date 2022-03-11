@@ -130,6 +130,7 @@
             </div>
         </div>
         <div class="outer" style="clear: both;width: 100%; height: 134px">
+
             <div class="circle-outer">
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>

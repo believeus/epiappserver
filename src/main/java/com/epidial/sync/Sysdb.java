@@ -46,19 +46,20 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
         // tomcat启动完毕调用该方法
         if (event instanceof ContextRefreshedEvent) {
             System.out.println("event:" + event.toString());
-            if (!isrun) {
+            if (isrun) {//!isrun
                 isrun = true;
                 new Thread(new Runnable() {
                     private String qurl = "https://sqs.us-east-1.amazonaws.com/381270507532/lucksqs";
                     private int maxNumberOfMessages = 10;
                     //SqsClient sqsclient = SqsClient.builder().region(Region.US_EAST_1).build();
-                    AwsBasicCredentials awsCreds = AwsBasicCredentials.create("", "");
+                    AwsBasicCredentials awsCreds = AwsBasicCredentials.create("AKIAVRRL6IAGDBOWCH7V", "g+aUkPfo4RVfeDJ78dcP0jXLfgeJhIc0OE5wb5hd");
                     SqsClient sqsclient = SqsClient.builder().credentialsProvider(StaticCredentialsProvider.create(awsCreds)).region(Region.US_EAST_1).build();
                     ReceiveMessageRequest receiveRequest = ReceiveMessageRequest.builder().queueUrl(qurl).maxNumberOfMessages(maxNumberOfMessages).waitTimeSeconds(5).build();
 
                     @Override
                     public void run() {
-                        while (true) {
+                        boolean syn=false;
+                        while (!syn) {
                             try {
                                 int errortimes = 0;
                                 Properties properties = new Properties();
@@ -238,6 +239,7 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
                     }
 
                     private void batchmsg(int errortimes, Amazondb amazondb, Message msg) {
+                        System.out.println(msg.body());
                         if (JSONObject.parseObject(msg.body()).getString("eventtype").equals("Batch-of-BCs-Approved-by-client")) {
                             int len = JSONArray.parseArray(JSONObject.parseObject(msg.body()).getString("barcodes")).size();
                             Map<String, String> bresult = new HashMap<String, String>();
