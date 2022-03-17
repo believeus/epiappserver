@@ -52,14 +52,14 @@ public class Sysdb implements ApplicationListener<ApplicationEvent> {
                     private String qurl = "https://sqs.us-east-1.amazonaws.com/381270507532/lucksqs";
                     private int maxNumberOfMessages = 10;
                     //SqsClient sqsclient = SqsClient.builder().region(Region.US_EAST_1).build();
-                    AwsBasicCredentials awsCreds = AwsBasicCredentials.create("AKIAVRRL6IAGDBOWCH7V", "g+aUkPfo4RVfeDJ78dcP0jXLfgeJhIc0OE5wb5hd");
+                    AwsBasicCredentials awsCreds = AwsBasicCredentials.create("", "");
                     SqsClient sqsclient = SqsClient.builder().credentialsProvider(StaticCredentialsProvider.create(awsCreds)).region(Region.US_EAST_1).build();
                     ReceiveMessageRequest receiveRequest = ReceiveMessageRequest.builder().queueUrl(qurl).maxNumberOfMessages(maxNumberOfMessages).waitTimeSeconds(5).build();
 
                     @Override
                     public void run() {
                         boolean syn=false;
-                        while (!syn) {
+                        while (syn) {
                             try {
                                 int errortimes = 0;
                                 Properties properties = new Properties();

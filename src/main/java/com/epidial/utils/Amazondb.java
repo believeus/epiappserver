@@ -33,8 +33,8 @@ public class Amazondb {
         //如果以匿名用户登录需要配置环境变量指向credentials
         // export AWS_CREDENTIAL_PROFILES_FILE=/root/.aws/credentials
         AwsBasicCredentials awsCreds = AwsBasicCredentials.create(
-                "AKIAVRRL6IAGDBOWCH7V",
-                "g+aUkPfo4RVfeDJ78dcP0jXLfgeJhIc0OE5wb5hd");
+                "",
+                "");
 
         dbClient = DynamoDbClient.builder().credentialsProvider(StaticCredentialsProvider.create(awsCreds)).region(Region.US_EAST_1).build();
         initTable(epixFlowReportsTable);
