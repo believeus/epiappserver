@@ -40,7 +40,7 @@ public class Synlims implements ApplicationListener<ApplicationEvent> {
         statusmap.put("in-transit","in-transit");
         statusmap.put("POST_FROM_LAB","pending");
         statusmap.put("PARCEL_RECEIVED","pending");
-        statusmap.put("REGISTERED_IN_LIMS","processing");
+        statusmap.put("REGISTERED_IN_LIMS","pending");
         statusmap.put("WAITING_DNA_PREP","processing");
         statusmap.put("SEQUENCING","processing");
         statusmap.put("Completed","ready");
@@ -49,7 +49,7 @@ public class Synlims implements ApplicationListener<ApplicationEvent> {
     public void onApplicationEvent(ApplicationEvent applicationEvent) {
         if (applicationEvent instanceof ContextRefreshedEvent) {
             System.out.println("Synlims:listen.....");
-            if (!isrun) {
+            if (isrun) {
                 isrun = true;
                 new Thread(new Runnable() {
                    private String qurl = "https://sqs.us-east-1.amazonaws.com/381270507532/dev-lims-data";
@@ -67,7 +67,7 @@ public class Synlims implements ApplicationListener<ApplicationEvent> {
                     @Override
                     public void run() {
                         boolean syn=false;
-                        while (!syn) {
+                        while (syn) {
                                List<Message> messages = client.receiveMessage(receiveRequest).messages();
                                Amazondb amazondb = new Amazondb("DataEventJournal");
                             try {

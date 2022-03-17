@@ -79,7 +79,7 @@ public class ReportController {
     {
         maplabevent.put("POST_FROM_LAB","in-transit");
         maplabevent.put("PARCEL_RECEIVED","pending");
-        maplabevent.put("REGISTERED_IN_LIMS","processing");
+        maplabevent.put("REGISTERED_IN_LIMS","pending");
         maplabevent.put("WAITING_DNA_PREP","processing");
         maplabevent.put("SEQUENCING","processing");
         maplabevent.put("Completed","ready");
