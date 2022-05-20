@@ -40,7 +40,7 @@ public class AppUserController {
         if (user != null) {
             return "error";
         } else {
-            String title = "[DO NOT REPLY] Please verify your registration on Epi-Aging";
+            String title = "[DO NOT REPLY] Please verify your registration on EpiAge";
             String message = "<!DOCTYPE html>" +
                     "<html>" +
                     "<head>" +
@@ -280,7 +280,7 @@ public class AppUserController {
                     "<body>" +
                     "<div style='width: 100%;height: auto;'>" +
                     "<div style='width: 100%;height: 60px;'></div>" + //
-                    "<p>Dear user</p><p>Thank you for your registration on Epi-Aging. <br />Please click on the following link to reset your password:</p>" +
+                    "<p>Dear user</p><p>Thank you for your registration on EpiAge. <br />Please click on the following link to reset your password:</p>" +
                     "<a href='https://app.epi-age.com/user/repasswdview.jhtml?mail=" + user.getMail() + "&token=" + user.getToken() + "'>https://app.epi-age.com/user/repasswdview.jhtml?mail=" + user.getMail() + "&token=" + user.getToken() + "</a>" +
                     "<p style='color:red'>If you're unable to click on any of the links above, copy and paste the URL into a new browser window instead</p><p>HKG epitherapeutics Limited<br />https://www.hkgepitherapeutics.com</p>" +
                     "<p>(+852) 2354 8297<br/>info@hkgepitherapeutics.com</p><p>2022 All rights reserved</p>" +
