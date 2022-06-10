@@ -36,15 +36,24 @@
                 <div style="float: left;width: 5%;height:60px; ">
                     <div style="width: 10px;height: 10px;background-color: green;border-radius: 50px;"></div>
                 </div>
-                <div style="float: left;width: 95%;height: 60px;font-size: 16px">The others,who were tested,whose Epigenetic age is lower than Chronological age.</div>
+                <div style="float: left;width: 95%;height: 60px;font-size: 16px">The others who were tested, whose Epigenetic age is lower than Chronological age.</div>
             </div>
             <div style=" height: 60px;width: 100%;">
                 <div style="float: left;width: 5%;height: 60px; ">
                     <div style="width: 10px;height: 10px;background-color: red;border-radius: 50px;"></div>
                 </div>
-                <div style="float: left;width: 95%;height: 60px;font-size: 16px">The others,who were tested,whose Epigenetic age is higher than Chronological age.</div>
+                <div style="float: left;width: 95%;height: 60px;font-size: 16px">The others who were tested, whose Epigenetic age is higher than Chronological age.</div>
             </div>
         </div>
+    </div>
+    <div style="height: 20px;width: 100%;clear: both"></div>
+    <div style="width: 90%;height: 109px;margin: 0 auto;background-color: #f1f5f6;border-radius: 15px;">
+        <div style="height: 50px;margin:0 auto; width: 70%;padding-top: 20px">
+            <img src="static/images/ques/olive-leaf.png" style="float: left;width: 40px;height: 40px;padding-left: 20%">
+            <span style="float: left;height: 50px;width: 30%;font-size: 16px;line-height: 30px;text-align: center; font-size: 28px;font-weight: bold"id="accuracy">${data.accuracy}</span>
+            <span style="float: left;height: 50px;width: 10%;font-size: 16px;line-height: 30px;text-align: center; font-size: 18px;">%</span>
+        </div>
+        <div style="height: 40px;text-align: center;font-size: 16px;font-weight: bold;color:#000">Technical Accuracy</div>
     </div>
     <div style="height: 20px;width: 100%;clear: both"></div>
     <div style="width: 90%;height: 109px;margin: 0 auto;background-color: #f1f5f6;border-radius: 15px;">
@@ -62,7 +71,7 @@
             <div style="float: left;height: 50px;width: 40%;font-size: 16px;line-height: 30px;text-align: center; font-size: 28px;font-weight: bold"id="expect"> </div>
             <span style="float: left;height: 50px;width: 20%;font-size: 16px;line-height: 30px;text-align: center; font-size: 18px;">Years</span>
         </div>
-        <div style="height: 40px;text-align: center;font-size: 16px;font-weight: bold;border-bottom: 2px dotted #cdcdcd;color:#000">Your Excepted Chronological Age</div>
+        <div style="height: 40px;text-align: center;font-size: 16px;font-weight: bold;border-bottom: 2px dotted #cdcdcd;color:#000">Your Expected Chronological Age</div>
         <div style="height: 40px;text-align: center;font-size: 16px;padding: 20px"> The "normal" chronological age of people with similar EpiAge results (calculated using a mathematical equation from our tests)</div>
     </div>
     <div style="height: 20px;width: 100%;clear: both"></div>
@@ -116,7 +125,7 @@
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px;line-height: 18px">
-                Epigenetic age is a better parameter of our wellbeing and than chronological
+                Epigenetic age is a better parameter of our wellbeing than chronological
                 age.
             </div>
         </div>
@@ -125,7 +134,7 @@
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px;line-height: 18px">
-                DNA is the hardware,genetics is the operating system and DNA methylation and other epigenetic factors
+                DNA is the hardware, genetics is the operating system and DNA methylation and other epigenetic factors
                 are the software that programs the genome.
             </div>
         </div>
@@ -146,8 +155,8 @@
                 <div style="width: 10px;height: 10px;background-color: grey;border-radius: 50%"></div>
             </div>
             <div class="para" style="margin-left: 20px;line-height: 18px">
-                In most people,the“epigenetic age” measured by the epigenetic clock and the“chronological
-                age”measured by the calendar are very similar.
+                In most people, the “epigenetic age” measured by the epigenetic clock and the“chronological
+                age” measured by the calendar are very similar.
                 The correlation between the two measures across the population is close to 0.8 when 1 is a perfect
                 correlation.
             </div>
@@ -342,7 +351,7 @@
             <div class="para" style="margin-left: 20px">
                 These links are updated regularly and we suggest that you visit the links
                 periodically. These recommendations are based on what “science”
-                knows today. They are not perfect but with more data and more analysis,science is
+                knows today. They are not perfect but with more data and more analysis, science is
                 improving.
             </div>
         </div>
